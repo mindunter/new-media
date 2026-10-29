@@ -9,10 +9,14 @@
 | Motion | `motion` | MIT | React animation |
 | GSAP + ScrollTrigger | `gsap`, `@gsap/react` | GSAP Standard License (free, including commercial use) | Pinned horizontal scroll |
 | Lenis | `lenis` | MIT | Smooth scroll |
+| three.js | `three` | MIT | 3D hero TV and the rendered brand objects |
+| React Three Fiber, drei | `@react-three/fiber`, `@react-three/drei` | MIT | React bindings and helpers for the 3D hero |
+| opentype.js | `opentype.js` (qa tooling) | MIT | Outlines the logo lettering to SVG paths |
+| sharp | `sharp` (qa tooling) | Apache 2.0 | Converts renders to WebP |
 | Tailwind CSS | `tailwindcss` | MIT | Styling |
 | clsx, tailwind-merge, class-variance-authority | npm | MIT | Class utilities |
 
-No stock photos, illustrations or third-party images are used. All graphics are drawn in code (canvas and SVG).
+No stock photos or third-party images are used. Every graphic, including the cloud skies and chrome objects, is rendered in code with three.js, canvas and SVG. See `../new-media-brand/README.md`.
 
 ## Inspiration reviewed (not copied)
 

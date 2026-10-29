@@ -79,9 +79,23 @@ export function Contact() {
       id="contact"
       className="relative isolate overflow-hidden bg-deep bg-[radial-gradient(60%_50%_at_20%_0%,rgb(47_84_235/0.4),transparent_70%),radial-gradient(50%_50%_at_100%_30%,rgb(122_59_237/0.35),transparent_70%)] text-on-deep"
     >
+      <img
+        src="./art/sky-dark.webp"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="absolute inset-x-0 top-0 -z-20 h-[70%] w-full object-cover object-bottom opacity-80 [mask-image:linear-gradient(to_bottom,black_40%,transparent)]"
+      />
       <DotField
         onDeep
-        className="absolute inset-0 -z-10 h-full w-full opacity-70 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
+        className="absolute inset-0 -z-10 h-full w-full opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
+      />
+      <img
+        src="./art/obj-tv.webp"
+        alt=""
+        aria-hidden
+        loading="lazy"
+        className="pointer-events-none absolute top-[6%] right-[-4%] -z-10 hidden w-[min(46vw,640px)] animate-[floaty_7s_ease-in-out_infinite] drop-shadow-[0_40px_50px_rgb(0_0_0/0.45)] md:block"
       />
       <div className="shell pt-20 pb-8 sm:pt-28 lg:pt-36">
         <p className="mb-5 flex items-center gap-2.5 text-[0.95rem] font-medium text-on-deep/70">

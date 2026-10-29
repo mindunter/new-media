@@ -1,7 +1,8 @@
 import { motion } from 'motion/react'
 import { useState } from 'react'
-import { asOf, launches, stats } from '@/content'
+import { asOf, clients, launches, stats } from '@/content'
 import { cn, compact } from '@/lib/utils'
+import { DeviceWall } from './DeviceWall'
 import { Reveal } from './Reveal'
 
 const brands = Array.from(new Set(launches.map((l) => l.brand)))
@@ -18,6 +19,14 @@ export function AllLaunches() {
   return (
     <section aria-labelledby="all-title" className="bg-base pb-20 sm:pb-28 lg:pb-32">
       <div className="shell">
+        {/* Now playing: a wall of screens cycling through the launches. */}
+        <Reveal>
+          <div className="hero-sky relative mb-14 overflow-hidden rounded-[32px] px-2 pt-10 pb-2 sm:mb-20 sm:pt-14">
+            <p className="label-pill label-pill-dark mx-auto mb-8 flex sm:mb-10">Now playing</p>
+            <DeviceWall />
+          </div>
+        </Reveal>
+
         <div className="grid gap-5 md:grid-cols-2 md:items-end md:gap-10">
           <Reveal>
             <h2 id="all-title" className="display text-[clamp(2rem,4vw,3.6rem)]">
@@ -85,6 +94,16 @@ export function AllLaunches() {
           ))}
         </ol>
 
+        <p className="mt-6 text-sm text-muted">
+          Also launched:{' '}
+          <span className="font-medium text-fg">
+            {clients
+              .filter((c) => !launches.some((l) => l.brand === c.name))
+              .map((c) => c.name)
+              .join(', ')}
+          </span>
+          . Public numbers for these are not in the chart yet.
+        </p>
         <p className="mt-5 flex flex-wrap justify-between gap-2 text-sm text-muted">
           <span>
             {brand ? `${brand}: ${shown.length} launch${shown.length > 1 ? 'es' : ''}` : `${launches.length} launches`}

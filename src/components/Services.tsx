@@ -1,28 +1,79 @@
-import { AnimatePresence, motion, useMotionValue, useSpring } from 'motion/react'
-import { Plus } from 'lucide-react'
-import { useRef, useState } from 'react'
+import { motion, useMotionValue, useSpring } from 'motion/react'
+import { Check } from 'lucide-react'
 import { services } from '@/content'
-import { cn } from '@/lib/utils'
+import { burstFrom } from '@/lib/burst'
 import { Reveal } from './Reveal'
-import { ServiceVisual } from './ServiceVisuals'
 
-export function Services() {
-  const [hovered, setHovered] = useState<string | null>(null)
-  const [open, setOpen] = useState<string | null>(services[0].id)
-  const list = useRef<HTMLDivElement>(null)
-  const x = useSpring(useMotionValue(0), { stiffness: 220, damping: 24, mass: 0.6 })
-  const y = useSpring(useMotionValue(0), { stiffness: 220, damping: 24, mass: 0.6 })
+const art: Record<string, { src: string; alt: string }> = {
+  launch: { src: './art/obj-megaphone.webp', alt: 'Chrome megaphone' },
+  clipping: { src: './art/obj-clapper.webp', alt: 'Chrome clapperboard' },
+  podcast: { src: './art/obj-mic.webp', alt: 'Chrome studio microphone' },
+  ugc: { src: './art/obj-phone.webp', alt: 'Glass phone playing a video' },
+}
 
-  const onMove = (e: React.PointerEvent) => {
-    if (e.pointerType !== 'mouse' || !list.current) return
-    const r = list.current.getBoundingClientRect()
-    x.set(e.clientX - r.left)
-    y.set(e.clientY - r.top)
+/** Service card: a 3D chrome render on a brand gradient that tilts toward the cursor. */
+function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
+  const rx = useSpring(useMotionValue(0), { stiffness: 150, damping: 18 })
+  const ry = useSpring(useMotionValue(0), { stiffness: 150, damping: 18 })
+  const onMove = (e: React.PointerEvent<HTMLElement>) => {
+    if (e.pointerType !== 'mouse') return
+    const r = e.currentTarget.getBoundingClientRect()
+    ry.set(((e.clientX - r.left) / r.width - 0.5) * 16)
+    rx.set(-((e.clientY - r.top) / r.height - 0.5) * 12)
   }
-
+  const reset = () => {
+    rx.set(0)
+    ry.set(0)
+  }
+  const a = art[s.id]
 
   return (
-    <section id="services" aria-labelledby="services-title" className="relative bg-base pb-20 sm:pb-28 lg:pb-32">
+    <Reveal delay={i * 0.06} className="h-full">
+      <article
+        onPointerMove={onMove}
+        onPointerLeave={reset}
+        className="group border-grad flex h-full flex-col overflow-hidden rounded-[28px] [--card:var(--base)] shadow-[0_30px_60px_-40px_rgb(20_30_120/0.5)]"
+      >
+        <button
+          type="button"
+          aria-label={`${s.title}: set off a launch`}
+          onClick={(e) => burstFrom(e.currentTarget, { count: 12 })}
+          className="bg-brand relative grid aspect-[16/10] cursor-pointer place-items-center overflow-hidden [perspective:900px]"
+        >
+          <span
+            aria-hidden
+            className="absolute inset-0 bg-[radial-gradient(60%_60%_at_50%_45%,rgb(255_255_255/0.28),transparent_70%)]"
+          />
+          <motion.img
+            src={a.src}
+            alt={a.alt}
+            loading="lazy"
+            style={{ rotateX: rx, rotateY: ry }}
+            className="relative h-[86%] w-auto object-contain drop-shadow-[0_24px_30px_rgb(10_10_60/0.45)] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.06]"
+          />
+        </button>
+        <div className="flex flex-1 flex-col p-6 sm:p-8">
+          <h3 className="display text-[clamp(1.6rem,2.6vw,2.2rem)]">{s.title}</h3>
+          <p className="mt-3 text-[1.02rem] leading-relaxed text-muted">{s.short}</p>
+          <ul className="mt-6 grid gap-2.5">
+            {s.points.map((p) => (
+              <li key={p} className="flex items-center gap-2.5 text-[0.95rem]">
+                <span className="bg-grad grid h-5 w-5 shrink-0 place-items-center rounded-full text-white">
+                  <Check size={12} strokeWidth={3} aria-hidden />
+                </span>
+                {p}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </article>
+    </Reveal>
+  )
+}
+
+export function Services() {
+  return (
+    <section id="services" aria-labelledby="services-title" className="bg-base py-20 sm:py-28 lg:py-32">
       <div className="shell">
         <div className="mb-10 grid gap-5 sm:mb-14 md:grid-cols-2 md:items-end md:gap-10">
           <Reveal>
@@ -32,103 +83,15 @@ export function Services() {
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="max-w-md text-[1.05rem] leading-relaxed text-fg/70 sm:text-lg md:justify-self-end">
+            <p className="max-w-md text-[1.05rem] leading-relaxed text-muted sm:text-lg md:justify-self-end">
               Four services run by one team, so your launch, clips and podcast all tell the same story.
             </p>
           </Reveal>
         </div>
-
-        <div
-          ref={list}
-          className="relative"
-          onPointerMove={onMove}
-          onPointerLeave={() => setHovered(null)}
-        >
-          <AnimatePresence>
-            {hovered && (
-              <motion.div
-                key="preview"
-                aria-hidden
-                className="pointer-events-none absolute top-0 left-0 z-20 hidden h-56 w-80 overflow-hidden rounded-2xl bg-deep shadow-2xl lg:block"
-                style={{ x, y, translateX: '-50%', translateY: '-115%' }}
-                initial={{ opacity: 0, scale: 0.6, rotate: -6 }}
-                animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.6, rotate: 6 }}
-                transition={{ type: 'spring', stiffness: 300, damping: 26 }}
-              >
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={hovered}
-                    className="h-full"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <ServiceVisual id={hovered} />
-                  </motion.div>
-                </AnimatePresence>
-              </motion.div>
-            )}
-          </AnimatePresence>
-
-          <ul className="border-t border-fg/15">
-            {services.map((s) => {
-              const isOpen = open === s.id
-              const dim = hovered && hovered !== s.id
-              return (
-                <li key={s.id} className="border-b border-fg/15" onPointerEnter={() => setHovered(s.id)}>
-                  <h3>
-                    <button
-                      type="button"
-                      aria-expanded={isOpen}
-                      aria-controls={`svc-${s.id}`}
-                      onClick={() => setOpen(isOpen ? null : s.id)}
-                      className={cn(
-                        'group flex w-full items-center justify-between gap-4 py-6 text-left transition-opacity duration-500 sm:py-8',
-                        dim && 'lg:opacity-30',
-                      )}
-                    >
-                      <span className="display block text-[clamp(1.9rem,4.6vw,4.4rem)] transition-transform duration-500 ease-[var(--ease-out-expo)] lg:group-hover:translate-x-4">
-                        {s.title}
-                      </span>
-                      <span
-                        className={cn(
-                          'grid h-11 w-11 place-items-center rounded-full border border-fg/20 transition-all duration-500 ease-[var(--ease-out-expo)] sm:h-14 sm:w-14',
-                          isOpen ? 'rotate-45 border-fill bg-fill text-white' : 'group-hover:border-fg group-hover:bg-fg group-hover:text-base',
-                        )}
-                      >
-                        <Plus size={20} aria-hidden />
-                      </span>
-                    </button>
-                  </h3>
-                  <AnimatePresence initial={false}>
-                    {isOpen && (
-                      <motion.div
-                        id={`svc-${s.id}`}
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden"
-                      >
-                        <div className="grid gap-5 pb-8 sm:pb-10 md:grid-cols-2 md:gap-10">
-                          <p className="max-w-lg text-lg leading-relaxed text-fg/75">{s.short}</p>
-                          <ul className="flex flex-wrap content-start gap-2">
-                            {s.points.map((p) => (
-                              <li key={p} className="rounded-full border border-fg/15 px-4 py-2 text-sm">
-                                {p}
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </li>
-              )
-            })}
-          </ul>
+        <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
+          {services.map((s, i) => (
+            <ServiceCard key={s.id} s={s} i={i} />
+          ))}
         </div>
       </div>
     </section>

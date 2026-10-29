@@ -37,7 +37,7 @@ export function Stats() {
             Reach you can't get from ads
           </h2>
           <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-muted sm:text-lg">
-            Eleven launches since May 2026, for seven AI and tech companies. Two of them came back for more.
+            Ten AI and tech companies since May 2026. Reactor and Sazabi each came back for three launches.
           </p>
           <p className="mt-4 text-sm text-muted">Figures from the launch posts on X, as of {asOf}.</p>
         </Reveal>

@@ -27,7 +27,7 @@ function Chip({ children, i }: { children: string; i: number }) {
 export function Manifesto() {
   let n = 0
   return (
-    <section aria-label="Who we are" className="mesh py-20 sm:py-28 lg:py-32">
+    <section aria-label="Who we are" className="bg-base pb-20 sm:pb-28 lg:pb-32">
       <div className="shell">
         <div className="border-grad mx-auto max-w-5xl rounded-[28px] px-6 py-10 text-center [--card:var(--base)] shadow-[0_40px_80px_-50px_rgb(20_30_120/0.45)] sm:px-12 sm:py-16">
           <p className="display text-[clamp(1.7rem,3.6vw,3.2rem)] leading-[1.12]">{thesis.lead}</p>

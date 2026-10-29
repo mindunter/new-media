@@ -27,5 +27,10 @@ html = html.replace(/<link rel="icon"[^>]*>/, () => {
   return `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,${svg}">`
 })
 
+// Inline the rendered art (./art/*.webp) so the single file has no external images.
+html = html.replace(/\.\/art\/([\w-]+\.webp)/g, (_, f) => {
+  return `data:image/webp;base64,${readFileSync(join(dist, 'art', f)).toString('base64')}`
+})
+
 writeFileSync(join(dist, 'preview.html'), html)
 console.log(`dist/preview.html ${(html.length / 1024).toFixed(0)} KB`)

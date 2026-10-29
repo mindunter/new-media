@@ -23,9 +23,9 @@ export const brand = {
 }
 
 export const nav = [
-  { label: 'How it works', href: '#engine' },
   { label: 'Services', href: '#services' },
   { label: 'Work', href: '#launches' },
+  { label: 'How it works', href: '#engine' },
   { label: 'Simulator', href: '#simulator' },
   { label: 'FAQ', href: '#faq' },
 ]
@@ -36,14 +36,14 @@ export const hero = {
   sub: 'Your buyers skip ads, but they read the people they follow. We brief those founders, engineers and creators so your launch shows up across their feeds in the same hour.',
   primary: 'Plan your launch',
   secondary: 'See our launches',
-  proof: '24.3M+ views and $144.5M+ in funding announced across 11 launches since May 2026',
+  proof: '24.3M+ views and $144.5M+ in funding announced across launches for 10 brands since May 2026',
 }
 
 export const stats = [
-  { value: 24.3, suffix: 'M+', label: 'Views across our launches', decimals: 1 },
+  { value: 24.3, suffix: 'M+', label: 'Views across our launches with public numbers', decimals: 1 },
   { value: 144.5, prefix: '$', suffix: 'M+', label: 'In funding announced through those launches', decimals: 1 },
-  { value: 11, suffix: '', label: 'Launches for 7 brands since May 2026' },
-  { value: 11, suffix: 'K+', label: 'Likes, plus 9K+ bookmarks and 2.1K+ reposts' },
+  { value: 10, suffix: '', label: 'Brands launched since May 2026' },
+  { value: 45, suffix: '+', label: 'Creators who have run campaigns with us' },
 ]
 
 export const clients = [
@@ -54,7 +54,16 @@ export const clients = [
   { name: 'Beacon', tag: '$5.5M seed' },
   { name: 'BackOps', tag: '$42M Series B' },
   { name: 'Falconer', tag: 'Launch' },
+  { name: 'Charming', tag: 'Launch' },
+  { name: 'Capital Truist', tag: 'Launch' },
+  { name: 'webcmd', tag: 'Launch' },
 ]
+
+/** Partnership note, from the Interact AI relationship. */
+export const partner = {
+  name: 'Interact AI',
+  line: 'Integrated with Interact AI, so creators on Interact can join our campaigns.',
+}
 
 /** Investors behind the companies we launched. They back those companies, not New Media. */
 export const backers = ['Lightspeed', 'Khosla Ventures', 'Felicis', 'Insight Partners', 'Amplify Partners']

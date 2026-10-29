@@ -1,6 +1,6 @@
 import { Zap } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
-import { network } from '@/content'
+import { network, partner } from '@/content'
 import { burstFrom } from '@/lib/burst'
 import { onThemeChange, tokenRGB } from '@/lib/theme'
 import { cn, compact, prefersReducedMotion } from '@/lib/utils'
@@ -376,8 +376,8 @@ export function Network() {
           </Reveal>
           <Reveal delay={0.05}>
             <p className="max-w-md text-[1.05rem] leading-relaxed text-fg/70 sm:text-lg md:justify-self-end">
-              Each dot is an account your buyers follow. Press the button and follow a launch from the people we brief to
-              everyone they reach.
+              45+ creators have already run campaigns with us. Each dot here is an account your buyers follow: press the
+              button and follow a launch from the people we brief to everyone they reach.
             </p>
           </Reveal>
         </div>
@@ -447,7 +447,10 @@ export function Network() {
             </button>
           </div>
         </div>
-        <p className="mt-3 text-right text-xs text-fg/60">Sample network for illustration</p>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-3 text-sm">
+          <p className="label-pill">{partner.line}</p>
+          <p className="text-xs text-muted">Sample network for illustration</p>
+        </div>
       </div>
     </section>
   )

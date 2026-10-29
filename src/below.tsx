@@ -19,14 +19,14 @@ export default function Below() {
 
   return (
     <>
-      <Platforms />
-      <Engine />
-      <Network />
+      <Manifesto />
       <Services />
       <Cases />
       <AllLaunches />
+      <Engine />
+      <Network />
+      <Platforms />
       <Simulator />
-      <Manifesto />
       <Faq />
       <Contact />
     </>
