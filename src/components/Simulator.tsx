@@ -258,7 +258,7 @@ export function Simulator() {
               </div>
 
               <div className="mt-10">
-                <Button href="#contact" variant="signal">
+                <Button href="/contact" variant="signal">
                   Plan a launch like this
                 </Button>
               </div>

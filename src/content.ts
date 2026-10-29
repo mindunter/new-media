@@ -13,7 +13,7 @@ export const asOf = '29 Oct 2026'
 export const brand = {
   name: 'New Media',
   email: 'hello@newmedia.example',
-  bookUrl: '#contact',
+  bookUrl: '/contact',
   socials: [
     { label: 'X', href: 'https://x.com/newmediahq' },
     { label: 'LinkedIn', href: '#' },
@@ -23,11 +23,10 @@ export const brand = {
 }
 
 export const nav = [
-  { label: 'Services', href: '#services' },
-  { label: 'Work', href: '#launches' },
-  { label: 'How it works', href: '#engine' },
-  { label: 'Simulator', href: '#simulator' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Work', href: '/work' },
+  { label: 'Services', href: '/services' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Contact', href: '/contact' },
 ]
 
 export const hero = {

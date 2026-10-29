@@ -1,15 +1,12 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { Check, Copy } from 'lucide-react'
 import { useState } from 'react'
-import { brand, nav } from '@/content'
-import { scrollToHash } from '@/lib/scroll'
+import { brand } from '@/content'
+import { art } from '@/lib/paths'
 import { cn } from '@/lib/utils'
 import { Button } from './Button'
 import { DotField } from './DotField'
-import { LogoFull } from './Logo'
 import { WeightText } from './WeightText'
-
-const YEAR = new Date().getFullYear()
 
 const launchTypes = ['Product launch', 'Funding round', 'Podcast', 'Clipping', 'Not sure yet']
 const timings = ['This month', 'Next 1 to 3 months', 'Just exploring']
@@ -53,7 +50,8 @@ function Chips({
   )
 }
 
-export function Contact() {
+/** The brief builder with the big "Launch loud." headline. Lives on the Contact page. */
+export function BriefForm() {
   const [kind, setKind] = useState(launchTypes[0])
   const [when, setWhen] = useState(timings[0])
   const [copied, setCopied] = useState(false)
@@ -75,12 +73,13 @@ export function Contact() {
   }
 
   return (
-    <footer
-      id="contact"
+    <section
+      id="brief"
+      aria-label="Send us a brief"
       className="relative isolate overflow-hidden bg-deep bg-[radial-gradient(60%_50%_at_20%_0%,rgb(47_84_235/0.4),transparent_70%),radial-gradient(50%_50%_at_100%_30%,rgb(122_59_237/0.35),transparent_70%)] text-on-deep"
     >
       <img
-        src="./art/sky-dark.webp"
+        src={art("sky-dark.webp")}
         alt=""
         aria-hidden
         loading="lazy"
@@ -91,21 +90,21 @@ export function Contact() {
         className="absolute inset-0 -z-10 h-full w-full opacity-60 [mask-image:linear-gradient(to_bottom,black,transparent_70%)]"
       />
       <img
-        src="./art/obj-tv.webp"
+        src={art("obj-tv.webp")}
         alt=""
         aria-hidden
         loading="lazy"
         className="pointer-events-none absolute top-[6%] right-[-4%] -z-10 hidden w-[min(46vw,640px)] animate-[floaty_7s_ease-in-out_infinite] drop-shadow-[0_40px_50px_rgb(0_0_0/0.45)] md:block"
       />
-      <div className="shell pt-20 pb-8 sm:pt-28 lg:pt-36">
+      <div className="shell pt-32 pb-20 sm:pt-40 sm:pb-28">
         <p className="mb-5 flex items-center gap-2.5 text-[0.95rem] font-medium text-on-deep/70">
           <span className="live-dot" aria-hidden /> Booking launches for next quarter
         </p>
-        <h2 className="font-display text-[clamp(3.6rem,16vw,16rem)] leading-[0.85] tracking-[-0.045em]">
+        <h1 className="font-display text-[clamp(3.6rem,16vw,16rem)] leading-[0.85] tracking-[-0.045em]">
           <WeightText text="Launch" />
           <br />
           <WeightText text="loud." className="serif text-soft italic" />
-        </h2>
+        </h1>
 
         <div className="mt-12 grid gap-8 rounded-3xl bg-deep-2 p-5 sm:mt-16 sm:p-8 lg:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)] lg:gap-12 lg:p-10">
           <div className="space-y-8">
@@ -143,57 +142,7 @@ export function Contact() {
           </div>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-10 border-t border-on-deep/10 pt-10 sm:mt-24 md:grid-cols-[1fr_auto_auto] md:gap-20">
-          <div className="col-span-2 md:col-span-1">
-            <LogoFull className="h-auto w-40 text-on-deep" />
-            <p className="mt-4 max-w-xs text-sm text-on-deep/60">
-              Creator distribution for AI and tech companies. Launches impossible to scroll past.
-            </p>
-          </div>
-          <nav aria-label="Footer">
-            <p className="mb-3 text-sm font-semibold text-on-deep/60">Site</p>
-            <ul className="space-y-2">
-              {nav.map((n) => (
-                <li key={n.href}>
-                  <a
-                    href={n.href}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      scrollToHash(n.href)
-                    }}
-                    className="text-on-deep/75 transition-colors hover:text-soft"
-                  >
-                    {n.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-          <div>
-            <p className="mb-3 text-sm font-semibold text-on-deep/60">Follow</p>
-            <ul className="space-y-2">
-              {brand.socials.map((s) => (
-                <li key={s.label}>
-                  <a href={s.href} className="text-on-deep/75 transition-colors hover:text-soft">
-                    {s.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-wrap items-center justify-between gap-4 text-sm text-on-deep/60 sm:mt-16">
-          <p>© {YEAR} New Media. All rights reserved.</p>
-          <button
-            type="button"
-            onClick={() => scrollToHash('#top')}
-            className="transition-colors hover:text-on-deep"
-          >
-            Back to top ↑
-          </button>
-        </div>
       </div>
-    </footer>
+    </section>
   )
 }

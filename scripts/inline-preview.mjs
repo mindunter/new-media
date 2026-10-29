@@ -27,7 +27,13 @@ html = html.replace(/<link rel="icon"[^>]*>/, () => {
   return `<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,${svg}">`
 })
 
-// Inline the rendered art (./art/*.webp) so the single file has no external images.
+// Embed the rendered art and expose it on window.__NM_ART__ for lib/paths.ts.
+import { readdirSync } from 'node:fs'
+const artMap = Object.fromEntries(
+  readdirSync(join(dist, 'art')).map((f) => [f, `data:image/webp;base64,${readFileSync(join(dist, 'art', f)).toString('base64')}`]),
+)
+html = html.replace('<script type="module">', `<script>window.__NM_ART__=${JSON.stringify(artMap)}</script><script type="module">`)
+// Inline any literal ./art/*.webp references too.
 html = html.replace(/\.\/art\/([\w-]+\.webp)/g, (_, f) => {
   return `data:image/webp;base64,${readFileSync(join(dist, 'art', f)).toString('base64')}`
 })

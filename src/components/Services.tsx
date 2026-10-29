@@ -2,13 +2,14 @@ import { motion, useMotionValue, useSpring } from 'motion/react'
 import { Check } from 'lucide-react'
 import { services } from '@/content'
 import { burstFrom } from '@/lib/burst'
+import { art } from '@/lib/paths'
 import { Reveal } from './Reveal'
 
-const art: Record<string, { src: string; alt: string }> = {
-  launch: { src: './art/obj-megaphone.webp', alt: 'Chrome megaphone' },
-  clipping: { src: './art/obj-clapper.webp', alt: 'Chrome clapperboard' },
-  podcast: { src: './art/obj-mic.webp', alt: 'Chrome studio microphone' },
-  ugc: { src: './art/obj-phone.webp', alt: 'Glass phone playing a video' },
+const serviceArt: Record<string, { src: string; alt: string }> = {
+  launch: { src: art("obj-megaphone.webp"), alt: 'Chrome megaphone' },
+  clipping: { src: art("obj-clapper.webp"), alt: 'Chrome clapperboard' },
+  podcast: { src: art("obj-mic.webp"), alt: 'Chrome studio microphone' },
+  ugc: { src: art("obj-phone.webp"), alt: 'Glass phone playing a video' },
 }
 
 /** Service card: a 3D chrome render on a brand gradient that tilts toward the cursor. */
@@ -25,7 +26,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
     rx.set(0)
     ry.set(0)
   }
-  const a = art[s.id]
+  const a = serviceArt[s.id]
 
   return (
     <Reveal delay={i * 0.06} className="h-full">
@@ -71,10 +72,12 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
   )
 }
 
-export function Services() {
+/** Service cards. `bare` drops the section heading when the page header already introduces them. */
+export function Services({ bare = false }: { bare?: boolean }) {
   return (
-    <section id="services" aria-labelledby="services-title" className="bg-base py-20 sm:py-28 lg:py-32">
+    <section id="services" aria-labelledby={bare ? undefined : "services-title"} aria-label={bare ? "Services" : undefined} className="bg-base py-20 sm:py-28 lg:py-32">
       <div className="shell">
+        {!bare && (
         <div className="mb-10 grid gap-5 sm:mb-14 md:grid-cols-2 md:items-end md:gap-10">
           <Reveal>
             <p className="label-pill mb-4">Services</p>
@@ -88,6 +91,7 @@ export function Services() {
             </p>
           </Reveal>
         </div>
+        )}
         <div className="grid gap-5 sm:gap-6 md:grid-cols-2">
           {services.map((s, i) => (
             <ServiceCard key={s.id} s={s} i={i} />

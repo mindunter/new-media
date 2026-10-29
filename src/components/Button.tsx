@@ -1,6 +1,7 @@
 import { cva, type VariantProps } from 'class-variance-authority'
 import { ArrowRight } from 'lucide-react'
 import type { AnchorHTMLAttributes } from 'react'
+import { Link } from 'react-router'
 import { burstFrom } from '@/lib/burst'
 import { scrollToHash } from '@/lib/scroll'
 import { cn } from '@/lib/utils'
@@ -29,7 +30,7 @@ const button = cva(
 type Props = AnchorHTMLAttributes<HTMLAnchorElement> &
   VariantProps<typeof button> & { arrow?: boolean; /** Fire an icon burst from the button on click. */ burst?: boolean }
 
-/** Pill link. In-page hash links scroll smoothly. */
+/** Pill link. Paths like "/work" navigate between pages; "#id" scrolls within the page. */
 export function Button({ className, variant, size, children, href = '#', onClick, arrow = true, burst, ...rest }: Props) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
     onClick?.(e)
@@ -39,9 +40,9 @@ export function Button({ className, variant, size, children, href = '#', onClick
       scrollToHash(href)
     }
   }
-
-  return (
-    <a href={href} onClick={handleClick} className={cn(button({ variant, size }), className)} {...rest}>
+  const classes = cn(button({ variant, size }), className)
+  const inner = (
+    <>
       {children}
       {arrow && (
         <ArrowRight
@@ -51,6 +52,19 @@ export function Button({ className, variant, size, children, href = '#', onClick
           className="transition-transform duration-200 group-hover:translate-x-0.5"
         />
       )}
+    </>
+  )
+
+  if (href.startsWith('/')) {
+    return (
+      <Link to={href} onClick={handleClick} className={classes} {...rest}>
+        {inner}
+      </Link>
+    )
+  }
+  return (
+    <a href={href} onClick={handleClick} className={classes} {...rest}>
+      {inner}
     </a>
   )
 }

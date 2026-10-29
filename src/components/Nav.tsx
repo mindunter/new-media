@@ -1,18 +1,22 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react'
 import { useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router'
 import { brand, nav } from '@/content'
-import { scrollToHash } from '@/lib/scroll'
 import { cn } from '@/lib/utils'
 import { Button } from './Button'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 
 export function Nav() {
+  // The mobile menu remembers which page it was opened on, so it closes itself when the page changes.
+  const { pathname } = useLocation()
+  const [openOn, setOpenOn] = useState<string | null>(null)
+  const open = openOn === pathname
+  const setOpen = (fn: (o: boolean) => boolean) => setOpenOn(fn(open) ? pathname : null)
   const { scrollY, scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 30 })
   const [hidden, setHidden] = useState(false)
   const [solid, setSolid] = useState(false)
-  const [open, setOpen] = useState(false)
 
   useMotionValueEvent(scrollY, 'change', (y) => {
     const prev = scrollY.getPrevious() ?? 0
@@ -20,11 +24,6 @@ export function Nav() {
     setSolid(y > 40)
   })
 
-  const go = (href: string) => (e: React.MouseEvent) => {
-    e.preventDefault()
-    setOpen(false)
-    scrollToHash(href)
-  }
 
   return (
     <>
@@ -41,20 +40,24 @@ export function Nav() {
             solid || open ? 'shadow-[0_16px_40px_-16px_rgb(10_20_80/0.45)]' : 'shadow-[0_10px_30px_-18px_rgb(10_20_80/0.4)]',
           )}
         >
-          <a href="#top" onClick={go('#top')} className="flex items-center gap-2" aria-label={`${brand.name} home`}>
+          <Link to="/" className="flex items-center gap-2" aria-label={`${brand.name} home`}>
             <Logo />
-          </a>
+          </Link>
 
           <ul className="hidden items-center gap-1 lg:flex">
             {nav.map((item) => (
               <li key={item.href}>
-                <a
-                  href={item.href}
-                  onClick={go(item.href)}
-                  className="block rounded-full px-3.5 py-2 text-[0.92rem] font-medium text-fg/80 transition-colors hover:bg-fg/[0.06] hover:text-fg"
+                <NavLink
+                  to={item.href}
+                  className={({ isActive }) =>
+                    cn(
+                      'block rounded-full px-3.5 py-2 text-[0.92rem] font-medium transition-colors',
+                      isActive ? 'bg-fg/[0.08] text-fg' : 'text-fg/75 hover:bg-fg/[0.06] hover:text-fg',
+                    )
+                  }
                 >
                   {item.label}
-                </a>
+                </NavLink>
               </li>
             ))}
           </ul>
@@ -62,7 +65,7 @@ export function Nav() {
           <div className="flex items-center gap-1 sm:gap-2">
             <ThemeToggle />
             <div className="hidden sm:block">
-              <Button href="#contact" variant="signal" burst>
+              <Button href="/contact" variant="signal" burst>
                 Plan your launch
               </Button>
             </div>
@@ -118,14 +121,14 @@ export function Nav() {
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ delay: 0.2 + i * 0.05, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <a href={item.href} onClick={go(item.href)} className="display block py-1.5 text-[clamp(2.4rem,9vw,3.4rem)]">
+                  <Link to={item.href} className="display block py-1.5 text-[clamp(2.4rem,9vw,3.4rem)]">
                     {item.label}
-                  </a>
+                  </Link>
                 </motion.li>
               ))}
             </ul>
             <div className="mt-10 flex items-center justify-between">
-              <Button href="#contact" variant="signal" onClick={() => setOpen(false)}>
+              <Button href="/contact" variant="signal">
                 Plan your launch
               </Button>
               <a href={`mailto:${brand.email}`} className="text-sm text-on-deep-muted underline-offset-4 hover:underline">

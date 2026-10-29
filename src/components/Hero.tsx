@@ -5,6 +5,7 @@ import { asOf, hero } from '@/content'
 import { burst } from '@/lib/burst'
 import { prefersReducedMotion } from '@/lib/utils'
 import { Button } from './Button'
+import { art } from '@/lib/paths'
 import { DotField } from './DotField'
 
 const HeroTV = lazy(() => import('../three/HeroTV'))
@@ -69,16 +70,16 @@ export function Hero() {
       {/* Rendered sky: light and dark versions, with a slow parallax. */}
       <motion.div aria-hidden style={{ y: skyY }} className="absolute inset-0 -z-20">
         <img
-          src="./art/sky-light.webp"
-          srcSet="./art/sky-light-1000.webp 1000w, ./art/sky-light.webp 2000w"
+          src={art("sky-light.webp")}
+          srcSet={`${art("sky-light-1000.webp")} 1000w, ${art("sky-light.webp")} 2000w`}
           sizes="100vw"
           alt=""
           className="h-full w-full object-cover object-bottom dark:hidden"
           fetchPriority="high"
         />
         <img
-          src="./art/sky-dark.webp"
-          srcSet="./art/sky-dark-1000.webp 1000w, ./art/sky-dark.webp 2000w"
+          src={art("sky-dark.webp")}
+          srcSet={`${art("sky-dark-1000.webp")} 1000w, ${art("sky-dark.webp")} 2000w`}
           sizes="100vw"
           alt=""
           className="hidden h-full w-full object-cover object-bottom dark:block"
@@ -129,11 +130,11 @@ export function Hero() {
             {hero.sub}
           </p>
           <div className="flex w-full flex-wrap justify-center gap-3">
-            <Button href="#contact" variant="light" size="lg" burst className="max-sm:flex-1">
+            <Button href="/contact" variant="light" size="lg" burst className="max-sm:flex-1">
               {hero.primary}
             </Button>
             <Button
-              href="#launches"
+              href="/work"
               variant="outlineDark"
               size="lg"
               arrow={false}
@@ -153,7 +154,7 @@ export function Hero() {
           transition={{ duration: 1.3, ease, delay: 0.65 }}
         >
           <img
-            src="./art/obj-tv.webp"
+            src={art("obj-tv.webp")}
             alt="A chrome retro TV showing Reactor's launch: 12.7M views"
             className={`absolute inset-[6%] h-[88%] w-[88%] object-contain drop-shadow-[0_30px_40px_rgb(20_30_120/0.35)] transition-opacity duration-700 ${ready ? 'opacity-0' : 'opacity-100'}`}
           />
