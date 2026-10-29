@@ -18,6 +18,13 @@
 
 No stock photos or third-party images are used. Every graphic, including the cloud skies and chrome objects, is rendered in code with three.js, canvas and SVG. See `../new-media-brand/README.md`.
 
+## Client logos
+
+`src/assets/logos/` holds the logos of Reactor, Sazabi, Runlayer, Beacon, BackOps, Falconer, Charming and webcmd,
+captured from each company's own website (`qa/capture-logos.mjs`). They are trademarks of those companies and are
+shown only to name them as clients. Confirm each client is happy to be listed before launch. Interact AI and
+Capital Truist show as text until their official logo files are supplied.
+
 ## Inspiration reviewed (not copied)
 
 - awesome-design-systems (github.com/alexpate/awesome-design-systems), Unlicense list

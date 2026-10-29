@@ -8,8 +8,9 @@ import {
   useTransform,
   useVelocity,
 } from 'motion/react'
-import { useRef, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 import { clients } from '@/content'
+import { ClientLogo } from './ClientLogo'
 
 const wrap = (min: number, max: number, v: number) => {
   const r = max - min
@@ -49,23 +50,34 @@ function VelocityRow({ children, baseVelocity }: { children: ReactNode; baseVelo
   )
 }
 
+/** Logo height for the strip: smaller on phones. */
+function useLogoSize() {
+  const [s, set] = useState(() => (window.innerWidth < 640 ? 26 : window.innerWidth < 1024 ? 32 : 40))
+  useEffect(() => {
+    const on = () => set(window.innerWidth < 640 ? 26 : window.innerWidth < 1024 ? 32 : 40)
+    window.addEventListener('resize', on)
+    return () => window.removeEventListener('resize', on)
+  }, [])
+  return s
+}
+
 export function Marquee() {
+  const size = useLogoSize()
   const items = (
     <span className="flex shrink-0 items-center">
       {clients.map((c) => (
-        <span key={c.name} className="group flex shrink-0 items-baseline gap-3 px-5 sm:px-8">
-          <span className="display text-[clamp(1.9rem,4.2vw,4rem)] text-on-deep transition-colors duration-300 group-hover:text-soft">
-            {c.name}
+        <span key={c.name} className="group flex shrink-0 flex-col items-center gap-2 px-7 sm:px-12">
+          <span className="flex h-[clamp(34px,4.4vw,56px)] items-center text-on-deep/90 transition-colors duration-300 group-hover:text-soft">
+            <ClientLogo name={c.name} height={size} />
           </span>
-          <span className="text-sm text-on-deep-muted">{c.tag}</span>
-          <span aria-hidden className="ml-5 text-on-deep/25 sm:ml-8">/</span>
+          <span className="text-xs text-on-deep-muted">{c.tag}</span>
         </span>
       ))}
     </span>
   )
 
   return (
-    <section aria-label="Selected clients" className="relative overflow-hidden bg-deep py-8 sm:py-12">
+    <section id="clients" aria-label="Selected clients" className="relative overflow-hidden bg-deep py-8 sm:py-12">
       <p className="shell mb-5 text-sm text-on-deep-muted sm:mb-7">Some of the companies we have launched</p>
       <VelocityRow baseVelocity={-2.2}>{items}</VelocityRow>
     </section>

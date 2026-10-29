@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { asOf, clients, launches, stats } from '@/content'
 import { cn, compact } from '@/lib/utils'
 import { DeviceWall } from './DeviceWall'
+import { ClientLogo } from './ClientLogo'
 import { Reveal } from './Reveal'
 
 const brands = Array.from(new Set(launches.map((l) => l.brand)))
@@ -72,7 +73,9 @@ export function AllLaunches() {
               className="grid grid-cols-1 gap-2 border-b border-fg/10 py-4 sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)_5rem] sm:items-center sm:gap-6"
             >
               <div className="min-w-0">
-                <p className="font-semibold">{l.brand}</p>
+                <p className="flex h-7 items-center">
+                  <ClientLogo name={l.brand} height={20} />
+                </p>
                 <p className="truncate text-sm text-muted" title={l.title}>
                   {l.title}
                 </p>
@@ -94,16 +97,17 @@ export function AllLaunches() {
           ))}
         </ol>
 
-        <p className="mt-6 text-sm text-muted">
-          Also launched:{' '}
-          <span className="font-medium text-fg">
-            {clients
-              .filter((c) => !launches.some((l) => l.brand === c.name))
-              .map((c) => c.name)
-              .join(', ')}
-          </span>
-          . Public numbers for these are not in the chart yet.
-        </p>
+        <div className="mt-6 flex flex-wrap items-center gap-x-8 gap-y-4 text-sm text-muted">
+          <span>Also launched:</span>
+          {clients
+            .filter((c) => !launches.some((l) => l.brand === c.name))
+            .map((c) => (
+              <span key={c.name} className="flex h-7 items-center text-fg/80">
+                <ClientLogo name={c.name} height={20} />
+              </span>
+            ))}
+          <span className="basis-full text-xs sm:basis-auto">Public numbers for these are not in the chart yet.</span>
+        </div>
         <p className="mt-5 flex flex-wrap justify-between gap-2 text-sm text-muted">
           <span>
             {brand ? `${brand}: ${shown.length} launch${shown.length > 1 ? 'es' : ''}` : `${launches.length} launches`}

@@ -2,6 +2,7 @@ import { motion, useScroll, useTransform, type MotionValue } from 'motion/react'
 import { useEffect, useRef, useState, type CSSProperties } from 'react'
 import { cases } from '@/content'
 import { cn } from '@/lib/utils'
+import { ClientLogo } from './ClientLogo'
 import { Reveal } from './Reveal'
 
 const tones = ['bg-deep text-on-deep', 'bg-surface text-fg', 'bg-brand text-white']
@@ -46,7 +47,9 @@ function Card({
         )}
       >
         <div className="flex flex-wrap items-center justify-between gap-2 text-sm font-semibold">
-          <p>{c.client}</p>
+          <span className="flex h-8 items-center">
+            <ClientLogo name={c.client} height={26} />
+          </span>
           <p className="opacity-90">{c.tag}</p>
         </div>
 
