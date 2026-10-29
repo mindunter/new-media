@@ -1,0 +1,330 @@
+@import 'tailwindcss';
+
+/*
+ * Brand tokens. Light values live on :root, dark values are redefined for
+ * prefers-color-scheme: dark (unless the visitor picked light) and for an
+ * explicit data-theme="dark". Components only ever use the Tailwind names below.
+ *
+ * base / surface   page background and raised cards
+ * fg / muted       body text and secondary text
+ * deep             dark bands (always dark, slightly lifted in dark mode)
+ * accent           blue for text and lines, tuned per mode for contrast
+ * fill             blue for filled buttons, constant so white text always passes
+ * soft             light violet for accents on deep bands
+ */
+:root {
+  --base: #ffffff;
+  --surface: #f4f6fc;
+  --fg: #0a0d24;
+  --muted: #4f5672;
+  --deep: #0a0d24;
+  --deep-2: #141a3a;
+  --on-deep: #f5f7ff;
+  --on-deep-muted: #a9b0cc;
+  --accent: #2f54eb;
+  --accent-2: #7a3bed;
+  --accent-3: #2f8cff;
+  --fill: #2f54eb;
+  --soft: #aab4ff;
+  --live: #6d5cff;
+  --dot: 10, 13, 36;
+  --sky-1: #1631c4;
+  --sky-2: #2f54eb;
+  --sky-3: #5a6ff7;
+  --sky-4: #c3cdff;
+  --cloud: rgb(255 255 255 / 0.85);
+  /* Brand gradient for fills: constant so white text passes in both modes. */
+  --grad-brand: linear-gradient(120deg, #2f54eb 0%, #5546ee 50%, #8a3cf0 100%);
+  --grad-text: linear-gradient(100deg, var(--accent-3) 0%, var(--accent) 40%, var(--accent-2) 100%);
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --base: #060816;
+    --surface: #0e1230;
+    --fg: #eef1ff;
+    --muted: #a2a9c7;
+    --deep: #0b0f28;
+    --deep-2: #151a3d;
+    --on-deep: #f5f7ff;
+    --on-deep-muted: #a9b0cc;
+    --accent: #7d97ff;
+    --accent-2: #b089ff;
+    --accent-3: #6fb2ff;
+    --fill: #2f54eb;
+    --soft: #b4bcff;
+    --live: #9d8cff;
+    --dot: 238, 241, 255;
+  --sky-1: #0f1f8f;
+  --sky-2: #2238c4;
+  --sky-3: #3b2f9e;
+  --sky-4: #1a1650;
+  --cloud: rgb(140 120 255 / 0.25);
+    --sky-1: #0f1f8f;
+    --sky-2: #2238c4;
+    --sky-3: #3b2f9e;
+    --sky-4: #1a1650;
+    --cloud: rgb(140 120 255 / 0.25);
+    color-scheme: dark;
+  }
+}
+:root[data-theme='dark'] {
+  --base: #060816;
+  --surface: #0e1230;
+  --fg: #eef1ff;
+  --muted: #a2a9c7;
+  --deep: #0b0f28;
+  --deep-2: #151a3d;
+  --on-deep: #f5f7ff;
+  --on-deep-muted: #a9b0cc;
+  --accent: #7d97ff;
+  --accent-2: #b089ff;
+  --accent-3: #6fb2ff;
+  --fill: #2f54eb;
+  --soft: #b4bcff;
+  --live: #9d8cff;
+  --dot: 238, 241, 255;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-base: var(--base);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-deep: var(--deep);
+  --color-deep-2: var(--deep-2);
+  --color-on-deep: var(--on-deep);
+  --color-on-deep-muted: var(--on-deep-muted);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-fill: var(--fill);
+  --color-soft: var(--soft);
+  --color-live: var(--live);
+}
+
+@theme {
+  --font-sans: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-display: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    background: var(--base);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    background: var(--base);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    font-feature-settings: 'cv11', 'ss01';
+    font-variant-numeric: tabular-nums;
+    overflow-x: clip;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+  ::selection {
+    background: var(--fill);
+    color: #fff;
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .display {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+    text-wrap: balance;
+  }
+  /* Serif accent: used for a few emphasised phrases, numbers and long-form text. */
+  .serif {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    letter-spacing: -0.02em;
+  }
+  .shell {
+    margin-inline: auto;
+    max-width: 1360px;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px));
+  }
+  @media (min-width: 640px) {
+    .shell {
+      padding-inline: 32px;
+    }
+  }
+  @media (min-width: 1024px) {
+    .shell {
+      padding-inline: 48px;
+    }
+  }
+  /* Constant brand band so white text passes contrast in both modes. */
+  .bg-brand {
+    background:
+      radial-gradient(60% 80% at 85% 10%, rgb(160 110 255 / 0.55), transparent 60%),
+      radial-gradient(50% 70% at 10% 100%, rgb(47 140 255 / 0.45), transparent 60%),
+      var(--grad-brand);
+  }
+  .bg-grad {
+    background: var(--grad-brand);
+  }
+  .text-gradient {
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  /* Soft gradient glow behind a section. */
+  .mesh {
+    background:
+      radial-gradient(45% 55% at 0% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 70%),
+      radial-gradient(40% 50% at 100% 15%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 70%),
+      radial-gradient(40% 40% at 60% 100%, color-mix(in srgb, var(--accent-3) 8%, transparent), transparent 70%),
+      var(--base);
+  }
+  /* 1px gradient border. Set --card to the fill colour behind it. */
+  .border-grad {
+    border: 1px solid transparent;
+    background:
+      linear-gradient(var(--card, var(--base)), var(--card, var(--base))) padding-box,
+      linear-gradient(130deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--fg) 8%, transparent) 40%, color-mix(in srgb, var(--accent-2) 55%, transparent)) border-box;
+  }
+  /* Hero sky: deep blue at the top fading to the page colour. Stops are per theme. */
+  .hero-sky {
+    background:
+      radial-gradient(50% 40% at 85% 15%, rgb(150 110 255 / 0.45), transparent 70%),
+      linear-gradient(
+        180deg,
+        var(--sky-1) 0%,
+        var(--sky-2) 38%,
+        var(--sky-3) 64%,
+        var(--sky-4) 82%,
+        var(--base) 95%
+      );
+  }
+  .hero-clouds {
+    background:
+      radial-gradient(30% 45% at 15% 70%, var(--cloud), transparent 70%),
+      radial-gradient(35% 50% at 50% 85%, var(--cloud), transparent 70%),
+      radial-gradient(28% 40% at 88% 65%, var(--cloud), transparent 70%);
+    filter: blur(18px);
+  }
+  /* Polished chrome lettering for the serif accent line. */
+  .chrome {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #eef1ff 30%,
+      #9fb0ff 48%,
+      #ffffff 56%,
+      #dfe4ff 78%,
+      #b8c2ff 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 2px 0 rgb(20 30 120 / 0.35)) drop-shadow(0 12px 28px rgb(40 60 255 / 0.45));
+  }
+  /* Small section label above a heading. */
+  .label-pill {
+    display: inline-flex;
+    width: fit-content;
+    align-items: center;
+    gap: 0.5rem;
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem 0.35rem 0.6rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--fg);
+    background: color-mix(in srgb, var(--accent) 9%, transparent);
+    box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  .label-pill-dark {
+    color: #fff;
+    background: rgb(255 255 255 / 0.1);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.22);
+  }
+  .label-pill::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: var(--grad-brand);
+  }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+@keyframes feed {
+  to {
+    transform: translateY(-50%);
+  }
+}
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  50% {
+    transform: scale(1.025);
+    opacity: 1;
+  }
+}
+
+@keyframes pulse-live {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--live) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px color-mix(in srgb, var(--live) 0%, transparent);
+  }
+}
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--live);
+  animation: pulse-live 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

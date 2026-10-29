@@ -1,0 +1,102 @@
+# New Media website
+
+Marketing site for **New Media** (working name), a creator-distribution agency for AI and tech companies.
+Benchmarked against doomers.ai, damianplayer.com, atomikgrowth.com and shownmedia.com.
+
+> **Real launch data** (11 launches for Reactor, Sazabi, Beacon, BackOps, Runlayer, Interact AI and Falconer)
+> is in `src/content.ts`, with figures as of the `asOf` date. Views and likes keep growing, so refresh
+> them before publishing. The contact email and the LinkedIn, YouTube and Instagram links are still
+> placeholders; once they are real, delete `<PreviewBadge />` from `src/App.tsx`. The network map and
+> launch simulator are illustrations and are labelled as such.
+
+## Stack
+
+| Need | Choice |
+|---|---|
+| Framework | React 19 + Vite 8 + TypeScript |
+| Styling | Tailwind CSS 4 (tokens in `src/index.css` under `@theme`) |
+| Animation | Motion (React), GSAP + ScrollTrigger (pinned horizontal scroll), Lenis (smooth scroll) |
+| Icons | Lucide |
+| Fonts | Fontsource, self-hosted: Inter (sans, Helvetica-style), Newsreader (serif accents) |
+| Themes | Light and dark tokens in `src/index.css`, toggle in the nav, follows the OS by default |
+| Hosting | Vercel or Netlify (static build) |
+
+## Run it
+
+```bash
+npm install
+npm run dev        # http://localhost:5173
+npm run build      # type-check and build to dist/
+npm run preview    # serve the production build locally
+npm run lint       # oxlint
+npm run preview:file  # after build: one self-contained dist/preview.html for quick sharing
+```
+
+## Where things live
+
+```
+src/
+  content.ts            all copy, numbers, clients, cases, FAQ  <- edit this first
+  index.css             brand tokens: light and dark palettes, fonts, base styles
+  lib/theme.ts          light/dark toggle, saved choice, token reader for canvas
+  lib/burst.ts          icon burst engine (logos and devices fly out of a point)
+  lib/icons.tsx         platform logos (simple-icons) and device icons (Lucide)
+  App.tsx               section order
+  lib/scroll.ts         Lenis + GSAP ScrollTrigger wiring, scrollToHash()
+  components/
+    Nav.tsx             hide-on-scroll pill nav, progress line, mobile menu
+    Hero.tsx            sky-gradient hero, chrome serif line, reactive dot field, device wall
+    DeviceWall.tsx      TVs, monitor, phone and laptop that play real launches and flip channels
+    DotField.tsx        responsive dot grid: reacts to the pointer, ripples on tap
+    Logo.tsx            NEW! MEDIA wordmark, stacked lockup and N app icon as SVG
+    ThemeToggle.tsx     light/dark switch
+    LiveFeed.tsx        auto-scrolling sample posts with ticking counts (vertical + mobile row)
+    Marquee.tsx         client strip whose speed and direction follow scroll velocity
+    Platforms.tsx       platform and device tiles that assemble on scroll; tap one to burst it
+    BurstSprites.tsx    hidden icon templates the burst engine clones
+    Stats.tsx           count-up numbers with pointer spotlight
+    Engine.tsx          pinned horizontal scroll that draws the attention curve
+    Network.tsx         canvas network; "Fire a launch" cascades through it
+    Services.tsx        accordion rows with cursor-following animated previews
+    ServiceVisuals.tsx  the four preview animations
+    Simulator.tsx       launch simulator (illustrative model, labelled as such)
+    Cases.tsx           case-study cards that stack on scroll (desktop only)
+    AllLaunches.tsx     every launch as a bar on one scale, with a brand filter
+    Manifesto.tsx       positioning card with highlighted phrases
+    Faq.tsx             accordion
+    Contact.tsx         "Launch loud." variable-weight type, brief builder, footer
+    WeightText.tsx      letters get heavier near the pointer
+    Button.tsx / Reveal.tsx / Logo.tsx / PreviewBadge.tsx
+```
+
+## Before launch checklist
+
+- [ ] Refresh view and like counts in `src/content.ts` and update `asOf`. Get an OK from each client to be named.
+- [ ] Add like counts for Falconer and cve.now if you want them on the cards.
+- [ ] Real email in `brand.email`, real social links, booking link (Cal.com or Calendly) in `brand.bookUrl`.
+- [ ] Logo is redrawn as SVG from the brand board in `Logo.tsx`. Swap in the designer's final SVG paths when available, and keep `public/favicon.svg` and `public/og.png` in sync.
+- [ ] Make `og:image` in `index.html` an absolute URL on the live domain.
+- [ ] Remove `<PreviewBadge />`.
+- [ ] Optional: replace the `mailto:` brief with a form service (Formspree, Basin or Tally) if you want submissions stored.
+
+## Testing
+
+- Lighthouse (Chrome DevTools > Lighthouse) on the production build. Targets: Performance 90+, Accessibility 95+.
+- axe DevTools browser extension: zero critical issues.
+- Check at 360, 768, 1024 and 1440 wide. The engine section pins only at 1024 and up; below that it stacks.
+- Turn on "Reduce motion" in the OS. Smooth scroll, pinning, the dot field wave and the type effect switch off.
+
+## Deploy (free)
+
+**Vercel**: push this folder to a GitHub repo, then on vercel.com choose New Project, import the repo,
+keep the detected Vite preset (build `npm run build`, output `dist`), and deploy. Add the custom domain under
+Settings > Domains.
+
+**Netlify**: New site from Git, build command `npm run build`, publish directory `dist`.
+
+Free plan limits change, so check the current pricing pages before launch. As of writing, Vercel Hobby is for
+non-commercial use, so a client site should be on Vercel Pro or on Netlify's free tier (which allows commercial use, with bandwidth and build minute caps).
+
+## Credits
+
+See `CREDITS.md`.
