@@ -33,8 +33,8 @@ export function brandEnvironment(renderer: THREE.WebGLRenderer) {
   grad.addColorStop(0.46, '#8a96c8')
   grad.addColorStop(0.5, '#0b0f28')
   grad.addColorStop(0.62, '#141a52')
-  grad.addColorStop(0.78, '#3f4bff')
-  grad.addColorStop(1, '#7a3bed')
+  grad.addColorStop(0.78, '#1f35ff')
+  grad.addColorStop(1, '#10174f')
   g.fillStyle = grad
   g.fillRect(0, 0, 1024, 512)
   // Softbox panels for crisp highlights, with dark gaps between them.
@@ -46,7 +46,7 @@ export function brandEnvironment(renderer: THREE.WebGLRenderer) {
   g.fillRect(860, 80, 30, 160)
   g.fillStyle = '#9fb3ff'
   g.fillRect(760, 300, 200, 90)
-  g.fillStyle = '#c29bff'
+  g.fillStyle = '#c9d0ff'
   g.fillRect(40, 320, 200, 80)
   const tex = new THREE.CanvasTexture(c)
   tex.mapping = THREE.EquirectangularReflectionMapping
@@ -74,8 +74,8 @@ export function drawScreen(canvas: HTMLCanvasElement, s: ScreenContent | null) {
   const g = canvas.getContext('2d')!
   const { width: w, height: h } = canvas
   const bg = g.createRadialGradient(w * 0.3, h * 0.15, 10, w * 0.5, h * 0.6, w * 0.9)
-  bg.addColorStop(0, '#3a52ff')
-  bg.addColorStop(0.45, '#1a1f6e')
+  bg.addColorStop(0, '#1f35ff')
+  bg.addColorStop(0.45, '#10174f')
   bg.addColorStop(1, '#070a22')
   g.fillStyle = bg
   g.fillRect(0, 0, w, h)
@@ -254,8 +254,8 @@ export function makePhone() {
   c.height = 1024
   const x = c.getContext('2d')!
   const gr = x.createLinearGradient(0, 0, 512, 1024)
-  gr.addColorStop(0, '#3f5cff')
-  gr.addColorStop(1, '#8a3cf0')
+  gr.addColorStop(0, '#1f35ff')
+  gr.addColorStop(1, '#1f35ff')
   x.fillStyle = gr
   x.fillRect(0, 0, 512, 1024)
   x.fillStyle = 'rgba(255,255,255,0.95)'

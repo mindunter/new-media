@@ -23,7 +23,7 @@ export function PreviewBadge() {
             type="button"
             aria-label="Dismiss"
             onClick={() => setShow(false)}
-            className="grid h-6 w-6 place-items-center rounded-full hover:bg-base/10"
+            className="grid h-6 w-6 place-items-center rounded-full hover:bg-page/10"
           >
             <X size={12} aria-hidden />
           </button>

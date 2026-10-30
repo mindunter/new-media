@@ -1,11 +1,11 @@
-import { BriefForm } from '@/components/BriefForm'
+import { BookCall } from '@/components/BookCall'
 import { Faq } from '@/components/Faq'
 
-/** Contact: the brief builder up top (it carries its own sky header), then the FAQ. */
+/** Contact: book a call, then the questions people ask before they do. */
 export default function Contact() {
   return (
     <>
-      <BriefForm />
+      <BookCall />
       <Faq />
     </>
   )

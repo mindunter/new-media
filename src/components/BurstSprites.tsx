@@ -1,7 +1,7 @@
 import { devices, PlatformIcon, platforms } from '@/lib/icons'
 
 const tile =
-  'grid h-full w-full place-items-center rounded-[28%] border border-fg/10 bg-base shadow-[0_8px_24px_-8px_rgb(10_10_40/0.35)]'
+  'grid h-full w-full place-items-center rounded-[28%] border border-fg/10 bg-page shadow-[0_8px_24px_-8px_rgb(10_10_40/0.35)]'
 
 /**
  * Hidden templates that the burst engine clones. Rendered once so the icons

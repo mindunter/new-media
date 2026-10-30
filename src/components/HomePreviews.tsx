@@ -33,7 +33,7 @@ function SectionHead({ label, title, to, cta }: { label: string; title: string; 
 /** Four compact service tiles that link to the Services page. */
 export function ServicesPreview() {
   return (
-    <section aria-label="Services" className="bg-base pb-20 sm:pb-28">
+    <section aria-label="Services" className="bg-page pb-20 sm:pb-28">
       <div className="shell">
         <SectionHead label="Services" title="What we do" to="/services" cta="All services" />
         <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
@@ -41,7 +41,7 @@ export function ServicesPreview() {
             <Reveal key={s.id} delay={i * 0.05}>
               <Link
                 to="/services"
-                className="group border-grad block h-full overflow-hidden rounded-3xl [--card:var(--base)] shadow-[0_24px_50px_-40px_rgb(20_30_120/0.6)]"
+                className="group border-grad block h-full overflow-hidden rounded-3xl [--card:var(--base)]"
               >
                 <div className="bg-brand grid aspect-[4/3] place-items-center">
                   <img
@@ -67,7 +67,7 @@ export function ServicesPreview() {
 /** The three case studies as compact cards that link to the Work page. */
 export function WorkPreview() {
   return (
-    <section aria-label="Work" className="bg-base pb-20 sm:pb-28">
+    <section aria-label="Work" className="bg-page pb-20 sm:pb-28">
       <div className="shell">
         <SectionHead label="Work" title="Recent launches" to="/work" cta="See all work" />
         <div className="grid gap-4 md:grid-cols-3 sm:gap-5">

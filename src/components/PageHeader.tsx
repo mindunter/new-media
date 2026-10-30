@@ -1,6 +1,8 @@
 import { motion } from 'motion/react'
 import type { ReactNode } from 'react'
+import { cta } from '@/content'
 import { art } from '@/lib/paths'
+import { Button } from './Button'
 import { DotField } from './DotField'
 
 type Props = {
@@ -13,49 +15,30 @@ type Props = {
 
 const ease = [0.16, 1, 0.3, 1] as const
 
-/** Compact header for inner pages: the hero sky, a label, a title and one line of context. */
+/** Compact header for inner pages: a label, a title, one line of context and the call to action. */
 export function PageHeader({ label, title, lead, image }: Props) {
   return (
-    <header className="hero-sky relative isolate overflow-hidden text-white">
-      <DotField
-        onDeep
-        className="absolute inset-0 -z-10 h-full w-full opacity-50 [mask-image:linear-gradient(to_bottom,black,transparent_85%)]"
-      />
-      <div className="shell grid items-center gap-8 pt-32 pb-16 sm:pt-40 sm:pb-20 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
-        <div>
-          <motion.p
-            className="label-pill label-pill-dark mb-5"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-          >
-            {label}
-          </motion.p>
-          <motion.h1
-            className="display text-[clamp(2.6rem,6.4vw,5.6rem)] [text-shadow:0_2px_30px_rgb(10_20_90/0.25)]"
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.05 }}
-          >
-            {title}
-          </motion.h1>
-          <motion.p
-            className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-white/90 sm:text-lg"
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease, delay: 0.15 }}
-          >
-            {lead}
-          </motion.p>
-        </div>
+    <header className="relative isolate overflow-hidden border-b border-fg/10 bg-page">
+      <DotField className="absolute inset-0 -z-10 h-full w-full [mask-image:radial-gradient(80%_90%_at_80%_40%,black_20%,transparent_85%)]" />
+      <div className="shell grid items-center gap-8 pt-32 pb-14 sm:pt-40 sm:pb-20 md:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease }}>
+          <p className="label-pill mb-5">{label}</p>
+          <h1 className="display text-[clamp(2.6rem,6.4vw,5.6rem)]">{title}</h1>
+          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-muted sm:text-lg">{lead}</p>
+          <div className="mt-7">
+            <Button href={cta.href} variant="signal" size="lg">
+              {cta.label}
+            </Button>
+          </div>
+        </motion.div>
         {image && (
           <motion.img
             src={art(image.file)}
             alt={image.alt}
-            className="mx-auto hidden w-full max-w-[420px] animate-[floaty_7s_ease-in-out_infinite] drop-shadow-[0_30px_40px_rgb(10_20_90/0.4)] md:block"
-            initial={{ opacity: 0, scale: 0.9 }}
+            className="mx-auto hidden w-full max-w-[400px] md:block"
+            initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.1, ease, delay: 0.2 }}
+            transition={{ duration: 1.1, ease, delay: 0.15 }}
           />
         )}
       </div>

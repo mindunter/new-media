@@ -80,11 +80,11 @@ export default function HeroTV({ onReady }: { onReady?: () => void }) {
     >
       <StudioEnv />
       <directionalLight position={[3, 4, 5]} intensity={1.6} />
-      <directionalLight position={[-4, 2, -3]} intensity={2.2} color="#8a6bff" />
-      <directionalLight position={[-3, -2, 4]} intensity={1.2} color="#4f7bff" />
+      <directionalLight position={[-4, 2, -3]} intensity={2.2} color="#ffffff" />
+      <directionalLight position={[-3, -2, 4]} intensity={1.2} color="#1f35ff" />
       <ambientLight intensity={0.25} />
       <TV />
-      <ContactShadows position={[0, -1.15, 0]} opacity={0.35} scale={6} blur={2.6} far={2} color="#1a1f6e" />
+      <ContactShadows position={[0, -1.15, 0]} opacity={0.14} scale={6} blur={3} far={2} color="#0b0c14" />
     </Canvas>
   )
 }

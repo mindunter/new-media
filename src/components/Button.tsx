@@ -11,16 +11,15 @@ const button = cva(
   {
     variants: {
       variant: {
-        signal:
-          'bg-grad text-white shadow-[0_8px_24px_-10px_rgb(60_70_240/0.7)] transition-[filter,box-shadow] hover:brightness-110 hover:shadow-[0_12px_30px_-10px_rgb(110_70_240/0.8)]',
-        ink: 'bg-fg text-base hover:bg-fill hover:text-white',
-        light: 'bg-white text-deep shadow-[0_10px_30px_-12px_rgb(10_20_80/0.6)] hover:bg-[#eef1ff]',
-        outline: 'text-fg ring-1 ring-fg/25 ring-inset hover:bg-fg hover:text-base',
+        signal: 'bg-fill text-white hover:bg-deep dark:hover:bg-white dark:hover:text-deep',
+        ink: 'bg-fg text-page hover:bg-fill hover:text-white',
+        light: 'bg-white text-deep hover:bg-deep hover:text-white',
+        outline: 'text-fg ring-1 ring-fg/25 ring-inset hover:bg-fg hover:text-page',
         outlineDark: 'text-on-deep ring-1 ring-on-deep/30 ring-inset hover:bg-on-deep hover:text-deep',
       },
       size: {
         md: 'h-11 px-5 text-[0.95rem]',
-        lg: 'h-13 px-6 text-base',
+        lg: 'h-13 px-6 text-[1rem]',
       },
     },
     defaultVariants: { variant: 'signal', size: 'md' },

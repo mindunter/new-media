@@ -52,9 +52,9 @@ function VelocityRow({ children, baseVelocity }: { children: ReactNode; baseVelo
 
 /** Logo height for the strip: smaller on phones. */
 function useLogoSize() {
-  const [s, set] = useState(() => (window.innerWidth < 640 ? 26 : window.innerWidth < 1024 ? 32 : 40))
+  const [s, set] = useState(() => (window.innerWidth < 640 ? 20 : 26))
   useEffect(() => {
-    const on = () => set(window.innerWidth < 640 ? 26 : window.innerWidth < 1024 ? 32 : 40)
+    const on = () => set(window.innerWidth < 640 ? 20 : 26)
     window.addEventListener('resize', on)
     return () => window.removeEventListener('resize', on)
   }, [])
@@ -66,19 +66,16 @@ export function Marquee() {
   const items = (
     <span className="flex shrink-0 items-center">
       {clients.map((c) => (
-        <span key={c.name} className="group flex shrink-0 flex-col items-center gap-2 px-7 sm:px-12">
-          <span className="flex h-[clamp(34px,4.4vw,56px)] items-center text-on-deep/90 transition-colors duration-300 group-hover:text-soft">
-            <ClientLogo name={c.name} height={size} />
-          </span>
-          <span className="text-xs text-on-deep-muted">{c.tag}</span>
+        <span key={c.name} className="group flex h-12 shrink-0 items-center px-7 text-fg/75 transition-colors duration-300 hover:text-accent sm:px-11">
+          <ClientLogo name={c.name} height={size} />
         </span>
       ))}
     </span>
   )
 
   return (
-    <section id="clients" aria-label="Selected clients" className="relative overflow-hidden bg-deep py-8 sm:py-12">
-      <p className="shell mb-5 text-sm text-on-deep-muted sm:mb-7">Some of the companies we have launched</p>
+    <section id="clients" aria-label="Selected clients" className="relative overflow-hidden border-y border-fg/10 bg-page py-6">
+      <p className="shell mb-3 text-center text-sm font-medium text-muted">Trusted by teams launching on X and LinkedIn</p>
       <VelocityRow baseVelocity={-2.2}>{items}</VelocityRow>
     </section>
   )

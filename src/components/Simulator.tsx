@@ -1,6 +1,6 @@
 import { motion, useMotionValueEvent, useSpring } from 'motion/react'
 import { useEffect, useId, useMemo, useRef, useState } from 'react'
-import { simulator } from '@/content'
+import { cta, simulator } from '@/content'
 import { cn } from '@/lib/utils'
 import { Button } from './Button'
 import { Reveal } from './Reveal'
@@ -74,7 +74,7 @@ function Segmented<T extends string>({
               {active && (
                 <motion.span
                   layoutId={`seg-${id}`}
-                  className="absolute inset-0 rounded-full bg-base"
+                  className="absolute inset-0 rounded-full bg-page"
                   transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                 />
               )}
@@ -147,14 +147,14 @@ export function Simulator() {
                   <span className="display text-3xl">{creators}</span>
                 </div>
                 <div className="relative h-10">
-                  <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-base/10" />
+                  <div className="absolute inset-x-0 top-1/2 h-2 -translate-y-1/2 rounded-full bg-page/10" />
                   <div
                     className="absolute top-1/2 left-0 h-2 -translate-y-1/2 rounded-full bg-fill"
                     style={{ width: `${pct}%` }}
                   />
                   <div
                     aria-hidden
-                    className="pointer-events-none absolute top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-fg bg-base shadow-lg transition-transform"
+                    className="pointer-events-none absolute top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-4 border-fg bg-page shadow-lg transition-transform"
                     style={{ left: `${pct}%` }}
                   />
                   <input
@@ -182,7 +182,7 @@ export function Simulator() {
                     key={i}
                     className="h-3 w-3 rounded-full"
                     animate={{
-                      backgroundColor: i < Math.round((creators / MAX) * 40) ? '#aaa0ff' : 'rgba(244,244,251,0.1)',
+                      backgroundColor: i < Math.round((creators / MAX) * 40) ? '#a9b2ff' : 'rgba(244,244,251,0.1)',
                       scale: i < Math.round((creators / MAX) * 40) ? 1 : 0.7,
                     }}
                     transition={{ duration: 0.3, delay: i * 0.004 }}
@@ -210,8 +210,8 @@ export function Simulator() {
                 <svg viewBox="0 0 600 220" preserveAspectRatio="none" className="h-56 w-full sm:h-72" aria-hidden>
                   <defs>
                     <linearGradient id="sim-fill" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="#5b4bff" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#5b4bff" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#1f35ff" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#1f35ff" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   {[55, 110, 165].map((gy) => (
@@ -227,7 +227,7 @@ export function Simulator() {
                     animate={{ d }}
                     transition={{ type: 'spring', stiffness: 120, damping: 20 }}
                     fill="none"
-                    stroke="#aaa0ff"
+                    stroke="#a9b2ff"
                     strokeWidth="2.5"
                     vectorEffect="non-scaling-stroke"
                   />
@@ -246,9 +246,9 @@ export function Simulator() {
                       <span className="text-on-deep/70">{s.k}</span>
                       <span className="font-semibold">{Math.round((total * s.v) / 1000).toLocaleString('en')}K</span>
                     </div>
-                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-base/10">
+                    <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-page/10">
                       <motion.div
-                        className="h-full rounded-full bg-base"
+                        className="h-full rounded-full bg-page"
                         animate={{ width: `${Math.min(100, (total * s.v * 100) / (MAX_IMPRESSIONS * 0.52))}%` }}
                         transition={{ type: 'spring', stiffness: 120, damping: 20 }}
                       />
@@ -258,8 +258,8 @@ export function Simulator() {
               </div>
 
               <div className="mt-10">
-                <Button href="/contact" variant="signal">
-                  Plan a launch like this
+                <Button href={cta.href} variant="signal">
+                  {cta.label}
                 </Button>
               </div>
             </div>

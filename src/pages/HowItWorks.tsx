@@ -10,7 +10,7 @@ export default function HowItWorks() {
         label="How it works"
         title={
           <>
-            From brief to <span className="serif chrome italic">trending.</span>
+            From brief to <span className="serif text-accent italic">trending.</span>
           </>
         }
         lead="A month of planning, one coordinated hour, and weeks of follow-through. Here is the timeline, the network behind it, and a way to estimate your own launch."

@@ -36,9 +36,9 @@ export function DotField({ className, onDeep = false }: Props) {
     const readColors = () => {
       const dot = getComputedStyle(document.documentElement).getPropertyValue('--dot').split(',').map(Number) as RGB
       base = onDeep ? [245, 247, 255] : dot
-      c1 = onDeep ? [111, 178, 255] : tokenRGB('--accent-3')
+      c1 = onDeep ? [133, 147, 255] : tokenRGB('--accent-3')
       c2 = onDeep ? [125, 151, 255] : tokenRGB('--accent')
-      c3 = onDeep ? [176, 137, 255] : tokenRGB('--accent-2')
+      c3 = onDeep ? [133, 147, 255] : tokenRGB('--accent-2')
       baseAlpha = onDeep || document.documentElement.dataset.theme === 'dark' || base[0] > 200 ? 0.16 : 0.13
     }
     readColors()

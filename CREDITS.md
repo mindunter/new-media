@@ -16,7 +16,7 @@
 | Tailwind CSS | `tailwindcss` | MIT | Styling |
 | clsx, tailwind-merge, class-variance-authority | npm | MIT | Class utilities |
 
-No stock photos or third-party images are used. Every graphic, including the cloud skies and chrome objects, is rendered in code with three.js, canvas and SVG. See `../new-media-brand/README.md`.
+No stock photos or third-party images are used. Every graphic, including the chrome objects, is rendered in code with three.js, canvas and SVG. See `../new-media-brand/README.md`.
 
 ## Client logos
 

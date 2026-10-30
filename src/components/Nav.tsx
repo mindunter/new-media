@@ -1,7 +1,7 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll, useSpring } from 'motion/react'
 import { useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router'
-import { brand, nav } from '@/content'
+import { brand, cta, nav } from '@/content'
 import { cn } from '@/lib/utils'
 import { Button } from './Button'
 import { Logo } from './Logo'
@@ -36,7 +36,7 @@ export function Nav() {
           aria-label="Main"
           className={cn(
             // Floating centred pill, solid in both themes so it reads over the sky hero.
-            'relative mx-auto flex h-14 max-w-[1080px] items-center justify-between rounded-full bg-base/85 pr-2 pl-5 text-fg ring-1 ring-fg/10 backdrop-blur-xl transition-shadow duration-500',
+            'relative mx-auto flex h-14 max-w-[1080px] items-center justify-between rounded-full bg-page/85 pr-2 pl-5 text-fg ring-1 ring-fg/10 backdrop-blur-xl transition-shadow duration-500',
             solid || open ? 'shadow-[0_16px_40px_-16px_rgb(10_20_80/0.45)]' : 'shadow-[0_10px_30px_-18px_rgb(10_20_80/0.4)]',
           )}
         >
@@ -65,8 +65,8 @@ export function Nav() {
           <div className="flex items-center gap-1 sm:gap-2">
             <ThemeToggle />
             <div className="hidden sm:block">
-              <Button href="/contact" variant="signal" burst>
-                Plan your launch
+              <Button href={cta.href} variant="signal" arrow={false}>
+                {cta.label}
               </Button>
             </div>
             <button
@@ -128,8 +128,8 @@ export function Nav() {
               ))}
             </ul>
             <div className="mt-10 flex items-center justify-between">
-              <Button href="/contact" variant="signal">
-                Plan your launch
+              <Button href={cta.href} variant="signal">
+                {cta.label}
               </Button>
               <a href={`mailto:${brand.email}`} className="text-sm text-on-deep-muted underline-offset-4 hover:underline">
                 Email us

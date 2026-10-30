@@ -82,7 +82,7 @@ export function Cases() {
   const { scrollYProgress } = useScroll({ target: container, offset: ['start start', 'end end'] })
 
   return (
-    <section id="launches" aria-labelledby="cases-title" className="bg-base pt-20 pb-20 sm:pt-28 lg:pb-[10vh]">
+    <section id="launches" aria-labelledby="cases-title" className="bg-page pt-20 pb-20 sm:pt-28 lg:pb-[10vh]">
       <div className="shell">
         <Reveal>
           <p className="label-pill mb-4">Work</p>

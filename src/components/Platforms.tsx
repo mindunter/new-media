@@ -66,7 +66,7 @@ export function Platforms() {
     'group grid aspect-square place-items-center rounded-[26%] border border-fg/10 bg-surface shadow-[0_10px_30px_-14px_rgb(10_10_40/0.35)] transition-colors hover:border-accent/50'
 
   return (
-    <section aria-labelledby="platforms-title" className="overflow-hidden bg-base py-20 sm:py-28 lg:py-32">
+    <section aria-labelledby="platforms-title" className="overflow-hidden bg-page py-20 sm:py-28 lg:py-32">
       <div className="shell">
         <div className="grid gap-5 md:grid-cols-2 md:items-end md:gap-10">
           <Reveal>
@@ -109,7 +109,7 @@ export function Platforms() {
                 progress={progress}
                 label={d.name}
                 onPress={(el) => burstFrom(el, { count: 12, only: devices.map((x) => x.id) })}
-                className={`${tile} rounded-[30%] bg-base`}
+                className={`${tile} rounded-[30%] bg-page`}
               >
                 <span
                   className={`h-[40%] w-[40%] transition-transform duration-300 group-hover:scale-110 [&>svg]:h-full [&>svg]:w-full ${i % 2 ? 'text-accent-2' : 'text-accent'}`}

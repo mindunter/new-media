@@ -51,7 +51,7 @@ function Shell() {
       </a>
       <Nav />
       <main id="main">
-        <Suspense fallback={<div className="hero-sky min-h-[100svh]" />}>
+        <Suspense fallback={<div className="min-h-[100svh] bg-page" />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/work" element={<Work />} />

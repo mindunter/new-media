@@ -8,7 +8,7 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0)
 
   return (
-    <section id="faq" aria-labelledby="faq-title" className="bg-base py-20 sm:py-28 lg:py-32">
+    <section id="faq" aria-labelledby="faq-title" className="bg-page py-20 sm:py-28 lg:py-32">
       <div className="shell grid gap-8 sm:gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)]">
         <Reveal>
           <div className="lg:sticky lg:top-28">

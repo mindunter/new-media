@@ -365,7 +365,7 @@ export function Network() {
   }, [])
 
   return (
-    <section aria-labelledby="network-title" className="bg-base py-20 sm:py-28 lg:py-32">
+    <section aria-labelledby="network-title" className="bg-page py-20 sm:py-28 lg:py-32">
       <div className="shell">
         <div className="mb-8 grid gap-5 sm:mb-10 md:grid-cols-2 md:items-end md:gap-10">
           <Reveal>
@@ -400,7 +400,7 @@ export function Network() {
               </div>
             )}
 
-            <div className="pointer-events-none absolute top-3 left-3 rounded-2xl bg-base/90 px-4 py-3 backdrop-blur-md sm:top-5 sm:left-5">
+            <div className="pointer-events-none absolute top-3 left-3 rounded-2xl bg-page/90 px-4 py-3 backdrop-blur-md sm:top-5 sm:left-5">
               <p className="text-xs font-semibold text-fg/60">Audience reached</p>
               <p ref={reachedRef} className="display mt-1 text-2xl sm:text-4xl">
                 0
@@ -427,7 +427,7 @@ export function Network() {
                   onPointerLeave={(e) => e.pointerType === 'mouse' && setFocus(null)}
                   className={cn(
                     'shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                    focus === i ? 'bg-fg text-base' : 'bg-base text-fg hover:bg-fg hover:text-base',
+                    focus === i ? 'bg-fg text-page' : 'bg-page text-fg hover:bg-fg hover:text-page',
                   )}
                 >
                   {g.label}

@@ -1,42 +1,26 @@
 import { Link, useLocation } from 'react-router'
-import { brand, nav } from '@/content'
+import { brand, cta, nav } from '@/content'
 import { art } from '@/lib/paths'
 import { Button } from './Button'
-import { DotField } from './DotField'
 import { LogoFull } from './Logo'
 
 const YEAR = new Date().getFullYear()
 
-/** Short call to action shown at the end of every page except Contact. */
+/** The call to action at the end of every page except Contact, on the bold colour. */
 function CtaBand() {
   return (
-    <div className="relative isolate overflow-hidden border-b border-on-deep/10">
-      <img
-        src={art('sky-dark.webp')}
-        alt=""
-        aria-hidden
-        loading="lazy"
-        className="absolute inset-0 -z-20 h-full w-full object-cover object-bottom opacity-70"
-      />
-      <DotField onDeep className="absolute inset-0 -z-10 h-full w-full opacity-50" />
+    <div className="bg-brand text-white">
       <div className="shell grid items-center gap-8 py-16 sm:py-20 md:grid-cols-[minmax(0,1fr)_auto]">
         <div>
-          <p className="mb-4 flex items-center gap-2.5 text-[0.95rem] font-medium text-on-deep/75">
-            <span className="live-dot" aria-hidden /> Booking launches for next quarter
-          </p>
           <h2 className="display text-[clamp(2.4rem,6vw,5rem)]">
-            Ready to launch <span className="serif text-soft italic">loud?</span>
+            Launching soon? <span className="serif italic">Book a call.</span>
           </h2>
-          <p className="mt-4 max-w-lg text-[1.05rem] text-on-deep/75">
-            Tell us what you're shipping. We reply within one business day with a plan, a creator shortlist and a
-            timeline.
+          <p className="mt-4 max-w-lg text-[1.05rem] text-white/85">
+            Tell us what you are shipping. We reply within one business day with a plan and a timeline.
           </p>
-          <div className="mt-7 flex flex-wrap gap-3">
-            <Button href="/contact" variant="light" size="lg" burst>
-              Plan your launch
-            </Button>
-            <Button href="/work" variant="outlineDark" size="lg" arrow={false}>
-              See our work
+          <div className="mt-7">
+            <Button href={cta.href} variant="light" size="lg">
+              {cta.label}
             </Button>
           </div>
         </div>
@@ -45,7 +29,7 @@ function CtaBand() {
           alt=""
           aria-hidden
           loading="lazy"
-          className="hidden w-[min(34vw,420px)] animate-[floaty_7s_ease-in-out_infinite] drop-shadow-[0_40px_50px_rgb(0_0_0/0.45)] md:block"
+          className="hidden w-[min(30vw,360px)] md:block"
         />
       </div>
     </div>
@@ -85,6 +69,11 @@ export function SiteFooter() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link to="/contact" className="text-on-deep/75 transition-colors hover:text-soft">
+                  Contact
+                </Link>
+              </li>
             </ul>
           </nav>
           <div>

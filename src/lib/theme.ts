@@ -1,13 +1,10 @@
 export type Theme = 'light' | 'dark'
 
 const KEY = 'nm-theme'
-const media = () => window.matchMedia('(prefers-color-scheme: dark)')
 
-/** The theme in effect right now: an explicit choice wins, otherwise the OS setting. */
+/** The theme in effect right now. Light unless the visitor chose dark. */
 export function currentTheme(): Theme {
-  const set = document.documentElement.dataset.theme
-  if (set === 'light' || set === 'dark') return set
-  return media().matches ? 'dark' : 'light'
+  return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
 }
 
 export function setTheme(theme: Theme) {
@@ -20,15 +17,10 @@ export function setTheme(theme: Theme) {
   window.dispatchEvent(new Event('themechange'))
 }
 
-/** Calls back whenever the effective theme may have changed (toggle or OS switch). */
+/** Calls back whenever the visitor switches theme. */
 export function onThemeChange(cb: () => void) {
-  const mq = media()
   window.addEventListener('themechange', cb)
-  mq.addEventListener('change', cb)
-  return () => {
-    window.removeEventListener('themechange', cb)
-    mq.removeEventListener('change', cb)
-  }
+  return () => window.removeEventListener('themechange', cb)
 }
 
 /** Reads a color token such as "--fg" as an [r, g, b] triplet for canvas drawing. */

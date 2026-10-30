@@ -1,6 +1,6 @@
 # New Media website
 
-Marketing site for **New Media** (working name), a creator-distribution agency for AI and tech companies.
+Marketing site for **New Media** (working name). Brand direction: trust, reliability, affordable, clean; light mode first; one dark plus one bold colour (tokens at the top of `src/index.css`); every CTA leads to booking a call (set `brand.bookingLink` in `src/content.ts`). , a creator-distribution agency for AI and tech companies.
 Benchmarked against doomers.ai, damianplayer.com, atomikgrowth.com and shownmedia.com.
 
 > **Real launch data** (11 launches for Reactor, Sazabi, Beacon, BackOps, Runlayer, Interact AI and Falconer)
@@ -28,6 +28,7 @@ Benchmarked against doomers.ai, damianplayer.com, atomikgrowth.com and shownmedi
 npm install
 npm run dev        # http://localhost:5173
 npm run build      # type-check and build to dist/
+npm run build:pages   # build for GitHub Pages at /new-media/, with a real address for every page
 npm run preview    # serve the production build locally
 npm run lint       # oxlint
 npm run preview:file  # after build: one self-contained dist/preview.html for quick sharing

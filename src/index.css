@@ -1,106 +1,58 @@
 @import 'tailwindcss';
 
-/* `dark:` follows the OS setting unless the visitor picked a theme, and always follows an explicit choice. */
-@custom-variant dark {
-  @media (prefers-color-scheme: dark) {
-    &:where(:root:not([data-theme='light']) *) {
-      @slot;
-    }
-  }
-  &:where(:root[data-theme='dark'] *) {
-    @slot;
-  }
-}
+/* Light is the default for everyone; dark applies only when the visitor picks it with the toggle. */
+@custom-variant dark (&:where(:root[data-theme='dark'] *));
 
 /*
- * Brand tokens. Light values live on :root, dark values are redefined for
- * prefers-color-scheme: dark (unless the visitor picked light) and for an
- * explicit data-theme="dark". Components only ever use the Tailwind names below.
+ * Brand tokens: one dark (ink), one bold colour (electric blue), plus white.
+ * Change --fill and --accent here to rebrand the whole site.
  *
  * base / surface   page background and raised cards
  * fg / muted       body text and secondary text
- * deep             dark bands (always dark, slightly lifted in dark mode)
- * accent           blue for text and lines, tuned per mode for contrast
- * fill             blue for filled buttons, constant so white text always passes
- * soft             light violet for accents on deep bands
+ * deep             dark bands
+ * accent           bold colour for text and lines, lightened in dark mode for contrast
+ * fill             bold colour for fills, constant so white text always passes
+ * soft             tint of the bold colour for accents on dark bands
  */
 :root {
   --base: #ffffff;
-  --surface: #f4f6fc;
-  --fg: #0a0d24;
-  --muted: #4f5672;
-  --deep: #0a0d24;
-  --deep-2: #141a3a;
-  --on-deep: #f5f7ff;
-  --on-deep-muted: #a9b0cc;
-  --accent: #2f54eb;
-  --accent-2: #7a3bed;
-  --accent-3: #2f8cff;
-  --fill: #2f54eb;
-  --soft: #aab4ff;
-  --live: #6d5cff;
-  --dot: 10, 13, 36;
-  --sky-1: #1631c4;
-  --sky-2: #2f54eb;
-  --sky-3: #5a6ff7;
-  --sky-4: #c3cdff;
-  --cloud: rgb(255 255 255 / 0.85);
-  /* Brand gradient for fills: constant so white text passes in both modes. */
-  --grad-brand: linear-gradient(120deg, #2f54eb 0%, #5546ee 50%, #8a3cf0 100%);
-  --grad-text: linear-gradient(100deg, var(--accent-3) 0%, var(--accent) 40%, var(--accent-2) 100%);
+  --surface: #f3f4f7;
+  --fg: #0b0c14;
+  --muted: #565a6b;
+  --deep: #0b0c14;
+  --deep-2: #1a1c26;
+  --on-deep: #f4f5f8;
+  --on-deep-muted: #a3a6b4;
+  --accent: #1f35ff;
+  --accent-2: #1f35ff;
+  --accent-3: #1f35ff;
+  --fill: #1f35ff;
+  --soft: #a9b2ff;
+  --live: #1f35ff;
+  --dot: 11, 12, 20;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme='light']) {
-    --base: #060816;
-    --surface: #0e1230;
-    --fg: #eef1ff;
-    --muted: #a2a9c7;
-    --deep: #0b0f28;
-    --deep-2: #151a3d;
-    --on-deep: #f5f7ff;
-    --on-deep-muted: #a9b0cc;
-    --accent: #7d97ff;
-    --accent-2: #b089ff;
-    --accent-3: #6fb2ff;
-    --fill: #2f54eb;
-    --soft: #b4bcff;
-    --live: #9d8cff;
-    --dot: 238, 241, 255;
-  --sky-1: #0f1f8f;
-  --sky-2: #2238c4;
-  --sky-3: #3b2f9e;
-  --sky-4: #1a1650;
-  --cloud: rgb(140 120 255 / 0.25);
-    --sky-1: #0f1f8f;
-    --sky-2: #2238c4;
-    --sky-3: #3b2f9e;
-    --sky-4: #1a1650;
-    --cloud: rgb(140 120 255 / 0.25);
-    color-scheme: dark;
-  }
-}
 :root[data-theme='dark'] {
-  --base: #060816;
-  --surface: #0e1230;
-  --fg: #eef1ff;
-  --muted: #a2a9c7;
-  --deep: #0b0f28;
-  --deep-2: #151a3d;
-  --on-deep: #f5f7ff;
-  --on-deep-muted: #a9b0cc;
-  --accent: #7d97ff;
-  --accent-2: #b089ff;
-  --accent-3: #6fb2ff;
-  --fill: #2f54eb;
-  --soft: #b4bcff;
-  --live: #9d8cff;
-  --dot: 238, 241, 255;
+  --base: #0b0c14;
+  --surface: #15171f;
+  --fg: #f4f5f8;
+  --muted: #a3a6b4;
+  --deep: #0b0c14;
+  --deep-2: #1a1c26;
+  --on-deep: #f4f5f8;
+  --on-deep-muted: #a3a6b4;
+  --accent: #8593ff;
+  --accent-2: #8593ff;
+  --accent-3: #8593ff;
+  --fill: #1f35ff;
+  --soft: #a9b2ff;
+  --live: #8593ff;
+  --dot: 244, 245, 248;
   color-scheme: dark;
 }
 
 @theme inline {
-  --color-base: var(--base);
+  --color-page: var(--base);
   --color-surface: var(--surface);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
@@ -184,72 +136,18 @@
       padding-inline: 48px;
     }
   }
-  /* Constant brand band so white text passes contrast in both modes. */
-  .bg-brand {
-    background:
-      radial-gradient(60% 80% at 85% 10%, rgb(160 110 255 / 0.55), transparent 60%),
-      radial-gradient(50% 70% at 10% 100%, rgb(47 140 255 / 0.45), transparent 60%),
-      var(--grad-brand);
-  }
+  /* The bold colour as a fill. White text always passes on it, in both themes. */
+  .bg-brand,
   .bg-grad {
-    background: var(--grad-brand);
+    background: var(--fill);
   }
   .text-gradient {
-    background: var(--grad-text);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
+    color: var(--accent);
   }
-  /* Soft gradient glow behind a section. */
-  .mesh {
-    background:
-      radial-gradient(45% 55% at 0% 0%, color-mix(in srgb, var(--accent) 11%, transparent), transparent 70%),
-      radial-gradient(40% 50% at 100% 15%, color-mix(in srgb, var(--accent-2) 10%, transparent), transparent 70%),
-      radial-gradient(40% 40% at 60% 100%, color-mix(in srgb, var(--accent-3) 8%, transparent), transparent 70%),
-      var(--base);
-  }
-  /* 1px gradient border. Set --card to the fill colour behind it. */
+  /* Hairline card edge. Set --card to the fill colour behind it. */
   .border-grad {
-    border: 1px solid transparent;
-    background:
-      linear-gradient(var(--card, var(--base)), var(--card, var(--base))) padding-box,
-      linear-gradient(130deg, color-mix(in srgb, var(--accent) 55%, transparent), color-mix(in srgb, var(--fg) 8%, transparent) 40%, color-mix(in srgb, var(--accent-2) 55%, transparent)) border-box;
-  }
-  /* Hero sky: deep blue at the top fading to the page colour. Stops are per theme. */
-  .hero-sky {
-    background:
-      radial-gradient(50% 40% at 85% 15%, rgb(150 110 255 / 0.45), transparent 70%),
-      linear-gradient(
-        180deg,
-        var(--sky-1) 0%,
-        var(--sky-2) 38%,
-        var(--sky-3) 64%,
-        var(--sky-4) 82%,
-        var(--base) 95%
-      );
-  }
-  .hero-clouds {
-    background:
-      radial-gradient(30% 45% at 15% 70%, var(--cloud), transparent 70%),
-      radial-gradient(35% 50% at 50% 85%, var(--cloud), transparent 70%),
-      radial-gradient(28% 40% at 88% 65%, var(--cloud), transparent 70%);
-    filter: blur(18px);
-  }
-  /* Polished chrome lettering for the serif accent line. */
-  .chrome {
-    background: linear-gradient(
-      180deg,
-      #ffffff 0%,
-      #eef1ff 30%,
-      #9fb0ff 48%,
-      #ffffff 56%,
-      #dfe4ff 78%,
-      #b8c2ff 100%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    filter: drop-shadow(0 2px 0 rgb(20 30 120 / 0.35)) drop-shadow(0 12px 28px rgb(40 60 255 / 0.45));
+    border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+    background: var(--card, var(--base));
   }
   /* Small section label above a heading. */
   .label-pill {
@@ -275,7 +173,7 @@
     width: 6px;
     height: 6px;
     border-radius: 999px;
-    background: var(--grad-brand);
+    background: var(--fill);
   }
 }
 

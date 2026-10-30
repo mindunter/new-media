@@ -4,8 +4,8 @@
  * Launch figures come from the launches @newmediahq reposted on X and are
  * correct as of `asOf`. They keep growing, so refresh them before publishing.
  *
- * PLACEHOLDER: the contact email and the LinkedIn, YouTube and Instagram links
- * are not real yet. The network map and launch simulator are illustrations.
+ * PLACEHOLDER: the booking link, contact email and the LinkedIn, YouTube and
+ * Instagram links are not real yet. The network map and launch simulator are illustrations.
  */
 
 export const asOf = '29 Oct 2026'
@@ -13,7 +13,8 @@ export const asOf = '29 Oct 2026'
 export const brand = {
   name: 'New Media',
   email: 'hello@newmedia.example',
-  bookUrl: '/contact',
+  /** Paste the Cal.com or Calendly link here. Until then, every CTA goes to the Contact page. */
+  bookingLink: '',
   socials: [
     { label: 'X', href: 'https://x.com/newmediahq' },
     { label: 'LinkedIn', href: '#' },
@@ -22,19 +23,23 @@ export const brand = {
   ],
 }
 
+/** The one call to action used across the site. */
+export const cta = {
+  label: 'Book a call',
+  href: brand.bookingLink || '/contact',
+}
+
 export const nav = [
   { label: 'Work', href: '/work' },
   { label: 'Services', href: '/services' },
   { label: 'How it works', href: '/how-it-works' },
-  { label: 'Contact', href: '/contact' },
 ]
 
 export const hero = {
   eyebrow: 'Creator distribution for AI and tech companies',
   lines: ['We make launches', 'impossible to', 'scroll past.'],
   sub: 'Your buyers skip ads, but they read the people they follow. We brief those founders, engineers and creators so your launch shows up across their feeds in the same hour.',
-  primary: 'Plan your launch',
-  secondary: 'See our launches',
+  secondary: 'See our work',
   proof: '24.3M+ views and $144.5M+ in funding announced across launches for 10 brands since May 2026',
 }
 
@@ -193,15 +198,39 @@ export const cases = [
   },
 ]
 
-/** Positioning card. Strings are plain text; `chips` render as highlighted phrases. */
-export const thesis = {
-  lead: "We're New Media, a launch-first distribution company.",
-  rows: [
-    { text: 'Built for', chips: ['AI founders', 'technical teams'] },
-    { text: 'We put your story into', chips: ['launch threads', 'founder posts', 'podcast clips', 'creator breakdowns'] },
-  ],
-  close: 'for the feeds your buyers already read.',
-}
+/** Portfolio wall on Home. Views are from public launch posts; `detail` says what the launch was. */
+export const portfolio = [
+  { name: 'Reactor', stat: '17.3M', detail: 'views across 3 launches' },
+  { name: 'Sazabi', stat: '2.3M', detail: 'views across 3 launches' },
+  { name: 'Interact AI', stat: '2.2M', detail: 'views on product launch' },
+  { name: 'Runlayer', stat: '814K', detail: 'views on $30M raise' },
+  { name: 'Beacon', stat: '627K', detail: 'views on $5.5M seed' },
+  { name: 'BackOps', stat: '610K', detail: 'views on $42M Series B' },
+  { name: 'Falconer', stat: '354K', detail: 'views on launch' },
+  { name: 'Charming', stat: '', detail: 'Launch' },
+  { name: 'Capital Truist', stat: '', detail: 'Launch' },
+  { name: 'webcmd', stat: '', detail: 'Launch' },
+]
+
+/** Why clients pick us: the four brand words. */
+export const reasons = [
+  {
+    title: 'Trusted',
+    body: 'Teams backed by Lightspeed, Khosla and Insight Partners have launched with us. Every number here comes from public launch posts.',
+  },
+  {
+    title: 'Reliable',
+    body: 'Reactor and Sazabi each came back for three launches. We plan the whole month, not only launch day.',
+  },
+  {
+    title: 'Affordable',
+    body: 'Built for startup budgets. Tell us what you have to spend and we scope the launch to fit it.',
+  },
+  {
+    title: 'Clean',
+    body: 'A clear plan, a clear timeline, and a report on every view. One team runs all of it.',
+  },
+]
 
 export const faqs = [
   {
@@ -222,7 +251,7 @@ export const faqs = [
   },
   {
     q: 'Who do you work with?',
-    a: 'AI and technology companies from seed through late stage, and the venture firms behind them. If you have something shipping soon, get in touch.',
+    a: 'AI and technology companies from seed through late stage, and the venture firms behind them. If you have something shipping soon, book a call.',
   },
 ]
 

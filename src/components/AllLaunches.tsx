@@ -18,11 +18,11 @@ export function AllLaunches() {
   const sum = shown.reduce((s, l) => s + l.views, 0)
 
   return (
-    <section aria-labelledby="all-title" className="bg-base pb-20 sm:pb-28 lg:pb-32">
+    <section aria-labelledby="all-title" className="bg-page pb-20 sm:pb-28 lg:pb-32">
       <div className="shell">
         {/* Now playing: a wall of screens cycling through the launches. */}
         <Reveal>
-          <div className="hero-sky relative mb-14 overflow-hidden rounded-[32px] px-2 pt-10 pb-2 sm:mb-20 sm:pt-14">
+          <div className="bg-brand relative mb-14 overflow-hidden rounded-[32px] px-2 pt-10 pb-2 sm:mb-20 sm:pt-14">
             <p className="label-pill label-pill-dark mx-auto mb-8 flex sm:mb-10">Now playing</p>
             <DeviceWall />
           </div>
@@ -54,7 +54,7 @@ export function AllLaunches() {
               onClick={() => setBrand(b)}
               className={cn(
                 'shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                brand === b ? 'bg-fg text-base' : 'bg-surface text-fg hover:bg-fg/10',
+                brand === b ? 'bg-fg text-page' : 'bg-surface text-fg hover:bg-fg/10',
               )}
             >
               {b ?? 'All brands'}
@@ -83,10 +83,9 @@ export function AllLaunches() {
               <div className="flex items-center gap-3 sm:block">
                 <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-fg/[0.06]">
                   <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2"
+                    className="h-full rounded-full bg-accent"
                     initial={{ width: 0 }}
-                    whileInView={{ width: `${Math.max(2, (l.views / max) * 100)}%` }}
-                    viewport={{ once: true }}
+                    animate={{ width: `${Math.max(2, (l.views / max) * 100)}%` }}
                     transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.05 * i }}
                   />
                 </div>

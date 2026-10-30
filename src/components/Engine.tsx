@@ -89,12 +89,12 @@ export function Engine() {
         >
           <defs>
             <linearGradient id="curve-fill" x1="0" x2="0" y1="0" y2="1">
-              <stop offset="0%" stopColor="#5b4bff" stopOpacity="0.4" />
-              <stop offset="100%" stopColor="#5b4bff" stopOpacity="0" />
+              <stop offset="0%" stopColor="#1f35ff" stopOpacity="0.4" />
+              <stop offset="100%" stopColor="#1f35ff" stopOpacity="0" />
             </linearGradient>
           </defs>
           <path d={`${CURVE} L 3000 340 L 0 340 Z`} fill="url(#curve-fill)" opacity="0.5" />
-          <path ref={path} d={CURVE} fill="none" stroke="#aaa0ff" strokeWidth="3" vectorEffect="non-scaling-stroke" />
+          <path ref={path} d={CURVE} fill="none" stroke="#a9b2ff" strokeWidth="3" vectorEffect="non-scaling-stroke" />
         </svg>
 
         <div className="flex shrink-0 flex-col justify-center md:col-span-2 lg:w-[44vw] lg:pr-[4vw] lg:pl-[max(48px,calc((100vw-1360px)/2+48px))]">
@@ -107,7 +107,7 @@ export function Engine() {
             all of it, from the first brief to the final report.
           </p>
           <p className="mt-10 hidden items-center gap-3 text-sm text-on-deep-muted lg:flex">
-            Scroll to follow the timeline <span className="inline-block h-px w-16 bg-base/30" />
+            Scroll to follow the timeline <span className="inline-block h-px w-16 bg-page/30" />
           </p>
         </div>
 

@@ -33,7 +33,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
       <article
         onPointerMove={onMove}
         onPointerLeave={reset}
-        className="group border-grad flex h-full flex-col overflow-hidden rounded-[28px] [--card:var(--base)] shadow-[0_30px_60px_-40px_rgb(20_30_120/0.5)]"
+        className="group border-grad flex h-full flex-col overflow-hidden rounded-[28px] [--card:var(--base)]"
       >
         <button
           type="button"
@@ -75,7 +75,7 @@ function ServiceCard({ s, i }: { s: (typeof services)[number]; i: number }) {
 /** Service cards. `bare` drops the section heading when the page header already introduces them. */
 export function Services({ bare = false }: { bare?: boolean }) {
   return (
-    <section id="services" aria-labelledby={bare ? undefined : "services-title"} aria-label={bare ? "Services" : undefined} className="bg-base py-20 sm:py-28 lg:py-32">
+    <section id="services" aria-labelledby={bare ? undefined : "services-title"} aria-label={bare ? "Services" : undefined} className="bg-page py-20 sm:py-28 lg:py-32">
       <div className="shell">
         {!bare && (
         <div className="mb-10 grid gap-5 sm:mb-14 md:grid-cols-2 md:items-end md:gap-10">

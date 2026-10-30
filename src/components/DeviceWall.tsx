@@ -25,7 +25,7 @@ function Screen({ start, every, size = 'md' }: { start: number; every: number; s
   const i = useChannel(start, every)
   const l = launches[i]
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-[inherit] bg-[radial-gradient(120%_90%_at_30%_10%,#2a3fd6_0%,#141a52_45%,#070a22_100%)] text-white">
+    <div className="relative h-full w-full overflow-hidden rounded-[inherit] bg-[radial-gradient(120%_90%_at_30%_10%,#1f35ff_0%,#10174f_45%,#0b0c14_100%)] text-white">
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={i}
