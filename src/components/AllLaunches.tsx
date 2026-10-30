@@ -5,6 +5,7 @@ import { cn, compact } from '@/lib/utils'
 import { DeviceWall } from './DeviceWall'
 import { ClientLogo } from './ClientLogo'
 import { Reveal } from './Reveal'
+import { Sky } from './Sky'
 
 const brands = Array.from(new Set(launches.map((l) => l.brand)))
 const max = Math.max(...launches.map((l) => l.views))
@@ -22,7 +23,8 @@ export function AllLaunches() {
       <div className="shell">
         {/* Now playing: a wall of screens cycling through the launches. */}
         <Reveal>
-          <div className="bg-brand relative mb-14 overflow-hidden rounded-[32px] px-2 pt-10 pb-2 sm:mb-20 sm:pt-14">
+          <div className="relative isolate mb-14 overflow-hidden rounded-[32px] px-2 pt-10 pb-2 sm:mb-20 sm:pt-14">
+            <Sky />
             <p className="label-pill label-pill-dark mx-auto mb-8 flex sm:mb-10">Now playing</p>
             <DeviceWall />
           </div>

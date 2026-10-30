@@ -1,5 +1,4 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { ContactShadows } from '@react-three/drei'
 import { useEffect, useMemo, useRef } from 'react'
 import * as THREE from 'three'
 import { launches } from '@/content'
@@ -75,16 +74,15 @@ export default function HeroTV({ onReady }: { onReady?: () => void }) {
       camera={{ position: [0, 0.3, 6.2], fov: 30 }}
       gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping }}
       onCreated={() => onReady?.()}
-      aria-label="A chrome TV showing our launches. Click it to change the channel."
+      aria-label="A glossy blue TV showing our launches. Click it to change the channel."
       role="img"
     >
       <StudioEnv />
       <directionalLight position={[3, 4, 5]} intensity={1.6} />
       <directionalLight position={[-4, 2, -3]} intensity={2.2} color="#ffffff" />
-      <directionalLight position={[-3, -2, 4]} intensity={1.2} color="#1f35ff" />
+      <directionalLight position={[-3, -2, 4]} intensity={1.2} color="#1668e8" />
       <ambientLight intensity={0.25} />
       <TV />
-      <ContactShadows position={[0, -1.15, 0]} opacity={0.14} scale={6} blur={3} far={2} color="#0b0c14" />
     </Canvas>
   )
 }

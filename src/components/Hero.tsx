@@ -6,6 +6,7 @@ import { art } from '@/lib/paths'
 import { prefersReducedMotion } from '@/lib/utils'
 import { Button } from './Button'
 import { DotField } from './DotField'
+import { Sky } from './Sky'
 
 const HeroTV = lazy(() => import('../three/HeroTV'))
 const ease = [0.16, 1, 0.3, 1] as const
@@ -50,19 +51,24 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate overflow-hidden bg-page"
+      className="relative isolate overflow-hidden bg-page text-white"
       onPointerDown={(e) => {
         // Clicking empty space sets off a launch: logos and devices burst from the pointer.
         if ((e.target as HTMLElement).closest('a, button, canvas')) return
         burst(e.clientX, e.clientY, { count: 12 })
       }}
     >
-      <DotField className="absolute inset-0 -z-10 h-full w-full [mask-image:radial-gradient(80%_80%_at_75%_40%,black_30%,transparent_85%)]" />
+      <Sky priority scrim className="bottom-auto h-[116%]" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-24 bg-gradient-to-b from-transparent to-page" />
+      <DotField
+        onDeep
+        className="absolute inset-0 -z-10 h-full w-full opacity-50 [mask-image:linear-gradient(to_bottom,black_0%,black_40%,transparent_65%)]"
+      />
 
-      <div className="shell grid items-center gap-6 pt-28 pb-10 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10 lg:pt-36 lg:pb-16">
+      <div className="shell grid items-center gap-6 pt-28 pb-14 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10 lg:pt-36 lg:pb-16">
         <div>
           <motion.p
-            className="label-pill mb-6"
+            className="label-pill label-pill-dark mb-6"
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease }}
@@ -70,13 +76,13 @@ export function Hero() {
             {hero.eyebrow}
           </motion.p>
 
-          <h1 className="display text-[clamp(2.7rem,7.5vw,4.6rem)] lg:text-[clamp(3.6rem,4.9vw,5.2rem)]">
+          <h1 className="display [text-shadow:0_2px_24px_rgb(5_40_120/0.3)] text-[clamp(2.7rem,7.5vw,4.6rem)] lg:text-[clamp(3.6rem,4.9vw,5.2rem)]">
             {hero.lines.map((line, i) => {
               const last = i === hero.lines.length - 1
               return (
                 <span key={line} className="block overflow-hidden pb-[0.12em] lg:whitespace-nowrap">
                   <motion.span
-                    className={last ? 'serif inline-block pr-[0.08em] text-accent italic' : 'inline-block'}
+                    className={last ? 'serif inline-block pr-[0.08em] italic' : 'inline-block'}
                     initial={{ y: '105%' }}
                     animate={{ y: '0%' }}
                     transition={{ duration: 1, ease, delay: 0.1 + i * 0.08 }}
@@ -93,19 +99,19 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease, delay: 0.45 }}
           >
-            <p className="mt-5 max-w-[34rem] text-[1.05rem] leading-relaxed text-muted text-pretty sm:text-lg">
+            <p className="mt-5 max-w-[34rem] text-[1.05rem] leading-relaxed text-white/95 text-pretty [text-shadow:0_1px_12px_rgb(5_40_120/0.35)] sm:text-lg">
               {hero.sub}
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href={cta.href} variant="signal" size="lg" className="max-sm:flex-1">
+              <Button href={cta.href} variant="light" size="lg" className="max-sm:flex-1">
                 {cta.label}
               </Button>
-              <Button href="/work" variant="outline" size="lg" arrow={false} className="max-sm:flex-1">
+              <Button href="/work" variant="outlineDark" size="lg" arrow={false} className="bg-[#062a78]/50 backdrop-blur-md max-sm:flex-1">
                 {hero.secondary}
               </Button>
             </div>
-            <p className="mt-6 text-sm text-muted">
-              <span className="font-semibold text-fg">{hero.proof}</span> As of {asOf}.
+            <p className="mt-6 w-fit max-w-full rounded-2xl bg-[#062a78]/60 px-4 py-2.5 text-sm text-white/90 ring-1 ring-white/20 backdrop-blur-md">
+              <span className="font-semibold text-white">{hero.proof}</span> As of {asOf}.
             </p>
           </motion.div>
         </div>
@@ -120,7 +126,7 @@ export function Hero() {
         >
           <img
             src={art('obj-tv.webp')}
-            alt="A chrome retro TV showing Reactor's launch: 12.7M views"
+            alt="A glossy blue retro TV showing Reactor's launch: 12.7M views"
             fetchPriority="high"
             className={`absolute inset-[6%] h-[88%] w-[88%] object-contain transition-opacity duration-700 ${ready ? 'opacity-0' : 'opacity-100'}`}
           />

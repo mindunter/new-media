@@ -20,34 +20,39 @@ export const chrome = (tint = '#e6e9ff', roughness = 0.16) =>
 const glossDark = () =>
   new THREE.MeshPhysicalMaterial({ color: '#0b0f28', metalness: 0.4, roughness: 0.25, clearcoat: 1 })
 
-/** Studio environment: a gradient sphere with soft blue and violet light bands, baked to PMREM. */
+/** Glossy plastic in the style of Windows XP and Vista: saturated colour under a wet clearcoat. */
+export const aero = (color: string) =>
+  new THREE.MeshPhysicalMaterial({
+    color,
+    metalness: 0,
+    roughness: 0.18,
+    clearcoat: 1,
+    clearcoatRoughness: 0.03,
+    envMapIntensity: 1.3,
+  })
+
+/** Sky environment baked to PMREM: bright clouds above, a blue horizon, soft bounce below. */
 export function brandEnvironment(renderer: THREE.WebGLRenderer) {
   const c = document.createElement('canvas')
   c.width = 1024
   c.height = 512
   const g = c.getContext('2d')!
   const grad = g.createLinearGradient(0, 0, 0, 512)
-  // Chrome reads as chrome only with strong contrast: bright sky, dark horizon, coloured floor bounce.
   grad.addColorStop(0, '#ffffff')
-  grad.addColorStop(0.3, '#e9edff')
-  grad.addColorStop(0.46, '#8a96c8')
-  grad.addColorStop(0.5, '#0b0f28')
-  grad.addColorStop(0.62, '#141a52')
-  grad.addColorStop(0.78, '#1f35ff')
-  grad.addColorStop(1, '#10174f')
+  grad.addColorStop(0.28, '#d8efff')
+  grad.addColorStop(0.46, '#5fb4ff')
+  grad.addColorStop(0.5, '#0d3f9c')
+  grad.addColorStop(0.66, '#1668e8')
+  grad.addColorStop(1, '#bfe4ff')
   g.fillStyle = grad
   g.fillRect(0, 0, 1024, 512)
-  // Softbox panels for crisp highlights, with dark gaps between them.
+  // Softboxes give the crisp window-like highlights of glossy plastic.
   g.fillStyle = '#ffffff'
-  g.fillRect(90, 60, 260, 110)
-  g.fillRect(600, 40, 180, 90)
-  g.fillStyle = '#0b0f28'
-  g.fillRect(380, 30, 40, 200)
-  g.fillRect(860, 80, 30, 160)
-  g.fillStyle = '#9fb3ff'
-  g.fillRect(760, 300, 200, 90)
-  g.fillStyle = '#c9d0ff'
-  g.fillRect(40, 320, 200, 80)
+  g.fillRect(90, 50, 280, 120)
+  g.fillRect(600, 40, 200, 100)
+  g.fillStyle = '#0d3f9c'
+  g.fillRect(390, 30, 36, 190)
+  g.fillRect(860, 80, 30, 150)
   const tex = new THREE.CanvasTexture(c)
   tex.mapping = THREE.EquirectangularReflectionMapping
   tex.colorSpace = THREE.SRGBColorSpace
@@ -70,51 +75,97 @@ export function makeScreenCanvas(w = 1024, h = 768) {
 
 export type ScreenContent = { brand: string; value: string; caption: string }
 
+/** The TV's screen: a bright desktop-style wallpaper of sky, clouds and a green hill, under Vista-style glass. */
 export function drawScreen(canvas: HTMLCanvasElement, s: ScreenContent | null) {
   const g = canvas.getContext('2d')!
   const { width: w, height: h } = canvas
-  const bg = g.createRadialGradient(w * 0.3, h * 0.15, 10, w * 0.5, h * 0.6, w * 0.9)
-  bg.addColorStop(0, '#1f35ff')
-  bg.addColorStop(0.45, '#10174f')
-  bg.addColorStop(1, '#070a22')
-  g.fillStyle = bg
+  const sky = g.createLinearGradient(0, 0, 0, h * 0.8)
+  sky.addColorStop(0, '#0a4fc4')
+  sky.addColorStop(0.7, '#1f7fe8')
+  sky.addColorStop(1, '#6fb8f5')
+  g.fillStyle = sky
   g.fillRect(0, 0, w, h)
+  // Soft clouds.
+  g.fillStyle = 'rgba(255,255,255,0.28)'
+  for (const [cx, cy, r] of [[0.14, 0.42, 0.1], [0.24, 0.46, 0.13], [0.36, 0.44, 0.09], [0.72, 0.5, 0.11], [0.84, 0.47, 0.14], [0.94, 0.52, 0.09]]) {
+    g.beginPath()
+    g.ellipse(w * cx, h * cy, w * r, h * r * 0.55, 0, 0, Math.PI * 2)
+    g.fill()
+  }
+  // Rolling green hill.
+  const hill = g.createLinearGradient(0, h * 0.68, 0, h)
+  hill.addColorStop(0, '#5fb82f')
+  hill.addColorStop(1, '#1f6f17')
+  g.fillStyle = hill
+  g.beginPath()
+  g.moveTo(0, h * 0.8)
+  g.quadraticCurveTo(w * 0.32, h * 0.62, w * 0.62, h * 0.76)
+  g.quadraticCurveTo(w * 0.82, h * 0.84, w, h * 0.72)
+  g.lineTo(w, h)
+  g.lineTo(0, h)
+  g.closePath()
+  g.fill()
   if (s) {
     // Centred so the curved glass never clips it.
     g.textAlign = 'center'
+    g.shadowColor = 'rgba(3,20,70,0.8)'
+    g.shadowBlur = h * 0.03
+    g.shadowOffsetY = h * 0.006
     g.font = `600 ${h * 0.085}px Inter, Helvetica, Arial, sans-serif`
-    const bw = g.measureText(s.brand).width
-    g.fillStyle = '#ff4d6d'
-    g.beginPath()
-    g.arc(w * 0.5 - bw / 2 - h * 0.04, h * 0.2 - h * 0.028, h * 0.02, 0, Math.PI * 2)
-    g.fill()
-    g.fillStyle = 'rgba(255,255,255,0.88)'
-    g.fillText(s.brand, w * 0.5, h * 0.2)
     g.fillStyle = '#ffffff'
+    g.fillText(s.brand, w * 0.5, h * 0.2)
     g.font = `400 ${h * 0.38}px Newsreader, Georgia, serif`
-    g.fillText(s.value, w * 0.5, h * 0.66)
-    g.fillStyle = 'rgba(255,255,255,0.82)'
-    g.font = `500 ${h * 0.075}px Inter, Helvetica, Arial, sans-serif`
-    g.fillText(s.caption, w * 0.5, h * 0.83)
+    g.fillText(s.value, w * 0.5, h * 0.62)
+    g.font = `600 ${h * 0.075}px Inter, Helvetica, Arial, sans-serif`
+    g.fillText(s.caption, w * 0.5, h * 0.86)
+    g.shadowColor = 'transparent'
+    g.shadowBlur = 0
+    g.shadowOffsetY = 0
     g.textAlign = 'left'
   }
-  // Scanlines and a glass glare.
-  g.fillStyle = 'rgba(255,255,255,0.035)'
-  for (let y = 0; y < h; y += 4) g.fillRect(0, y, w, 1)
-  const glare = g.createLinearGradient(0, 0, w, h)
-  glare.addColorStop(0, 'rgba(255,255,255,0.18)')
-  glare.addColorStop(0.35, 'rgba(255,255,255,0)')
-  g.fillStyle = glare
-  g.fillRect(0, 0, w, h)
+  // Vista-style glass: a bright curved reflection across the top of the screen.
+  const glass = g.createLinearGradient(0, 0, 0, h * 0.42)
+  glass.addColorStop(0, 'rgba(255,255,255,0.3)')
+  glass.addColorStop(1, 'rgba(255,255,255,0.03)')
+  g.fillStyle = glass
+  g.beginPath()
+  g.moveTo(0, 0)
+  g.lineTo(w, 0)
+  g.lineTo(w, h * 0.3)
+  g.quadraticCurveTo(w * 0.5, h * 0.46, 0, h * 0.3)
+  g.closePath()
+  g.fill()
 }
 
-/** Retro CRT TV in chrome. Returns the group and the screen texture so it can be animated. */
+/** Two-tone Aero gel: a bright upper half breaking sharply to saturated blue, with a soft glow at the base. */
+function gelMaterial() {
+  const c = document.createElement('canvas')
+  c.width = 8
+  c.height = 512
+  const g = c.getContext('2d')!
+  const grad = g.createLinearGradient(0, 0, 0, 512)
+  grad.addColorStop(0, '#a8dcff')
+  grad.addColorStop(0.46, '#3f9cf5')
+  grad.addColorStop(0.5, '#1668e8')
+  grad.addColorStop(0.85, '#0f55c4')
+  grad.addColorStop(1, '#2f8ff2')
+  g.fillStyle = grad
+  g.fillRect(0, 0, 8, 512)
+  const tex = new THREE.CanvasTexture(c)
+  tex.colorSpace = THREE.SRGBColorSpace
+  const mat = aero('#ffffff')
+  mat.map = tex
+  mat.envMapIntensity = 0.75
+  return mat
+}
+
+/** Retro CRT TV in glossy XP/Vista-style blue plastic. Returns the group and the screen texture so it can be animated. */
 export function makeTV() {
   const tv = new THREE.Group()
-  const body = new THREE.Mesh(new RoundedBoxGeometry(2.1, 1.5, 1.2, 8, 0.24), chrome())
+  const body = new THREE.Mesh(new RoundedBoxGeometry(2.1, 1.5, 1.2, 8, 0.24), gelMaterial())
   tv.add(body)
 
-  const bezel = new THREE.Mesh(new RoundedBoxGeometry(1.52, 1.18, 0.08, 6, 0.16), glossDark())
+  const bezel = new THREE.Mesh(new RoundedBoxGeometry(1.52, 1.18, 0.08, 6, 0.16), aero('#07142e'))
   bezel.position.set(-0.22, 0, 0.58)
   tv.add(bezel)
 
@@ -125,7 +176,7 @@ export function makeTV() {
   for (let i = 0; i < pos.count; i++) {
     const x = pos.getX(i)
     const y = pos.getY(i)
-    pos.setZ(i, 0.06 * (1 - (x * x) / 0.48 - (y * y) / 0.27))
+    pos.setZ(i, 0.05 * (1 - (x * x) / 0.4761) * (1 - (y * y) / 0.2704))
   }
   screenGeo.computeVertexNormals()
   const screen = new THREE.Mesh(
@@ -134,27 +185,27 @@ export function makeTV() {
       map: texture,
       emissive: '#ffffff',
       emissiveMap: texture,
-      emissiveIntensity: 0.9,
-      roughness: 0.08,
-      clearcoat: 1,
+      emissiveIntensity: 0.62,
+      roughness: 0.3,
       metalness: 0,
+      envMapIntensity: 0.15,
     }),
   )
-  screen.position.set(-0.22, 0, 0.625)
+  screen.position.set(-0.22, 0, 0.622)
   tv.add(screen)
 
   // Knobs and speaker slots on the right panel.
-  const knobMat = chrome('#ffffff', 0.08)
-  for (const [y, r] of [
-    [0.32, 0.11],
-    [0.04, 0.085],
+  // Glossy orbs: a green power button and an aqua dial, like the XP and Vista start buttons.
+  for (const [y, r, color] of [
+    [0.32, 0.11, '#45c32e'],
+    [0.04, 0.085, '#7fe0ff'],
   ] as const) {
-    const knob = new THREE.Mesh(new THREE.CylinderGeometry(r, r, 0.08, 40), knobMat)
-    knob.rotation.x = Math.PI / 2
-    knob.position.set(0.77, y, 0.62)
+    const knob = new THREE.Mesh(new THREE.SphereGeometry(r, 40, 24), aero(color))
+    knob.scale.z = 0.55
+    knob.position.set(0.77, y, 0.6)
     tv.add(knob)
   }
-  const slotMat = glossDark()
+  const slotMat = aero('#0d3f9c')
   for (let k = 0; k < 4; k++) {
     const slot = new THREE.Mesh(new RoundedBoxGeometry(0.26, 0.03, 0.02, 2, 0.01), slotMat)
     slot.position.set(0.77, -0.2 - k * 0.075, 0.6)
@@ -254,8 +305,8 @@ export function makePhone() {
   c.height = 1024
   const x = c.getContext('2d')!
   const gr = x.createLinearGradient(0, 0, 512, 1024)
-  gr.addColorStop(0, '#1f35ff')
-  gr.addColorStop(1, '#1f35ff')
+  gr.addColorStop(0, '#1668e8')
+  gr.addColorStop(1, '#1668e8')
   x.fillStyle = gr
   x.fillRect(0, 0, 512, 1024)
   x.fillStyle = 'rgba(255,255,255,0.95)'

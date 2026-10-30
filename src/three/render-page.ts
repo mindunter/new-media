@@ -44,7 +44,7 @@ async function renderObject(name: string, w = 1600, h = 1200) {
   key.position.set(3, 4, 5)
   const rim = new THREE.DirectionalLight('#ffffff', 2.2)
   rim.position.set(-4, 2, -3)
-  const fill = new THREE.DirectionalLight('#1f35ff', 1.2)
+  const fill = new THREE.DirectionalLight('#1668e8', 1.2)
   fill.position.set(-3, -2, 4)
   scene.add(key, rim, fill, new THREE.AmbientLight('#ffffff', 0.25))
   const obj = builders[name]()
@@ -83,22 +83,22 @@ float fbm(vec2 p){
 void main(){
   vec2 uv = gl_FragCoord.xy / res;           // 0 at bottom
   float y = 1.0 - uv.y;                       // 0 at top
-  vec3 topL = vec3(0.09,0.20,0.78), midL = vec3(0.23,0.40,0.96), lowL = vec3(0.70,0.77,1.0);
-  vec3 topD = vec3(0.03,0.04,0.16), midD = vec3(0.12,0.11,0.42), lowD = vec3(0.30,0.18,0.56);
+  vec3 topL = vec3(0.05,0.33,0.86), midL = vec3(0.18,0.55,0.98), lowL = vec3(0.72,0.88,1.0);
+  vec3 topD = vec3(0.02,0.05,0.16), midD = vec3(0.05,0.14,0.42), lowD = vec3(0.12,0.27,0.60);
   vec3 top = mix(topL, topD, dark), mid = mix(midL, midD, dark), low = mix(lowL, lowD, dark);
   vec3 sky = mix(top, mid, smoothstep(0.0, 0.55, y));
   sky = mix(sky, low, smoothstep(0.45, 1.0, y));
   // Sun / glow haze.
   float glow = exp(-6.0 * distance(uv, vec2(0.5, 0.62)));
-  sky += mix(vec3(0.35,0.42,0.55), vec3(0.25,0.12,0.45), dark) * glow * 0.6;
+  sky += mix(vec3(0.30,0.40,0.50), vec3(0.10,0.20,0.45), dark) * glow * 0.3;
   // Clouds: dense along the bottom, wispy higher up.
   vec2 p = vec2(uv.x * res.x / res.y, uv.y) * 2.6;
   float n = fbm(p + vec2(0.0, 0.3)) ;
   float n2 = fbm(p * 1.8 + n * 1.5);
   float band = smoothstep(0.62, 0.05, uv.y);  // more cloud near the bottom
   float c = smoothstep(0.42, 0.78, n2 * 0.9 + band * 0.55 - 0.18);
-  vec3 cloudLit = mix(vec3(1.0), vec3(0.78,0.74,1.0), dark);
-  vec3 cloudShade = mix(vec3(0.72,0.78,1.0), vec3(0.32,0.24,0.62), dark);
+  vec3 cloudLit = mix(vec3(1.0), vec3(0.70,0.82,1.0), dark);
+  vec3 cloudShade = mix(vec3(0.76,0.87,1.0), vec3(0.20,0.32,0.62), dark);
   vec3 cloud = mix(cloudShade, cloudLit, smoothstep(0.35, 0.9, n2));
   vec3 col = mix(sky, cloud, c * mix(0.92, 0.75, dark));
   // Stars in dark mode.

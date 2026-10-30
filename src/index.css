@@ -4,7 +4,7 @@
 @custom-variant dark (&:where(:root[data-theme='dark'] *));
 
 /*
- * Brand tokens: one dark (ink), one bold colour (electric blue), plus white.
+ * Brand tokens: one dark (ink), one bold colour (sky blue), plus white.
  * Change --fill and --accent here to rebrand the whole site.
  *
  * base / surface   page background and raised cards
@@ -23,12 +23,12 @@
   --deep-2: #1a1c26;
   --on-deep: #f4f5f8;
   --on-deep-muted: #a3a6b4;
-  --accent: #1f35ff;
-  --accent-2: #1f35ff;
-  --accent-3: #1f35ff;
-  --fill: #1f35ff;
-  --soft: #a9b2ff;
-  --live: #1f35ff;
+  --accent: #1668e8;
+  --accent-2: #1668e8;
+  --accent-3: #1668e8;
+  --fill: #1668e8;
+  --soft: #a9d3ff;
+  --live: #1668e8;
   --dot: 11, 12, 20;
   color-scheme: light;
 }
@@ -41,12 +41,12 @@
   --deep-2: #1a1c26;
   --on-deep: #f4f5f8;
   --on-deep-muted: #a3a6b4;
-  --accent: #8593ff;
-  --accent-2: #8593ff;
-  --accent-3: #8593ff;
-  --fill: #1f35ff;
-  --soft: #a9b2ff;
-  --live: #8593ff;
+  --accent: #6fb0ff;
+  --accent-2: #6fb0ff;
+  --accent-3: #6fb0ff;
+  --fill: #1668e8;
+  --soft: #a9d3ff;
+  --live: #6fb0ff;
   --dot: 244, 245, 248;
   color-scheme: dark;
 }
@@ -162,6 +162,9 @@
     color: var(--fg);
     background: color-mix(in srgb, var(--accent) 9%, transparent);
     box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--accent) 22%, transparent);
+  }
+  .label-pill-dark::before {
+    background: #fff !important;
   }
   .label-pill-dark {
     color: #fff;

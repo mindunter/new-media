@@ -3,19 +3,21 @@ import { brand, cta, nav } from '@/content'
 import { art } from '@/lib/paths'
 import { Button } from './Button'
 import { LogoFull } from './Logo'
+import { Sky } from './Sky'
 
 const YEAR = new Date().getFullYear()
 
 /** The call to action at the end of every page except Contact, on the bold colour. */
 function CtaBand() {
   return (
-    <div className="bg-brand text-white">
+    <div className="relative isolate overflow-hidden text-white">
+      <Sky scrim position="50% 62%" />
       <div className="shell grid items-center gap-8 py-16 sm:py-20 md:grid-cols-[minmax(0,1fr)_auto]">
         <div>
-          <h2 className="display text-[clamp(2.4rem,6vw,5rem)]">
+          <h2 className="display text-[clamp(2.4rem,6vw,5rem)] [text-shadow:0_2px_24px_rgb(5_40_120/0.3)]">
             Launching soon? <span className="serif italic">Book a call.</span>
           </h2>
-          <p className="mt-4 max-w-lg text-[1.05rem] text-white/85">
+          <p className="mt-4 w-fit max-w-lg text-[1.05rem] text-white [text-shadow:0_1px_12px_rgb(5_40_120/0.35)]">
             Tell us what you are shipping. We reply within one business day with a plan and a timeline.
           </p>
           <div className="mt-7">

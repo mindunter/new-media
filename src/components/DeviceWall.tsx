@@ -25,7 +25,7 @@ function Screen({ start, every, size = 'md' }: { start: number; every: number; s
   const i = useChannel(start, every)
   const l = launches[i]
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-[inherit] bg-[radial-gradient(120%_90%_at_30%_10%,#1f35ff_0%,#10174f_45%,#0b0c14_100%)] text-white">
+    <div className="relative h-full w-full overflow-hidden rounded-[inherit] bg-[linear-gradient(180deg,#0f5fd8_0%,#2f8ff2_62%,#2f8f1f_62.5%,#2a7f1c_100%)] text-white">
       <AnimatePresence mode="popLayout" initial={false}>
         <motion.div
           key={i}
@@ -77,8 +77,9 @@ function Screen({ start, every, size = 'md' }: { start: number; every: number; s
   )
 }
 
+// Glossy XP/Vista plastic: a bright upper half over a saturated lower half.
 const body =
-  'bg-[linear-gradient(160deg,color-mix(in_srgb,var(--fg)_5%,var(--base)),color-mix(in_srgb,var(--fg)_16%,var(--base)))] shadow-[0_30px_60px_-30px_rgb(10_20_80/0.6),inset_0_1px_0_rgb(255_255_255/0.5)]'
+  'bg-[linear-gradient(180deg,#a9dcff_0%,#4fa8f5_46%,#1a7ff0_50%,#1668e8_100%)] shadow-[0_24px_50px_-26px_rgb(5_40_120/0.7),inset_0_1px_0_rgb(255_255_255/0.8)]'
 
 function Device({
   depth,
@@ -167,8 +168,8 @@ export function DeviceWall({ className }: { className?: string }) {
             <Screen start={0} every={3400} size="lg" />
           </div>
           <div className="flex w-[11%] flex-col items-center justify-center gap-[18%]">
-            <span className="aspect-square w-full rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff,#9aa3c7)] shadow-inner" />
-            <span className="aspect-square w-[80%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff,#9aa3c7)] shadow-inner" />
+            <span className="aspect-square w-full rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff,#45c32e)] shadow-inner" />
+            <span className="aspect-square w-[80%] rounded-full bg-[radial-gradient(circle_at_35%_30%,#fff,#45c32e)] shadow-inner" />
             <span className="mt-2 grid w-full gap-[3px]">
               {[0, 1, 2].map((k) => (
                 <span key={k} className="h-[2px] w-full rounded bg-fg/25" />

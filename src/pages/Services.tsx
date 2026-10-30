@@ -9,7 +9,7 @@ export default function Services() {
         label="Services"
         title={
           <>
-            Four ways to get <span className="serif text-accent italic">seen.</span>
+            Four ways to get <span className="serif italic">seen.</span>
           </>
         }
         lead="Launch campaigns, clipping, founder podcasts and creator video, run by one team so every piece tells the same story."

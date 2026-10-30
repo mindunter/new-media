@@ -13,7 +13,7 @@ const button = cva(
       variant: {
         signal: 'bg-fill text-white hover:bg-deep dark:hover:bg-white dark:hover:text-deep',
         ink: 'bg-fg text-page hover:bg-fill hover:text-white',
-        light: 'bg-white text-deep hover:bg-deep hover:text-white',
+        light: 'bg-white text-deep shadow-[0_10px_26px_-10px_rgb(5_40_120/0.55)] hover:bg-deep hover:text-white',
         outline: 'text-fg ring-1 ring-fg/25 ring-inset hover:bg-fg hover:text-page',
         outlineDark: 'text-on-deep ring-1 ring-on-deep/30 ring-inset hover:bg-on-deep hover:text-deep',
       },

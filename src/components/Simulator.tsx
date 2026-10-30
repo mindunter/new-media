@@ -182,7 +182,7 @@ export function Simulator() {
                     key={i}
                     className="h-3 w-3 rounded-full"
                     animate={{
-                      backgroundColor: i < Math.round((creators / MAX) * 40) ? '#a9b2ff' : 'rgba(244,244,251,0.1)',
+                      backgroundColor: i < Math.round((creators / MAX) * 40) ? '#a9d3ff' : 'rgba(244,244,251,0.1)',
                       scale: i < Math.round((creators / MAX) * 40) ? 1 : 0.7,
                     }}
                     transition={{ duration: 0.3, delay: i * 0.004 }}
@@ -210,8 +210,8 @@ export function Simulator() {
                 <svg viewBox="0 0 600 220" preserveAspectRatio="none" className="h-56 w-full sm:h-72" aria-hidden>
                   <defs>
                     <linearGradient id="sim-fill" x1="0" x2="0" y1="0" y2="1">
-                      <stop offset="0%" stopColor="#1f35ff" stopOpacity="0.6" />
-                      <stop offset="100%" stopColor="#1f35ff" stopOpacity="0" />
+                      <stop offset="0%" stopColor="#1668e8" stopOpacity="0.6" />
+                      <stop offset="100%" stopColor="#1668e8" stopOpacity="0" />
                     </linearGradient>
                   </defs>
                   {[55, 110, 165].map((gy) => (
@@ -227,7 +227,7 @@ export function Simulator() {
                     animate={{ d }}
                     transition={{ type: 'spring', stiffness: 120, damping: 20 }}
                     fill="none"
-                    stroke="#a9b2ff"
+                    stroke="#a9d3ff"
                     strokeWidth="2.5"
                     vectorEffect="non-scaling-stroke"
                   />
