@@ -4,17 +4,20 @@
  * Launch figures come from the launches @newmediahq reposted on X and are
  * correct as of `asOf`. They keep growing, so refresh them before publishing.
  *
- * PLACEHOLDER: the booking link, contact email and the LinkedIn, YouTube and
+ * PLACEHOLDER: the booking endpoint, contact email and the LinkedIn, YouTube and
  * Instagram links are not real yet. The network map and launch simulator are illustrations.
  */
 
-export const asOf = '29 Oct 2026'
+export const asOf = '1 Nov 2026'
 
 export const brand = {
   name: 'New Media',
   email: 'hello@newmedia.example',
-  /** Paste the Cal.com or Calendly link here. Until then, every CTA goes to the Contact page. */
-  bookingLink: '',
+  /**
+   * URL of the deployed Google Apps Script (see integrations/booking-apps-script.gs). When set, the
+   * calendar creates a Google Calendar event with a Meet link. Until then, it opens a prefilled email.
+   */
+  bookingEndpoint: '',
   socials: [
     { label: 'X', href: 'https://x.com/newmediahq' },
     { label: 'LinkedIn', href: '#' },
@@ -26,7 +29,7 @@ export const brand = {
 /** The one call to action used across the site. */
 export const cta = {
   label: 'Book a call',
-  href: brand.bookingLink || '/contact',
+  href: '/contact',
 }
 
 export const nav = [
@@ -69,8 +72,133 @@ export const partner = {
   line: 'Integrated with Interact AI, so creators on Interact can join our campaigns.',
 }
 
-/** Investors behind the companies we launched. They back those companies, not New Media. */
-export const backers = ['Lightspeed', 'Khosla Ventures', 'Felicis', 'Insight Partners', 'Amplify Partners']
+/**
+ * Investors behind the companies we launched. They back those companies, not New Media.
+ * Each entry was checked against the company's own post or press coverage on the date in `asOf`.
+ * Interact AI, Charming, Capital Truist and webcmd are left out because no investors could be
+ * confirmed. Falconer is left out because BoxGroup appears in only one source.
+ */
+export const backing = [
+  {
+    client: 'Reactor',
+    raise: '$59M Seed and Series A',
+    amount: 59,
+    firms: ['Lightspeed', 'Amplify Partners', 'WndrCo', 'Sky9 Capital', 'FPV Ventures'],
+    source: 'https://x.com/reactorworld/status/2060015607928819876',
+  },
+  {
+    client: 'BackOps',
+    raise: '$42M Series B',
+    amount: 42,
+    firms: ['Insight Partners', 'Theory Ventures', 'Construct Capital', 'Gradient Ventures', '10VC'],
+    source: 'https://vcnewsdaily.com/backops.ai/venture-capital-funding/dtcfqrwkzz',
+  },
+  {
+    client: 'Runlayer',
+    raise: '$30M Series A',
+    amount: 30,
+    firms: ['Felicis', 'Khosla Ventures'],
+    source: 'https://x.com/berman66/status/2069787264654156194',
+  },
+  {
+    client: 'Sazabi',
+    raise: '$8M Seed',
+    amount: 8,
+    firms: ['J2 Ventures', 'Village Global', 'Y Combinator'],
+    source: 'https://www.sazabi.com/blog/seed-round',
+  },
+  {
+    client: 'Beacon',
+    raise: '$5.5M Seed',
+    amount: 5.5,
+    firms: ['Tower Research Ventures', 'Lytical Ventures', '1984 Ventures', 'South Park Commons'],
+    source: 'https://thenextweb.com/news/asymptote-labs-5-5m-seed-ai-agent-security',
+  },
+]
+
+export const firmCount = new Set(backing.flatMap((b) => b.firms)).size
+export const fundingTotal = backing.reduce((n, b) => n + b.amount, 0)
+
+export type Post = {
+  id: string
+  brand: string
+  name: string
+  handle: string
+  verified: boolean
+  date: string
+  text: string
+  views: number
+  likes: number
+  reposts: number
+  replies: number
+  bookmarks: number
+  video: boolean
+}
+
+/** Real launch posts reposted by @newmediahq, oldest first. Numbers read from X on the date in `asOf`. */
+export const posts: Post[] = [
+  { id: '2051662847130869780', brand: 'Interact AI', name: 'Interact AI', handle: 'interact_ai', verified: false, date: '2026-05-05', text: 'Introducing Interact AI: a new interface for the web.\n\nAdd it to your website, and it talks to every visitor, answers questions, and shows your product.', views: 2234708, likes: 3310, reposts: 522, replies: 282, bookmarks: 4223, video: true },
+  { id: '2060015607928819876', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-05-28', text: 'Today Reactor is coming out of stealth. We\u2019ve raised $59M in Seed and Series A funding, led by @lightspeedvp, with participation from @AmplifyPartners, @wndrco, @Sky9Capital, and @FPVventures.', views: 12739635, likes: 2343, reposts: 318, replies: 193, bookmarks: 627, video: true },
+  { id: '2069787264654156194', brand: 'Runlayer', name: 'Andy Berman', handle: 'berman66', verified: true, date: '2026-06-24', text: 'Today, we\u2019re announcing Runlayer has raised $30M from Felicis and Khosla Ventures to help companies go all in on AI.\n\nRunlayer is the golden path for AI: enablement, security, and control in one platform.', views: 813741, likes: 820, reposts: 203, replies: 157, bookmarks: 648, video: false },
+  { id: '2070151536257503519', brand: 'Sazabi', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-06-25', text: 'We raised $8m to build self-healing software.\n\nIn 2026, software moves fast.\n\nBut monitoring and observability are still manual and slow.', views: 1325647, likes: 1089, reposts: 226, replies: 227, bookmarks: 445, video: true },
+  { id: '2074935025771143626', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-08', text: 'Introducing Lingbot-World-2, our newest real-time world model.\n\nRicher interactivity, sharper visuals, and advanced camera controls that make exploring what you create feel truly alive.', views: 3803310, likes: 856, reposts: 187, replies: 118, bookmarks: 503, video: true },
+  { id: '2079250546624802918', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-20', text: 'Introducing Happy Oyster, the groundbreaking real-time world model from @HappyOysterAI, live today on Reactor!\n\nExplore any world you can imagine, or take the director\u2019s chair and shape the story as it happens.', views: 768726, likes: 333, reposts: 143, replies: 78, bookmarks: 142, video: true },
+  { id: '2100220712317329826', brand: 'BackOps', name: 'Sean McCarthy', handle: 'seanmcccarthy', verified: true, date: '2026-09-16', text: 'As AI models get better, cheaper and more widely available, we believe one of the biggest moats will be the proprietary data created by actually doing the work.\n\nToday, we\u2019re announcing a $42M Series B led by @insightpartners for @backopsai.', views: 609969, likes: 237, reposts: 88, replies: 57, bookmarks: 111, video: true },
+  { id: '2110038490859855990', brand: 'Sazabi', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-10-13', text: 'Today, we\u2019re launching Sazabi version 1.0.\n\nThe reality of shipping software as a team in the age of AI is actually crazy.\n\nAgents merging their own PRs. Hundreds of deployments per day.', views: 645061, likes: 499, reposts: 158, replies: 124, bookmarks: 204, video: true },
+  { id: '2112552451547001218', brand: 'Beacon', name: "Justin D'Souza", handle: 'jqdsouza', verified: true, date: '2026-10-20', text: 'We\u2019re betting our $5.5M seed round that the next leap in AI coding won\u2019t come from OpenAI or Anthropic.\n\nIntroducing Beacon: open-source, self-improving memory for coding agents.', views: 628634, likes: 1565, reposts: 305, replies: 323, bookmarks: 2157, video: true },
+]
+
+export const postUrl = (p: Post) => `https://x.com/${p.handle}/status/${p.id}`
+
+/** The card shown when someone clicks a client's bird in the hero. */
+export function clientCard(name: string) {
+  const own = posts.filter((p) => p.brand === name)
+  const top = [...own].sort((a, b) => b.views - a.views)[0]
+  const wall = portfolio.find((p) => p.name === name)
+  const sum = (k: 'likes' | 'bookmarks' | 'reposts') => own.reduce((n, p) => n + p[k], 0)
+  return {
+    name,
+    stat: wall?.stat ?? '',
+    detail: wall?.detail ?? 'Launch',
+    likes: sum('likes'),
+    bookmarks: sum('bookmarks'),
+    reposts: sum('reposts'),
+    url: top ? postUrl(top) : '',
+    backing: backing.find((b) => b.client === name),
+  }
+}
+
+/** Memes for the collage, hosted by GIPHY. Captions are ours. */
+export const memes = [
+  { id: 'YnkMcHgNIMW4Yfmjxr', caption: 'Views, hour one' },
+  { id: 'QMHoU66sBXqqLqYvGO', caption: 'Your ad budget' },
+  { id: 'DfLwM9kttDFEQ', caption: 'Founders at 1M views' },
+  { id: '13GIgrGdslD9oQ', caption: 'Creators at hour zero' },
+  { id: 'COYGe9rZvfiaQ', caption: 'Banner ads' },
+  { id: 'b85mPT4Usz7fq', caption: 'Launch day' },
+  { id: '6nWhy3ulBL7GSCvKw6', caption: 'Competitors, seeing your launch' },
+  { id: 'yAYZnhvY3fflS', caption: 'Your buyers, after the demo' },
+  { id: 'MuOGhW5GtDazUSJcL3', caption: 'Your buyer, all day' },
+  { id: '4wycNsucv3ofC', caption: 'The group chat' },
+  { id: '8VrtCswiLDNnO', caption: 'The creator brief' },
+  { id: 'CbyTM5aSzx1rSOv9GI', caption: 'The clip machine' },
+  { id: 'lXu72d4iKwqek', caption: 'Reading the launch report' },
+  { id: '1n4iuWZFnTeN6qvdpD', caption: 'Launching without distribution' },
+  { id: 'uoMmC0OnDUVwc', caption: 'CMO, reading the replies' },
+  { id: 'eImrJKnOmuBDmqXNUj', caption: 'Breaking: you are trending' },
+  { id: '30cLIgqIQQI5c8TUZ4', caption: 'The goal' },
+  { id: 'Y2zKC4qJfg1JFaql8G', caption: 'Bookmarks going up' },
+  { id: 'xCgeEazpis53cUqoZY', caption: 'A clean launch' },
+  { id: 'X39p7olayZuPfvBXQo', caption: 'Still scrolling' },
+]
+
+/** The finished Unsealed edit. Put the file in public/video and set `file` to show the section. */
+export const unsealed = {
+  file: '',
+  poster: '',
+  title: 'Unsealed',
+  line: 'The final video edit we made for the Unsealed platform.',
+}
 
 export type Launch = {
   brand: string
@@ -83,15 +211,15 @@ export type Launch = {
 
 /** Every launch so far, highest views first. */
 export const launches: Launch[] = [
-  { brand: 'Reactor', title: 'Out of stealth with a $59M Seed and Series A, led by Lightspeed', views: 12_700_000, likes: 2343, hue: 262 },
+  { brand: 'Reactor', title: 'Out of stealth with a $59M Seed and Series A, led by Lightspeed', views: 12_700_000, likes: 2343, bookmarks: 627, hue: 262 },
   { brand: 'Reactor', title: 'Lingbot-World-2 world model', views: 3_800_000, likes: 856, bookmarks: 503, hue: 262 },
-  { brand: 'Interact AI', title: 'Product launch', views: 2_200_000, likes: 3311, bookmarks: 4223, hue: 210 },
-  { brand: 'Sazabi', title: '$8M raise for self-healing software', views: 1_300_000, likes: 1090, hue: 160 },
-  { brand: 'Runlayer', title: '$30M raise with Felicis and Khosla', views: 814_000, likes: 821, bookmarks: 648, hue: 20 },
+  { brand: 'Interact AI', title: 'Product launch', views: 2_200_000, likes: 3310, bookmarks: 4223, hue: 210 },
+  { brand: 'Sazabi', title: '$8M raise for self-healing software', views: 1_300_000, likes: 1089, hue: 160 },
+  { brand: 'Runlayer', title: '$30M raise with Felicis and Khosla', views: 814_000, likes: 820, bookmarks: 648, hue: 20 },
   { brand: 'Reactor', title: 'Happy Oyster world model', views: 769_000, likes: 333, hue: 262 },
   { brand: 'Sazabi', title: 'v1.0 launch', views: 645_000, likes: 499, hue: 160 },
-  { brand: 'Beacon', title: '$5.5M seed for open-source memory for coding agents', views: 627_000, likes: 1567, bookmarks: 2158, hue: 300 },
-  { brand: 'BackOps', title: '$42M Series B, led by Insight Partners', views: 610_000, likes: 238, hue: 45 },
+  { brand: 'Beacon', title: '$5.5M seed for open-source memory for coding agents', views: 629_000, likes: 1565, bookmarks: 2157, hue: 300 },
+  { brand: 'BackOps', title: '$42M Series B, led by Insight Partners', views: 610_000, likes: 237, hue: 45 },
   { brand: 'Sazabi', title: 'cve.now launch', views: 384_000, hue: 160 },
   { brand: 'Falconer', title: 'Launch', views: 354_000, hue: 120 },
 ]
@@ -182,7 +310,7 @@ export const cases = [
     metrics: [
       { k: 'Views', v: '2.2M' },
       { k: 'Bookmarks', v: '4,223' },
-      { k: 'Likes', v: '3,311' },
+      { k: 'Likes', v: '3,310' },
     ],
   },
   {
@@ -204,7 +332,7 @@ export const portfolio = [
   { name: 'Sazabi', stat: '2.3M', detail: 'views across 3 launches' },
   { name: 'Interact AI', stat: '2.2M', detail: 'views on product launch' },
   { name: 'Runlayer', stat: '814K', detail: 'views on $30M raise' },
-  { name: 'Beacon', stat: '627K', detail: 'views on $5.5M seed' },
+  { name: 'Beacon', stat: '629K', detail: 'views on $5.5M seed' },
   { name: 'BackOps', stat: '610K', detail: 'views on $42M Series B' },
   { name: 'Falconer', stat: '354K', detail: 'views on launch' },
   { name: 'Charming', stat: '', detail: 'Launch' },
@@ -216,7 +344,7 @@ export const portfolio = [
 export const reasons = [
   {
     title: 'Trusted',
-    body: 'Teams backed by Lightspeed, Khosla and Insight Partners have launched with us. Every number here comes from public launch posts.',
+    body: 'Teams backed by Lightspeed, Khosla, Insight Partners and Y Combinator have launched with us. Every number here links back to a public post.',
   },
   {
     title: 'Reliable',

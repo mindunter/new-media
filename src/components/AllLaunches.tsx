@@ -103,7 +103,7 @@ export function AllLaunches() {
           {clients
             .filter((c) => !launches.some((l) => l.brand === c.name))
             .map((c) => (
-              <span key={c.name} className="flex h-7 items-center text-fg/80">
+              <span key={c.name} className="flex h-7 items-center text-fg/90">
                 <ClientLogo name={c.name} height={20} />
               </span>
             ))}

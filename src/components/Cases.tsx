@@ -56,18 +56,18 @@ function Card({
         <div className="mt-8 grid gap-8 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)] lg:items-end">
           <div>
             <h3 className="serif text-[clamp(2rem,4vw,4rem)] leading-[1.05] text-balance">{c.title}</h3>
-            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed opacity-90 sm:text-lg">{c.body}</p>
+            <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed sm:text-lg">{c.body}</p>
           </div>
           <div className="lg:text-right">
             <p className="serif text-[clamp(3.6rem,9vw,9rem)] leading-[0.85]">{lead.v}</p>
-            <p className="mt-2 text-sm font-semibold opacity-90">{lead.k}</p>
+            <p className="mt-2 text-sm font-semibold">{lead.k}</p>
           </div>
         </div>
 
         <dl className="mt-8 grid grid-cols-2 gap-6 border-t border-current/20 pt-5 sm:max-w-md">
           {rest.map((m) => (
             <div key={m.k} className="flex flex-col-reverse gap-1">
-              <dt className="text-sm opacity-90">{m.k}</dt>
+              <dt className="text-sm">{m.k}</dt>
               <dd className="display text-[clamp(1.6rem,2.6vw,2.4rem)]">{m.v}</dd>
             </div>
           ))}

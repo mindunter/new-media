@@ -16,7 +16,7 @@ export function Faq() {
             <h2 id="faq-title" className="display text-[clamp(2.2rem,5vw,4.8rem)]">
               Questions
             </h2>
-            <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-fg/70 sm:text-lg">
+            <p className="mt-5 max-w-sm text-[1.05rem] leading-relaxed text-muted sm:text-lg">
               Anything else, email us and we'll reply within a day.
             </p>
           </div>
@@ -59,7 +59,7 @@ export function Faq() {
                       transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
                       className="overflow-hidden"
                     >
-                      <p className="max-w-2xl pb-6 text-[1.05rem] leading-relaxed text-fg/70 sm:text-lg">{f.a}</p>
+                      <p className="max-w-2xl pb-6 text-[1.05rem] leading-relaxed text-muted sm:text-lg">{f.a}</p>
                     </motion.div>
                   )}
                 </AnimatePresence>

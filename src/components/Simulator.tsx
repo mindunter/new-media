@@ -57,7 +57,7 @@ function Segmented<T extends string>({
   const id = useId()
   return (
     <fieldset>
-      <legend className="mb-3 text-sm font-semibold text-on-deep/70">{label}</legend>
+      <legend className="mb-3 text-sm font-semibold text-on-deep-muted">{label}</legend>
       <div className="relative grid rounded-full bg-deep/25 p-1" style={{ gridTemplateColumns: `repeat(${options.length}, 1fr)` }}>
         {options.map((o) => {
           const active = o.id === value
@@ -78,7 +78,7 @@ function Segmented<T extends string>({
                   transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                 />
               )}
-              <span className={cn('relative z-10 transition-colors', active ? 'text-fg' : 'text-on-deep/80')}>{o.label}</span>
+              <span className={cn('relative z-10 transition-colors', active ? 'text-fg' : 'text-on-deep')}>{o.label}</span>
               <span className="pointer-events-none absolute inset-0 rounded-full peer-focus-visible:ring-2 peer-focus-visible:ring-on-deep" />
             </label>
           )
@@ -127,7 +127,7 @@ export function Simulator() {
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="max-w-md text-[1.05rem] leading-relaxed text-on-deep/85 sm:text-lg md:justify-self-end">
+            <p className="max-w-md text-[1.05rem] leading-relaxed text-on-deep sm:text-lg md:justify-self-end">
               Change the inputs to see how reach grows with the number of creators posting. It's a rough model to start a
               conversation, not a quote.
             </p>
@@ -141,7 +141,7 @@ export function Simulator() {
 
               <div>
                 <div className="mb-3 flex items-baseline justify-between">
-                  <label htmlFor="creators" className="text-sm font-semibold text-on-deep/70">
+                  <label htmlFor="creators" className="text-sm font-semibold text-on-deep-muted">
                     Creators in the wave
                   </label>
                   <span className="display text-3xl">{creators}</span>
@@ -168,7 +168,7 @@ export function Simulator() {
                     className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
                   />
                 </div>
-                <div className="mt-2 flex justify-between text-xs text-on-deep/50">
+                <div className="mt-2 flex justify-between text-xs text-on-deep-muted">
                   <span>{MIN}</span>
                   <span>{MAX}</span>
                 </div>
@@ -194,14 +194,14 @@ export function Simulator() {
             <div className="flex min-w-0 flex-col p-5 sm:p-8">
               <div className="flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <p className="text-sm font-semibold text-on-deep/70">Projected impressions</p>
+                  <p className="text-sm font-semibold text-on-deep-muted">Projected impressions</p>
                   <p className="display mt-2 text-[clamp(2.2rem,5vw,4.6rem)]" aria-live="polite">
                     <span ref={out} className="tabular-nums">
                       {Math.round(total).toLocaleString('en')}
                     </span>
                   </p>
                 </div>
-                <p className="rounded-full border border-on-deep/20 px-3 py-1 text-xs text-on-deep/70">
+                <p className="rounded-full border border-on-deep/20 px-3 py-1 text-xs text-on-deep-muted">
                   Rough estimate
                 </p>
               </div>
@@ -232,7 +232,7 @@ export function Simulator() {
                     vectorEffect="non-scaling-stroke"
                   />
                 </svg>
-                <div className="mt-2 flex justify-between text-xs text-on-deep/50">
+                <div className="mt-2 flex justify-between text-xs text-on-deep-muted">
                   <span>Day -7</span>
                   <span className="text-live">Launch</span>
                   <span>+{w.label}</span>
@@ -243,7 +243,7 @@ export function Simulator() {
                 {split.map((s) => (
                   <div key={s.k}>
                     <div className="flex justify-between text-sm">
-                      <span className="text-on-deep/70">{s.k}</span>
+                      <span className="text-on-deep-muted">{s.k}</span>
                       <span className="font-semibold">{Math.round((total * s.v) / 1000).toLocaleString('en')}K</span>
                     </div>
                     <div className="mt-2 h-1.5 overflow-hidden rounded-full bg-page/10">

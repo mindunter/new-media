@@ -83,11 +83,11 @@ export function WorkPreview() {
                     <span className="flex h-7 items-center">
                       <ClientLogo name={c.client} height={22} />
                     </span>
-                    <span className="text-xs opacity-80">{c.tag}</span>
+                    <span className="text-xs">{c.tag}</span>
                   </div>
                   <div>
                     <p className="serif text-[clamp(3rem,6vw,4.6rem)] leading-[0.9]">{c.metrics[0].v}</p>
-                    <p className="mt-2 text-sm opacity-85">{c.metrics[0].k}</p>
+                    <p className="mt-2 text-sm">{c.metrics[0].k}</p>
                     <p className="mt-5 text-[1.05rem] leading-snug font-medium">{c.title}</p>
                   </div>
                 </Link>

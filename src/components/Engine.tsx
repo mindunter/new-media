@@ -102,7 +102,7 @@ export function Engine() {
           <h2 id="engine-title" className="display text-[clamp(2.4rem,5.6vw,5.6rem)]">
             How a launch runs
           </h2>
-          <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-on-deep/70 sm:text-lg">
+          <p className="mt-6 max-w-md text-[1.05rem] leading-relaxed text-on-deep-muted sm:text-lg">
             Attention builds over a month: quiet weeks before launch, a spike in launch hour, then a long tail. We plan
             all of it, from the first brief to the final report.
           </p>
@@ -124,7 +124,7 @@ export function Engine() {
             <h3 data-in className="display mt-4 text-[clamp(2.2rem,4vw,4rem)]">
               {step.title}
             </h3>
-            <p data-in className="mt-4 max-w-sm text-[1.05rem] leading-relaxed text-on-deep/70 sm:text-lg">
+            <p data-in className="mt-4 max-w-sm text-[1.05rem] leading-relaxed text-on-deep-muted sm:text-lg">
               {step.body}
             </p>
           </article>

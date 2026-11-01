@@ -22,7 +22,7 @@
   --deep: #0b0c14;
   --deep-2: #1a1c26;
   --on-deep: #f4f5f8;
-  --on-deep-muted: #a3a6b4;
+  --on-deep-muted: #c6cad6;
   --accent: #1668e8;
   --accent-2: #1668e8;
   --accent-3: #1668e8;
@@ -33,20 +33,20 @@
   color-scheme: light;
 }
 :root[data-theme='dark'] {
-  --base: #0b0c14;
-  --surface: #15171f;
-  --fg: #f4f5f8;
-  --muted: #a3a6b4;
-  --deep: #0b0c14;
-  --deep-2: #1a1c26;
-  --on-deep: #f4f5f8;
-  --on-deep-muted: #a3a6b4;
-  --accent: #6fb0ff;
-  --accent-2: #6fb0ff;
-  --accent-3: #6fb0ff;
+  --base: #0a0f1c;
+  --surface: #141b2d;
+  --fg: #ffffff;
+  --muted: #cfd6e6;
+  --deep: #060a14;
+  --deep-2: #141b2d;
+  --on-deep: #ffffff;
+  --on-deep-muted: #cfd6e6;
+  --accent: #8cc4ff;
+  --accent-2: #8cc4ff;
+  --accent-3: #8cc4ff;
   --fill: #1668e8;
-  --soft: #a9d3ff;
-  --live: #6fb0ff;
+  --soft: #bfe0ff;
+  --live: #8cc4ff;
   --dot: 244, 245, 248;
   color-scheme: dark;
 }
@@ -201,6 +201,18 @@ html.lenis body {
   to {
     transform: translateX(-50%);
   }
+}
+
+/* Rows of X posts drift sideways and stop while someone reads one. */
+.post-row {
+  animation: marquee var(--dur, 70s) linear infinite;
+}
+.post-row:hover,
+.post-row:focus-within {
+  animation-play-state: paused;
+}
+.post-row[data-reverse='true'] {
+  animation-direction: reverse;
 }
 
 @keyframes floaty {

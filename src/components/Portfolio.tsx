@@ -1,5 +1,5 @@
 import { Link } from 'react-router'
-import { backers, portfolio, reasons } from '@/content'
+import { portfolio, reasons } from '@/content'
 import { ClientLogo } from './ClientLogo'
 import { Reveal } from './Reveal'
 
@@ -33,10 +33,6 @@ export function Portfolio() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-sm text-muted">
-          These companies are backed by investors including {backers.slice(0, -1).join(', ')} and{' '}
-          {backers[backers.length - 1]}.
-        </p>
       </div>
     </section>
   )
@@ -57,7 +53,7 @@ export function Reasons() {
             <Reveal key={r.title} delay={i * 0.05}>
               <div className="border-t border-on-deep/20 pt-5">
                 <h3 className="serif text-[clamp(1.9rem,3vw,2.6rem)] leading-none text-soft italic">{r.title}</h3>
-                <p className="mt-4 text-[1.02rem] leading-relaxed text-on-deep/75">{r.body}</p>
+                <p className="mt-4 text-[1.02rem] leading-relaxed text-on-deep-muted">{r.body}</p>
               </div>
             </Reveal>
           ))}

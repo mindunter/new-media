@@ -375,7 +375,7 @@ export function Network() {
             </h2>
           </Reveal>
           <Reveal delay={0.05}>
-            <p className="max-w-md text-[1.05rem] leading-relaxed text-fg/70 sm:text-lg md:justify-self-end">
+            <p className="max-w-md text-[1.05rem] leading-relaxed text-muted sm:text-lg md:justify-self-end">
               45+ creators have already run campaigns with us. Each dot here is an account your buyers follow: press the
               button and follow a launch from the people we brief to everyone they reach.
             </p>
@@ -401,11 +401,11 @@ export function Network() {
             )}
 
             <div className="pointer-events-none absolute top-3 left-3 rounded-2xl bg-page/90 px-4 py-3 backdrop-blur-md sm:top-5 sm:left-5">
-              <p className="text-xs font-semibold text-fg/60">Audience reached</p>
+              <p className="text-xs font-semibold text-muted">Audience reached</p>
               <p ref={reachedRef} className="display mt-1 text-2xl sm:text-4xl">
                 0
               </p>
-              <p className="mt-1 text-xs text-fg/60">
+              <p className="mt-1 text-xs text-muted">
                 Accounts posting: <span ref={nodesRef}>0</span>
               </p>
             </div>

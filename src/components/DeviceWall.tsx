@@ -40,7 +40,7 @@ function Screen({ start, every, size = 'md' }: { start: number; every: number; s
         >
           <p
             className={cn(
-              'flex items-center gap-1.5 font-semibold text-white/80',
+              'flex items-center gap-1.5 font-semibold text-white',
               size === 'lg' ? 'text-[clamp(0.6rem,1vw,0.85rem)]' : 'text-[clamp(0.5rem,0.8vw,0.7rem)]',
             )}
           >
@@ -61,7 +61,7 @@ function Screen({ start, every, size = 'md' }: { start: number; every: number; s
             </p>
             <p
               className={cn(
-                'mt-1 text-white/75',
+                'mt-1 text-white',
                 size === 'lg' ? 'text-[clamp(0.6rem,1vw,0.85rem)]' : 'line-clamp-2 text-[clamp(0.45rem,0.75vw,0.65rem)]',
               )}
             >

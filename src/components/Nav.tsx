@@ -52,7 +52,7 @@ export function Nav() {
                   className={({ isActive }) =>
                     cn(
                       'block rounded-full px-3.5 py-2 text-[0.92rem] font-medium transition-colors',
-                      isActive ? 'bg-fg/[0.08] text-fg' : 'text-fg/75 hover:bg-fg/[0.06] hover:text-fg',
+                      isActive ? 'bg-fg/[0.08] text-fg' : 'text-fg/90 hover:bg-fg/[0.06] hover:text-fg',
                     )
                   }
                 >

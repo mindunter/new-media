@@ -66,7 +66,7 @@ export function Marquee() {
   const items = (
     <span className="flex shrink-0 items-center">
       {clients.map((c) => (
-        <span key={c.name} className="group flex h-12 shrink-0 items-center px-7 text-fg/75 transition-colors duration-300 hover:text-accent sm:px-11">
+        <span key={c.name} className="group flex h-12 shrink-0 items-center px-7 text-fg/85 transition-colors duration-300 hover:text-accent sm:px-11">
           <ClientLogo name={c.name} height={size} />
         </span>
       ))}

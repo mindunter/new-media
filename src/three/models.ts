@@ -364,3 +364,49 @@ export function makeClapper() {
   g.rotation.set(-0.2, 0.4, -0.08)
   return g
 }
+
+/** A small glossy bird, facing +x, with wings on pivots so they can flap. */
+export function makeBird(wing = '#1668e8') {
+  const g = new THREE.Group()
+  const bodyMat = aero('#ffffff')
+  const wingMat = aero(wing)
+  wingMat.side = THREE.DoubleSide
+  const body = new THREE.Mesh(new THREE.SphereGeometry(0.3, 28, 20), bodyMat)
+  body.scale.set(1.25, 0.8, 0.75)
+  g.add(body)
+  const head = new THREE.Mesh(new THREE.SphereGeometry(0.17, 24, 18), bodyMat)
+  head.position.set(0.34, 0.13, 0)
+  g.add(head)
+  const beak = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.17, 14), aero('#ffa51f'))
+  beak.rotation.z = -Math.PI / 2
+  beak.position.set(0.55, 0.11, 0)
+  g.add(beak)
+  for (const s of [-1, 1]) {
+    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.03, 12, 10), aero('#07142e'))
+    eye.position.set(0.43, 0.18, s * 0.12)
+    g.add(eye)
+  }
+  const tail = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.36, 3), wingMat)
+  tail.rotation.z = Math.PI / 2
+  tail.scale.z = 0.3
+  tail.position.set(-0.47, 0.02, 0)
+  g.add(tail)
+
+  const shape = new THREE.Shape()
+  shape.moveTo(-0.16, 0)
+  shape.quadraticCurveTo(-0.28, 0.42, -0.1, 0.72)
+  shape.quadraticCurveTo(0.12, 0.42, 0.18, 0)
+  shape.closePath()
+  const wingGeo = new THREE.ExtrudeGeometry(shape, { depth: 0.015, bevelEnabled: false, curveSegments: 12 })
+  const makeWing = (s: number) => {
+    const pivot = new THREE.Group()
+    pivot.position.set(0.02, 0.12, s * 0.12)
+    const m = new THREE.Mesh(wingGeo, wingMat)
+    // Lay the wing out sideways from the body.
+    m.rotation.x = s * (Math.PI / 2)
+    pivot.add(m)
+    g.add(pivot)
+    return pivot
+  }
+  return { group: g, wingL: makeWing(1), wingR: makeWing(-1) }
+}

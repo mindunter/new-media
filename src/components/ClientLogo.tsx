@@ -14,7 +14,7 @@ import { cn } from '@/lib/utils'
  * the current text colour, so every logo matches the surrounding type in both
  * light and dark mode. Ratio is width / height of the trimmed artwork.
  */
-const logos: Record<string, { file: string; ratio: number }> = {
+export const logos: Record<string, { file: string; ratio: number }> = {
   Reactor: { file: reactor, ratio: 8.703 },
   Sazabi: { file: sazabi, ratio: 6.125 },
   Runlayer: { file: runlayer, ratio: 4.525 },
