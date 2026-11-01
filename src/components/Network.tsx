@@ -427,7 +427,7 @@ export function Network() {
                   onPointerLeave={(e) => e.pointerType === 'mouse' && setFocus(null)}
                   className={cn(
                     'shrink-0 rounded-full px-4 py-2 text-sm font-medium transition-colors',
-                    focus === i ? 'bg-fg text-page' : 'bg-page text-fg hover:bg-fg hover:text-page',
+                    focus === i ? 'bg-fg text-page' : 'bg-page text-fg ring-1 ring-fg/15 hover:bg-fg hover:text-page',
                   )}
                 >
                   {g.label}

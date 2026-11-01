@@ -89,7 +89,7 @@ function BirdCard({ name, at, onClose }: { name: string; at: { x: number; y: num
       exit={{ opacity: 0, scale: 0.85, y: 10 }}
       transition={{ type: 'spring', stiffness: 420, damping: 30 }}
       style={{ '--x': `${at.x}px`, '--y': `${at.y}px` } as React.CSSProperties}
-      className="pointer-events-auto fixed inset-x-3 bottom-3 z-40 rounded-3xl bg-page p-5 text-fg shadow-[0_30px_70px_-20px_rgb(4_30_90/0.6)] ring-1 ring-fg/10 lg:absolute lg:inset-x-auto lg:bottom-auto lg:top-[var(--y)] lg:left-[var(--x)] lg:w-[340px]"
+      className="pointer-events-auto fixed inset-x-3 bottom-3 z-40 rounded-3xl bg-page p-5 text-fg shadow-[0_30px_70px_-20px_rgb(4_30_90/0.6)] ring-1 ring-fg/10 dark:bg-surface dark:ring-white/25 lg:absolute lg:inset-x-auto lg:bottom-auto lg:top-[var(--y)] lg:left-[var(--x)] lg:w-[340px]"
     >
       <div className="flex items-center justify-between gap-3">
         <span className="flex h-7 items-center">
@@ -230,7 +230,7 @@ export function Hero() {
               <Button href={cta.href} variant="light" size="lg" className="max-sm:flex-1">
                 {cta.label}
               </Button>
-              <Button href="/work" variant="outlineDark" size="lg" arrow={false} className="bg-[#062a78]/50 !text-white ring-white/30 backdrop-blur-md hover:!text-deep max-sm:flex-1">
+              <Button href="/work" variant="outlineDark" size="lg" arrow={false} className="bg-[#062a78]/50 !text-white ring-white/30 backdrop-blur-md hover:!text-[#0b0c14] max-sm:flex-1">
                 {hero.secondary}
               </Button>
             </div>

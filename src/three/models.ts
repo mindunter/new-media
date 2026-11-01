@@ -1,5 +1,6 @@
 import * as THREE from 'three'
 import { RoundedBoxGeometry } from 'three/examples/jsm/geometries/RoundedBoxGeometry.js'
+import { SVGLoader } from 'three/examples/jsm/loaders/SVGLoader.js'
 
 /*
  * Procedural brand objects in polished chrome: a retro TV, megaphone,
@@ -365,48 +366,44 @@ export function makeClapper() {
   return g
 }
 
-/** A small glossy bird, facing +x, with wings on pivots so they can flap. */
-export function makeBird(wing = '#1668e8') {
-  const g = new THREE.Group()
-  const bodyMat = aero('#ffffff')
-  const wingMat = aero(wing)
-  wingMat.side = THREE.DoubleSide
-  const body = new THREE.Mesh(new THREE.SphereGeometry(0.3, 28, 20), bodyMat)
-  body.scale.set(1.25, 0.8, 0.75)
-  g.add(body)
-  const head = new THREE.Mesh(new THREE.SphereGeometry(0.17, 24, 18), bodyMat)
-  head.position.set(0.34, 0.13, 0)
-  g.add(head)
-  const beak = new THREE.Mesh(new THREE.ConeGeometry(0.055, 0.17, 14), aero('#ffa51f'))
-  beak.rotation.z = -Math.PI / 2
-  beak.position.set(0.55, 0.11, 0)
-  g.add(beak)
-  for (const s of [-1, 1]) {
-    const eye = new THREE.Mesh(new THREE.SphereGeometry(0.03, 12, 10), aero('#07142e'))
-    eye.position.set(0.43, 0.18, s * 0.12)
-    g.add(eye)
-  }
-  const tail = new THREE.Mesh(new THREE.ConeGeometry(0.13, 0.36, 3), wingMat)
-  tail.rotation.z = Math.PI / 2
-  tail.scale.z = 0.3
-  tail.position.set(-0.47, 0.02, 0)
-  g.add(tail)
+const TWITTER_BIRD =
+  'M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'
 
-  const shape = new THREE.Shape()
-  shape.moveTo(-0.16, 0)
-  shape.quadraticCurveTo(-0.28, 0.42, -0.1, 0.72)
-  shape.quadraticCurveTo(0.12, 0.42, 0.18, 0)
-  shape.closePath()
-  const wingGeo = new THREE.ExtrudeGeometry(shape, { depth: 0.015, bevelEnabled: false, curveSegments: 12 })
-  const makeWing = (s: number) => {
-    const pivot = new THREE.Group()
-    pivot.position.set(0.02, 0.12, s * 0.12)
-    const m = new THREE.Mesh(wingGeo, wingMat)
-    // Lay the wing out sideways from the body.
-    m.rotation.x = s * (Math.PI / 2)
-    pivot.add(m)
-    g.add(pivot)
-    return pivot
+/** Bends the wing (upper left of the silhouette) up and down in the vertex shader. */
+function flapping(mat: THREE.MeshPhysicalMaterial, flap: { value: number }) {
+  mat.onBeforeCompile = (shader) => {
+    shader.uniforms.uFlap = flap
+    shader.vertexShader = shader.vertexShader
+      .replace('#include <common>', '#include <common>\nuniform float uFlap;')
+      .replace(
+        '#include <begin_vertex>',
+        `#include <begin_vertex>
+        float wing = smoothstep(0.1, -0.5, position.x) * smoothstep(-0.2, 0.3, position.y);
+        transformed.y += uFlap * wing * 0.3;
+        transformed.z += abs(uFlap) * wing * 0.16;`,
+      )
   }
-  return { group: g, wingL: makeWing(1), wingR: makeWing(-1) }
+}
+
+/** The Twitter bird as a glossy 3D badge, facing +x: blue with a white edge so it stands out on the blue sky. */
+export function makeTwitterBird() {
+  const shapes = new SVGLoader().parse(`<svg xmlns="http://www.w3.org/2000/svg"><path d="${TWITTER_BIRD}"/></svg>`).paths.flatMap((path) => SVGLoader.createShapes(path))
+  const flap = { value: 0 }
+  const make = (depth: number, bevel: number, color: string) => {
+    const geo = new THREE.ExtrudeGeometry(shapes, { depth, bevelEnabled: true, bevelSize: bevel, bevelThickness: 0.35, bevelSegments: 3, curveSegments: 14 })
+    // SVG runs y downward, and the artwork is 24 units wide. Centre on z so both layers line up.
+    geo.scale(1 / 24, -1 / 24, 1 / 24)
+    geo.translate(-0.5, 0.5, -depth / 48)
+    const mat = aero(color)
+    mat.side = THREE.DoubleSide
+    // Lit from within, so the blue stays true Twitter blue rather than shading to navy.
+    mat.emissive.set(color)
+    mat.emissiveIntensity = 0.75
+    mat.envMapIntensity = 0.6
+    flapping(mat, flap)
+    return new THREE.Mesh(geo, mat)
+  }
+  const group = new THREE.Group()
+  group.add(make(1, 0.95, '#ffffff'), make(2.6, 0.12, '#1d9bf0'))
+  return { group, flap }
 }

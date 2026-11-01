@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { ClientLogo } from './ClientLogo'
 import { Reveal } from './Reveal'
 
-const tones = ['bg-deep text-on-deep', 'bg-surface text-fg', 'bg-brand text-white']
+const tones = ['bg-deep text-on-deep dark:ring-1 dark:ring-white/20', 'bg-surface text-fg dark:ring-1 dark:ring-white/20', 'bg-brand text-white']
 
 function useIsLarge() {
   const [large, setLarge] = useState(() => window.matchMedia('(min-width: 1024px)').matches)

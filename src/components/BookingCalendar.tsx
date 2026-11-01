@@ -79,7 +79,7 @@ export function BookingCalendar({ className }: { className?: string }) {
 
   if (status === 'booked' || status === 'requested') {
     return (
-      <div className={cn('rounded-3xl bg-page p-6 text-fg shadow-[0_30px_70px_-30px_rgb(4_30_90/0.5)] sm:p-8', className)} role="status">
+      <div className={cn('rounded-3xl bg-page p-6 text-fg shadow-[0_30px_70px_-30px_rgb(4_30_90/0.5)] sm:p-8 dark:bg-surface dark:ring-1 dark:ring-white/25', className)} role="status">
         <span className="grid size-12 place-items-center rounded-full bg-fill text-white">
           <Check size={24} aria-hidden />
         </span>
@@ -108,7 +108,7 @@ export function BookingCalendar({ className }: { className?: string }) {
   const nextOk = new Date(view.getFullYear(), view.getMonth() + 1, 1) <= last
 
   return (
-    <form onSubmit={submit} className={cn('rounded-3xl bg-page p-5 text-fg shadow-[0_30px_70px_-30px_rgb(4_30_90/0.5)] sm:p-7', className)} aria-label="Book a call">
+    <form onSubmit={submit} className={cn('rounded-3xl bg-page p-5 text-fg shadow-[0_30px_70px_-30px_rgb(4_30_90/0.5)] sm:p-7 dark:bg-surface dark:ring-1 dark:ring-white/25', className)} aria-label="Book a call">
       <div className="flex items-center justify-between">
         <p className="text-[1.05rem] font-semibold" aria-live="polite">
           {view.toLocaleDateString('en', { month: 'long', year: 'numeric' })}
@@ -149,8 +149,8 @@ export function BookingCalendar({ className }: { className?: string }) {
               }}
               className={cn(
                 'aspect-square max-h-11 rounded-full text-[0.95rem] font-medium transition-colors',
-                off ? 'text-muted/40' : 'hover:bg-fill hover:text-white',
-                !off && !on && 'bg-fill/10 text-accent',
+                off ? 'text-muted/50' : 'hover:bg-fill hover:text-white',
+                !off && !on && 'bg-fill/10 text-accent dark:bg-fill/35 dark:text-white',
                 on && 'bg-fill text-white',
               )}
             >
@@ -192,14 +192,14 @@ export function BookingCalendar({ className }: { className?: string }) {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder="you@company.com"
-          className="mt-1.5 h-12 w-full rounded-full bg-surface px-5 text-[1rem] text-fg ring-1 ring-fg/15 outline-none ring-inset placeholder:text-muted focus:ring-2 focus:ring-accent"
+          className="mt-1.5 h-12 w-full rounded-full bg-surface px-5 dark:bg-page text-[1rem] text-fg ring-1 ring-fg/15 outline-none ring-inset placeholder:text-muted focus:ring-2 focus:ring-accent"
         />
       </label>
 
       <button
         type="submit"
         disabled={!valid || !date || !time || status === 'sending'}
-        className="group mt-3 flex h-13 w-full items-center justify-center gap-2 rounded-full bg-fill font-semibold text-white transition-colors enabled:hover:bg-deep disabled:opacity-45"
+        className="group mt-3 flex h-13 w-full items-center justify-center gap-2 rounded-full bg-fill font-semibold text-white transition-colors enabled:hover:bg-deep disabled:opacity-60 dark:enabled:hover:bg-white dark:enabled:hover:text-[#0b0c14]"
       >
         {status === 'sending' ? <LoaderCircle size={18} className="animate-spin" aria-hidden /> : null}
         {status === 'sending' ? 'Booking' : nice ? `Book ${date?.toLocaleDateString('en', { month: 'short', day: 'numeric' })}, ${time}` : 'Book a call'}

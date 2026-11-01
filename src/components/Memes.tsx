@@ -1,11 +1,15 @@
 import { motion, useInView } from 'motion/react'
 import { useEffect, useRef, useState } from 'react'
 import { cta, memes } from '@/content'
+import { art } from '@/lib/paths'
 import { cn, prefersReducedMotion } from '@/lib/utils'
 import { Button } from './Button'
 import { Reveal } from './Reveal'
 
-const gif = (id: string, still = false) => `https://media.giphy.com/media/${id}/${still ? '200_s.gif' : '200.webp'}`
+const still = (id: string) => art(`memes/${id}.webp`)
+const clip = (id: string) => art(`memes/${id}.mp4`)
+/** The single-file preview embeds only the stills, so it shows those and skips the videos. */
+const hasVideo = () => !(window as unknown as { __NM_ART__?: unknown }).__NM_ART__
 
 /**
  * Collage layout. Tiles touch so the wall reads as one connected feed, and `order`
@@ -24,36 +28,66 @@ const tiles = [
   { span: 'lg:col-span-2 lg:col-start-4 lg:row-start-3', order: 7 },
 ]
 
-function Tile({ meme, active, still, className }: { meme: (typeof memes)[number]; active: boolean; still: boolean; className: string }) {
-  // Two stacked images, so the old meme stays visible until the new one has loaded and faded in.
+function Tile({ meme, active, motionOn, near, playing, className }: { meme: (typeof memes)[number]; active: boolean; motionOn: boolean; near: boolean; playing: boolean; className: string }) {
+  // Stills sit underneath and appear at once. The video fades in over them when it can play, so a tile is never blank.
   const [{ shown, prev }, setPair] = useState({ shown: meme, prev: meme })
+  const [ready, setReady] = useState(false)
+  const video = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     const img = new Image()
     let live = true
     const swap = () => {
-      if (live) setPair((p) => (p.shown.id === meme.id ? p : { shown: meme, prev: p.shown }))
+      if (!live) return
+      setPair((p) => {
+        if (p.shown.id === meme.id) return p
+        setReady(false)
+        return { shown: meme, prev: p.shown }
+      })
     }
     img.onload = swap
     img.onerror = swap
-    img.src = gif(meme.id, still)
+    img.src = still(meme.id)
     return () => {
       live = false
     }
-  }, [meme, still])
+  }, [meme])
+
+  // Only decode while the wall is on screen. Autoplay can be refused (low power mode), which leaves the still.
+  useEffect(() => {
+    const v = video.current
+    if (!v) return
+    if (playing) v.play().catch(() => {})
+    else v.pause()
+  }, [playing, shown.id, near])
 
   return (
     <figure className={cn('relative overflow-hidden bg-deep-2', className)}>
-      <img src={gif(prev.id, still)} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+      <img src={still(prev.id)} alt="" decoding="async" className="absolute inset-0 h-full w-full object-cover" />
       <motion.img
         key={shown.id}
-        src={gif(shown.id, still)}
+        src={still(shown.id)}
         alt=""
-        initial={{ opacity: prev.id === shown.id ? 1 : 0, scale: prev.id === shown.id ? 1 : 1.06 }}
+        decoding="async"
+        initial={{ opacity: prev.id === shown.id ? 1 : 0, scale: prev.id === shown.id ? 1 : 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.35 }}
+        transition={{ duration: 0.3 }}
         className="absolute inset-0 h-full w-full object-cover"
       />
+      {motionOn && near && (
+        <video
+          key={`v-${shown.id}`}
+          ref={video}
+          src={clip(shown.id)}
+          muted
+          loop
+          playsInline
+          autoPlay
+          preload="auto"
+          onPlaying={() => setReady(true)}
+          className={cn('absolute inset-0 h-full w-full object-cover transition-opacity duration-300', ready ? 'opacity-100' : 'opacity-0')}
+        />
+      )}
       <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/95 via-black/70 to-transparent px-2.5 pt-8 pb-2 text-xs leading-tight font-semibold text-white sm:px-3 sm:text-sm">
         {shown.caption}
       </figcaption>
@@ -66,13 +100,16 @@ function Tile({ meme, active, still, className }: { meme: (typeof memes)[number]
 export function Memes() {
   const wall = useRef<HTMLDivElement>(null)
   const inView = useInView(wall, { margin: '100px' })
-  const [still] = useState(() => prefersReducedMotion())
+  // Videos start downloading a little before the wall scrolls into view, and only then.
+  const near = useInView(wall, { margin: '500px', once: true })
+  const [reduced] = useState(() => prefersReducedMotion())
+  const [motionOn] = useState(() => !reduced && hasVideo())
   const [slots, setSlots] = useState(() => tiles.map((_, i) => i))
   const [step, setStep] = useState(0)
   const next = useRef(tiles.length)
 
   useEffect(() => {
-    if (!inView || still) return
+    if (!inView || reduced) return
     const id = window.setInterval(() => {
       setStep((s) => {
         const n = s + 1
@@ -88,9 +125,9 @@ export function Memes() {
         })
         return n
       })
-    }, 1100)
+    }, 1400)
     return () => window.clearInterval(id)
-  }, [inView, still])
+  }, [inView, reduced])
 
   const activeOrder = step % tiles.length
 
@@ -114,11 +151,11 @@ export function Memes() {
 
         <div ref={wall} className="grid grid-flow-dense auto-rows-[clamp(112px,16vw,220px)] grid-cols-2 gap-[3px] overflow-hidden rounded-3xl bg-fill p-[3px] md:grid-cols-4 lg:grid-cols-6" aria-hidden>
           {tiles.map((t, i) => (
-            <Tile key={i} meme={memes[slots[i]]} active={inView && !still && t.order === activeOrder} still={still} className={t.span} />
+            <Tile key={i} meme={memes[slots[i]]} active={inView && !reduced && t.order === activeOrder} motionOn={motionOn} near={near} playing={inView} className={t.span} />
           ))}
         </div>
         <p className="mt-3 text-right text-xs text-muted">
-          GIFs via{' '}
+          Memes sourced from{' '}
           <a href="https://giphy.com" target="_blank" rel="noreferrer" className="underline underline-offset-2">
             GIPHY
           </a>

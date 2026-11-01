@@ -33,12 +33,12 @@
   color-scheme: light;
 }
 :root[data-theme='dark'] {
-  --base: #0a0f1c;
-  --surface: #141b2d;
+  --base: #0b1222;
+  --surface: #1c2743;
   --fg: #ffffff;
-  --muted: #cfd6e6;
-  --deep: #060a14;
-  --deep-2: #141b2d;
+  --muted: #d5dbe9;
+  --deep: #141d35;
+  --deep-2: #222e4f;
   --on-deep: #ffffff;
   --on-deep-muted: #cfd6e6;
   --accent: #8cc4ff;
@@ -146,7 +146,7 @@
   }
   /* Hairline card edge. Set --card to the fill colour behind it. */
   .border-grad {
-    border: 1px solid color-mix(in srgb, var(--fg) 12%, transparent);
+    border: 1px solid color-mix(in srgb, var(--fg) 16%, transparent);
     background: var(--card, var(--base));
   }
   /* Small section label above a heading. */

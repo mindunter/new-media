@@ -74,7 +74,7 @@ function Segmented<T extends string>({
               {active && (
                 <motion.span
                   layoutId={`seg-${id}`}
-                  className="absolute inset-0 rounded-full bg-page"
+                  className="absolute inset-0 rounded-full bg-page dark:bg-fill"
                   transition={{ type: 'spring', stiffness: 420, damping: 34 }}
                 />
               )}

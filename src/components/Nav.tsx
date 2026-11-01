@@ -36,7 +36,7 @@ export function Nav() {
           aria-label="Main"
           className={cn(
             // Floating centred pill, solid in both themes so it reads over the sky hero.
-            'relative mx-auto flex h-14 max-w-[1080px] items-center justify-between rounded-full bg-page/85 pr-2 pl-5 text-fg ring-1 ring-fg/10 backdrop-blur-xl transition-shadow duration-500',
+            'relative mx-auto flex h-14 max-w-[1080px] items-center justify-between rounded-full bg-page/85 pr-2 pl-5 text-fg ring-1 ring-fg/10 backdrop-blur-xl dark:bg-surface dark:ring-white/25 transition-shadow duration-500',
             solid || open ? 'shadow-[0_16px_40px_-16px_rgb(10_20_80/0.45)]' : 'shadow-[0_10px_30px_-18px_rgb(10_20_80/0.4)]',
           )}
         >

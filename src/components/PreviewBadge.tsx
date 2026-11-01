@@ -10,7 +10,7 @@ export function PreviewBadge() {
       {show && (
         <motion.div
           role="note"
-          className="fixed right-4 bottom-4 z-[60] flex items-center gap-2 rounded-full bg-deep/90 py-1.5 pr-1.5 pl-4 text-xs text-on-deep shadow-lg ring-1 ring-on-deep/10 backdrop-blur-md"
+          className="fixed right-4 bottom-4 z-[60] flex items-center gap-2 rounded-full bg-[#0b0c14] py-1.5 pr-1.5 pl-4 text-xs text-white shadow-lg ring-1 ring-white/30 dark:bg-surface"
           initial={{ y: 40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 40, opacity: 0 }}
@@ -23,7 +23,7 @@ export function PreviewBadge() {
             type="button"
             aria-label="Dismiss"
             onClick={() => setShow(false)}
-            className="grid h-6 w-6 place-items-center rounded-full hover:bg-page/10"
+            className="grid h-6 w-6 place-items-center rounded-full hover:bg-white/20"
           >
             <X size={12} aria-hidden />
           </button>

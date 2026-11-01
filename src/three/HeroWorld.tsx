@@ -5,7 +5,7 @@ import { logos } from '@/components/ClientLogo'
 import { clientCard, clients, launches } from '@/content'
 import { burst } from '@/lib/burst'
 import { compact as compactNumber } from '@/lib/utils'
-import { aero, brandEnvironment, drawScreen, makeBird, makeClapper, makeMegaphone, makeMic, makeTV } from './models'
+import { aero, brandEnvironment, drawScreen, makeClapper, makeMegaphone, makeMic, makeTV, makeTwitterBird } from './models'
 
 /*
  * The hero's living world: a TV on a grassy hill under the cloud sky, its props
@@ -275,11 +275,15 @@ function Prop({ make, x, z, scale, lift, L, ripple }: { make: () => THREE.Object
     const g = ref.current
     if (!g) return
     const h = hop.current
-    h.v -= 9 * dt
-    h.y += h.v * dt
-    if (h.y < 0) {
-      h.y = 0
-      h.v = Math.abs(h.v) > 0.8 ? -h.v * 0.4 : 0
+    // Resting props stay put, and a slow frame can never launch one into the air.
+    if (h.y > 0 || h.v > 0) {
+      const step = Math.min(dt, 1 / 30)
+      h.v -= 9 * step
+      h.y += h.v * step
+      if (h.y <= 0) {
+        h.y = 0
+        h.v = h.v < -1.2 ? -h.v * 0.4 : 0
+      }
     }
     g.position.y = base + h.y
     g.rotation.y += ((hover.current ? 0.5 : 0) + h.y * 3 - g.rotation.y) * Math.min(1, dt * 6)
@@ -371,10 +375,8 @@ function makeBanner(name: string) {
   return tex
 }
 
-const WINGS = ['#1668e8', '#3f9cf5', '#0f55c4']
-
 function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number; L: Layout; picked: string | null; onPick: (name: string, x: number, y: number) => void; scatter: React.RefObject<number> }) {
-  const bird = useMemo(() => makeBird(WINGS[i % WINGS.length]), [i])
+  const bird = useMemo(() => makeTwitterBird(), [])
   const tex = useMemo(() => makeBanner(name), [name])
   const rope = useMemo(() => {
     const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(), new THREE.Vector3()])
@@ -400,7 +402,7 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
       : { cx: 0.29, rx: 0.1 + f(2) * 0.09, cy: 0.05 + (lane / lanes) * 0.32, ry: 0.01, z: -1.2 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.14 + f(6) * 0.07) }
   }, [i, L.compact])
 
-  const size = L.compact ? 0.62 : 0.5
+  const size = L.compact ? 0.58 : 0.48
   const bw = L.compact ? 1.45 : 1.06
 
   useFrame((s, dt) => {
@@ -425,8 +427,7 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
       g.rotation.z = THREE.MathUtils.clamp((dy / Math.max(Math.abs(dx), 1e-4)) * 0.35, -0.4, 0.4)
     }
     const beat = Math.sin(s.clock.elapsedTime * (selected ? 16 : 10) + i) * 0.75
-    bird.wingL.rotation.x = -beat
-    bird.wingR.rotation.x = beat
+    bird.flap.value = beat
     zoom.current += ((selected ? 1.5 : hover.current ? 1.3 : 1) - zoom.current) * Math.min(1, dt * 8)
     g.scale.setScalar(size * zoom.current)
 
@@ -605,10 +606,10 @@ function World({ compact, dark, picked, onPick }: Pick<Props, 'compact' | 'dark'
 
   return (
     <>
-      <directionalLight position={[3, 5, 5]} intensity={dark ? 0.9 : 1.6} />
+      <directionalLight position={[3, 5, 5]} intensity={dark ? 1.5 : 1.6} />
       <directionalLight position={[-4, 2, -3]} intensity={dark ? 1 : 2} />
       <directionalLight position={[-3, -2, 4]} intensity={1} color="#1668e8" />
-      <ambientLight intensity={dark ? 0.2 : 0.3} />
+      <ambientLight intensity={dark ? 0.55 : 0.3} />
       <DriftingClouds L={L} dark={dark} />
       <Ground L={L} dark={dark} ripple={ripple} />
       <Flowers L={L} />

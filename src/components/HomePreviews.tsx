@@ -72,7 +72,7 @@ export function WorkPreview() {
         <SectionHead label="Work" title="Recent launches" to="/work" cta="See all work" />
         <div className="grid gap-4 md:grid-cols-3 sm:gap-5">
           {cases.map((c, i) => {
-            const tone = ['bg-deep text-on-deep', 'bg-surface text-fg', 'bg-brand text-white'][i % 3]
+            const tone = ['bg-deep text-on-deep dark:ring-1 dark:ring-white/20', 'bg-surface text-fg dark:ring-1 dark:ring-white/20', 'bg-brand text-white'][i % 3]
             return (
               <Reveal key={c.client} delay={i * 0.06}>
                 <Link
