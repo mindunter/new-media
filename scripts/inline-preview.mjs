@@ -30,7 +30,9 @@ html = html.replace(/<link rel="icon"[^>]*>/, () => {
 // Embed the rendered art and expose it on window.__NM_ART__ for lib/paths.ts.
 import { readdirSync } from 'node:fs'
 const artMap = Object.fromEntries(
-  readdirSync(join(dist, 'art')).map((f) => [f, `data:image/webp;base64,${readFileSync(join(dist, 'art', f)).toString('base64')}`]),
+  readdirSync(join(dist, 'art'), { recursive: true })
+    .filter((f) => f.endsWith('.webp'))
+    .map((f) => [f.replaceAll('\\', '/'), `data:image/webp;base64,${readFileSync(join(dist, 'art', f)).toString('base64')}`]),
 )
 html = html.replace('<script type="module">', `<script>window.__NM_ART__=${JSON.stringify(artMap)}</script><script type="module">`)
 // Inline any literal ./art/*.webp references too.
