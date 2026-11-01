@@ -397,7 +397,7 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
     const lane = (i * 4) % (lanes + 1)
     return L.compact
       ? { cx: 0, rx: 0.3 + f(2) * 0.14, cy: 0.03 + (lane / lanes) * 0.4, ry: 0.012, z: -1 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.22 + f(6) * 0.1) }
-      : { cx: 0.24, rx: 0.17 + f(2) * 0.1, cy: 0.05 + (lane / lanes) * 0.32, ry: 0.01, z: -1.2 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.14 + f(6) * 0.07) }
+      : { cx: 0.29, rx: 0.1 + f(2) * 0.09, cy: 0.05 + (lane / lanes) * 0.32, ry: 0.01, z: -1.2 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.14 + f(6) * 0.07) }
   }, [i, L.compact])
 
   const size = L.compact ? 0.62 : 0.5

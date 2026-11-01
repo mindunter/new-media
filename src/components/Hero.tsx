@@ -189,7 +189,7 @@ export function Hero() {
         </Suspense>
       )}
 
-      <div className="shell pointer-events-none relative grid items-center gap-6 pt-28 pb-0 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10 lg:pt-32 lg:pb-24">
+      <div className="shell pointer-events-none relative z-10 grid items-center gap-6 pt-28 pb-0 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10 lg:pt-32 lg:pb-24">
         <div className="[&>*]:pointer-events-auto">
           <motion.p
             className="label-pill label-pill-dark mb-6"
