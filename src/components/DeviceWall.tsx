@@ -131,14 +131,16 @@ export function DeviceWall({ className }: { className?: string }) {
   }, [px, py])
 
   return (
+    // Every device is sized from the wall's own width, so the row always fits inside its frame.
+    <div className="@container">
     <div
       ref={ref}
-      className={cn('flex items-end justify-center gap-[clamp(6px,1.4vw,20px)] px-2', className)}
+      className={cn('flex items-end justify-center gap-[1.4cqw] px-2', className)}
       role="group"
       aria-label="Screens showing our launches"
     >
       {/* Retro TV with antenna */}
-      <Device depth={-0.8} x={x} y={y} label="Retro TV" className="hidden w-[clamp(100px,10vw,150px)] sm:block">
+      <Device depth={-0.8} x={x} y={y} label="Retro TV" className="hidden w-[14cqw] sm:block md:w-[min(11cqw,150px)]">
         <div className="absolute -top-[26%] left-1/2 h-[30%] w-[60%] -translate-x-1/2">
           <span className="absolute bottom-0 left-1/2 h-full w-[2px] origin-bottom -rotate-[28deg] bg-fg/40" />
           <span className="absolute bottom-0 left-1/2 h-full w-[2px] origin-bottom rotate-[28deg] bg-fg/40" />
@@ -151,7 +153,7 @@ export function DeviceWall({ className }: { className?: string }) {
       </Device>
 
       {/* Monitor on a stand */}
-      <Device depth={0.6} x={x} y={y} label="Monitor" className="w-[clamp(150px,18.5vw,270px)]">
+      <Device depth={0.6} x={x} y={y} label="Monitor" className="hidden w-[24cqw] sm:block md:w-[min(20cqw,270px)]">
         <div className={cn('rounded-[10px] p-[3.5%]', body)}>
           <div className="aspect-[16/10] rounded-[6px]">
             <Screen start={2} every={3900} />
@@ -162,7 +164,7 @@ export function DeviceWall({ className }: { className?: string }) {
       </Device>
 
       {/* Main CRT TV */}
-      <Device depth={0.2} x={x} y={y} label="TV" className="w-[clamp(220px,29vw,420px)]">
+      <Device depth={0.2} x={x} y={y} label="TV" className="w-[66cqw] sm:w-[38cqw] md:w-[min(31cqw,420px)]">
         <div className={cn('flex gap-[3%] rounded-[clamp(16px,2.4vw,30px)] p-[3.5%]', body)}>
           <div className="aspect-[4/3] flex-1 rounded-[clamp(10px,1.6vw,20px)]">
             <Screen start={0} every={3400} size="lg" />
@@ -184,7 +186,7 @@ export function DeviceWall({ className }: { className?: string }) {
       </Device>
 
       {/* Phone */}
-      <Device depth={1} x={x} y={y} label="Phone" className="w-[clamp(80px,8.8vw,128px)]">
+      <Device depth={1} x={x} y={y} label="Phone" className="w-[24cqw] sm:w-[12cqw] md:w-[min(9.5cqw,128px)]">
         <div className="rounded-[22%/11%] bg-[#0b0f28] p-[6%] shadow-[0_30px_60px_-30px_rgb(10_20_80/0.7)] ring-1 ring-white/10">
           <div className="relative aspect-[9/19] rounded-[18%/8.5%]">
             <Screen start={7} every={3600} size="sm" />
@@ -194,7 +196,7 @@ export function DeviceWall({ className }: { className?: string }) {
       </Device>
 
       {/* Laptop */}
-      <Device depth={-0.4} x={x} y={y} label="Laptop" className="hidden w-[clamp(170px,19vw,280px)] md:block">
+      <Device depth={-0.4} x={x} y={y} label="Laptop" className="hidden md:block md:w-[min(20cqw,280px)]">
         <div className="mx-auto w-[86%] rounded-t-[10px] bg-[#0b0f28] p-[3%] pb-[2%] ring-1 ring-white/10">
           <div className="aspect-[16/10] rounded-[4px]">
             <Screen start={4} every={4100} />
@@ -202,6 +204,7 @@ export function DeviceWall({ className }: { className?: string }) {
         </div>
         <div className={cn('h-[clamp(8px,1vw,14px)] rounded-b-[14px] rounded-t-[2px]', body)} />
       </Device>
+    </div>
     </div>
   )
 }

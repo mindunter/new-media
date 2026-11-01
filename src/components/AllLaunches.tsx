@@ -72,13 +72,13 @@ export function AllLaunches() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: i * 0.03 }}
-              className="grid grid-cols-1 gap-2 border-b border-fg/10 py-4 sm:grid-cols-[minmax(0,15rem)_minmax(0,1fr)_5rem] sm:items-center sm:gap-6"
+              className="grid grid-cols-1 gap-2 border-b border-fg/10 py-4 sm:grid-cols-[minmax(0,22rem)_minmax(0,1fr)_5rem] sm:items-center sm:gap-6"
             >
               <div className="min-w-0">
                 <p className="flex h-7 items-center">
                   <ClientLogo name={l.brand} height={20} />
                 </p>
-                <p className="truncate text-sm text-muted" title={l.title}>
+                <p className="text-sm text-pretty text-muted">
                   {l.title}
                 </p>
               </div>

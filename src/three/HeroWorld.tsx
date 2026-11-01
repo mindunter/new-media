@@ -408,7 +408,7 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
     return {
       cx: (L.left + L.right) / 2,
       rx: reach * (0.55 + f(2) * 0.45),
-      cy: L.H / 2 - ((L.compact ? 16 : 104) + lane * (L.compact ? 28 : 38)) * L.px,
+      cy: L.H / 2 - ((L.compact ? 16 : 102) + lane * (L.compact ? 28 : 32)) * L.px,
       w: (lane % 2 ? -1 : 1) * ((L.compact ? 0.16 : 0.1) + f(6) * 0.05),
     }
   }, [i, L, bw, gap])
@@ -618,6 +618,8 @@ function World({ compact, dark, picked, onPick, band }: Pick<Props, 'compact' | 
     [compact, W, H, px, band],
   )
   const flock = compact ? clients.slice(0, 7) : clients
+  // The mic and megaphone stay on screen on narrow laptops.
+  const spread = compact ? 128 * px : Math.min(212 * px, W / 2 - L.tvX - 80 * px)
 
   return (
     <>
@@ -631,8 +633,8 @@ function World({ compact, dark, picked, onPick, band }: Pick<Props, 'compact' | 
       <Ground L={L} dark={dark} ripple={ripple} />
       <Flowers L={L} />
       <TV L={L} channel={picked} ripple={ripple} />
-      <Prop L={L} ripple={ripple} make={makeMic} x={(compact ? -128 : -212) * px} z={0.6} scale={(compact ? 38 : 54) * px} lift={0.77} />
-      <Prop L={L} ripple={ripple} make={makeMegaphone} x={(compact ? 128 : 212) * px} z={0.6} scale={(compact ? 28 : 44) * px} lift={0.72} />
+      <Prop L={L} ripple={ripple} make={makeMic} x={-spread} z={0.6} scale={(compact ? 38 : 54) * px} lift={0.77} />
+      <Prop L={L} ripple={ripple} make={makeMegaphone} x={spread} z={0.6} scale={(compact ? 28 : 44) * px} lift={0.72} />
       <Motes L={L} dark={dark} />
       {flock.map((c, i) => (
         <Bird key={c.name} name={c.name} i={i} L={L} picked={picked} onPick={onPick} scatter={scatter} />

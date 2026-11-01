@@ -53,7 +53,7 @@ export function ServicesPreview() {
                 </div>
                 <div className="p-4 sm:p-5">
                   <h3 className="text-[1.05rem] font-semibold sm:text-lg">{s.title}</h3>
-                  <p className="mt-1.5 line-clamp-2 text-sm text-muted">{s.short}</p>
+                  <p className="mt-1.5 text-sm text-muted">{s.short}</p>
                 </div>
               </Link>
             </Reveal>

@@ -202,7 +202,7 @@ export function Hero() {
       )}
 
       <div className="shell pointer-events-none relative z-10 grid items-center gap-6 pt-28 pb-0 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:min-h-[clamp(960px,114svh,1240px)] lg:gap-10 lg:pt-28 lg:pb-40">
-        <div className="[&>*]:pointer-events-auto">
+        <div className="@container [&>*]:pointer-events-auto">
           <motion.p
             className="label-pill label-pill-dark mb-6"
             initial={{ opacity: 0, y: 10 }}
@@ -212,11 +212,12 @@ export function Hero() {
             {hero.eyebrow}
           </motion.p>
 
-          <h1 className="display [text-shadow:0_2px_24px_rgb(5_40_120/0.3)] text-[clamp(2.7rem,7.5vw,4.6rem)] lg:text-[clamp(3.4rem,4.7vw,5rem)]">
+          <h1 className="display [text-shadow:0_2px_24px_rgb(5_40_120/0.3)] text-[clamp(2.7rem,7.5vw,4.6rem)] lg:text-[length:min(11.6cqw,5rem)]">
             {hero.lines.map((line, i) => {
               const last = i === hero.lines.length - 1
               return (
-                <span key={line} className="block overflow-hidden pb-[0.12em] lg:whitespace-nowrap">
+                // Sized from the column so the longest line always fits. Only the bottom edge masks, for the reveal.
+                <span key={line} className="block overflow-x-visible overflow-y-clip pb-[0.12em] lg:whitespace-nowrap">
                   <motion.span
                     className={last ? 'serif inline-block pr-[0.08em] italic' : 'inline-block'}
                     initial={{ y: '105%' }}
