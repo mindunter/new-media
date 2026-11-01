@@ -370,7 +370,7 @@ const TWITTER_BIRD =
   'M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z'
 
 /** Bends the wing (upper left of the silhouette) up and down in the vertex shader. */
-function flapping(mat: THREE.MeshPhysicalMaterial, flap: { value: number }) {
+function flapping(mat: THREE.Material, flap: { value: number }) {
   mat.onBeforeCompile = (shader) => {
     shader.uniforms.uFlap = flap
     shader.vertexShader = shader.vertexShader
@@ -394,16 +394,39 @@ export function makeTwitterBird() {
     // SVG runs y downward, and the artwork is 24 units wide. Centre on z so both layers line up.
     geo.scale(1 / 24, -1 / 24, 1 / 24)
     geo.translate(-0.5, 0.5, -depth / 48)
-    const mat = aero(color)
-    mat.side = THREE.DoubleSide
-    // Lit from within, so the blue stays true Twitter blue rather than shading to navy.
-    mat.emissive.set(color)
-    mat.emissiveIntensity = 0.75
-    mat.envMapIntensity = 0.6
+    // Flat colour, so the bird stays true Twitter blue from every angle and in both themes.
+    const mat = new THREE.MeshBasicMaterial({ color, side: THREE.DoubleSide, toneMapped: false })
     flapping(mat, flap)
     return new THREE.Mesh(geo, mat)
   }
   const group = new THREE.Group()
   group.add(make(1, 0.95, '#ffffff'), make(2.6, 0.12, '#1d9bf0'))
   return { group, flap }
+}
+
+/** A plain white door standing ajar, with soft light behind it. Two units tall, its base at y = 0. */
+export function makeDoor() {
+  const group = new THREE.Group()
+  const white = new THREE.MeshStandardMaterial({ color: '#ffffff', emissive: '#ffffff', emissiveIntensity: 0.45, roughness: 0.6 })
+  for (const [x, y, w, h] of [
+    [-0.56, 1.03, 0.1, 2.06],
+    [0.56, 1.03, 0.1, 2.06],
+    [0, 2.06, 1.22, 0.1],
+  ]) {
+    const bar = new THREE.Mesh(new THREE.BoxGeometry(w, h, 0.14), white)
+    bar.position.set(x, y, 0)
+    group.add(bar)
+  }
+  const light = new THREE.MeshBasicMaterial({ color: '#fff6d8', toneMapped: false })
+  const glow = new THREE.Mesh(new THREE.PlaneGeometry(1.02, 2), light)
+  glow.position.set(0, 1, 0)
+  group.add(glow)
+  const hinge = new THREE.Group()
+  hinge.position.set(-0.51, 1, 0.03)
+  hinge.rotation.y = -1.05
+  const panel = new THREE.Mesh(new THREE.BoxGeometry(1.02, 2, 0.05), white)
+  panel.position.x = 0.51
+  hinge.add(panel)
+  group.add(hinge)
+  return { group, light }
 }

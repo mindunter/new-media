@@ -35,12 +35,12 @@ export function Backers() {
         <ul className="border-t border-on-deep/15">
           {backing.map((b, i) => (
             <Reveal key={b.client} delay={i * 0.04}>
-              <li className="group grid gap-3 border-b border-on-deep/15 py-5 transition-colors hover:bg-on-deep/[0.04] sm:grid-cols-[170px_minmax(0,1fr)] sm:gap-6 sm:px-3">
+              <li className="group grid gap-3 border-b border-on-deep/15 py-5 transition-colors hover:bg-on-deep/[0.04] sm:grid-cols-[200px_minmax(0,1fr)] sm:gap-6 sm:px-3">
                 <div>
                   <span className="flex h-7 items-center">
                     <ClientLogo name={b.client} height={22} />
                   </span>
-                  <a href={b.source} target="_blank" rel="noreferrer" className="mt-1.5 inline-flex items-center gap-0.5 text-sm text-on-deep-muted underline-offset-4 hover:text-soft hover:underline">
+                  <a href={b.source} target="_blank" rel="noreferrer" className="mt-1.5 inline-flex items-center gap-0.5 text-sm whitespace-nowrap text-on-deep-muted underline-offset-4 hover:text-soft hover:underline">
                     {b.raise} <ArrowUpRight size={13} aria-hidden />
                   </a>
                 </div>

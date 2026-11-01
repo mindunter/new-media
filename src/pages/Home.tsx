@@ -1,6 +1,6 @@
 import { Backers } from '@/components/Backers'
 import { Hero } from '@/components/Hero'
-import { ServicesPreview, WorkPreview } from '@/components/HomePreviews'
+import { ServicesPreview } from '@/components/HomePreviews'
 import { Marquee } from '@/components/Marquee'
 import { Memes } from '@/components/Memes'
 import { Numbers } from '@/components/Numbers'
@@ -24,9 +24,8 @@ export default function Home() {
       <Unsealed />
       <Reasons />
       <div className="pt-20 sm:pt-28">
-        <WorkPreview />
+        <ServicesPreview />
       </div>
-      <ServicesPreview />
     </>
   )
 }

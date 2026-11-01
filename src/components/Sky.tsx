@@ -34,6 +34,8 @@ export function Sky({ className, priority = false, position = '50% 100%', scrim 
         style={{ objectPosition: position }}
         className={cn(cls, 'hidden dark:block')}
       />
+      {/* Dream haze: pastel light low in the sky, a soft glow up top, and fine film grain. */}
+      <div className="dream-haze absolute inset-0" />
       {scrim && (
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgb(8_72_190/0.6)_0%,rgb(8_72_190/0.35)_45%,transparent_72%)] max-lg:bg-[linear-gradient(180deg,rgb(8_72_190/0.35)_0%,rgb(8_72_190/0.45)_70%,transparent_100%)]" />
       )}

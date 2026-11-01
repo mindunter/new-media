@@ -128,7 +128,7 @@ function Funding() {
   const inView = useInView(ref, { once: true, margin: '-10% 0px' })
   const top = backing[0].amount
   return (
-    <ul ref={ref} className="space-y-4">
+    <ul ref={ref} className="flex flex-1 flex-col justify-between gap-4">
       {backing.map((b, i) => (
         <li key={b.client} title={`${b.client}: ${b.raise}`}>
           <div className="mb-1.5 flex items-center justify-between gap-3">
@@ -176,7 +176,7 @@ export function Numbers() {
             <p className="mb-3 text-sm text-muted">Each step is one launch. Hover to see it.</p>
             <Climb />
           </div>
-          <div className="border-grad rounded-3xl p-5 sm:p-7">
+          <div className="border-grad flex flex-col rounded-3xl p-5 sm:p-7">
             <h3 className="text-[1.05rem] font-semibold">${fundingTotal}M announced</h3>
             <p className="mb-5 text-sm text-muted">Funding rounds launched through us</p>
             <Funding />

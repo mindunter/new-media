@@ -1,6 +1,5 @@
 import { Link, useLocation } from 'react-router'
 import { brand, nav } from '@/content'
-import { art } from '@/lib/paths'
 import { BookingCalendar } from './BookingCalendar'
 import { LogoFull } from './Logo'
 import { Sky } from './Sky'
@@ -20,7 +19,6 @@ function CtaBand() {
           <p className="mt-4 max-w-lg text-[1.05rem] text-white [text-shadow:0_1px_12px_rgb(5_40_120/0.35)]">
             Pick a day and a time, add your email, and you are done. We take it from there.
           </p>
-          <img src={art('obj-tv.webp')} alt="" aria-hidden loading="lazy" className="mt-6 hidden w-[min(26vw,320px)] lg:block" />
         </div>
         <BookingCalendar />
       </div>

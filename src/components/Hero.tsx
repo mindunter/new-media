@@ -7,7 +7,6 @@ import { art } from '@/lib/paths'
 import { prefersReducedMotion } from '@/lib/utils'
 import { Button } from './Button'
 import { ClientLogo } from './ClientLogo'
-import { DotField } from './DotField'
 import { Sky } from './Sky'
 
 const HeroWorld = lazy(() => import('../three/HeroWorld'))
@@ -150,6 +149,23 @@ export function Hero() {
   const [picked, setPicked] = useState<string | null>(null)
   const [at, setAt] = useState({ x: 0, y: 0 })
   const [still] = useState(() => prefersReducedMotion())
+  const [band, setBand] = useState({ left: 0.56, right: 0.96, center: 0.76 })
+
+  // The scene lines up with the right column, whatever the screen width.
+  useEffect(() => {
+    const el = section.current
+    if (!el) return
+    const measure = () => {
+      const r = el.getBoundingClientRect()
+      const c = stage.current?.getBoundingClientRect()
+      if (!c || !r.width) return
+      setBand({ left: (c.left - r.left) / r.width, right: (c.right - r.left) / r.width, center: (c.left + c.width / 2 - r.left) / r.width })
+    }
+    measure()
+    const ro = new ResizeObserver(measure)
+    ro.observe(el)
+    return () => ro.disconnect()
+  }, [])
 
   const open = (name: string, x: number, y: number) => {
     const r = section.current?.getBoundingClientRect()
@@ -174,22 +190,18 @@ export function Hero() {
         burst(e.clientX, e.clientY, { count: 12 })
       }}
     >
-      <Sky priority scrim className="bottom-auto h-[92%]" />
-      <DotField
-        onDeep
-        className="absolute inset-0 -z-10 h-full w-full opacity-40 [mask-image:linear-gradient(to_bottom,black_0%,black_34%,transparent_58%)]"
-      />
+      <Sky priority scrim className="bottom-auto h-[86%]" />
 
       {/* The whole hero is the 3D stage on desktop; on smaller screens it is a band below the text. */}
       {load3d && (
         <Suspense fallback={null}>
-          <div className={`absolute inset-x-0 bottom-0 h-[480px] transition-opacity duration-1000 lg:top-0 lg:h-auto ${ready ? 'opacity-100' : 'opacity-0'}`}>
-            <HeroWorld compact={compact} dark={dark} picked={picked} onPick={open} onMiss={() => setPicked(null)} onReady={() => setReady(true)} />
+          <div className={`absolute inset-x-0 bottom-0 h-[540px] transition-opacity duration-1000 lg:top-0 lg:h-auto ${ready ? 'opacity-100' : 'opacity-0'}`}>
+            <HeroWorld compact={compact} dark={dark} picked={picked} onPick={open} onMiss={() => setPicked(null)} band={band} onReady={() => setReady(true)} />
           </div>
         </Suspense>
       )}
 
-      <div className="shell pointer-events-none relative z-10 grid items-center gap-6 pt-28 pb-0 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:gap-10 lg:pt-32 lg:pb-24">
+      <div className="shell pointer-events-none relative z-10 grid items-center gap-6 pt-28 pb-0 sm:pt-32 lg:grid-cols-[minmax(0,1.15fr)_minmax(0,1fr)] lg:min-h-[clamp(960px,114svh,1240px)] lg:gap-10 lg:pt-28 lg:pb-40">
         <div className="[&>*]:pointer-events-auto">
           <motion.p
             className="label-pill label-pill-dark mb-6"
@@ -241,18 +253,13 @@ export function Hero() {
         </div>
 
         {/* Reserves the 3D band on small screens. A still render shows until the live scene is ready. */}
-        <div ref={stage} className="relative mx-auto h-[480px] w-full max-w-[600px] lg:aspect-[4/3] lg:h-auto">
+        <div ref={stage} className="relative mx-auto h-[540px] w-full max-w-[600px] lg:aspect-[4/3] lg:h-auto">
           <img
             src={art('obj-tv.webp')}
             alt="A glossy blue retro TV showing Reactor's launch: 12.7M views"
             fetchPriority="high"
             className={`absolute inset-[6%] h-[88%] w-[88%] object-contain transition-opacity duration-700 ${ready ? 'opacity-0' : 'opacity-100'}`}
           />
-          {ready && !picked && (
-            <p className="absolute top-3 right-0 left-0 mx-auto w-fit rounded-full bg-[#062a78]/70 px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/25 backdrop-blur-md lg:top-auto lg:right-auto lg:-bottom-20 lg:left-1/2 lg:-translate-x-1/2">
-              {compact ? 'Tap a bird to see its numbers' : 'Each bird is a client. Click one.'}
-            </p>
-          )}
         </div>
       </div>
 
@@ -277,6 +284,19 @@ export function Hero() {
           </li>
         ))}
       </ul>
+
+      {/* The grass melts into the page instead of ending on a hard edge. */}
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-14 bg-gradient-to-b from-transparent to-page" />
+
+      {/* A quiet hint on the grass, centred under the TV. */}
+      {ready && !picked && (
+        <p
+          className="pointer-events-none absolute bottom-12 z-10 w-max -translate-x-1/2 rounded-full bg-[#062a78]/65 px-3 py-1.5 text-xs font-semibold text-white ring-1 ring-white/25 backdrop-blur-md lg:bottom-14"
+          style={{ left: `${(compact ? 0.5 : band.center) * 100}%` }}
+        >
+          {compact ? 'Tap a bird to see its numbers' : 'Each bird is a client. Click one.'}
+        </p>
+      )}
 
       <AnimatePresence>{picked && <BirdCard key={picked} name={picked} at={at} onClose={() => setPicked(null)} />}</AnimatePresence>
     </section>

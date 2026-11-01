@@ -17,8 +17,7 @@ export function PreviewBadge() {
           transition={{ delay: 2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <span className="h-1.5 w-1.5 rounded-full bg-soft" aria-hidden />
-          <span className="sm:hidden">Preview · placeholder email</span>
-          <span className="max-sm:hidden">Preview build · contact email and some social links are placeholders</span>
+          <span>Preview · placeholder email</span>
           <button
             type="button"
             aria-label="Dismiss"

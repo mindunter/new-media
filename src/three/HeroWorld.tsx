@@ -5,7 +5,7 @@ import { logos } from '@/components/ClientLogo'
 import { clientCard, clients, launches } from '@/content'
 import { burst } from '@/lib/burst'
 import { compact as compactNumber } from '@/lib/utils'
-import { aero, brandEnvironment, drawScreen, makeClapper, makeMegaphone, makeMic, makeTV, makeTwitterBird } from './models'
+import { brandEnvironment, drawScreen, makeDoor, makeMegaphone, makeMic, makeTV, makeTwitterBird } from './models'
 
 /*
  * The hero's living world: a TV on a grassy hill under the cloud sky, its props
@@ -13,7 +13,8 @@ import { aero, brandEnvironment, drawScreen, makeClapper, makeMegaphone, makeMic
  * opens that client's numbers and tunes the TV to them.
  */
 
-type Layout = { compact: boolean; tvX: number; y0: number; W: number; H: number }
+/** World layout. `px` is one screen pixel in world units; `left` and `right` bound the birds to the right column. */
+type Layout = { compact: boolean; tvX: number; y0: number; W: number; H: number; px: number; left: number; right: number }
 
 const clamp01 = (x: number) => Math.min(1, Math.max(0, x))
 const smooth = (a: number, b: number, x: number) => {
@@ -23,17 +24,17 @@ const smooth = (a: number, b: number, x: number) => {
 
 /** Height of the hill at a point. It peaks under the TV and falls away behind the headline. */
 function groundY(L: Layout, x: number, z: number) {
-  const dx = (x - L.tvX) / (L.compact ? 4.2 : 3.4)
-  const bump = Math.exp(-dx * dx) * 0.5
-  const roll = Math.sin(x * 0.42 + 1.2) * 0.06 + Math.sin(z * 0.7 + x * 0.25) * 0.04
-  const drop = L.compact ? 0 : smooth(L.tvX - 2.4, -L.W * 0.32, x) * 1.5
+  const dx = (x - L.tvX) / ((L.compact ? 300 : 480) * L.px)
+  const bump = Math.exp(-dx * dx) * (L.compact ? 34 : 70) * L.px
+  const roll = Math.sin(x * 0.42 + 1.2) * 0.05 + Math.sin(z * 0.7 + x * 0.25) * 0.03
+  const drop = L.compact ? 0 : smooth(L.tvX - 340 * L.px, -L.W * 0.3, x) * 120 * L.px
   return L.y0 + bump + roll - drop
 }
 
 const raw = (hex: string) => new THREE.Color().setStyle(hex, THREE.LinearSRGBColorSpace)
 const PALETTE = {
-  day: { low: '#3f9423', high: '#74c93a', base: '#3b8d20', tip: '#a6e655' },
-  night: { low: '#0a2a22', high: '#14503a', base: '#0a2a22', tip: '#2f8a5e' },
+  day: { low: '#6fbe45', high: '#a8e070', base: '#68b541', tip: '#d3f58a', fog: '#fdeef6' },
+  night: { low: '#16304a', high: '#2d5a6e', base: '#16304a', tip: '#5fa8a0', fog: '#7d6fc4' },
 }
 
 /** Pointer position over the canvas, tracked on the window so it still updates over the headline. */
@@ -61,7 +62,7 @@ function useWorldPointer() {
 
 function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.RefObject<THREE.Vector4> }) {
   const { world } = useWorldPointer()
-  const count = L.compact ? 7000 : 26000
+  const count = L.compact ? 5000 : 15000
   const span = L.W + 8
 
   const geometry = useMemo(() => {
@@ -77,9 +78,9 @@ function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.R
   const groundMat = useMemo(
     () =>
       new THREE.ShaderMaterial({
-        uniforms: { uLow: { value: raw(PALETTE.day.low) }, uHigh: { value: raw(PALETTE.day.high) } },
+        uniforms: { uLow: { value: raw(PALETTE.day.low) }, uHigh: { value: raw(PALETTE.day.high) }, uFog: { value: raw(PALETTE.day.fog) } },
         vertexShader: `varying float vZ; void main(){ vZ = position.z; gl_Position = projectionMatrix * modelViewMatrix * vec4(position,1.); }`,
-        fragmentShader: `uniform vec3 uLow; uniform vec3 uHigh; varying float vZ; void main(){ gl_FragColor = vec4(mix(uHigh, uLow, smoothstep(-5.5, 5., vZ)), 1.); }`,
+        fragmentShader: `uniform vec3 uLow; uniform vec3 uHigh; uniform vec3 uFog; varying float vZ; void main(){ vec3 c = mix(uHigh, uLow, smoothstep(-5.5, 5., vZ)); gl_FragColor = vec4(mix(c, uFog, smoothstep(0.5, -5.5, vZ) * 0.8), 1.); }`,
       }),
     [],
   )
@@ -100,17 +101,18 @@ function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.R
         uRipple: { value: new THREE.Vector4(0, 0, 0, 99) },
         uBase: { value: raw(PALETTE.day.base) },
         uTip: { value: raw(PALETTE.day.tip) },
+        uFog: { value: raw(PALETTE.day.fog) },
       },
       vertexShader: `
         attribute float aTone;
         uniform float uTime; uniform vec3 uPointer; uniform vec4 uRipple;
-        varying float vH; varying float vT;
+        varying float vH; varying float vT; varying float vD;
         void main(){
           vec3 root = (instanceMatrix * vec4(0.,0.,0.,1.)).xyz;
           vec4 w = instanceMatrix * vec4(position, 1.);
           float h = position.y;
-          float gust = sin(uTime*1.3 + root.x*.7 + root.z*.5) + .5*sin(uTime*2.9 + root.x*1.9);
-          w.x += gust * .07 * h * h;
+          float gust = sin(uTime*.7 + root.x*.7 + root.z*.5) + .5*sin(uTime*1.5 + root.x*1.9);
+          w.x += gust * .05 * h * h;
           vec2 d = root.xy - uPointer.xy;
           float push = smoothstep(1.3, 0., length(d));
           w.x += sign(d.x) * push * .32 * h * h;
@@ -118,12 +120,12 @@ function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.R
           float wave = exp(-pow(rr - uRipple.w*3.2, 2.) * 1.4) * exp(-uRipple.w*1.1);
           w.x += sign(root.x - uRipple.x) * wave * .45 * h;
           w.y += wave * .12 * h;
-          vH = h; vT = aTone;
+          vH = h; vT = aTone; vD = root.z;
           gl_Position = projectionMatrix * viewMatrix * w;
         }`,
       fragmentShader: `
-        uniform vec3 uBase; uniform vec3 uTip; varying float vH; varying float vT;
-        void main(){ gl_FragColor = vec4(mix(uBase, uTip, vH) * vT, 1.); }`,
+        uniform vec3 uBase; uniform vec3 uTip; uniform vec3 uFog; varying float vH; varying float vT; varying float vD;
+        void main(){ gl_FragColor = vec4(mix(mix(uBase, uTip, vH) * vT, uFog, smoothstep(0.5, -5.5, vD) * 0.8), 1.); }`,
     })
     return { blades: blade, bladeMat: mat }
   }, [count])
@@ -152,6 +154,8 @@ function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.R
     const c = dark ? PALETTE.night : PALETTE.day
     groundMat.uniforms.uLow.value = raw(c.low)
     groundMat.uniforms.uHigh.value = raw(c.high)
+    groundMat.uniforms.uFog.value = raw(c.fog)
+    bladeMat.uniforms.uFog.value = raw(c.fog)
     bladeMat.uniforms.uBase.value = raw(c.base)
     bladeMat.uniforms.uTip.value = raw(c.tip)
   }, [dark, groundMat, bladeMat])
@@ -173,7 +177,7 @@ function Ground({ L, dark, ripple }: { L: Layout; dark: boolean; ripple: React.R
 
 /** Soft white flowers scattered near the TV. */
 function Flowers({ L }: { L: Layout }) {
-  const n = L.compact ? 26 : 60
+  const n = L.compact ? 14 : 26
   const ref = useRef<THREE.InstancedMesh>(null)
   useEffect(() => {
     const m = ref.current
@@ -181,10 +185,10 @@ function Flowers({ L }: { L: Layout }) {
     const o = new THREE.Object3D()
     const c = new THREE.Color()
     for (let i = 0; i < n; i++) {
-      const x = L.tvX + (Math.random() - 0.5) * (L.compact ? 6.5 : 8)
-      const z = -2 + Math.random() * 3.6
+      const x = L.tvX + (Math.random() - 0.5) * (L.compact ? 380 : 760) * L.px
+      const z = -1 + Math.random() * 2.6
       o.position.set(x, groundY(L, x, z) + 0.15, z)
-      o.scale.set(1, 0.6, 1).multiplyScalar(0.7 + Math.random() * 0.6)
+      o.scale.set(1, 0.6, 1).multiplyScalar((0.7 + Math.random() * 0.6) * L.px * 130)
       o.updateMatrix()
       m.setMatrixAt(i, o.matrix)
       m.setColorAt(i, c.set(i % 3 === 0 ? '#ffd84a' : '#ffffff'))
@@ -206,7 +210,7 @@ function TV({ L, channel, ripple }: { L: Layout; channel: string | null; ripple:
   const index = useRef(0)
   const squash = useRef(0)
   const { ndc } = useWorldPointer()
-  const s = L.compact ? 0.92 : 1.12
+  const s = ((L.compact ? 196 : 280) / 2.1) * L.px
   const z = 0.1
 
   const showLaunch = (i: number) => {
@@ -235,8 +239,8 @@ function TV({ L, channel, ripple }: { L: Layout; channel: string | null; ripple:
     const g = ref.current
     if (!g) return
     const k = Math.min(1, dt * 3)
-    g.rotation.y += (-0.28 + ndc.current.x * 0.4 - g.rotation.y) * k
-    g.rotation.x += (0.02 - ndc.current.y * 0.1 - g.rotation.x) * k
+    g.rotation.y += (-0.24 + ndc.current.x * 0.22 - g.rotation.y) * k
+    g.rotation.x += (0.02 - ndc.current.y * 0.05 - g.rotation.x) * k
     squash.current *= Math.exp(-dt * 5)
     const wob = Math.sin(state.clock.elapsedTime * 16) * squash.current
     g.scale.set(s * (1 - wob * 0.12), s * (1 + wob * 0.16), s)
@@ -391,32 +395,36 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
   const tilt = useRef(0)
   const zoom = useRef(1)
 
-  // Each client flies in its own lane, so banners stay readable and clear of the nav and the headline.
+  // Each client flies in its own lane, spaced so banners never cross, and only over the right column.
+  const size = (L.compact ? 22 : 29) * L.px
+  const bw = (L.compact ? 86 : 112) * L.px
+  const gap = 34 * L.px
   const path = useMemo(() => {
     const a = (i * 2.399) % (Math.PI * 2)
     const f = (n: number) => 0.5 + 0.5 * Math.sin(a * n + 1.3)
-    const lanes = L.compact ? 6 : 9
-    const lane = (i * 4) % (lanes + 1)
-    return L.compact
-      ? { cx: 0, rx: 0.3 + f(2) * 0.14, cy: 0.03 + (lane / lanes) * 0.4, ry: 0.012, z: -1 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.22 + f(6) * 0.1) }
-      : { cx: 0.29, rx: 0.1 + f(2) * 0.09, cy: 0.05 + (lane / lanes) * 0.32, ry: 0.01, z: -1.2 + f(4) * 2, w: (i % 2 ? -1 : 1) * (0.14 + f(6) * 0.07) }
-  }, [i, L.compact])
-
-  const size = L.compact ? 0.58 : 0.48
-  const bw = L.compact ? 1.45 : 1.06
+    const lanes = L.compact ? 7 : 10
+    const lane = (i * 3) % lanes
+    const reach = Math.max(0.4, (L.right - L.left) / 2 - bw - gap)
+    return {
+      cx: (L.left + L.right) / 2,
+      rx: reach * (0.55 + f(2) * 0.45),
+      cy: L.H / 2 - ((L.compact ? 16 : 104) + lane * (L.compact ? 28 : 38)) * L.px,
+      w: (lane % 2 ? -1 : 1) * ((L.compact ? 0.16 : 0.1) + f(6) * 0.05),
+    }
+  }, [i, L, bw, gap])
 
   useFrame((s, dt) => {
     const g = body.current
     const b = banner.current
     if (!g || !b) return
     const selected = picked === name
-    const pace = selected ? 0 : hover.current ? 0.2 : 1 + scatter.current * 4
+    const pace = selected ? 0 : hover.current ? 0.2 : 1 + scatter.current * 1.5
     t.current += dt * path.w * pace
     const T = t.current
-    const x = path.cx * L.W + Math.cos(T) * path.rx * L.W
-    const y = path.cy * L.H + Math.sin(T * 2) * path.ry * L.H
-    const z = path.z + Math.sin(T) * 0.5
-    g.position.set(x, y + (selected ? Math.sin(s.clock.elapsedTime * 4) * 0.05 : 0), z)
+    const x = path.cx + Math.cos(T) * path.rx
+    const y = path.cy + Math.sin(T * 2 + i) * 5 * L.px
+    const z = 0
+    g.position.set(x, y + (selected ? Math.sin(s.clock.elapsedTime * 4) * 3 * L.px : 0), z)
 
     const dx = x - prev.current.x
     const dy = y - prev.current.y
@@ -424,25 +432,25 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
     if (Math.abs(dx) > 1e-5) {
       const yaw = dx > 0 ? 0.25 : Math.PI - 0.25
       g.rotation.y += ((yaw - g.rotation.y + Math.PI * 3) % (Math.PI * 2) - Math.PI) * Math.min(1, dt * 5)
-      g.rotation.z = THREE.MathUtils.clamp((dy / Math.max(Math.abs(dx), 1e-4)) * 0.35, -0.4, 0.4)
+      g.rotation.z = THREE.MathUtils.clamp((dy / Math.max(Math.abs(dx), 1e-4)) * 0.2, -0.2, 0.2)
     }
-    const beat = Math.sin(s.clock.elapsedTime * (selected ? 16 : 10) + i) * 0.75
+    const beat = Math.sin(s.clock.elapsedTime * (selected ? 12 : 7) + i) * 0.7
     bird.flap.value = beat
     zoom.current += ((selected ? 1.5 : hover.current ? 1.3 : 1) - zoom.current) * Math.min(1, dt * 8)
     g.scale.setScalar(size * zoom.current)
 
     // The banner follows on a slack line, so it swings behind the bird through each turn.
     const dir = dx >= 0 ? -1 : 1
-    const want = new THREE.Vector3(x + dir * (0.32 + bw / 2 + 0.16), y - 0.08, z)
-    trail.current.lerp(want, Math.min(1, dt * 2.4))
+    const want = new THREE.Vector3(x + dir * (size * 0.5 + gap + bw / 2), y - 3 * L.px, z)
+    trail.current.lerp(want, Math.min(1, dt * 1.8))
     b.position.copy(trail.current)
     const ang = Math.atan2(y - trail.current.y, Math.abs(x - trail.current.x) + 0.01) * (x > trail.current.x ? 1 : -1)
-    tilt.current += (THREE.MathUtils.clamp(ang, -0.3, 0.3) - tilt.current) * Math.min(1, dt * 4)
+    tilt.current += (THREE.MathUtils.clamp(ang, -0.1, 0.1) - tilt.current) * Math.min(1, dt * 4)
     b.rotation.z = tilt.current
 
     const side = x > trail.current.x ? 1 : -1
     const pos = rope.geometry.attributes.position
-    pos.setXYZ(0, x - side * 0.17 * size * 2, y, z)
+    pos.setXYZ(0, x - side * size * 0.4, y, z)
     pos.setXYZ(1, trail.current.x + side * (bw / 2) * Math.cos(tilt.current), trail.current.y + side * (bw / 2) * Math.sin(tilt.current), trail.current.z)
     pos.needsUpdate = true
   })
@@ -470,7 +478,7 @@ function Bird({ name, i, L, picked, onPick, scatter }: { name: string; i: number
         <primitive object={bird.group} />
         {/* A larger invisible target, because a moving bird is hard to hit. */}
         <mesh visible={false}>
-          <sphereGeometry args={[L.compact ? 1 : 0.8, 8, 6]} />
+          <sphereGeometry args={[1.5, 8, 6]} />
         </mesh>
       </group>
       <mesh ref={banner} {...handlers}>
@@ -517,7 +525,7 @@ function DriftingClouds({ L, dark }: { L: Layout; dark: boolean }) {
     <>
       {seeds.map((c, i) => (
         <sprite key={i} ref={(el) => void (refs.current[i] = el)} position={[-span / 2 + c.f * span, c.y, -4]} scale={[c.s * 2, c.s, 1]}>
-          <spriteMaterial map={tex} transparent depthWrite={false} opacity={dark ? 0.16 : 0.34} toneMapped={false} />
+          <spriteMaterial map={tex} transparent depthWrite={false} opacity={dark ? 0.14 : 0.26} toneMapped={false} />
         </sprite>
       ))}
     </>
@@ -526,7 +534,7 @@ function DriftingClouds({ L, dark }: { L: Layout; dark: boolean }) {
 
 /** Pollen in the daytime, fireflies at night. */
 function Motes({ L, dark }: { L: Layout; dark: boolean }) {
-  const n = 70
+  const n = 26
   const { geo, seed } = useMemo(() => {
     const g = new THREE.BufferGeometry()
     g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 3), 3))
@@ -548,40 +556,43 @@ function Motes({ L, dark }: { L: Layout; dark: boolean }) {
   )
 }
 
-/** Glossy hearts that rise from the TV, like reactions coming in. */
-function Hearts({ L }: { L: Layout }) {
-  const geo = useMemo(() => {
-    const h = new THREE.Shape()
-    h.moveTo(0, -0.1)
-    h.bezierCurveTo(-0.22, 0.05, -0.14, 0.2, 0, 0.1)
-    h.bezierCurveTo(0.14, 0.2, 0.22, 0.05, 0, -0.1)
-    const g = new THREE.ExtrudeGeometry(h, { depth: 0.05, bevelEnabled: true, bevelSize: 0.02, bevelThickness: 0.02, bevelSegments: 3, curveSegments: 12 })
-    g.center()
-    return g
+/** A soft halo behind the TV, the glow of a half-remembered room. */
+function Halo({ L, dark }: { L: Layout; dark: boolean }) {
+  const tex = useMemo(() => {
+    const c = document.createElement('canvas')
+    c.width = c.height = 256
+    const g = c.getContext('2d')!
+    const grad = g.createRadialGradient(128, 128, 0, 128, 128, 128)
+    grad.addColorStop(0, 'rgba(255,255,255,.9)')
+    grad.addColorStop(0.5, 'rgba(255,225,245,.28)')
+    grad.addColorStop(1, 'rgba(255,225,245,0)')
+    g.fillStyle = grad
+    g.fillRect(0, 0, 256, 256)
+    const t = new THREE.CanvasTexture(c)
+    t.colorSpace = THREE.SRGBColorSpace
+    return t
   }, [])
-  const mat = useMemo(() => aero('#ff3d6e'), [])
-  const refs = useRef<(THREE.Mesh | null)[]>([])
-  const n = 7
-  useFrame((s) => {
-    const t = s.clock.elapsedTime
-    refs.current.forEach((m, i) => {
-      if (!m) return
-      const life = (t * 0.16 + i / n) % 1
-      m.position.set(L.tvX - 0.7 + (i % 4) * 0.55 + Math.sin(t + i) * 0.14, groundY(L, L.tvX, 0) + 1.7 + life * 1.5, 0.2)
-      m.rotation.y = Math.sin(t * 1.4 + i) * 0.5
-      m.scale.setScalar(Math.sin(life * Math.PI) * (0.42 + (i % 3) * 0.16))
-    })
-  })
+  const size = (L.compact ? 460 : 760) * L.px
   return (
-    <>
-      {Array.from({ length: n }, (_, i) => (
-        <mesh key={i} ref={(el) => void (refs.current[i] = el)} geometry={geo} material={mat} />
-      ))}
-    </>
+    <sprite position={[L.tvX, groundY(L, L.tvX, 0) + (L.compact ? 100 : 150) * L.px, -1.5]} scale={[size, size, 1]}>
+      <spriteMaterial map={tex} transparent depthWrite={false} opacity={dark ? 0.32 : 0.6} toneMapped={false} />
+    </sprite>
   )
 }
 
-function World({ compact, dark, picked, onPick }: Pick<Props, 'compact' | 'dark' | 'picked' | 'onPick'>) {
+/** A lone door standing in the far field. Nobody knows who left it there. */
+function Door({ L, dark }: { L: Layout; dark: boolean }) {
+  const door = useMemo(() => makeDoor(), [])
+  const scale = 54 * L.px
+  const x = L.tvX + 345 * L.px
+  const z = -2.8
+  useEffect(() => {
+    door.light.color.set(dark ? '#ffe9a8' : '#fff6d8')
+  }, [door, dark])
+  return <primitive object={door.group} position={[x, groundY(L, x, z), z]} scale={scale} rotation={[0, -0.3, 0]} />
+}
+
+function World({ compact, dark, picked, onPick, band }: Pick<Props, 'compact' | 'dark' | 'picked' | 'onPick' | 'band'>) {
   const { gl, scene, viewport } = useThree()
   const ripple = useRef(new THREE.Vector4(0, 0, 0, 99))
   const scatter = useRef(0)
@@ -598,9 +609,13 @@ function World({ compact, dark, picked, onPick }: Pick<Props, 'compact' | 'dark'
 
   const W = viewport.width
   const H = viewport.height
+  const px = 1 / viewport.factor
   const L = useMemo<Layout>(
-    () => (compact ? { compact, W, H, tvX: 0, y0: -H * 0.5 + 0.5 } : { compact, W, H, tvX: W * 0.235, y0: -H * 0.5 + 0.86 }),
-    [compact, W, H],
+    () =>
+      compact
+        ? { compact, W, H, px, tvX: 0, y0: -H * 0.5 + 62 * px, left: -W * 0.5, right: W * 0.5 }
+        : { compact, W, H, px, tvX: (band.center - 0.5) * W, y0: -H * 0.5 + 118 * px, left: (band.left - 0.5) * W, right: (band.right - 0.5) * W },
+    [compact, W, H, px, band],
   )
   const flock = compact ? clients.slice(0, 7) : clients
 
@@ -611,13 +626,13 @@ function World({ compact, dark, picked, onPick }: Pick<Props, 'compact' | 'dark'
       <directionalLight position={[-3, -2, 4]} intensity={1} color="#1668e8" />
       <ambientLight intensity={dark ? 0.55 : 0.3} />
       <DriftingClouds L={L} dark={dark} />
+      <Halo L={L} dark={dark} />
+      {!compact && <Door L={L} dark={dark} />}
       <Ground L={L} dark={dark} ripple={ripple} />
       <Flowers L={L} />
       <TV L={L} channel={picked} ripple={ripple} />
-      <Prop L={L} ripple={ripple} make={makeMic} x={L.compact ? -2 : -2.05} z={0.7} scale={L.compact ? 0.42 : 0.5} lift={0.77} />
-      <Prop L={L} ripple={ripple} make={makeMegaphone} x={L.compact ? 2.05 : 1.95} z={0.5} scale={L.compact ? 0.4 : 0.46} lift={0.72} />
-      {!compact && <Prop L={L} ripple={ripple} make={makeClapper} x={-1.3} z={1.9} scale={0.3} lift={0.62} />}
-      <Hearts L={L} />
+      <Prop L={L} ripple={ripple} make={makeMic} x={(compact ? -128 : -212) * px} z={0.6} scale={(compact ? 38 : 54) * px} lift={0.77} />
+      <Prop L={L} ripple={ripple} make={makeMegaphone} x={(compact ? 128 : 212) * px} z={0.6} scale={(compact ? 28 : 44) * px} lift={0.72} />
       <Motes L={L} dark={dark} />
       {flock.map((c, i) => (
         <Bird key={c.name} name={c.name} i={i} L={L} picked={picked} onPick={onPick} scatter={scatter} />
@@ -633,11 +648,13 @@ type Props = {
   onPick: (name: string, x: number, y: number) => void
   /** The sky was clicked, not a bird. */
   onMiss: () => void
+  /** The right column, as fractions of the hero's width. */
+  band: { left: number; right: number; center: number }
   onReady?: () => void
 }
 
 /** The live hero scene. Loaded lazily; it stops drawing whenever it is off screen. */
-export default function HeroWorld({ compact, dark, picked, onPick, onMiss, onReady }: Props) {
+export default function HeroWorld({ compact, dark, picked, onPick, onMiss, band, onReady }: Props) {
   const box = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(true)
   useEffect(() => {
@@ -650,7 +667,7 @@ export default function HeroWorld({ compact, dark, picked, onPick, onMiss, onRea
   return (
     <div ref={box} className="h-full w-full">
       <Canvas
-        dpr={compact ? [1, 1.5] : [1, 1.75]}
+        dpr={[1, 1.5]}
         frameloop={visible ? 'always' : 'never'}
         camera={{ position: [0, 0.9, 12], fov: 30 }}
         gl={{ antialias: true, alpha: true, toneMapping: THREE.ACESFilmicToneMapping }}
@@ -658,7 +675,7 @@ export default function HeroWorld({ compact, dark, picked, onPick, onMiss, onRea
         onPointerMissed={(e) => (picked ? onMiss() : burst(e.clientX, e.clientY, { count: 8 }))}
         aria-hidden
       >
-        <World compact={compact} dark={dark} picked={picked} onPick={onPick} />
+        <World compact={compact} dark={dark} picked={picked} onPick={onPick} band={band} />
       </Canvas>
     </div>
   )
