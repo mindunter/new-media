@@ -1,0 +1,49 @@
+# Runs the launch scout every 15 minutes and publishes data/launches.json to the
+# live site on the gh-pages branch. The Live page reads that file.
+#
+# To add X: Settings > Secrets and variables > Actions > New repository secret,
+# name X_BEARER_TOKEN. X bills per post read; X_MONTHLY_READS caps the month.
+name: Launch scout
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: launch-scout
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: src
+          sparse-checkout: agent
+      - uses: actions/checkout@v4
+        with:
+          ref: gh-pages
+          path: site
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Collect launches
+        env:
+          X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
+          X_MONTHLY_READS: ${{ vars.X_MONTHLY_READS || '15000' }}
+        run: node src/agent/launch-scout.mjs --out site/data/launches.json
+      - name: Publish
+        working-directory: site
+        run: |
+          git config user.name "launch-scout"
+          git config user.email "launch-scout@users.noreply.github.com"
+          git add data/launches.json
+          git diff --cached --quiet && exit 0
+          git commit -m "Update live launches"
+          git push
