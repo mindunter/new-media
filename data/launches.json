@@ -1,0 +1,2101 @@
+{
+ "updated": "2026-11-04T20:11:56.841Z",
+ "sources": {
+  "x": {
+   "status": "off",
+   "note": "Set X_BEARER_TOKEN to turn on.",
+   "at": "2026-11-04T20:11:53.076Z"
+  },
+  "hn": {
+   "status": "ok",
+   "note": "92 posts.",
+   "at": "2026-11-04T20:11:56.127Z"
+  }
+ },
+ "count": 95,
+ "items": [
+  {
+   "id": "hn:50369457",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://ciphero.ai/cassandra/hn",
+   "discussion": "https://news.ycombinator.com/item?id=50369457",
+   "title": "Cassandra – free tool to check if you got affected by the Cursor hack",
+   "text": "",
+   "name": "skd-fs",
+   "handle": "skd-fs",
+   "site": "ciphero.ai",
+   "created": "2026-11-04T18:19:46Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://ciphero.ai/assets/cassandra/og-fd4fd879.png",
+   "imageTried": true,
+   "score": 4.73
+  },
+  {
+   "id": "hn:50369269",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/mestr-io/channelvault",
+   "discussion": "https://news.ycombinator.com/item?id=50369269",
+   "title": "ChannelVault, browse and search your Slack exports",
+   "text": "",
+   "name": "donperignon",
+   "handle": "donperignon",
+   "site": "github.com",
+   "created": "2026-11-04T18:05:05Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/de97704352db87a8946cd1a5cfccce89aa50fb3e60db8a417c7197c5df1786a2/mestr-io/channelvault",
+   "imageTried": true,
+   "score": 5.13
+  },
+  {
+   "id": "hn:50369251",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://predsymod.github.io/memex/",
+   "discussion": "https://news.ycombinator.com/item?id=50369251",
+   "title": "An open source repo to use your personal context with any agent",
+   "text": "",
+   "name": "symuz",
+   "handle": "symuz",
+   "site": "predsymod.github.io",
+   "created": "2026-11-04T18:04:10Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "Agents",
+    "Open source"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 5.84
+  },
+  {
+   "id": "hn:50369009",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/AJTimePyro/cppbolt",
+   "discussion": "https://news.ycombinator.com/item?id=50369009",
+   "title": "Cppbolt – A lightweight C++ to WebAssembly compiler written in Rust",
+   "text": "",
+   "name": "ajtimepyro",
+   "handle": "ajtimepyro",
+   "site": "github.com",
+   "created": "2026-11-04T17:45:40Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/82e27d710fa2e5e8de1928f3e543e26b7e3120f4c67de241300c3b267b52e3e8/AJTimePyro/cppbolt",
+   "imageTried": true,
+   "score": 4.68
+  },
+  {
+   "id": "hn:50368804",
+   "source": "hn",
+   "kind": "Launch HN",
+   "url": "https://news.ycombinator.com/item?id=50368804",
+   "discussion": "https://news.ycombinator.com/item?id=50368804",
+   "title": "Kino AI (YC S23) – AI media manager and video editor",
+   "text": "",
+   "name": "lukeigel",
+   "handle": "lukeigel",
+   "site": "news.ycombinator.com",
+   "created": "2026-11-04T17:31:53Z",
+   "metrics": {
+    "points": 34,
+    "comments": 22
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 56.68
+  },
+  {
+   "id": "hn:50366929",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://pcdealcheck.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50366929",
+   "title": "I built a tool that prices a prebuilt PC part by part",
+   "text": "",
+   "name": "adlep",
+   "handle": "adlep",
+   "site": "pcdealcheck.com",
+   "created": "2026-11-04T15:25:33Z",
+   "metrics": {
+    "points": 67,
+    "comments": 46
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 72.51
+  },
+  {
+   "id": "hn:50366894",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/michaelmagan/OpenHuman",
+   "discussion": "https://news.ycombinator.com/item?id=50366894",
+   "title": "An Open Source Superhuman Email Client Clone",
+   "text": "",
+   "name": "grouchy",
+   "handle": "grouchy",
+   "site": "github.com",
+   "created": "2026-11-04T15:22:44Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "Open source"
+   ],
+   "image": "https://opengraph.githubassets.com/796627599b0ddaea5c0f2a1774e5a9fc4b1a434ddf6ee28fc393a09401570210/michaelmagan/OpenHuman",
+   "imageTried": true,
+   "score": 3.2
+  },
+  {
+   "id": "hn:50366811",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/peterretief/codemap",
+   "discussion": "https://news.ycombinator.com/item?id=50366811",
+   "title": "Codemap – one-page interactive map of any Go repository",
+   "text": "",
+   "name": "peter_retief",
+   "handle": "peter_retief",
+   "site": "github.com",
+   "created": "2026-11-04T15:18:24Z",
+   "metrics": {
+    "points": 35,
+    "comments": 16
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/859051fe6ff14d9bb8df8fc7f083a74df58e427ca8fb2af079ec22e0b5fece59/peterretief/codemap",
+   "imageTried": true,
+   "score": 33.93
+  },
+  {
+   "id": "hn:50366645",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/iris-zip/iris",
+   "discussion": "https://news.ycombinator.com/item?id=50366645",
+   "title": "Iriszip – Audited post-quantum E2EE file transfer (SPAKE2M-KEM-768)",
+   "text": "",
+   "name": "Dev-Scar",
+   "handle": "Dev-Scar",
+   "site": "github.com",
+   "created": "2026-11-04T15:08:55Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/1e001dc686a2a26d82fde9c2b4bd77659b660e2a13e5b14cfb51d06a90437bbf/iris-zip/iris",
+   "imageTried": true,
+   "score": 3.46
+  },
+  {
+   "id": "hn:50366448",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hyperbutler.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50366448",
+   "title": "Hyperbutler – Docker on Windows without WSL, 320 MB at idle",
+   "text": "",
+   "name": "swq115",
+   "handle": "swq115",
+   "site": "hyperbutler.dev",
+   "created": "2026-11-04T14:58:16Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://hyperbutler.dev/img/preview-light.png",
+   "imageTried": true,
+   "score": 2.98
+  },
+  {
+   "id": "hn:50366425",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/alex0ptr/aigude",
+   "discussion": "https://news.ycombinator.com/item?id=50366425",
+   "title": "AI Gude – my feeds as a daily podcast, revived with AI",
+   "text": "",
+   "name": "alex0ptr",
+   "handle": "alex0ptr",
+   "site": "github.com",
+   "created": "2026-11-04T14:57:16Z",
+   "metrics": {
+    "points": 7,
+    "comments": 0
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://opengraph.githubassets.com/83640f467b6de85189129466561714d8f0a151b8cda38e883ee0eeb7499e35f6/alex0ptr/aigude",
+   "imageTried": true,
+   "score": 5.2
+  },
+  {
+   "id": "hn:50365692",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/3351666087/scan-to-vector-skill",
+   "discussion": "https://news.ycombinator.com/item?id=50365692",
+   "title": "Scan-to-vector – rebuild scanned pages as vector PDFs with an AI agent",
+   "text": "",
+   "name": "Null3351",
+   "handle": "Null3351",
+   "site": "github.com",
+   "created": "2026-11-04T14:05:46Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [
+    "AI",
+    "Agents",
+    "Infra"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1418320301/86e5358c-5851-40e5-8780-3239e6d9e898",
+   "imageTried": true,
+   "score": 2.92
+  },
+  {
+   "id": "hn:50365678",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://sentencecoach.com/chinese-grammar-checker",
+   "discussion": "https://news.ycombinator.com/item?id=50365678",
+   "title": "Chinese sentence checker with pinyin and English explanations",
+   "text": "",
+   "name": "eatfreshapple",
+   "handle": "eatfreshapple",
+   "site": "sentencecoach.com",
+   "created": "2026-11-04T14:04:41Z",
+   "metrics": {
+    "points": 7,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://sentencecoach.com/og/home.png",
+   "imageTried": true,
+   "score": 4.54
+  },
+  {
+   "id": "hn:50365560",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackerscad.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50365560",
+   "title": "I wanted OpenSCAD with fillets and a C-like language. So I made one",
+   "text": "",
+   "name": "trikko",
+   "handle": "trikko",
+   "site": "hackerscad.com",
+   "created": "2026-11-04T13:55:35Z",
+   "metrics": {
+    "points": 7,
+    "comments": 5
+   },
+   "tags": [],
+   "image": "https://hackerscad.com/og.png",
+   "imageTried": true,
+   "score": 6.02
+  },
+  {
+   "id": "hn:50365294",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/ComputerUseAgent/AutoCua",
+   "discussion": "https://news.ycombinator.com/item?id=50365294",
+   "title": "AutoCua, one prompt drives computer, browser, phones, code at same time",
+   "text": "",
+   "name": "aashish16yadav",
+   "handle": "aashish16yadav",
+   "site": "github.com",
+   "created": "2026-11-04T13:32:41Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [
+    "Dev tools"
+   ],
+   "image": "https://opengraph.githubassets.com/6da6303e0c5b66eebb2133a54dbd8e17e6374ed695ee35c05ecd0e0a2db2e280/ComputerUseAgent/AutoCua",
+   "imageTried": true,
+   "score": 2.1
+  },
+  {
+   "id": "hn:50364706",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/The-Pixel-Boys/shield-kya",
+   "discussion": "https://news.ycombinator.com/item?id=50364706",
+   "title": "Shield KYA – Open-source audit trail and gate for AI agent tool calls",
+   "text": "",
+   "name": "shieldagent",
+   "handle": "shieldagent",
+   "site": "github.com",
+   "created": "2026-11-04T12:33:39Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents",
+    "Open source"
+   ],
+   "image": "https://opengraph.githubassets.com/14c60a05eeffd015a14b9696423f8e7e12a3d1d539e06653a0b7b079ad419eb0/The-Pixel-Boys/shield-kya",
+   "imageTried": true,
+   "score": 1.58
+  },
+  {
+   "id": "hn:50364657",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://markovchat.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50364657",
+   "title": "MarkovChat – Meet people who share your intellectual interests",
+   "text": "",
+   "name": "hackboyfly",
+   "handle": "hackboyfly",
+   "site": "markovchat.com",
+   "created": "2026-11-04T12:28:23Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 2.09
+  },
+  {
+   "id": "hn:50364483",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.trustmebro.reviews/",
+   "discussion": "https://news.ycombinator.com/item?id=50364483",
+   "title": "13M opinions on 48k products extracted from Reddit and HN",
+   "text": "",
+   "name": "davidzweig",
+   "handle": "davidzweig",
+   "site": "trustmebro.reviews",
+   "created": "2026-11-04T12:09:11Z",
+   "metrics": {
+    "points": 8,
+    "comments": 7
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 5.77
+  },
+  {
+   "id": "hn:50364101",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://inboxclassic.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50364101",
+   "title": "Inbox Classic, a Outlook Express-like modern desktop mail client",
+   "text": "",
+   "name": "andris9",
+   "handle": "andris9",
+   "site": "inboxclassic.com",
+   "created": "2026-11-04T11:26:00Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://inboxclassic.com/img/windows/read-1-html.png",
+   "imageTried": true,
+   "score": 1.62
+  },
+  {
+   "id": "hn:50363940",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/gmpetrov/agent-screenplay",
+   "discussion": "https://news.ycombinator.com/item?id=50363940",
+   "title": "Agent-screenplay – Create beautiful screen recordings with one prompt",
+   "text": "",
+   "name": "gptrv",
+   "handle": "gptrv",
+   "site": "github.com",
+   "created": "2026-11-04T11:10:40Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "Agents"
+   ],
+   "image": "https://opengraph.githubassets.com/df0031b2e6439c83ec2e8abcfb4a3b39d8e214df2150e7741bba2311f6d82d8b/gmpetrov/agent-screenplay",
+   "imageTried": true,
+   "score": 1.8
+  },
+  {
+   "id": "hn:50363166",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://md2docx.js.org/",
+   "discussion": "https://news.ycombinator.com/item?id=50363166",
+   "title": "Md2docx – Compile Markdown directly into native Word documents",
+   "text": "",
+   "name": "mayank1513",
+   "handle": "mayank1513",
+   "site": "md2docx.js.org",
+   "created": "2026-11-04T09:29:37Z",
+   "metrics": {
+    "points": 5,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://repository-images.githubusercontent.com/1405696656/b1920a9f-dda5-4809-844c-326e46b6485e",
+   "imageTried": true,
+   "score": 1.89
+  },
+  {
+   "id": "hn:50362963",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://jrcpl.us/contrib/2020/gardening-for-engineers/",
+   "discussion": "https://news.ycombinator.com/item?id=50362963",
+   "title": "Vegetable Gardening for Engineers",
+   "text": "",
+   "name": "jrcplus",
+   "handle": "jrcplus",
+   "site": "jrcpl.us",
+   "created": "2026-11-04T08:54:27Z",
+   "metrics": {
+    "points": 5,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 1.79
+  },
+  {
+   "id": "hn:50362952",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://headlineredline.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50362952",
+   "title": "Headline Redline – track changes in News Headlines",
+   "text": "",
+   "name": "oyster143",
+   "handle": "oyster143",
+   "site": "headlineredline.com",
+   "created": "2026-11-04T08:53:15Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 1.07
+  },
+  {
+   "id": "hn:50362748",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackereverything.pages.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50362748",
+   "title": "HackerEverything – Everything recommended by HN",
+   "text": "",
+   "name": "mk93074",
+   "handle": "mk93074",
+   "site": "hackereverything.pages.dev",
+   "created": "2026-11-04T08:22:57Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 1.37
+  },
+  {
+   "id": "hn:50362730",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/Flux-AI-Agent/fluxcut-plugin",
+   "discussion": "https://news.ycombinator.com/item?id=50362730",
+   "title": "Plugin to Create Product Videos",
+   "text": "",
+   "name": "loveTech",
+   "handle": "loveTech",
+   "site": "github.com",
+   "created": "2026-11-04T08:21:20Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/7375213353e34a9f76d0a66c369841a49ceb05e4f413708191bc5adbe478fd29/Flux-AI-Agent/fluxcut-plugin",
+   "imageTried": true,
+   "score": 1.2
+  },
+  {
+   "id": "hn:50362676",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.onestoplinkedin.com",
+   "discussion": "https://news.ycombinator.com/item?id=50362676",
+   "title": "A privacy-first career toolkit (PDF manipulation runs in Browser/WASM)",
+   "text": "",
+   "name": "saurav7__",
+   "handle": "saurav7__",
+   "site": "onestoplinkedin.com",
+   "created": "2026-11-04T08:13:41Z",
+   "metrics": {
+    "points": 5,
+    "comments": 6
+   },
+   "tags": [],
+   "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ec25ef4b-34d4-4906-98c8-9b5ba4c91795",
+   "imageTried": true,
+   "score": 2.7
+  },
+  {
+   "id": "hn:50362615",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://mcp.meteosource.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50362615",
+   "title": "Meteosource MCP server, weather data for AI assistants",
+   "text": "",
+   "name": "Thunder_rumbles",
+   "handle": "Thunder_rumbles",
+   "site": "mcp.meteosource.com",
+   "created": "2026-11-04T08:02:25Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://www.meteosource.com/static/img/mcp-og.png",
+   "imageTried": true,
+   "score": 1.16
+  },
+  {
+   "id": "hn:50361850",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://dryplate.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50361850",
+   "title": "Dryplate – Image tools that run in the browser, no upload",
+   "text": "",
+   "name": "tsvillain",
+   "handle": "tsvillain",
+   "site": "dryplate.dev",
+   "created": "2026-11-04T05:40:34Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://dryplate.dev/og.png",
+   "imageTried": true,
+   "score": 0.83
+  },
+  {
+   "id": "hn:50361375",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://handball-logos.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50361375",
+   "title": "Handball Logos – Collection of logos of handball clubs",
+   "text": "",
+   "name": "yaman071",
+   "handle": "yaman071",
+   "site": "handball-logos.com",
+   "created": "2026-11-04T04:02:36Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://handball-logos.com/branding/9249b1650da1/social-card.png",
+   "imageTried": true,
+   "score": 0.74
+  },
+  {
+   "id": "hn:50361309",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://midterms2026.noriagentic.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50361309",
+   "title": "A live-built agent newsroom for tracking midterms today",
+   "text": "",
+   "name": "theahura",
+   "handle": "theahura",
+   "site": "midterms2026.noriagentic.com",
+   "created": "2026-11-04T03:50:03Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Agents"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.73
+  },
+  {
+   "id": "hn:50361230",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://muratbayraktar.dev/blog/3d-rendering-in-the-terminal/",
+   "discussion": "https://news.ycombinator.com/item?id=50361230",
+   "title": "Rendering 3D Models in the Terminal",
+   "text": "",
+   "name": "bob65536",
+   "handle": "bob65536",
+   "site": "muratbayraktar.dev",
+   "created": "2026-11-04T03:34:34Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.72
+  },
+  {
+   "id": "hn:50360658",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://tahaygun.github.io/pauseless/",
+   "discussion": "https://news.ycombinator.com/item?id=50360658",
+   "title": "Pauseless – Free silence/filler-word remover from videos, on-browser",
+   "text": "",
+   "name": "tahaygun",
+   "handle": "tahaygun",
+   "site": "tahaygun.github.io",
+   "created": "2026-11-04T01:52:24Z",
+   "metrics": {
+    "points": 5,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://tahaygun.github.io/pauseless/og.png",
+   "imageTried": true,
+   "score": 1.08
+  },
+  {
+   "id": "hn:50360315",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://playbomber.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50360315",
+   "title": "Retro: I rebuilt bomberman game, same gameplay, new interface",
+   "text": "",
+   "name": "dutay05",
+   "handle": "dutay05",
+   "site": "playbomber.com",
+   "created": "2026-11-04T00:59:19Z",
+   "metrics": {
+    "points": 3,
+    "comments": 3
+   },
+   "tags": [],
+   "image": "https://playbomber.com/website/assets/og-image.png",
+   "imageTried": true,
+   "score": 0.92
+  },
+  {
+   "id": "hn:50360259",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://wile.ai/v/BPOH3BHCRWWCAKU4OVNOTEQ73A",
+   "discussion": "https://news.ycombinator.com/item?id=50360259",
+   "title": "HackerReels - Short Videos for viral HN posts",
+   "text": "",
+   "name": "alexandroskyr",
+   "handle": "alexandroskyr",
+   "site": "wile.ai",
+   "created": "2026-11-04T00:50:50Z",
+   "metrics": {
+    "points": 4,
+    "comments": 3
+   },
+   "tags": [],
+   "image": "https://wile.ai/v/BPOH3BHCRWWCAKU4OVNOTEQ73A/poster.jpg",
+   "imageTried": true,
+   "score": 1.12
+  },
+  {
+   "id": "hn:50359936",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://spooler.sh/",
+   "discussion": "https://news.ycombinator.com/item?id=50359936",
+   "title": "Spooler – a simple, managed message queue",
+   "text": "",
+   "name": "gobwas",
+   "handle": "gobwas",
+   "site": "spooler.sh",
+   "created": "2026-11-04T00:02:30Z",
+   "metrics": {
+    "points": 9,
+    "comments": 6
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 2.33
+  },
+  {
+   "id": "hn:50359805",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://modelpeers.com",
+   "discussion": "https://news.ycombinator.com/item?id=50359805",
+   "title": "Modelpeers – a changelog for the AI models and agents you use",
+   "text": "",
+   "name": "liorgrossman",
+   "handle": "liorgrossman",
+   "site": "modelpeers.com",
+   "created": "2026-11-03T23:45:40Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://modelpeers.com/og",
+   "imageTried": true,
+   "score": 0.77
+  },
+  {
+   "id": "hn:50359750",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://rotate.ad/",
+   "discussion": "https://news.ycombinator.com/item?id=50359750",
+   "title": "RotateAd, a web directory and banner exchange",
+   "text": "",
+   "name": "irfanhasnani",
+   "handle": "irfanhasnani",
+   "site": "rotate.ad",
+   "created": "2026-11-03T23:39:45Z",
+   "metrics": {
+    "points": 3,
+    "comments": 4
+   },
+   "tags": [],
+   "image": "https://rotate.ad/og.png",
+   "imageTried": true,
+   "score": 0.95
+  },
+  {
+   "id": "hn:50359283",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://slashtrends.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50359283",
+   "title": "Google Trends for Reddit",
+   "text": "",
+   "name": "slashtrends",
+   "handle": "slashtrends",
+   "site": "slashtrends.com",
+   "created": "2026-11-03T22:42:14Z",
+   "metrics": {
+    "points": 5,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://slashtrends.com/og-home.jpg",
+   "imageTried": true,
+   "score": 1
+  },
+  {
+   "id": "hn:50358352",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://uncracked.city",
+   "discussion": "https://news.ycombinator.com/item?id=50358352",
+   "title": "Uncracked City, detective game where you question LLM suspects that lie",
+   "text": "",
+   "name": "passkey1510",
+   "handle": "passkey1510",
+   "site": "uncracked.city",
+   "created": "2026-11-03T21:20:03Z",
+   "metrics": {
+    "points": 119,
+    "comments": 61
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://uncracked.city/og/en.png",
+   "imageTried": true,
+   "score": 25.29
+  },
+  {
+   "id": "hn:50358314",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/finic-ai/kairos",
+   "discussion": "https://news.ycombinator.com/item?id=50358314",
+   "title": "Kairos – Open-source risk and fraud decisioning platform",
+   "text": "",
+   "name": "ayanb9440",
+   "handle": "ayanb9440",
+   "site": "github.com",
+   "created": "2026-11-03T21:16:48Z",
+   "metrics": {
+    "points": 103,
+    "comments": 30
+   },
+   "tags": [
+    "Open source"
+   ],
+   "image": "https://opengraph.githubassets.com/161156864c7fa98df88f4558df06f40d0fbf3876c96a4a8cbb7e4264e840e8bc/finic-ai/kairos",
+   "imageTried": true,
+   "score": 19.91
+  },
+  {
+   "id": "hn:50358282",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://browsertape.com/metro#share=7bcc8ad92b7a4f458d924e3ea7ebf8b5",
+   "discussion": "https://news.ycombinator.com/item?id=50358282",
+   "title": "A browser studio with a SPICE-modeled Juno 106 (playing Nightcall)",
+   "text": "",
+   "name": "tonioab",
+   "handle": "tonioab",
+   "site": "browsertape.com",
+   "created": "2026-11-03T21:14:36Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.67
+  },
+  {
+   "id": "hn:50358143",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/rudderlabs/devbox",
+   "discussion": "https://news.ycombinator.com/item?id=50358143",
+   "title": "DevBox – Open-source engineering harness from RudderStack",
+   "text": "",
+   "name": "soumyadeb",
+   "handle": "soumyadeb",
+   "site": "github.com",
+   "created": "2026-11-03T21:02:49Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "Open source"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1435329777/dc2af965-e6d1-4ee3-ac46-cd7bd961d365",
+   "imageTried": true,
+   "score": 0.67
+  },
+  {
+   "id": "hn:50357605",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://mallard-ai.com/home",
+   "discussion": "https://news.ycombinator.com/item?id=50357605",
+   "title": "Mallard: Git for the age of AI agents",
+   "text": "",
+   "name": "rika321",
+   "handle": "rika321",
+   "site": "mallard-ai.com",
+   "created": "2026-11-03T20:18:39Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.64
+  },
+  {
+   "id": "hn:50357326",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://zapfast.rocks/",
+   "discussion": "https://news.ycombinator.com/item?id=50357326",
+   "title": "ZapFast, Native WhatsApp for Linux, macOS, and Windows with Calls",
+   "text": "",
+   "name": "earcar",
+   "handle": "earcar",
+   "site": "zapfast.rocks",
+   "created": "2026-11-03T19:58:59Z",
+   "metrics": {
+    "points": 5,
+    "comments": 5
+   },
+   "tags": [],
+   "image": "https://zapfast.rocks/screenshot.png",
+   "imageTried": true,
+   "score": 1.19
+  },
+  {
+   "id": "hn:50357117",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://peck.pikju.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50357117",
+   "title": "Twitter but you can only use paint",
+   "text": "",
+   "name": "baby",
+   "handle": "baby",
+   "site": "peck.pikju.com",
+   "created": "2026-11-03T19:42:50Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.55
+  },
+  {
+   "id": "hn:50357042",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://recto.design",
+   "discussion": "https://news.ycombinator.com/item?id=50357042",
+   "title": "Recto: A desktop app where you can design with AI, edit with your mouse",
+   "text": "",
+   "name": "maroofkhan2007",
+   "handle": "maroofkhan2007",
+   "site": "recto.design",
+   "created": "2026-11-03T19:35:38Z",
+   "metrics": {
+    "points": 7,
+    "comments": 9
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 1.79
+  },
+  {
+   "id": "hn:50356974",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://confetti.build",
+   "discussion": "https://news.ycombinator.com/item?id=50356974",
+   "title": "Confetti – Start designing hardware with plain English prompts",
+   "text": "",
+   "name": "enaic",
+   "handle": "enaic",
+   "site": "confetti.build",
+   "created": "2026-11-03T19:30:04Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "Robotics"
+   ],
+   "image": "https://confetti.build/opengraph-image",
+   "imageTried": true,
+   "score": 0.62
+  },
+  {
+   "id": "hn:50356948",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://graftfork.com/try",
+   "discussion": "https://news.ycombinator.com/item?id=50356948",
+   "title": "Graftfork: rebase fork patches onto each upstream release, test-gated",
+   "text": "",
+   "name": "craigm26",
+   "handle": "craigm26",
+   "site": "graftfork.com",
+   "created": "2026-11-03T19:28:07Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.54
+  },
+  {
+   "id": "hn:50356198",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://shadowgraph.io",
+   "discussion": "https://news.ycombinator.com/item?id=50356198",
+   "title": "I got tired of GitHub trending, so I built my own",
+   "text": "",
+   "name": "nosman",
+   "handle": "nosman",
+   "site": "shadowgraph.io",
+   "created": "2026-11-03T18:38:00Z",
+   "metrics": {
+    "points": 3,
+    "comments": 3
+   },
+   "tags": [
+    "Dev tools"
+   ],
+   "image": "https://shadowgraph.io/opengraph-image-xg4ifa?78672f090eacdb49",
+   "imageTried": true,
+   "score": 0.67
+  },
+  {
+   "id": "hn:50355827",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://vatsaltanna.com/traveltoinfinity/",
+   "discussion": "https://news.ycombinator.com/item?id=50355827",
+   "title": "Scroll from your own skeleton to the edge of the observable universe",
+   "text": "",
+   "name": "vatsaltanna",
+   "handle": "vatsaltanna",
+   "site": "vatsaltanna.com",
+   "created": "2026-11-03T18:14:38Z",
+   "metrics": {
+    "points": 6,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://vatsaltanna.com/traveltoinfinity/share.jpg",
+   "imageTried": true,
+   "score": 0.88
+  },
+  {
+   "id": "hn:50355761",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/drawdb-io/drawdb",
+   "discussion": "https://news.ycombinator.com/item?id=50355761",
+   "title": "DrawDB – turn any live database into an ER diagram with one query",
+   "text": "",
+   "name": "1ilit",
+   "handle": "1ilit",
+   "site": "github.com",
+   "created": "2026-11-03T18:10:57Z",
+   "metrics": {
+    "points": 5,
+    "comments": 1
+   },
+   "tags": [
+    "Infra"
+   ],
+   "image": "https://repository-images.githubusercontent.com/667110339/481c6bc7-2ec2-4078-afba-070ceee5ee9b",
+   "imageTried": true,
+   "score": 0.81
+  },
+  {
+   "id": "hn:50354777",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://superlinked.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50354777",
+   "title": "SIE Serverless – managed inference powered by self-hostable stack",
+   "text": "",
+   "name": "supo",
+   "handle": "supo",
+   "site": "superlinked.com",
+   "created": "2026-11-03T17:11:53Z",
+   "metrics": {
+    "points": 9,
+    "comments": 1
+   },
+   "tags": [
+    "AI",
+    "Infra"
+   ],
+   "image": "https://superlinked.com/og/home.png",
+   "imageTried": true,
+   "score": 1.34
+  },
+  {
+   "id": "hn:50354016",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://browse.sophtron.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50354016",
+   "title": "Unblock Dot/Grok Bot/Instinct with Amazon, etc.",
+   "text": "",
+   "name": "independentbits",
+   "handle": "independentbits",
+   "site": "browse.sophtron.com",
+   "created": "2026-11-03T16:24:06Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.41
+  },
+  {
+   "id": "hn:50353773",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hn-hiring-2019-2026.lancecj.chatgpt.site/",
+   "discussion": "https://news.ycombinator.com/item?id=50353773",
+   "title": "8 years of \"Who's Hiring?\" in charts (hiring boom, bust, and AI trends)",
+   "text": "",
+   "name": "LanceJones",
+   "handle": "LanceJones",
+   "site": "hn-hiring-2019-2026.lancecj.chatgpt.site",
+   "created": "2026-11-03T16:07:59Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.61
+  },
+  {
+   "id": "hn:50353615",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://cleanslop.com",
+   "discussion": "https://news.ycombinator.com/item?id=50353615",
+   "title": "CleanSlop – Find what breaks in AI-generated TypeScript/Node web apps",
+   "text": "",
+   "name": "anomit",
+   "handle": "anomit",
+   "site": "cleanslop.com",
+   "created": "2026-11-03T15:59:04Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://cleanslop.com/opengraph-image.png?opengraph-image.1keikfqj6ecka.png",
+   "imageTried": true,
+   "score": 0.47
+  },
+  {
+   "id": "hn:50353468",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://concepts.laxmena.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50353468",
+   "title": "Interactive notes on RLHF, attention, LoRA and LLM evals",
+   "text": "",
+   "name": "laxmena",
+   "handle": "laxmena",
+   "site": "concepts.laxmena.com",
+   "created": "2026-11-03T15:48:35Z",
+   "metrics": {
+    "points": 41,
+    "comments": 4
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 5.72
+  },
+  {
+   "id": "hn:50353386",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hissingkitty.com/hacker-churn",
+   "discussion": "https://news.ycombinator.com/item?id=50353386",
+   "title": "HackerChurn – which SaaS tools HN wants to cancel",
+   "text": "",
+   "name": "drewlem",
+   "handle": "drewlem",
+   "site": "hissingkitty.com",
+   "created": "2026-11-03T15:41:52Z",
+   "metrics": {
+    "points": 71,
+    "comments": 25
+   },
+   "tags": [],
+   "image": "https://hissingkitty.com/api/public/og/hacker-churn.png",
+   "imageTried": true,
+   "score": 11.06
+  },
+  {
+   "id": "hn:50353127",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://election.run/",
+   "discussion": "https://news.ycombinator.com/item?id=50353127",
+   "title": "Election.run – election night in one window",
+   "text": "",
+   "name": "vegcel",
+   "handle": "vegcel",
+   "site": "election.run",
+   "created": "2026-11-03T15:21:09Z",
+   "metrics": {
+    "points": 9,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "https://election.run/og-v1.jpg",
+   "imageTried": true,
+   "score": 1.31
+  },
+  {
+   "id": "hn:50352590",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://howtodisableaioverview.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50352590",
+   "title": "How to Disable Google AI Overview",
+   "text": "",
+   "name": "fireflywedding",
+   "handle": "fireflywedding",
+   "site": "howtodisableaioverview.com",
+   "created": "2026-11-03T14:41:52Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.51
+  },
+  {
+   "id": "hn:50352316",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://bucket.svc.moe/uploads/wss/life.html",
+   "discussion": "https://news.ycombinator.com/item?id=50352316",
+   "title": "Run Conway's Game of Life in CSS",
+   "text": "",
+   "name": "iridis",
+   "handle": "iridis",
+   "site": "bucket.svc.moe",
+   "created": "2026-11-03T14:19:29Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.5
+  },
+  {
+   "id": "hn:50351830",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://remene.si",
+   "discussion": "https://news.ycombinator.com/item?id=50351830",
+   "title": "Remene – Understand your MRI and prepare questions for your doctor",
+   "text": "",
+   "name": "molcode",
+   "handle": "molcode",
+   "site": "remene.si",
+   "created": "2026-11-03T13:36:47Z",
+   "metrics": {
+    "points": 11,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://remene.si/opengraph-image-default.jpg",
+   "imageTried": true,
+   "score": 1.35
+  },
+  {
+   "id": "hn:50351797",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/gethardcount/hardcount",
+   "discussion": "https://news.ycombinator.com/item?id=50351797",
+   "title": "Hardcount – Self-hosted usage billing for AI products",
+   "text": "",
+   "name": "sagarw",
+   "handle": "sagarw",
+   "site": "github.com",
+   "created": "2026-11-03T13:34:04Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1203696212/bcc91046-d698-484f-8e47-b3fdf9d6bb60",
+   "imageTried": true,
+   "score": 0.37
+  },
+  {
+   "id": "hn:50351781",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://rigorix.eu/",
+   "discussion": "https://news.ycombinator.com/item?id=50351781",
+   "title": "Rigorix, Execution governance for AI agents, open-source engine",
+   "text": "",
+   "name": "arman-w-jalili",
+   "handle": "arman-w-jalili",
+   "site": "rigorix.eu",
+   "created": "2026-11-03T13:32:58Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents",
+    "Open source"
+   ],
+   "image": "https://rigorix.eu/og.png",
+   "imageTried": true,
+   "score": 0.49
+  },
+  {
+   "id": "hn:50351748",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://diogenesgateway.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50351748",
+   "title": "Diogenes – Account-less MCP Gateway to 45 Gemini models and guardrails",
+   "text": "",
+   "name": "diogenes_l402",
+   "handle": "diogenes_l402",
+   "site": "diogenesgateway.com",
+   "created": "2026-11-03T13:30:05Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://diogenesgateway.com/diogenes_avatar.svg",
+   "imageTried": true,
+   "score": 0.49
+  },
+  {
+   "id": "hn:50351684",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://flaviaouyang.github.io/hackerjobs/hiring/",
+   "discussion": "https://news.ycombinator.com/item?id=50351684",
+   "title": "Open-Source Searchable Job Board for HN's Hiring Threads",
+   "text": "",
+   "name": "whoisflavia",
+   "handle": "whoisflavia",
+   "site": "flaviaouyang.github.io",
+   "created": "2026-11-03T13:23:59Z",
+   "metrics": {
+    "points": 6,
+    "comments": 2
+   },
+   "tags": [
+    "Open source"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.85
+  },
+  {
+   "id": "hn:50351465",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://netties.adler.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50351465",
+   "title": "I built an interactive visual playground for interaction nets",
+   "text": "",
+   "name": "arrow7000",
+   "handle": "arrow7000",
+   "site": "netties.adler.dev",
+   "created": "2026-11-03T12:58:47Z",
+   "metrics": {
+    "points": 7,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://netties.adler.dev/icon.png",
+   "imageTried": true,
+   "score": 0.84
+  },
+  {
+   "id": "hn:50351427",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://kvittas.app",
+   "discussion": "https://news.ycombinator.com/item?id=50351427",
+   "title": "Kvittas, an Expense Splitting App",
+   "text": "",
+   "name": "primalscreamer",
+   "handle": "primalscreamer",
+   "site": "kvittas.app",
+   "created": "2026-11-03T12:53:48Z",
+   "metrics": {
+    "points": 12,
+    "comments": 11
+   },
+   "tags": [],
+   "image": "https://kvittas.app/img/og.png",
+   "imageTried": true,
+   "score": 2.09
+  },
+  {
+   "id": "hn:50351409",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/lokadb/lokadb",
+   "discussion": "https://news.ycombinator.com/item?id=50351409",
+   "title": "LokaDB – store each SaaS clients rows in a separate Postgres database",
+   "text": "",
+   "name": "kagen",
+   "handle": "kagen",
+   "site": "github.com",
+   "created": "2026-11-03T12:51:40Z",
+   "metrics": {
+    "points": 5,
+    "comments": 3
+   },
+   "tags": [
+    "Infra"
+   ],
+   "image": "https://opengraph.githubassets.com/250e6548040592bc4a089237b89c27d1e8354fbae34fb99aa87b948689b280c8/lokadb/lokadb",
+   "imageTried": true,
+   "score": 0.77
+  },
+  {
+   "id": "hn:50351404",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://getbema.app/",
+   "discussion": "https://news.ycombinator.com/item?id=50351404",
+   "title": "Bema: Work messaging built for humans",
+   "text": "",
+   "name": "ben_d",
+   "handle": "ben_d",
+   "site": "getbema.app",
+   "created": "2026-11-03T12:51:11Z",
+   "metrics": {
+    "points": 26,
+    "comments": 20
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 4.28
+  },
+  {
+   "id": "hn:50350976",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://airy.so/studio",
+   "discussion": "https://news.ycombinator.com/item?id=50350976",
+   "title": "Airy Studio – Free TTS in 7 languages (zh, hi, ar, th, vi, ko, en)",
+   "text": "",
+   "name": "henzoos",
+   "handle": "henzoos",
+   "site": "airy.so",
+   "created": "2026-11-03T12:07:19Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [
+    "Voice"
+   ],
+   "image": "https://airy.so/airy-og-final.png?v=2",
+   "imageTried": true,
+   "score": 0.52
+  },
+  {
+   "id": "hn:50350485",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://sentrint.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50350485",
+   "title": "Ship AI features without losing sleep",
+   "text": "",
+   "name": "heythere47",
+   "handle": "heythere47",
+   "site": "sentrint.com",
+   "created": "2026-11-03T11:07:59Z",
+   "metrics": {
+    "points": 3,
+    "comments": 3
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://sentrint.com/static/og/og-default.png",
+   "imageTried": true,
+   "score": 0.5
+  },
+  {
+   "id": "hn:50350444",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://news.ycombinator.com/item?id=50350444",
+   "discussion": "https://news.ycombinator.com/item?id=50350444",
+   "title": "Globalize.now – translations that land in your pull request",
+   "text": "",
+   "name": "artursvonda",
+   "handle": "artursvonda",
+   "site": "news.ycombinator.com",
+   "created": "2026-11-03T11:02:20Z",
+   "metrics": {
+    "points": 5,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.56
+  },
+  {
+   "id": "hn:50350400",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://portalphysics.xyz/up-down",
+   "discussion": "https://news.ycombinator.com/item?id=50350400",
+   "title": "I made a portals physics engine to prove my point",
+   "text": "",
+   "name": "nick-keller",
+   "handle": "nick-keller",
+   "site": "portalphysics.xyz",
+   "created": "2026-11-03T10:55:16Z",
+   "metrics": {
+    "points": 5,
+    "comments": 7
+   },
+   "tags": [],
+   "image": "https://portalphysics.xyz/og.png",
+   "imageTried": true,
+   "score": 0.95
+  },
+  {
+   "id": "hn:50350300",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.yopologame.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50350300",
+   "title": "Yopologame.com – A free, bot-proof human proximity ledger",
+   "text": "",
+   "name": "ypyk",
+   "handle": "ypyk",
+   "site": "yopologame.com",
+   "created": "2026-11-03T10:41:02Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_3xkvj0t7yp9z8vqyr0krs8yjcj/e343d2983c82a661eba73e7a7c42989e_1793775946856.png",
+   "imageTried": true,
+   "score": 0.33
+  },
+  {
+   "id": "hn:50350133",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackernews-analytics.jerrysniffs.online/",
+   "discussion": "https://news.ycombinator.com/item?id=50350133",
+   "title": "Hacker News Analytics",
+   "text": "",
+   "name": "freakynit",
+   "handle": "freakynit",
+   "site": "hackernews-analytics.jerrysniffs.online",
+   "created": "2026-11-03T10:18:46Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.44
+  },
+  {
+   "id": "hn:50348853",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://vectoys.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50348853",
+   "title": "Vectoys – 3D devices for landing pages, drawn as plain SVG",
+   "text": "",
+   "name": "mertduzgun",
+   "handle": "mertduzgun",
+   "site": "vectoys.com",
+   "created": "2026-11-03T06:47:06Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://vectoys.com/og.png",
+   "imageTried": true,
+   "score": 0.39
+  },
+  {
+   "id": "hn:50348805",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://mintype.app",
+   "discussion": "https://news.ycombinator.com/item?id=50348805",
+   "title": "Mintype – Free, zero-knowledge notes app with whiteboards (AGPL)",
+   "text": "",
+   "name": "project59",
+   "handle": "project59",
+   "site": "mintype.app",
+   "created": "2026-11-03T06:39:29Z",
+   "metrics": {
+    "points": 8,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://mintype.app/og-image.png",
+   "imageTried": true,
+   "score": 0.82
+  },
+  {
+   "id": "hn:50348804",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://muxscape.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50348804",
+   "title": "Muxscape A graphical SSH client built on tmux",
+   "text": "",
+   "name": "CubezCS",
+   "handle": "CubezCS",
+   "site": "muxscape.com",
+   "created": "2026-11-03T06:39:24Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://muxscape.com/og.png",
+   "imageTried": true,
+   "score": 0.34
+  },
+  {
+   "id": "hn:50348740",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://margeux.com/rb338.html",
+   "discussion": "https://news.ycombinator.com/item?id=50348740",
+   "title": "ReBirth 338 in Browser",
+   "text": "",
+   "name": "vegnus",
+   "handle": "vegnus",
+   "site": "margeux.com",
+   "created": "2026-11-03T06:24:50Z",
+   "metrics": {
+    "points": 24,
+    "comments": 11
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 2.84
+  },
+  {
+   "id": "hn:50348456",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/gosuda/bitcoin-rs",
+   "discussion": "https://news.ycombinator.com/item?id=50348456",
+   "title": "Bitcoin-rs – An independent Bitcoin full node in Rust",
+   "text": "",
+   "name": "dreamcacao02183",
+   "handle": "dreamcacao02183",
+   "site": "github.com",
+   "created": "2026-11-03T05:31:21Z",
+   "metrics": {
+    "points": 10,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/e24f832c051d51cf3393be2fe372a7b5170e3a2f8a1601f4bf9240401a7ea9f6/gosuda/bitcoin-rs",
+   "imageTried": true,
+   "score": 0.94
+  },
+  {
+   "id": "hn:50348361",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/p10node/office-engine",
+   "discussion": "https://news.ycombinator.com/item?id=50348361",
+   "title": "Open a 300k-row XLSX in the browser in ~300ms, no server",
+   "text": "",
+   "name": "pierreneter",
+   "handle": "pierreneter",
+   "site": "github.com",
+   "created": "2026-11-03T05:13:30Z",
+   "metrics": {
+    "points": 17,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/c08a4772a2d7a69c95c6908ee02a016d954b967c967b568fb4798a03f65d10e8/p10node/office-engine",
+   "imageTried": true,
+   "score": 1.67
+  },
+  {
+   "id": "hn:50347777",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.predatorray.me/CheapGPT/",
+   "discussion": "https://news.ycombinator.com/item?id=50347777",
+   "title": "CheapGPT – a free local AI assistant powered by Chrome's Gemini Nano",
+   "text": "",
+   "name": "zetaplusae",
+   "handle": "zetaplusae",
+   "site": "predatorray.me",
+   "created": "2026-11-03T03:42:52Z",
+   "metrics": {
+    "points": 3,
+    "comments": 3
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.4
+  },
+  {
+   "id": "hn:50347552",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hjkl.duy.run",
+   "discussion": "https://news.ycombinator.com/item?id=50347552",
+   "title": "I built a little browser game to practice Vim commands",
+   "text": "",
+   "name": "dh1011",
+   "handle": "dh1011",
+   "site": "hjkl.duy.run",
+   "created": "2026-11-03T03:10:04Z",
+   "metrics": {
+    "points": 70,
+    "comments": 51
+   },
+   "tags": [],
+   "image": "https://hjkl.duy.run/og.png",
+   "imageTried": true,
+   "score": 8.37
+  },
+  {
+   "id": "hn:50347524",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://rustable.app",
+   "discussion": "https://news.ycombinator.com/item?id=50347524",
+   "title": "Rustable is an open source database client built in Rust",
+   "text": "",
+   "name": "JaTochNietDan",
+   "handle": "JaTochNietDan",
+   "site": "rustable.app",
+   "created": "2026-11-03T03:06:53Z",
+   "metrics": {
+    "points": 27,
+    "comments": 20
+   },
+   "tags": [
+    "Open source",
+    "Infra"
+   ],
+   "image": "https://rustable.app/assets/social-preview.png",
+   "imageTried": true,
+   "score": 3.24
+  },
+  {
+   "id": "hn:50347408",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.phoneuse.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50347408",
+   "title": "PhoneUse – Phones for AI Agents",
+   "text": "",
+   "name": "dyscrete",
+   "handle": "dyscrete",
+   "site": "phoneuse.com",
+   "created": "2026-11-03T02:50:40Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://www.phoneuse.com/assets/brand/og.jpg",
+   "imageTried": true,
+   "score": 0.35
+  },
+  {
+   "id": "hn:50347156",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://apps.tarwin.art/tiny-tally/",
+   "discussion": "https://news.ycombinator.com/item?id=50347156",
+   "title": "Tiny Tally - Free local only finances",
+   "text": "",
+   "name": "tarwin",
+   "handle": "tarwin",
+   "site": "apps.tarwin.art",
+   "created": "2026-11-03T02:18:53Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://apps.tarwin.art/tiny-tally/og.png",
+   "imageTried": true,
+   "score": 0.3
+  },
+  {
+   "id": "hn:50346981",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackertimes.ca/",
+   "discussion": "https://news.ycombinator.com/item?id=50346981",
+   "title": "Hacker Times, a New York Times-inspired version of Hacker News",
+   "text": "",
+   "name": "polpenn",
+   "handle": "polpenn",
+   "site": "hackertimes.ca",
+   "created": "2026-11-03T01:53:34Z",
+   "metrics": {
+    "points": 466,
+    "comments": 147
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 45.64
+  },
+  {
+   "id": "hn:50346755",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackertv.org",
+   "discussion": "https://news.ycombinator.com/item?id=50346755",
+   "title": "HackerTV – HN's most-recommended Youtube videos as 24/7 TV channels",
+   "text": "",
+   "name": "dsalzman",
+   "handle": "dsalzman",
+   "site": "hackertv.org",
+   "created": "2026-11-03T01:18:09Z",
+   "metrics": {
+    "points": 444,
+    "comments": 79
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 40.26
+  },
+  {
+   "id": "hn:50345881",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://git-aarvin.github.io/hackers/",
+   "discussion": "https://news.ycombinator.com/item?id=50345881",
+   "title": "Hacker News, à la Lobsters",
+   "text": "",
+   "name": "hn-aarvin",
+   "handle": "hn-aarvin",
+   "site": "git-aarvin.github.io",
+   "created": "2026-11-02T23:45:14Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.36
+  },
+  {
+   "id": "hn:50344705",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hackerproducts.pages.dev",
+   "discussion": "https://news.ycombinator.com/item?id=50344705",
+   "title": "HackerProducts – HackerTube, but for products mentioned on HN",
+   "text": "",
+   "name": "bin01",
+   "handle": "bin01",
+   "site": "hackerproducts.pages.dev",
+   "created": "2026-11-02T22:17:29Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "https://hackerproducts.pages.dev/og/site.png",
+   "imageTried": true,
+   "score": 0.31
+  },
+  {
+   "id": "hn:50344247",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hn-atlas.bensontech.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50344247",
+   "title": "HN Atlas – Discover tools to better engage with Hacker News",
+   "text": "",
+   "name": "informal007",
+   "handle": "informal007",
+   "site": "hn-atlas.bensontech.dev",
+   "created": "2026-11-02T21:43:40Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 0.3
+  },
+  {
+   "id": "hn:50343521",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://readoutbench.com",
+   "discussion": "https://news.ycombinator.com/item?id=50343521",
+   "title": "ReadoutBench – forecast 653 clinical trials before they report",
+   "text": "",
+   "name": "lhein",
+   "handle": "lhein",
+   "site": "readoutbench.com",
+   "created": "2026-11-02T20:50:38Z",
+   "metrics": {
+    "points": 3,
+    "comments": 3
+   },
+   "tags": [
+    "Health"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 0.33
+  },
+  {
+   "id": "hn:50342630",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://maxharrison.me/posts/offtrackometer/",
+   "discussion": "https://news.ycombinator.com/item?id=50342630",
+   "title": "I used Jev to build an off-topic detector for meetings",
+   "text": "",
+   "name": "maxharrison",
+   "handle": "maxharrison",
+   "site": "maxharrison.me",
+   "created": "2026-11-02T19:48:47Z",
+   "metrics": {
+    "points": 8,
+    "comments": 2
+   },
+   "tags": [],
+   "score": 0.65,
+   "imageTried": true,
+   "image": "https://maxharrison.me/images/social-posts/offtrackometer.png"
+  },
+  {
+   "id": "hn:50342520",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/victorcarrico/arvre",
+   "discussion": "https://news.ycombinator.com/item?id=50342520",
+   "title": "Arvre – A TUI for Claude Code sessions' forks",
+   "text": "",
+   "name": "vcarrico",
+   "handle": "vcarrico",
+   "site": "github.com",
+   "created": "2026-11-02T19:41:47Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Dev tools"
+   ],
+   "score": 0.29,
+   "imageTried": true,
+   "image": "https://opengraph.githubassets.com/2979917e82ea90ec8a6706cea99f7ea29e39e9d88dc2d3884922eb225b53aecc/victorcarrico/arvre"
+  },
+  {
+   "id": "hn:50342272",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://hnrepos.com",
+   "discussion": "https://news.ycombinator.com/item?id=50342272",
+   "title": "Hnrepos.com, HackerTube for Repositories",
+   "text": "",
+   "name": "richardw",
+   "handle": "richardw",
+   "site": "hnrepos.com",
+   "created": "2026-11-02T19:26:53Z",
+   "metrics": {
+    "points": 12,
+    "comments": 0
+   },
+   "tags": [],
+   "score": 0.86,
+   "imageTried": true,
+   "image": ""
+  }
+ ],
+ "meta": {}
+}
