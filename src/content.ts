@@ -70,7 +70,7 @@ export const clients = [
 ]
 
 /**
- * The flowing logo row. PLACEHOLDER: Composio and Artesia show as wordmarks until
+ * The flowing logo row. PLACEHOLDER: Interact AI, Composio and Artesia show as wordmarks until
  * Abhay sends their official logos; add the files to src/assets/logos and ClientLogo.
  */
 export const logoRow = [...clients.map((c) => c.name), 'Composio', 'Artesia']
