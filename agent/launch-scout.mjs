@@ -165,6 +165,42 @@ async function fromHN() {
 
 /* ------------------------------------------------------------------ */
 
+/** Reads a page's og:image (or twitter:image) so the Live page can show a thumbnail. */
+async function previewFor(url) {
+  const res = await fetch(url, {
+    redirect: 'follow',
+    signal: AbortSignal.timeout(8000),
+    headers: { 'user-agent': 'launch-scout/1.0 (+https://mindunter.github.io/new-media/live)', accept: 'text/html' },
+  })
+  if (!res.ok || !(res.headers.get('content-type') ?? '').includes('html')) return ''
+  const html = (await res.text()).slice(0, 300_000)
+  const m =
+    html.match(/<meta[^>]+(?:property|name)=["'](?:og:image|twitter:image)(?::src)?["'][^>]*content=["']([^"']+)["']/i) ??
+    html.match(/<meta[^>]+content=["']([^"']+)["'][^>]*(?:property|name)=["'](?:og:image|twitter:image)["']/i)
+  if (!m) return ''
+  const src = new URL(m[1].replace(/&amp;/g, '&'), res.url).href
+  return src.startsWith('https://') ? src : ''
+}
+
+/** Finds preview images for launches that do not have one yet. Each page is tried once. */
+async function addPreviews(items) {
+  const todo = items.filter((it) => !it.image && !it.imageTried && it.source === 'hn' && /^https:/.test(it.url))
+  let k = 0
+  const worker = async () => {
+    while (k < todo.length) {
+      const it = todo[k++]
+      it.imageTried = true
+      try {
+        it.image = await previewFor(it.url)
+      } catch {
+        it.image = ''
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: 8 }, worker))
+  if (todo.length) console.log(`  previews: ${todo.filter((it) => it.image).length}/${todo.length} found`)
+}
+
 /** One number to rank by: engagement, decayed by age so new launches can rise. */
 function score(it) {
   const m = it.metrics
@@ -194,13 +230,18 @@ async function main() {
 
   // Newer data replaces older copies of the same post; old posts age out.
   const byId = new Map(prev.items.map((it) => [it.id, it]))
-  for (const it of fresh) byId.set(it.id, it)
+  for (const it of fresh) {
+    const old = byId.get(it.id)
+    byId.set(it.id, { ...it, image: it.image || old?.image || '', imageTried: old?.imageTried })
+  }
   const cutoff = Date.now() - KEEP_DAYS * 86400e3
   const items = [...byId.values()]
     .filter((it) => Date.parse(it.created) > cutoff)
     .map((it) => ({ ...it, score: score(it) }))
     .sort((a, b) => Date.parse(b.created) - Date.parse(a.created))
     .slice(0, MAX_ITEMS)
+
+  await addPreviews(items)
 
   const out = { updated: new Date().toISOString(), sources, count: items.length, items, meta }
   mkdirSync(dirname(OUT), { recursive: true })

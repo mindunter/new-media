@@ -20,6 +20,11 @@ export const brand = {
   bookingEndpoint: '',
   /** PLACEHOLDER: the Calendly booking page, e.g. https://calendly.com/<name>/30min. Until set, the booking card opens an email. */
   calendly: '',
+  /**
+   * PLACEHOLDER: where "Continue with X" sends people. X sign-in needs an X developer app and a small
+   * server for the OAuth token exchange (it cannot run on GitHub Pages). Until set, the button is disabled.
+   */
+  xAuthUrl: '',
   socials: [
     { label: 'X', href: 'https://x.com/newmediahq' },
     { label: 'LinkedIn', href: '#' },
@@ -70,10 +75,10 @@ export const clients = [
 ]
 
 /**
- * The flowing logo row. PLACEHOLDER: Interact AI, Composio and Artesia show as wordmarks until
- * Abhay sends their official logos; add the files to src/assets/logos and ClientLogo.
+ * The flowing logo row. PLACEHOLDER: Artesia is left out until Abhay confirms which company it is and sends
+ * the logo; add the file to src/assets/logos and ClientLogo.
  */
-export const logoRow = [...clients.map((c) => c.name), 'Composio', 'Artesia']
+export const logoRow = [...clients.map((c) => c.name), 'Composio']
 
 /** Partnership note, from the Interact AI relationship. */
 export const partner = {

@@ -5,7 +5,7 @@ import { PreviewBadge } from './components/PreviewBadge'
 import { basename, useHashRouting } from './lib/paths'
 import { getLenis, startSmoothScroll } from './lib/scroll'
 import Home from './pages/Home'
-import { Footer, TopBar } from './site/ui'
+import { Dialogs, Footer, TopBar } from './site/ui'
 
 // Home loads with the first bundle; the other pages load when visited.
 const Work = lazy(() => import('./pages/Work'))
@@ -16,7 +16,7 @@ const Contact = lazy(() => import('./pages/Contact'))
 const titles: Record<string, string> = {
   '/': 'New Media | Launch amplification on X for AI companies',
   '/work': 'Launches | New Media',
-  '/live': 'Live launches | New Media',
+  '/live': 'Launch directory | New Media',
   '/process': 'Process | New Media',
   '/contact': 'Book a call | New Media',
 }
@@ -66,7 +66,9 @@ export default function App() {
   return (
     <MotionConfig reducedMotion="user">
       <Router basename={useHashRouting ? undefined : basename}>
-        <Shell />
+        <Dialogs>
+          <Shell />
+        </Dialogs>
       </Router>
     </MotionConfig>
   )

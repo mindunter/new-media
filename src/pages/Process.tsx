@@ -1,6 +1,6 @@
-import { Check } from 'lucide-react'
 import { Reveal } from '@/components/Reveal'
-import { copy, CtaBand, FaqList, Heading, PageHero, Steps } from '@/site/ui'
+import { LaunchCurve } from '@/site/charts'
+import { copy, CtaBand, FaqList, Heading, PageHero, SectionHead, spotlight } from '@/site/ui'
 
 export default function Process() {
   return (
@@ -11,31 +11,32 @@ export default function Process() {
         pos="50% 60%"
         caption="Eagle returns from the surface, Earth above the Moon. Apollo 11, 21 July 1969. NASA."
         label="Process"
-        title="Four steps. One launch hour."
-        sub="Two weeks of preparation, one hour that sets the reach, and 30 days of follow-up."
+        title="Four phases. One launch hour."
+        sub="Two weeks of preparation, a first-hour ranking window, and 30 days of compounding distribution."
       />
 
       <section aria-labelledby="steps-title" className="py-20 sm:py-24">
-        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
-          <Reveal className="lg:self-start">
-            <Heading id="steps-title" note="One team, one plan, one report.">
-              How it works
-            </Heading>
+        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
+          <Reveal>
+            <SectionHead id="steps-title" label="Orchestration" title="How a launch runs" note="Hover a phase to see what happens in it." />
           </Reveal>
-          <Steps detail />
+          <LaunchCurve phases={copy.steps} />
         </div>
       </section>
 
       <section aria-labelledby="get-title" className="border-t border-line bg-surface py-20 sm:py-24">
-        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <div className="shell">
           <Reveal>
-            <Heading id="get-title">What you get</Heading>
+            <SectionHead id="get-title" label="Deliverables" title="What ships with every launch" />
           </Reveal>
-          <ul className="border-t border-line">
-            {copy.deliverables.map((d) => (
-              <li key={d} className="flex items-center gap-4 border-b border-line py-5">
-                <Check size={16} aria-hidden className="shrink-0 text-accent" />
-                {d}
+          <ul className="mt-12 grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
+            {copy.deliverables.map((d, k) => (
+              <li key={d.k} onPointerMove={spotlight} className="spot flex min-h-[180px] flex-col justify-between bg-surface p-5">
+                <span className="num text-[0.78rem] text-muted">0{k + 1}</span>
+                <span>
+                  <span className="block text-[1rem] font-semibold">{d.k}</span>
+                  <span className="mt-1 block text-[0.86rem] text-muted">{d.v}</span>
+                </span>
               </li>
             ))}
           </ul>
@@ -43,9 +44,11 @@ export default function Process() {
       </section>
 
       <section id="faq" aria-labelledby="faq-title" className="border-t border-line py-20 sm:py-24">
-        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)] lg:gap-20">
           <Reveal>
-            <Heading id="faq-title">FAQ</Heading>
+            <Heading id="faq-title" label="Questions">
+              FAQ
+            </Heading>
           </Reveal>
           <FaqList />
         </div>

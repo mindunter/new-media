@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react'
+
 export type Theme = 'light' | 'dark'
 
 const KEY = 'nm-theme'
@@ -30,4 +32,11 @@ export function tokenRGB(name: string): [number, number, number] {
   const full = hex.length === 3 ? hex.replace(/./g, (c) => c + c) : hex
   const n = parseInt(full, 16)
   return [(n >> 16) & 255, (n >> 8) & 255, n & 255]
+}
+
+/** The current theme, kept up to date when the visitor switches. */
+export function useTheme(): Theme {
+  const [theme, set] = useState<Theme>(currentTheme)
+  useEffect(() => onThemeChange(() => set(currentTheme())), [])
+  return theme
 }

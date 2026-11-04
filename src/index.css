@@ -74,6 +74,8 @@
 @theme {
   --font-sans: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-display: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  /* Figures and the placeholder wordmark: a tighter, technical sans. */
+  --font-num: 'Geist Variable', 'Inter Variable', 'Helvetica Neue', Arial, sans-serif;
   --font-serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
@@ -91,7 +93,6 @@
     color: var(--fg);
     font-family: var(--font-sans);
     font-feature-settings: 'cv11', 'ss01';
-    font-variant-numeric: tabular-nums;
     overflow-x: clip;
     transition:
       background-color 0.3s,
@@ -216,6 +217,53 @@
   animation: marquee 48s linear infinite;
 }
 .logo-flow:hover > ul {
+  animation-play-state: paused;
+}
+
+/* Every figure on the site: Geist, tabular, slightly tighter. */
+.num {
+  font-family: var(--font-num);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum', 'ss01';
+  letter-spacing: -0.035em;
+}
+/* A soft light that follows the pointer across a card. Set by useSpotlight. */
+.spot {
+  position: relative;
+  isolation: isolate;
+}
+.spot::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity 0.4s;
+  background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), color-mix(in srgb, var(--accent) 12%, transparent), transparent 60%);
+}
+.spot:hover::before {
+  opacity: 1;
+}
+/* Loading placeholder: a light sweep across a flat tile. */
+.shimmer {
+  background: linear-gradient(100deg, color-mix(in srgb, var(--fg) 6%, transparent) 30%, color-mix(in srgb, var(--fg) 13%, transparent) 50%, color-mix(in srgb, var(--fg) 6%, transparent) 70%);
+  background-size: 300% 100%;
+  animation: shimmer 1.4s linear infinite;
+}
+@keyframes shimmer {
+  from {
+    background-position: 100% 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+/* A thin ticker that runs right to left and pauses on hover. */
+.ticker > ul {
+  animation: marquee 60s linear infinite;
+}
+.ticker:hover > ul {
   animation-play-state: paused;
 }
 

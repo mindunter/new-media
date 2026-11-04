@@ -108,7 +108,8 @@ export function useLaunchFeed() {
         const map = new Map(prev.map((it) => [it.id, it]))
         for (const it of incoming) {
           const old = map.get(it.id)
-          map.set(it.id, { ...it, fresh: old ? old.fresh : isNew })
+          // The live call has no preview images; keep the one the scout found.
+          map.set(it.id, { ...it, image: it.image || old?.image, fresh: old ? old.fresh : isNew })
         }
         const cutoff = Date.now() - 7 * 86400e3
         return [...map.values()].filter((it) => Date.parse(it.created) > cutoff).sort((a, b) => Date.parse(b.created) - Date.parse(a.created))

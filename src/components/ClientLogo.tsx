@@ -1,9 +1,11 @@
 import backops from '@/assets/logos/backops.webp'
 import beacon from '@/assets/logos/beacon.webp'
 import charming from '@/assets/logos/charming.webp'
+import composio from '@/assets/logos/composio.webp'
 import entelligenceMark from '@/assets/logos/entelligence-mark.webp'
 import entelligence from '@/assets/logos/entelligence-wordmark.svg'
 import falconer from '@/assets/logos/falconer.webp'
+import interact from '@/assets/logos/interact.svg'
 import mem0 from '@/assets/logos/mem0.webp'
 import reactor from '@/assets/logos/reactor.webp'
 import runlayer from '@/assets/logos/runlayer.webp'
@@ -30,6 +32,8 @@ export const logos: Record<string, { file: string; ratio: number; mark?: string;
   Charming: { file: charming, ratio: 4.67 },
   webcmd: { file: webcmd, ratio: 5.426 },
   Mem0: { file: mem0, ratio: 4.025 },
+  'Interact AI': { file: interact, ratio: 4.592 },
+  Composio: { file: composio, ratio: 5.208 },
   // From entelligence.ai: a 34px tile beside a 15.9px wordmark.
   'Entelligence AI': { file: entelligence, ratio: 5.5, mark: entelligenceMark, markScale: 2.14 },
 }
