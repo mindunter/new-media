@@ -6,6 +6,7 @@ import { Button } from '@/components/Button'
 import { ClientLogo } from '@/components/ClientLogo'
 import { Logo, LogoFull } from '@/components/Logo'
 import { Reveal } from '@/components/Reveal'
+import { Starfield } from '@/components/Starfield'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import { asOf, backing, brand, engine, fundingTotal, hero, logoRow, postUrl, posts, totalViews, type Post } from '@/content'
 import { art } from '@/lib/paths'
@@ -97,7 +98,7 @@ function TopBar() {
     { href: '#book', label: 'Contact' },
   ]
   return (
-    <header className={cn('fixed inset-x-0 top-0 z-50 transition-colors duration-300', solid ? 'border-b border-line bg-page/90 backdrop-blur-xl' : 'border-b border-transparent')}>
+    <header className={cn('fixed inset-x-0 top-0 z-50 transition-colors duration-300', solid ? 'border-b border-line bg-page/90 text-fg backdrop-blur-xl' : 'border-b border-transparent text-white')}>
       <nav aria-label="Main" className="shell flex h-16 items-center justify-between gap-4">
         <a
           href="#top"
@@ -118,7 +119,7 @@ function TopBar() {
                   e.preventDefault()
                   scrollToHash(l.href)
                 }}
-                className="text-[0.92rem] font-medium text-fg/80 transition-colors hover:text-fg">
+                className="text-[0.92rem] font-medium opacity-80 transition-opacity hover:opacity-100">
                 {l.label}
               </a>
             </li>
@@ -126,7 +127,7 @@ function TopBar() {
         </ul>
         <div className="flex items-center gap-1">
           <ThemeToggle />
-          <Button href="#book" size="md" arrow={false} className="h-10 px-4">
+          <Button href="#book" size="md" arrow={false} variant={solid ? 'signal' : 'light'} className="h-10 px-4">
             Book a call
           </Button>
         </div>
@@ -135,113 +136,146 @@ function TopBar() {
   )
 }
 
-/** Real launch posts, one at a time, with their view counts. */
-function LaunchStack() {
-  const deck = byViews.filter((p) => p.poster !== false).slice(0, 6)
-  const [i, setI] = useState(0)
-  const [hold, setHold] = useState(false)
+/** Launch cards drifting left along a gentle curve, like a horizon. Hover to stop and read one. */
+function LaunchArc() {
+  const box = useRef<HTMLDivElement>(null)
+  const cards = useRef<(HTMLAnchorElement | null)[]>([])
+  const row = [...byViews, ...byViews]
+
   useEffect(() => {
-    if (hold || prefersReducedMotion()) return
-    const id = window.setInterval(() => setI((v) => (v + 1) % deck.length), 4200)
-    return () => window.clearInterval(id)
-  }, [hold, deck.length])
+    const el = box.current
+    if (!el) return
+    let x = 0
+    let last = performance.now()
+    let raf = 0
+    let paused = false
+    let visible = true
+    const still = prefersReducedMotion()
+
+    const place = () => {
+      const vw = el.clientWidth
+      const cw = vw < 640 ? 200 : 260
+      const gap = vw < 640 ? 16 : 24
+      const span = byViews.length * (cw + gap)
+      if (x <= -span) x += span
+      cards.current.forEach((c, i) => {
+        if (!c) return
+        const left = i * (cw + gap) + x + (vw < 640 ? 0 : -cw * 0.4)
+        const t = (left + cw / 2 - vw / 2) / (vw / 2)
+        const y = t * t * (vw < 640 ? 34 : 70)
+        const r = t * (vw < 640 ? 4 : 6)
+        c.style.width = `${cw}px`
+        c.style.transform = `translate3d(${left}px, ${y}px, 0) rotate(${r}deg)`
+        c.style.opacity = Math.abs(t) > 1.25 ? '0' : '1'
+      })
+    }
+    const loop = (t: number) => {
+      const dt = Math.min(64, t - last)
+      last = t
+      if (!paused && !still) x -= dt * 0.032
+      place()
+      if (visible) raf = requestAnimationFrame(loop)
+    }
+    const on = () => (paused = true)
+    const off = () => (paused = false)
+    el.addEventListener('pointerenter', on)
+    el.addEventListener('pointerleave', off)
+    el.addEventListener('focusin', on)
+    el.addEventListener('focusout', off)
+    const io = new IntersectionObserver(([e]) => {
+      visible = e.isIntersecting
+      cancelAnimationFrame(raf)
+      last = performance.now()
+      if (visible) raf = requestAnimationFrame(loop)
+    })
+    io.observe(el)
+    place()
+    return () => {
+      cancelAnimationFrame(raf)
+      io.disconnect()
+      el.removeEventListener('pointerenter', on)
+      el.removeEventListener('pointerleave', off)
+      el.removeEventListener('focusin', on)
+      el.removeEventListener('focusout', off)
+    }
+  }, [])
 
   return (
-    <div className="relative mx-auto aspect-[4/4.4] w-full max-w-[500px]" onMouseEnter={() => setHold(true)} onMouseLeave={() => setHold(false)}>
-      {deck.map((p, k) => {
-        const depth = (k - i + deck.length) % deck.length
-        if (depth > 2) return null
-        return (
-          <motion.a
-            key={p.id}
-            href={postUrl(p)}
-            target="_blank"
-            rel="noreferrer"
-            aria-label={label(p)}
-            tabIndex={depth === 0 ? 0 : -1}
-            aria-hidden={depth !== 0 || undefined}
-            className="absolute inset-x-0 top-0 block overflow-hidden rounded-[22px] border border-line bg-surface shadow-[0_40px_80px_-40px_rgb(17_19_27/0.45)]"
-            initial={false}
-            animate={{ y: depth * 26, scale: 1 - depth * 0.05, opacity: depth === 0 ? 1 : 0.9 - depth * 0.25, zIndex: 10 - depth }}
-            transition={{ duration: 0.8, ease }}
-          >
-            {/* Cards behind the front one show only their edges. */}
-            <div className={cn('transition-opacity duration-500', depth !== 0 && 'opacity-0')}>
-            <div className="flex items-center gap-3 px-5 pt-4 pb-3">
-              <Avatar p={p} />
-              <div className="min-w-0 flex-1 leading-tight">
-                <p className="truncate text-[0.95rem] font-semibold">{p.name}</p>
-                <p className="truncate text-[0.82rem] text-muted">@{p.handle}</p>
-              </div>
-              <XLogo className="size-[18px]" />
-            </div>
-            <Poster p={p} className="aspect-video w-full" />
-            <div className="flex items-end justify-between gap-4 px-5 pt-4 pb-5">
-              <div className="min-w-0">
-                <span className="flex h-6 items-center">
-                  <ClientLogo name={p.brand} height={18} />
-                </span>
-                <p className="mt-1 truncate text-sm text-muted">{p.title}</p>
-              </div>
-              <div className="text-right">
-                <p className="serif text-[2.6rem] leading-none">{depth === 0 ? <Count key={i} to={p.views} format={compact} /> : compact(p.views)}</p>
-                <p className="mono-label mt-1">views</p>
-              </div>
-            </div>
-            </div>
-          </motion.a>
-        )
-      })}
-      <div className="absolute inset-x-0 -bottom-2 flex justify-center gap-1.5" aria-hidden>
-        {deck.map((p, k) => (
-          <span key={p.id} className={cn('h-1 rounded-full transition-all duration-500', k === i ? 'w-6 bg-fill' : 'w-1.5 bg-fg/20')} />
-        ))}
-      </div>
+    <div ref={box} className="relative h-[240px] overflow-hidden sm:h-[270px]">
+      {row.map((p, i) => (
+        <a
+          key={`${p.id}-${i}`}
+          ref={(n) => {
+            cards.current[i] = n
+          }}
+          href={postUrl(p)}
+          target="_blank"
+          rel="noreferrer"
+          aria-label={label(p)}
+          aria-hidden={i >= byViews.length || undefined}
+          tabIndex={i >= byViews.length ? -1 : undefined}
+          className="group absolute top-3 left-0 block origin-center rounded-2xl bg-white/[0.06] p-2 ring-1 ring-white/15 backdrop-blur-md transition-[background-color,box-shadow] duration-300 will-change-transform hover:bg-white/[0.12] hover:ring-white/35"
+        >
+          <div className="relative aspect-video overflow-hidden rounded-xl bg-white/5">
+            <Poster p={p} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.05] [&_p]:!text-[0.9rem]" />
+          </div>
+          <div className="flex items-center justify-between gap-3 px-1.5 pt-2.5 pb-1 text-white">
+            <span className="flex h-5 min-w-0 items-center">
+              <ClientLogo name={p.brand} height={15} />
+            </span>
+            <span className="serif shrink-0 text-[1.35rem] leading-none">{compact(p.views)}</span>
+          </div>
+        </a>
+      ))}
     </div>
   )
 }
 
 function HeroBlock() {
   return (
-    <section id="top" className="rules relative isolate overflow-hidden pt-28 pb-16 sm:pt-36 lg:pt-40 lg:pb-24">
-      <div aria-hidden className="pointer-events-none absolute -top-40 right-[-10%] -z-10 size-[720px] rounded-full bg-[radial-gradient(circle,color-mix(in_srgb,var(--fill)_16%,transparent),transparent_65%)]" />
-      <div className="shell grid items-center gap-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:gap-20">
-        <div>
-          <motion.p className="mono-label flex items-center gap-2.5" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
-            <span className="live-dot" aria-hidden /> {hero.eyebrow}
-          </motion.p>
-          <h1 className="display mt-7 text-[clamp(2.9rem,6.6vw,6.2rem)] leading-[0.95]">
-            {['We make launches', 'impossible to'].map((l, k) => (
-              <span key={l} className="block overflow-y-clip pb-[0.06em]">
-                <motion.span className="inline-block" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.1 + k * 0.08 }}>
-                  {l}
-                </motion.span>
-              </span>
-            ))}
-            <span className="block overflow-y-clip pb-[0.12em]">
-              <motion.span className="serif inline-block pr-[0.06em] font-normal text-accent italic" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.26 }}>
-                scroll past.
+    <section id="top" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#05070d] text-white">
+      {/* Deep space: a faint nebula behind the stars, brightest above the headline. */}
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60%_45%_at_50%_30%,rgb(40_80_200/0.28),transparent_70%),radial-gradient(40%_35%_at_78%_18%,rgb(120_70_220/0.18),transparent_70%),radial-gradient(45%_40%_at_18%_70%,rgb(30_110_230/0.14),transparent_70%)]" />
+      <Starfield className="absolute inset-0 -z-10 h-full w-full" />
+      <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-[#05070d]" />
+
+      <div className="shell flex flex-1 flex-col items-center justify-center pt-28 pb-4 text-center">
+        <motion.p className="mono-label flex items-center gap-2.5 !text-white/70" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
+          <span className="live-dot max-sm:hidden" aria-hidden /> {hero.eyebrow}
+        </motion.p>
+        <h1 className="display mt-6 text-[clamp(2.7rem,6.1vw,6.4rem)] leading-[0.95]">
+          {['We make launches', 'impossible to'].map((l, k) => (
+            <span key={l} className="block overflow-y-clip pb-[0.06em]">
+              <motion.span className="inline-block" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.1 + k * 0.08 }}>
+                {l}
               </motion.span>
             </span>
-          </h1>
-          <motion.div initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.45 }}>
-            <p className="mt-7 max-w-[34rem] text-[1.1rem] leading-relaxed text-muted text-pretty sm:text-[1.2rem]">{hero.sub}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button href="#book" size="lg" className="max-sm:flex-1">
-                Book a call
-              </Button>
-              <Button href="#launches" variant="outline" size="lg" arrow={false} className="max-sm:flex-1">
-                {hero.secondary}
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.1, ease, delay: 0.3 }}>
-          <LaunchStack />
+          ))}
+          <span className="block overflow-y-clip pb-[0.12em]">
+            <motion.span className="serif inline-block pr-[0.06em] font-normal text-[#9cc3ff] italic" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.26 }}>
+              scroll past.
+            </motion.span>
+          </span>
+        </h1>
+        <motion.div className="flex flex-col items-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.45 }}>
+          <p className="mt-6 max-w-[36rem] text-[1.08rem] leading-relaxed text-white/75 text-pretty sm:text-[1.2rem]">{hero.sub}</p>
+          <Button href="#book" size="lg" variant="light" className="mt-8">
+            Book a call
+          </Button>
         </motion.div>
       </div>
 
-      <dl className="shell mt-20 grid grid-cols-2 lg:mt-28 lg:grid-cols-4">
+      <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease, delay: 0.6 }}>
+        <LaunchArc />
+      </motion.div>
+    </section>
+  )
+}
+
+function Figures() {
+  return (
+    <section aria-label="Results so far" className="pt-16 pb-4 sm:pt-20">
+      <dl className="shell grid grid-cols-2 lg:grid-cols-4">
         {[
           { v: totalViews, f: (n: number) => `${(Math.floor(n / 100_000) / 10).toFixed(1)}M+`, k: `Views across ${posts.length} launch posts` },
           { v: fundingTotal, f: (n: number) => `$${n.toFixed(1)}M+`, k: 'Funding announced in those launches' },
@@ -542,6 +576,7 @@ export default function OnePage() {
       <TopBar />
       <main id="main">
         <HeroBlock />
+        <Figures />
         <LogoFlow />
         <Launches />
         <How />
