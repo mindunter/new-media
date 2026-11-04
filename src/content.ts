@@ -8,7 +8,7 @@
  * Instagram links are not real yet. The network map and launch simulator are illustrations.
  */
 
-export const asOf = '1 Nov 2026'
+export const asOf = '4 Nov 2026'
 
 export const brand = {
   name: 'New Media',
@@ -18,6 +18,8 @@ export const brand = {
    * calendar creates a Google Calendar event with a Meet link. Until then, it opens a prefilled email.
    */
   bookingEndpoint: '',
+  /** PLACEHOLDER: the Calendly booking page, e.g. https://calendly.com/<name>/30min. Until set, the booking card opens an email. */
+  calendly: '',
   socials: [
     { label: 'X', href: 'https://x.com/newmediahq' },
     { label: 'LinkedIn', href: '#' },
@@ -39,17 +41,17 @@ export const nav = [
 ]
 
 export const hero = {
-  eyebrow: 'Creator distribution for AI and tech companies',
+  eyebrow: 'Launch amplification on X for AI companies',
   lines: ['We make launches', 'impossible to', 'scroll past.'],
-  sub: 'Your buyers skip ads, but they read the people they follow. We brief those founders, engineers and creators so your launch shows up across their feeds in the same hour.',
-  secondary: 'See our work',
-  proof: '24.3M+ views and $144.5M+ in funding announced across launches for 10 brands since May 2026',
+  sub: 'Your buyers skip ads, but they read the people they follow. We brief those founders, engineers and creators so your launch fills their feeds in the same hour.',
+  secondary: 'See the launches',
+  proof: '26.4M+ views across 16 launches for 10 AI companies since May 2025',
 }
 
 export const stats = [
-  { value: 24.3, suffix: 'M+', label: 'Views across our launches with public numbers', decimals: 1 },
+  { value: 26.4, suffix: 'M+', label: 'Views across 16 launch posts', decimals: 1 },
   { value: 144.5, prefix: '$', suffix: 'M+', label: 'In funding announced through those launches', decimals: 1 },
-  { value: 10, suffix: '', label: 'Brands launched since May 2026' },
+  { value: 10, suffix: '', label: 'AI companies launched since May 2025' },
   { value: 45, suffix: '+', label: 'Creators who have run campaigns with us' },
 ]
 
@@ -62,9 +64,16 @@ export const clients = [
   { name: 'BackOps', tag: '$42M Series B' },
   { name: 'Falconer', tag: 'Launch' },
   { name: 'Charming', tag: 'Launch' },
-  { name: 'Capital Truist', tag: 'Launch' },
+  { name: 'Mem0', tag: '2 launches' },
+  { name: 'Entelligence AI', tag: 'Launch' },
   { name: 'webcmd', tag: 'Launch' },
 ]
+
+/**
+ * The flowing logo row. PLACEHOLDER: Composio and Artesia show as wordmarks until
+ * Abhay sends their official logos; add the files to src/assets/logos and ClientLogo.
+ */
+export const logoRow = [...clients.map((c) => c.name), 'Composio', 'Artesia']
 
 /** Partnership note, from the Interact AI relationship. */
 export const partner = {
@@ -122,6 +131,8 @@ export const fundingTotal = backing.reduce((n, b) => n + b.amount, 0)
 export type Post = {
   id: string
   brand: string
+  /** What the launch was, in a few words. */
+  title: string
   name: string
   handle: string
   verified: boolean
@@ -133,20 +144,34 @@ export type Post = {
   replies: number
   bookmarks: number
   video: boolean
+  /** False when the post has no picture or video to show. */
+  poster?: boolean
+  /** False when we have no saved profile picture. */
+  avatar?: boolean
 }
 
-/** Real launch posts reposted by @newmediahq, oldest first. Numbers read from X on the date in `asOf`. */
+/** Real launch posts @newmediahq ran, oldest first. Exact numbers read from X on the date in `asOf`. */
 export const posts: Post[] = [
-  { id: '2051662847130869780', brand: 'Interact AI', name: 'Interact AI', handle: 'interact_ai', verified: false, date: '2026-05-05', text: 'Introducing Interact AI: a new interface for the web.\n\nAdd it to your website, and it talks to every visitor, answers questions, and shows your product.', views: 2234708, likes: 3310, reposts: 522, replies: 282, bookmarks: 4223, video: true },
-  { id: '2060015607928819876', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-05-28', text: 'Today Reactor is coming out of stealth. We\u2019ve raised $59M in Seed and Series A funding, led by @lightspeedvp, with participation from @AmplifyPartners, @wndrco, @Sky9Capital, and @FPVventures.', views: 12739635, likes: 2343, reposts: 318, replies: 193, bookmarks: 627, video: true },
-  { id: '2069787264654156194', brand: 'Runlayer', name: 'Andy Berman', handle: 'berman66', verified: true, date: '2026-06-24', text: 'Today, we\u2019re announcing Runlayer has raised $30M from Felicis and Khosla Ventures to help companies go all in on AI.\n\nRunlayer is the golden path for AI: enablement, security, and control in one platform.', views: 813741, likes: 820, reposts: 203, replies: 157, bookmarks: 648, video: false },
-  { id: '2070151536257503519', brand: 'Sazabi', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-06-25', text: 'We raised $8m to build self-healing software.\n\nIn 2026, software moves fast.\n\nBut monitoring and observability are still manual and slow.', views: 1325647, likes: 1089, reposts: 226, replies: 227, bookmarks: 445, video: true },
-  { id: '2074935025771143626', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-08', text: 'Introducing Lingbot-World-2, our newest real-time world model.\n\nRicher interactivity, sharper visuals, and advanced camera controls that make exploring what you create feel truly alive.', views: 3803310, likes: 856, reposts: 187, replies: 118, bookmarks: 503, video: true },
-  { id: '2079250546624802918', brand: 'Reactor', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-20', text: 'Introducing Happy Oyster, the groundbreaking real-time world model from @HappyOysterAI, live today on Reactor!\n\nExplore any world you can imagine, or take the director\u2019s chair and shape the story as it happens.', views: 768726, likes: 333, reposts: 143, replies: 78, bookmarks: 142, video: true },
-  { id: '2100220712317329826', brand: 'BackOps', name: 'Sean McCarthy', handle: 'seanmcccarthy', verified: true, date: '2026-09-16', text: 'As AI models get better, cheaper and more widely available, we believe one of the biggest moats will be the proprietary data created by actually doing the work.\n\nToday, we\u2019re announcing a $42M Series B led by @insightpartners for @backopsai.', views: 609969, likes: 237, reposts: 88, replies: 57, bookmarks: 111, video: true },
-  { id: '2110038490859855990', brand: 'Sazabi', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-10-13', text: 'Today, we\u2019re launching Sazabi version 1.0.\n\nThe reality of shipping software as a team in the age of AI is actually crazy.\n\nAgents merging their own PRs. Hundreds of deployments per day.', views: 645061, likes: 499, reposts: 158, replies: 124, bookmarks: 204, video: true },
-  { id: '2112552451547001218', brand: 'Beacon', name: "Justin D'Souza", handle: 'jqdsouza', verified: true, date: '2026-10-20', text: 'We\u2019re betting our $5.5M seed round that the next leap in AI coding won\u2019t come from OpenAI or Anthropic.\n\nIntroducing Beacon: open-source, self-improving memory for coding agents.', views: 628634, likes: 1565, reposts: 305, replies: 323, bookmarks: 2157, video: true },
+  { id: '1922315139057070154', brand: 'Mem0', title: 'OpenMemory MCP', name: 'Taranjeet', handle: 'taranjeetio', verified: true, date: '2025-05-13', text: 'We’re excited to launch OpenMemory MCP, a private memory for MCP-compatible clients powered by @mem0ai', views: 472594, likes: 1650, reposts: 346, replies: 210, bookmarks: 1908, video: true, poster: false },
+  { id: '1937537163270451494', brand: 'Mem0', title: 'OpenMemory Chrome extension', name: 'Taranjeet', handle: 'taranjeetio', verified: true, date: '2025-06-24', text: 'Introducing the OpenMemory Chrome Extension!\n\nShared memory you can carry across ChatGPT, Claude, Perplexity, Grok, Gemini & more.', views: 185184, likes: 999, reposts: 159, replies: 210, bookmarks: 979, video: true },
+  { id: '1955284660822606013', brand: 'Entelligence AI', title: 'Engineering leaderboard', name: 'Aiswarya Sankar', handle: 'Aiswarya_Sankar', verified: true, date: '2025-08-12', text: 'Introducing @EntelligenceAI Leaderboard: World’s first engineering leaderboard\n\nWe built a real time scoreboard for engineers & teams on actual PR performance: code quality, security and impact.', views: 233791, likes: 931, reposts: 64, replies: 41, bookmarks: 150, video: true },
+  { id: '2051662847130869780', brand: 'Interact AI', title: 'Product launch', name: 'Interact AI', handle: 'interact_ai', verified: false, date: '2026-05-05', text: 'Introducing Interact AI: a new interface for the web.\n\nAdd it to your website, and it talks to every visitor, answers questions, and shows your product.', views: 2234945, likes: 3304, reposts: 520, replies: 282, bookmarks: 4215, video: true },
+  { id: '2060015607928819876', brand: 'Reactor', title: 'Out of stealth with $59M', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-05-28', text: 'Today Reactor is coming out of stealth. We’ve raised $59M in Seed and Series A funding, led by @lightspeedvp, with participation from @AmplifyPartners, @wndrco, @Sky9Capital, and @FPVventures.', views: 12739762, likes: 2340, reposts: 318, replies: 193, bookmarks: 625, video: true },
+  { id: '2069787264654156194', brand: 'Runlayer', title: '$30M Series A', name: 'Andy Berman', handle: 'berman66', verified: true, date: '2026-06-24', text: 'Today, we’re announcing Runlayer has raised $30M from Felicis and Khosla Ventures to help companies go all in on AI.\n\nRunlayer is the golden path for AI: enablement, security, and control in one platform.', views: 813793, likes: 820, reposts: 202, replies: 157, bookmarks: 647, video: false },
+  { id: '2070151536257503519', brand: 'Sazabi', title: '$8M seed', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-06-25', text: 'We raised $8m to build self-healing software.\n\nIn 2026, software moves fast.\n\nBut monitoring and observability are still manual and slow.', views: 1325718, likes: 1090, reposts: 226, replies: 228, bookmarks: 445, video: true },
+  { id: '2074935025771143626', brand: 'Reactor', title: 'Lingbot-World-2', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-08', text: 'Introducing Lingbot-World-2, our newest real-time world model.\n\nRicher interactivity, sharper visuals, and advanced camera controls that make exploring what you create feel truly alive.', views: 3803343, likes: 855, reposts: 187, replies: 118, bookmarks: 502, video: true },
+  { id: '2079250546624802918', brand: 'Reactor', title: 'Happy Oyster', name: 'reactor', handle: 'reactorworld', verified: true, date: '2026-07-20', text: 'Introducing Happy Oyster, the groundbreaking real-time world model from @HappyOysterAI, live today on Reactor!\n\nExplore any world you can imagine, or take the director’s chair and shape the story as it happens.', views: 768756, likes: 332, reposts: 142, replies: 78, bookmarks: 142, video: true },
+  { id: '2100220712317329826', brand: 'BackOps', title: '$42M Series B', name: 'Sean McCarthy', handle: 'seanmcccarthy', verified: true, date: '2026-09-16', text: 'As AI models get better, cheaper and more widely available, we believe one of the biggest moats will be the proprietary data created by actually doing the work.\n\nToday, we’re announcing a $42M Series B led by @insightpartners for @backopsai.', views: 610029, likes: 235, reposts: 88, replies: 57, bookmarks: 111, video: true },
+  { id: '2107848513967260107', brand: 'Charming', title: 'Launch', name: 'Michael Magán', handle: 'mrmagan_', verified: true, date: '2026-10-07', text: 'Everyone in AI is building for everyone else in AI.\n\nWe’re building for your group chat.\n\nIntroducing Charming. Personal apps for us normies.', views: 522917, likes: 397, reposts: 163, replies: 132, bookmarks: 220, video: true, avatar: false },
+  { id: '2110038490859855990', brand: 'Sazabi', title: 'Sazabi 1.0', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-10-13', text: 'Today, we’re launching Sazabi version 1.0.\n\nThe reality of shipping software as a team in the age of AI is actually crazy.\n\nAgents merging their own PRs. Hundreds of deployments per day.', views: 645538, likes: 499, reposts: 158, replies: 124, bookmarks: 202, video: true },
+  { id: '2112552451547001218', brand: 'Beacon', title: '$5.5M seed', name: "Justin D'Souza", handle: 'jqdsouza', verified: true, date: '2026-10-20', text: 'We’re betting our $5.5M seed round that the next leap in AI coding won’t come from OpenAI or Anthropic.\n\nIntroducing Beacon: open-source, self-improving memory for coding agents.', views: 631064, likes: 1565, reposts: 307, replies: 327, bookmarks: 2155, video: true },
+  { id: '2112915259317186974', brand: 'Falconer', title: 'Launch', name: 'Dave Nunez', handle: 'capitaltruist', verified: true, date: '2026-10-21', text: 'Trillions are pouring into the race to build the first general superintelligence, but leveraging your own specialized know-it-all is now possible as of today.', views: 360150, likes: 336, reposts: 206, replies: 96, bookmarks: 172, video: true },
+  { id: '2113312773228929511', brand: 'Sazabi', title: 'cve.now', name: 'Sherwood', handle: 'shcallaway', verified: true, date: '2026-10-22', text: 'Today we’re launching cve.now\n\ncve.now aggregates 4 vulnerability sources into one free feed and uses AI to explain each one in plain English. No login.', views: 586426, likes: 1861, reposts: 354, replies: 128, bookmarks: 2037, video: false, poster: false },
+  { id: '2117285537836908696', brand: 'Beacon', title: '#1 on Product Hunt', name: "Justin D'Souza", handle: 'jqdsouza', verified: true, date: '2026-11-02', text: 'Our open-source devtool is trending #1 on Product Hunt!\n\nBeacon is self-improving memory for coding agents.', views: 526163, likes: 291, reposts: 101, replies: 111, bookmarks: 342, video: true },
 ]
+
+/** All views on the posts above. */
+export const totalViews = posts.reduce((n, p) => n + p.views, 0)
 
 export const postUrl = (p: Post) => `https://x.com/${p.handle}/status/${p.id}`
 

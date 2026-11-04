@@ -15,39 +15,41 @@
  * soft             tint of the bold colour for accents on dark bands
  */
 :root {
-  --base: #ffffff;
-  --surface: #f3f4f7;
-  --fg: #0b0c14;
-  --muted: #565a6b;
-  --deep: #0b0c14;
-  --deep-2: #1a1c26;
-  --on-deep: #f4f5f8;
-  --on-deep-muted: #c6cad6;
-  --accent: #1668e8;
-  --accent-2: #1668e8;
-  --accent-3: #1668e8;
+  --base: #f6f4ef;
+  --surface: #fdfcf9;
+  --fg: #11131b;
+  --muted: #555a68;
+  --line: #ddd8cc;
+  --deep: #11131b;
+  --deep-2: #1d202b;
+  --on-deep: #f6f4ef;
+  --on-deep-muted: #b9bdc9;
+  --accent: #1559d6;
+  --accent-2: #1559d6;
+  --accent-3: #1559d6;
   --fill: #1668e8;
   --soft: #a9d3ff;
   --live: #1668e8;
-  --dot: 11, 12, 20;
+  --dot: 17, 19, 27;
   color-scheme: light;
 }
 :root[data-theme='dark'] {
-  --base: #0b1222;
-  --surface: #1c2743;
-  --fg: #ffffff;
-  --muted: #d5dbe9;
-  --deep: #141d35;
-  --deep-2: #222e4f;
-  --on-deep: #ffffff;
-  --on-deep-muted: #cfd6e6;
-  --accent: #8cc4ff;
-  --accent-2: #8cc4ff;
-  --accent-3: #8cc4ff;
+  --base: #0d0f15;
+  --surface: #161923;
+  --fg: #f3f1ec;
+  --muted: #aeb3c1;
+  --line: #2a2e3b;
+  --deep: #161923;
+  --deep-2: #20242f;
+  --on-deep: #f3f1ec;
+  --on-deep-muted: #b9bdc9;
+  --accent: #86b6ff;
+  --accent-2: #86b6ff;
+  --accent-3: #86b6ff;
   --fill: #1668e8;
   --soft: #bfe0ff;
-  --live: #8cc4ff;
-  --dot: 244, 245, 248;
+  --live: #86b6ff;
+  --dot: 243, 241, 236;
   color-scheme: dark;
 }
 
@@ -66,12 +68,14 @@
   --color-fill: var(--fill);
   --color-soft: var(--soft);
   --color-live: var(--live);
+  --color-line: var(--line);
 }
 
 @theme {
   --font-sans: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-display: 'Inter Variable', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   --font-serif: 'Newsreader Variable', Georgia, 'Times New Roman', serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -178,6 +182,32 @@
     border-radius: 999px;
     background: var(--fill);
   }
+}
+
+/* Small monospace label, the one-page site's section marker. */
+.mono-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+/* Faint vertical rules behind a section, like a drafting sheet. */
+.rules {
+  background-image: linear-gradient(90deg, color-mix(in srgb, var(--line) 70%, transparent) 1px, transparent 1px);
+  background-size: calc((min(100vw, 1360px) - 96px) / 6) 100%;
+  background-position: center top;
+}
+/* The logo row flows at an even pace and fades out at both edges. */
+.logo-flow {
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.logo-flow > ul {
+  animation: marquee 48s linear infinite;
+}
+.logo-flow:hover > ul {
+  animation-play-state: paused;
 }
 
 /* Lenis smooth scroll */
