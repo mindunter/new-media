@@ -34,14 +34,14 @@
   color-scheme: light;
 }
 :root[data-theme='dark'] {
-  --base: #0d0f15;
-  --surface: #161923;
-  --fg: #f3f1ec;
-  --muted: #aeb3c1;
-  --line: #2a2e3b;
-  --deep: #161923;
-  --deep-2: #20242f;
-  --on-deep: #f3f1ec;
+  --base: #070708;
+  --surface: #111113;
+  --fg: #f4f4f2;
+  --muted: #a3a3a8;
+  --line: #26262b;
+  --deep: #111113;
+  --deep-2: #1b1b1f;
+  --on-deep: #f4f4f2;
   --on-deep-muted: #b9bdc9;
   --accent: #86b6ff;
   --accent-2: #86b6ff;
@@ -186,12 +186,21 @@
 
 /* Small monospace label, the one-page site's section marker. */
 .mono-label {
-  font-family: var(--font-mono);
+  font-family: var(--font-sans);
   font-size: 0.75rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--muted);
+}
+/* Dashed guides down both edges of the content column. */
+.guides {
+  background-image:
+    repeating-linear-gradient(180deg, var(--line) 0 6px, transparent 6px 12px),
+    repeating-linear-gradient(180deg, var(--line) 0 6px, transparent 6px 12px);
+  background-size: 1px 100%, 1px 100%;
+  background-repeat: no-repeat;
+  background-position: max(16px, calc(50% - 680px + 24px)) 0, min(calc(100% - 16px), calc(50% + 680px - 24px)) 0;
 }
 /* Faint vertical rules behind a section, like a drafting sheet. */
 .rules {

@@ -2,7 +2,7 @@ export type Theme = 'light' | 'dark'
 
 const KEY = 'nm-theme'
 
-/** The theme in effect right now. Light unless the visitor chose dark. */
+/** The theme in effect right now. Dark unless the visitor chose light. */
 export function currentTheme(): Theme {
   return document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light'
 }

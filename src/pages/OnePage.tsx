@@ -1,25 +1,43 @@
 import { motion, useInView } from 'motion/react'
-import { ArrowUpRight, Bookmark, Heart, Repeat2 } from 'lucide-react'
+import { ArrowUpRight, Bookmark, Heart, MessageCircle, Repeat2 } from 'lucide-react'
 import { useEffect, useRef, useState } from 'react'
 import { BookingCalendar } from '@/components/BookingCalendar'
 import { Button } from '@/components/Button'
 import { ClientLogo } from '@/components/ClientLogo'
 import { Logo, LogoFull } from '@/components/Logo'
 import { Reveal } from '@/components/Reveal'
-import { Starfield } from '@/components/Starfield'
 import { ThemeToggle } from '@/components/ThemeToggle'
-import { asOf, backing, brand, engine, fundingTotal, hero, logoRow, postUrl, posts, totalViews, type Post } from '@/content'
+import { asOf, brand, fundingTotal, logoRow, postUrl, posts, totalViews, type Post } from '@/content'
 import { art } from '@/lib/paths'
 import { scrollToHash } from '@/lib/scroll'
 import { cn, compact, prefersReducedMotion } from '@/lib/utils'
 
 const ease = [0.16, 1, 0.3, 1] as const
 const byViews = [...posts].sort((a, b) => b.views - a.views)
-const mega = byViews.filter((p) => p.views >= 1_000_000)
-const more = byViews.filter((p) => p.views < 1_000_000)
+const byDate = [...posts].sort((a, b) => b.date.localeCompare(a.date))
 const companies = new Set(posts.map((p) => p.brand)).size
 const firms = ['Lightspeed', 'Khosla Ventures', 'Insight Partners', 'Felicis', 'Y Combinator', 'Amplify Partners', 'South Park Commons', 'Village Global']
-const when = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en', { month: 'short', year: 'numeric' })
+const when = (d: string) => new Date(`${d}T12:00:00Z`).toLocaleDateString('en', { month: 'short', day: 'numeric', year: 'numeric' })
+const millions = (n: number) => `${(Math.floor(n / 100_000) / 10).toFixed(1)}M+`
+
+/** All copy on the page. Short, direct, nothing decorative. */
+const copy = {
+  hero: 'Launch amplification on X for AI companies.',
+  sub: 'Your launch, distributed through the founders, engineers and creators your buyers follow.',
+  steps: [
+    { n: '01', title: 'Brief', body: 'We define the story, the proof and the audience.' },
+    { n: '02', title: 'Seed', body: 'Relevant accounts get early access to the product.' },
+    { n: '03', title: 'Launch', body: 'The network posts within the first hour.' },
+    { n: '04', title: 'Report', body: 'Follow-up coverage for 30 days, and a full report.' },
+  ],
+  faqs: [
+    { q: 'Which platforms?', a: 'X first. LinkedIn on request.' },
+    { q: 'How much lead time?', a: 'Two weeks is ideal. Five days is possible.' },
+    { q: 'Are posts disclosed?', a: 'Yes. Paid posts are disclosed in line with platform rules and FTC guidance.' },
+    { q: 'How are results reported?', a: 'A live view during launch week, then a full report by account and post.' },
+    { q: 'Who do you work with?', a: 'AI and technology companies, from seed to late stage.' },
+  ],
+}
 
 const XLogo = ({ className }: { className?: string }) => (
   <svg viewBox="0 0 24 24" aria-hidden className={className} fill="currentColor">
@@ -27,8 +45,13 @@ const XLogo = ({ className }: { className?: string }) => (
   </svg>
 )
 
+const go = (href: string) => (e: React.MouseEvent) => {
+  e.preventDefault()
+  scrollToHash(href)
+}
+
 /** Counts up to `to` once it scrolls into view. */
-function Count({ to, format, className }: { to: number; format: (n: number) => string; className?: string }) {
+function Count({ to, format }: { to: number; format: (n: number) => string }) {
   const ref = useRef<HTMLSpanElement>(null)
   const seen = useInView(ref, { once: true, margin: '-10% 0px' })
   const [n, setN] = useState(() => (prefersReducedMotion() ? to : 0))
@@ -44,43 +67,30 @@ function Count({ to, format, className }: { to: number; format: (n: number) => s
     raf = requestAnimationFrame(tick)
     return () => cancelAnimationFrame(raf)
   }, [seen, to])
-  return (
-    <span ref={ref} className={className}>
-      {format(n)}
-    </span>
-  )
+  return <span ref={ref}>{format(n)}</span>
 }
 
-function Avatar({ p, size = 36 }: { p: Post; size?: number }) {
+function Avatar({ p }: { p: Post }) {
   if (p.avatar === false) {
     return (
-      <span aria-hidden className="grid shrink-0 place-items-center rounded-full bg-fg/10 text-sm font-semibold" style={{ width: size, height: size }}>
+      <span aria-hidden className="grid size-10 shrink-0 place-items-center rounded-full bg-fg/10 text-sm font-semibold">
         {p.name[0]}
       </span>
     )
   }
-  return <img src={art(`x/av-${p.handle}.webp`)} alt="" width={size} height={size} loading="lazy" className="shrink-0 rounded-full bg-fg/10 object-cover" style={{ width: size, height: size }} />
+  return <img src={art(`x/av-${p.handle}.webp`)} alt="" width={40} height={40} loading="lazy" className="size-10 shrink-0 rounded-full bg-fg/10 object-cover" />
 }
 
-/** The picture from the post, or the post's own words when it has none. */
-function Poster({ p, className }: { p: Post; className?: string }) {
-  if (p.poster === false) {
-    return (
-      <div className={cn('flex flex-col justify-between bg-deep p-6 text-on-deep', className)}>
-        <XLogo className="size-5 opacity-70" />
-        <p className="serif text-[clamp(1.2rem,2vw,1.6rem)] leading-snug whitespace-pre-line">{p.text.split('\n\n').slice(0, 2).join('\n\n')}</p>
-      </div>
-    )
-  }
-  return <img src={art(`x/p-${p.id}.webp`)} alt="" loading="lazy" className={cn('object-cover', className)} />
+function Heading({ id, children, note }: { id: string; children: React.ReactNode; note?: string }) {
+  return (
+    <div>
+      <h2 id={id} className="display text-[clamp(1.6rem,2.6vw,2.25rem)] tracking-[-0.03em]">
+        {children}
+      </h2>
+      {note && <p className="mt-2 text-[0.95rem] text-muted">{note}</p>}
+    </div>
+  )
 }
-
-const stats = (p: Post) => [
-  { k: 'Likes', v: p.likes, I: Heart },
-  { k: 'Reposts', v: p.reposts, I: Repeat2 },
-  { k: 'Bookmarks', v: p.bookmarks, I: Bookmark },
-]
-const label = (p: Post) => `${p.brand}, ${p.title}: ${compact(p.views)} views, ${p.likes.toLocaleString('en')} likes. Opens the post on X.`
 
 /* ------------------------------------------------------------------ */
 
@@ -94,40 +104,27 @@ function TopBar() {
   }, [])
   const links = [
     { href: '#launches', label: 'Launches' },
-    { href: '#how', label: 'How it works' },
-    { href: '#book', label: 'Contact' },
+    { href: '#process', label: 'Process' },
+    { href: '#faq', label: 'FAQ' },
   ]
   return (
-    <header className={cn('fixed inset-x-0 top-0 z-50 transition-colors duration-300', solid ? 'border-b border-line bg-page/90 text-fg backdrop-blur-xl' : 'border-b border-transparent text-white')}>
-      <nav aria-label="Main" className="shell flex h-16 items-center justify-between gap-4">
-        <a
-          href="#top"
-          aria-label={`${brand.name}, back to top`}
-          onClick={(e) => {
-            e.preventDefault()
-            scrollToHash('#top')
-          }}
-        >
+    <header className={cn('fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300', solid ? 'border-line bg-page/85 backdrop-blur-xl' : 'border-transparent')}>
+      <nav aria-label="Main" className="shell grid h-16 grid-cols-[1fr_auto] items-center gap-4 md:grid-cols-[1fr_auto_1fr]">
+        <a href="#top" onClick={go('#top')} aria-label={`${brand.name}, back to top`} className="justify-self-start">
           <Logo className="h-7 sm:h-8" />
         </a>
         <ul className="hidden items-center gap-8 md:flex">
           {links.map((l) => (
             <li key={l.href}>
-              <a
-                href={l.href}
-                onClick={(e) => {
-                  e.preventDefault()
-                  scrollToHash(l.href)
-                }}
-                className="text-[0.92rem] font-medium opacity-80 transition-opacity hover:opacity-100">
+              <a href={l.href} onClick={go(l.href)} className="text-[0.92rem] font-medium text-fg/75 transition-colors hover:text-fg">
                 {l.label}
               </a>
             </li>
           ))}
         </ul>
-        <div className="flex items-center gap-1">
-          <ThemeToggle />
-          <Button href="#book" size="md" arrow={false} variant={solid ? 'signal' : 'light'} className="h-10 px-4">
+        <div className="flex items-center gap-1 justify-self-end">
+          <ThemeToggle className="max-sm:hidden" />
+          <Button href="#book" variant="ink" size="md" className="h-10 px-4 text-[0.9rem]">
             Book a call
           </Button>
         </div>
@@ -136,154 +133,63 @@ function TopBar() {
   )
 }
 
-/** Launch cards drifting left along a gentle curve, like a horizon. Hover to stop and read one. */
-function LaunchArc() {
-  const box = useRef<HTMLDivElement>(null)
-  const cards = useRef<(HTMLAnchorElement | null)[]>([])
-  const row = [...byViews, ...byViews]
-
-  useEffect(() => {
-    const el = box.current
-    if (!el) return
-    let x = 0
-    let last = performance.now()
-    let raf = 0
-    let paused = false
-    let visible = true
-    const still = prefersReducedMotion()
-
-    const place = () => {
-      const vw = el.clientWidth
-      const cw = vw < 640 ? 200 : 260
-      const gap = vw < 640 ? 16 : 24
-      const span = byViews.length * (cw + gap)
-      if (x <= -span) x += span
-      cards.current.forEach((c, i) => {
-        if (!c) return
-        const left = i * (cw + gap) + x + (vw < 640 ? 0 : -cw * 0.4)
-        const t = (left + cw / 2 - vw / 2) / (vw / 2)
-        const y = t * t * (vw < 640 ? 34 : 70)
-        const r = t * (vw < 640 ? 4 : 6)
-        c.style.width = `${cw}px`
-        c.style.transform = `translate3d(${left}px, ${y}px, 0) rotate(${r}deg)`
-        c.style.opacity = Math.abs(t) > 1.25 ? '0' : '1'
-      })
-    }
-    const loop = (t: number) => {
-      const dt = Math.min(64, t - last)
-      last = t
-      if (!paused && !still) x -= dt * 0.032
-      place()
-      if (visible) raf = requestAnimationFrame(loop)
-    }
-    const on = () => (paused = true)
-    const off = () => (paused = false)
-    el.addEventListener('pointerenter', on)
-    el.addEventListener('pointerleave', off)
-    el.addEventListener('focusin', on)
-    el.addEventListener('focusout', off)
-    const io = new IntersectionObserver(([e]) => {
-      visible = e.isIntersecting
-      cancelAnimationFrame(raf)
-      last = performance.now()
-      if (visible) raf = requestAnimationFrame(loop)
-    })
-    io.observe(el)
-    place()
-    return () => {
-      cancelAnimationFrame(raf)
-      io.disconnect()
-      el.removeEventListener('pointerenter', on)
-      el.removeEventListener('pointerleave', off)
-      el.removeEventListener('focusin', on)
-      el.removeEventListener('focusout', off)
-    }
-  }, [])
-
-  return (
-    <div ref={box} className="relative h-[240px] overflow-hidden sm:h-[270px]">
-      {row.map((p, i) => (
-        <a
-          key={`${p.id}-${i}`}
-          ref={(n) => {
-            cards.current[i] = n
-          }}
-          href={postUrl(p)}
-          target="_blank"
-          rel="noreferrer"
-          aria-label={label(p)}
-          aria-hidden={i >= byViews.length || undefined}
-          tabIndex={i >= byViews.length ? -1 : undefined}
-          className="group absolute top-3 left-0 block origin-center rounded-2xl bg-white/[0.06] p-2 ring-1 ring-white/15 backdrop-blur-md transition-[background-color,box-shadow] duration-300 will-change-transform hover:bg-white/[0.12] hover:ring-white/35"
-        >
-          <div className="relative aspect-video overflow-hidden rounded-xl bg-white/5">
-            <Poster p={p} className="h-full w-full transition-transform duration-700 group-hover:scale-[1.05] [&_p]:!text-[0.9rem]" />
-          </div>
-          <div className="flex items-center justify-between gap-3 px-1.5 pt-2.5 pb-1 text-white">
-            <span className="flex h-5 min-w-0 items-center">
-              <ClientLogo name={p.brand} height={15} />
-            </span>
-            <span className="serif shrink-0 text-[1.35rem] leading-none">{compact(p.views)}</span>
-          </div>
-        </a>
+function LogoFlow() {
+  const row = (hidden?: boolean) => (
+    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
+      {logoRow.map((n) => (
+        <li key={n} className="flex h-12 shrink-0 items-center px-7 text-fg/60 transition-colors hover:text-fg sm:px-10">
+          <ClientLogo name={n} height={22} />
+        </li>
       ))}
+    </ul>
+  )
+  return (
+    <div aria-label="Clients" role="group" className="logo-flow flex overflow-hidden">
+      <ul className="flex w-max shrink-0">
+        <li>{row()}</li>
+        <li>{row(true)}</li>
+      </ul>
     </div>
   )
 }
 
 function HeroBlock() {
   return (
-    <section id="top" className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-[#05070d] text-white">
-      {/* Deep space: a faint nebula behind the stars, brightest above the headline. */}
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[radial-gradient(60%_45%_at_50%_30%,rgb(40_80_200/0.28),transparent_70%),radial-gradient(40%_35%_at_78%_18%,rgb(120_70_220/0.18),transparent_70%),radial-gradient(45%_40%_at_18%_70%,rgb(30_110_230/0.14),transparent_70%)]" />
-      <Starfield className="absolute inset-0 -z-10 h-full w-full" />
-      <div aria-hidden className="absolute inset-x-0 bottom-0 -z-10 h-40 bg-gradient-to-b from-transparent to-[#05070d]" />
-
-      <div className="shell flex flex-1 flex-col items-center justify-center pt-28 pb-4 text-center">
-        <motion.p className="mono-label flex items-center gap-2.5 !text-white/70" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease }}>
-          <span className="live-dot max-sm:hidden" aria-hidden /> {hero.eyebrow}
-        </motion.p>
-        <h1 className="display mt-6 text-[clamp(2.7rem,6.1vw,6.4rem)] leading-[0.95]">
-          {['We make launches', 'impossible to'].map((l, k) => (
-            <span key={l} className="block overflow-y-clip pb-[0.06em]">
-              <motion.span className="inline-block" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.1 + k * 0.08 }}>
-                {l}
-              </motion.span>
-            </span>
-          ))}
-          <span className="block overflow-y-clip pb-[0.12em]">
-            <motion.span className="serif inline-block pr-[0.06em] font-normal text-[#9cc3ff] italic" initial={{ y: '105%' }} animate={{ y: 0 }} transition={{ duration: 1, ease, delay: 0.26 }}>
-              scroll past.
-            </motion.span>
-          </span>
+    <section id="top" className="relative isolate flex min-h-[86svh] flex-col overflow-hidden">
+      <div aria-hidden className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70%] bg-[radial-gradient(50%_60%_at_50%_0%,color-mix(in_srgb,var(--fill)_12%,transparent),transparent_75%)]" />
+      <div className="shell flex flex-1 flex-col items-center justify-center pt-28 pb-14 text-center">
+        <h1 className="display max-w-[22ch] text-[clamp(2rem,4vw,3.25rem)] leading-[1.08] tracking-[-0.035em]">
+          <motion.span className="inline-block" initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: 0.1 }}>
+            {copy.hero}
+          </motion.span>
         </h1>
-        <motion.div className="flex flex-col items-center" initial={{ opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.45 }}>
-          <p className="mt-6 max-w-[36rem] text-[1.08rem] leading-relaxed text-white/75 text-pretty sm:text-[1.2rem]">{hero.sub}</p>
-          <Button href="#book" size="lg" variant="light" className="mt-8">
+        <motion.div className="flex flex-col items-center" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.35 }}>
+          <p className="mt-5 max-w-[30rem] text-[0.98rem] leading-relaxed text-muted text-pretty sm:text-[1.05rem]">{copy.sub}</p>
+          <Button href="#book" variant="ink" size="md" className="mt-7">
             Book a call
           </Button>
         </motion.div>
       </div>
-
-      <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1.2, ease, delay: 0.6 }}>
-        <LaunchArc />
+      <motion.div className="pb-10" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.2, delay: 0.6 }}>
+        <LogoFlow />
       </motion.div>
     </section>
   )
 }
 
 function Figures() {
+  const items = [
+    { v: totalViews, f: millions, k: 'Views' },
+    { v: fundingTotal, f: (n: number) => `$${n.toFixed(1)}M+`, k: 'Funding announced' },
+    { v: posts.length, f: (n: number) => `${Math.round(n)}`, k: 'Launches' },
+    { v: companies, f: (n: number) => `${Math.round(n)}`, k: 'AI companies' },
+  ]
   return (
-    <section aria-label="Results so far" className="pt-16 pb-4 sm:pt-20">
+    <section aria-label="Results" className="border-y border-line">
       <dl className="shell grid grid-cols-2 lg:grid-cols-4">
-        {[
-          { v: totalViews, f: (n: number) => `${(Math.floor(n / 100_000) / 10).toFixed(1)}M+`, k: `Views across ${posts.length} launch posts` },
-          { v: fundingTotal, f: (n: number) => `$${n.toFixed(1)}M+`, k: 'Funding announced in those launches' },
-          { v: companies, f: (n: number) => `${Math.round(n)}`, k: 'AI companies launched since May 2025' },
-          { v: 4, f: (n: number) => `${Math.round(n)}`, k: 'Clients who came back for more' },
-        ].map((s, k) => (
-          <div key={s.k} className={cn('border-t border-line py-6 pr-6', k % 2 === 1 && 'max-lg:pl-6 max-lg:border-l', k > 0 && 'lg:border-l lg:pl-8')}>
-            <dd className="serif text-[clamp(2.4rem,4.4vw,3.8rem)] leading-none">
+        {items.map((s, k) => (
+          <div key={s.k} className={cn('border-line py-8 pr-6', k % 2 === 1 && 'border-l pl-6', k >= 2 && 'max-lg:border-t', k === 2 && 'lg:border-l lg:pl-6')}>
+            <dd className="display text-[clamp(1.6rem,2.6vw,2.25rem)] leading-none tracking-[-0.03em]">
               <Count to={s.v} format={s.f} />
             </dd>
             <dt className="mt-3 text-sm text-muted">{s.k}</dt>
@@ -294,167 +200,138 @@ function Figures() {
   )
 }
 
-function LogoFlow() {
-  const row = (hidden?: boolean) => (
-    <ul aria-hidden={hidden || undefined} className="flex shrink-0 items-center">
-      {logoRow.map((n) => (
-        <li key={n} className="flex h-14 shrink-0 items-center px-8 text-fg/70 transition-colors hover:text-fg sm:px-12">
-          <ClientLogo name={n} height={24} />
-        </li>
-      ))}
-    </ul>
-  )
+/** One launch post, drawn like the post on X: the words first, the numbers underneath. */
+function PostCard({ p }: { p: Post }) {
   return (
-    <section aria-label="Companies we have launched" className="border-y border-line py-8">
-      <p className="mono-label shell mb-4 text-center">Launched with us</p>
-      <div className="logo-flow flex overflow-hidden">
-        <ul className="flex w-max shrink-0">
-          <li>{row()}</li>
-          <li>{row(true)}</li>
-        </ul>
-      </div>
-    </section>
-  )
-}
-
-function StatsOver({ p }: { p: Post }) {
-  return (
-    <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-[#0b0c14]/85 via-[#0b0c14]/30 to-transparent p-5 text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-      <ul className="flex flex-wrap gap-x-5 gap-y-1 text-sm">
-        {stats(p).map(({ k, v, I }) => (
-          <li key={k} className="flex items-center gap-1.5">
-            <I size={15} aria-hidden /> {v.toLocaleString('en')} <span className="text-white/70">{k.toLowerCase()}</span>
-          </li>
-        ))}
-      </ul>
-      <p className="mt-3 flex items-center gap-1 text-sm font-semibold">
-        Open on X <ArrowUpRight size={15} aria-hidden />
-      </p>
-    </div>
-  )
-}
-
-function MegaCard({ p }: { p: Post }) {
-  return (
-    <a href={postUrl(p)} target="_blank" rel="noreferrer" aria-label={label(p)} className="group block">
-      <div className="relative aspect-[16/10] overflow-hidden rounded-[20px] border border-line bg-surface">
-        <Poster p={p} className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
-        <StatsOver p={p} />
-      </div>
-      <div className="mt-5 flex items-end justify-between gap-6">
-        <div className="min-w-0">
-          <span className="flex h-7 items-center">
-            <ClientLogo name={p.brand} height={22} />
-          </span>
-          <p className="mt-1.5 text-muted">
-            {p.title} · {when(p.date)}
+    <a
+      href={postUrl(p)}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={`${p.brand}, ${p.title}: ${compact(p.views)} views. Opens the post on X.`}
+      className="group block rounded-2xl border border-line bg-surface p-5 transition-[border-color,transform] duration-300 hover:-translate-y-1 hover:border-fg/30"
+    >
+      <div className="flex items-center gap-3">
+        <Avatar p={p} />
+        <div className="min-w-0 flex-1 leading-tight">
+          <p className="flex items-center gap-2 text-[0.95rem] font-semibold">
+            <span className="truncate">{p.name}</span>
+            <span className="shrink-0 text-[0.8rem] font-normal text-muted">{when(p.date)}</span>
           </p>
+          <p className="truncate text-[0.84rem] text-muted">@{p.handle}</p>
         </div>
-        <p className="serif shrink-0 text-[clamp(2.6rem,4.6vw,4rem)] leading-none">
-          {compact(p.views)}
-          <span className="mono-label ml-2 align-middle">views</span>
-        </p>
+        <XLogo className="size-4 shrink-0 text-muted transition-colors group-hover:text-fg" />
       </div>
+      <p className="mt-4 line-clamp-5 text-[0.95rem] leading-[1.45] whitespace-pre-line text-fg/90">{p.text}</p>
+      {p.poster !== false && (
+        <div className="mt-4 aspect-video overflow-hidden rounded-xl border border-line bg-fg/5">
+          <img src={art(`x/p-${p.id}.webp`)} alt="" loading="lazy" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+        </div>
+      )}
+      <div className="mt-5 flex items-end justify-between border-t border-line pt-4">
+        <p className="leading-none">
+          <span className="display text-[1.5rem] tracking-[-0.03em]">{compact(p.views)}</span>
+          <span className="ml-1.5 text-sm text-muted">views</span>
+        </p>
+        <span className="flex h-6 items-center text-fg/70">
+          <ClientLogo name={p.brand} height={16} />
+        </span>
+      </div>
+      <ul className="mt-3 flex items-center gap-4 text-[0.82rem] text-muted">
+        <li className="flex items-center gap-1">
+          <MessageCircle size={14} aria-hidden /> {compact(p.replies)}
+        </li>
+        <li className="flex items-center gap-1">
+          <Repeat2 size={15} aria-hidden /> {compact(p.reposts)}
+        </li>
+        <li className="flex items-center gap-1">
+          <Heart size={14} aria-hidden /> {compact(p.likes)}
+        </li>
+        <li className="flex items-center gap-1">
+          <Bookmark size={14} aria-hidden /> {compact(p.bookmarks)}
+        </li>
+        <li className="ml-auto flex items-center gap-1 font-medium text-fg opacity-0 transition-opacity group-hover:opacity-100">
+          Open <ArrowUpRight size={14} aria-hidden />
+        </li>
+      </ul>
     </a>
   )
 }
 
-function SmallCard({ p }: { p: Post }) {
+function YouNext() {
   return (
-    <a href={postUrl(p)} target="_blank" rel="noreferrer" aria-label={label(p)} className="group block">
-      <div className="relative aspect-video overflow-hidden rounded-2xl border border-line bg-surface">
-        <Poster p={p} className="h-full w-full transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
-        <StatsOver p={p} />
-      </div>
-      <div className="mt-4 flex items-start justify-between gap-4">
-        <div className="min-w-0">
-          <span className="flex h-6 items-center">
-            <ClientLogo name={p.brand} height={18} />
-          </span>
-          <p className="mt-1 text-sm text-muted">
-            {p.title} · {when(p.date)}
-          </p>
-        </div>
-        <p className="serif shrink-0 text-[1.9rem] leading-none">{compact(p.views)}</p>
-      </div>
+    <a href="#book" onClick={go('#book')} className="group flex min-h-[220px] flex-col justify-end rounded-2xl border border-dashed border-fg/25 p-6 transition-colors hover:border-fg/60 hover:bg-surface">
+      <p className="display text-[1.35rem]">Your launch</p>
+      <p className="mt-4 inline-flex items-center gap-1 font-semibold">
+        Book a call <ArrowUpRight size={16} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden />
+      </p>
     </a>
   )
 }
 
 function Launches() {
+  const [sort, setSort] = useState<'views' | 'new'>('views')
+  const [all, setAll] = useState(false)
+  const list = (sort === 'views' ? byViews : byDate).slice(0, all ? undefined : 8)
   return (
-    <section id="launches" aria-labelledby="launches-title" className="py-24 sm:py-32">
+    <section id="launches" aria-labelledby="launches-title" className="py-20 sm:py-24">
       <div className="shell">
-        <Reveal className="flex flex-wrap items-end justify-between gap-8">
-          <div>
-            <p className="mono-label">Our launches</p>
-            <h2 id="launches-title" className="display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.6rem)]">
-              {posts.length} launches. <span className="serif font-normal italic">Every number is public.</span>
-            </h2>
+        <Reveal className="flex flex-wrap items-end justify-between gap-6">
+          <Heading id="launches-title" note={`Public posts on X. Figures as of ${asOf}.`}>
+            Launches
+          </Heading>
+          <div role="group" aria-label="Sort launches" className="flex rounded-full border border-line p-1 text-sm">
+            {(
+              [
+                ['views', 'Most viewed'],
+                ['new', 'Newest'],
+              ] as const
+            ).map(([k, l]) => (
+              <button key={k} type="button" aria-pressed={sort === k} onClick={() => setSort(k)} className={cn('rounded-full px-4 py-1.5 font-medium transition-colors', sort === k ? 'bg-fg text-page' : 'text-muted hover:text-fg')}>
+                {l}
+              </button>
+            ))}
           </div>
-          <p className="max-w-sm text-muted">Hover a launch for its numbers, click to check it on X. Figures as of {asOf}.</p>
         </Reveal>
 
-        <div className="mt-16 flex items-center gap-4">
-          <h3 className="mono-label text-fg">Mega launches</h3>
-          <span className="h-px flex-1 bg-line" />
-          <span className="mono-label">1M+ views</span>
-        </div>
-        <ul className="mt-8 grid gap-x-8 gap-y-14 md:grid-cols-2">
-          {mega.map((p) => (
+        <ul className="mt-12 columns-1 gap-5 sm:columns-2 lg:columns-3 xl:columns-4 [&>li]:mb-5 [&>li]:break-inside-avoid">
+          {list.map((p) => (
             <li key={p.id}>
-              <Reveal>
-                <MegaCard p={p} />
-              </Reveal>
+              <PostCard p={p} />
             </li>
           ))}
+          <li>
+            <YouNext />
+          </li>
         </ul>
 
-        <div className="mt-24 flex items-center gap-4">
-          <h3 className="mono-label text-fg">Launches</h3>
-          <span className="h-px flex-1 bg-line" />
-          <span className="mono-label">Under 1M views</span>
-        </div>
-        <ul className="mt-8 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {more.map((p, k) => (
-            <li key={p.id}>
-              <Reveal delay={(k % 4) * 0.05}>
-                <SmallCard p={p} />
-              </Reveal>
-            </li>
-          ))}
-        </ul>
+        {!all && (
+          <div className="mt-6 flex justify-center">
+            <Button href="#launches" variant="outline" arrow={false} onClick={() => setAll(true)}>
+              Show all {posts.length}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
 }
 
-function How() {
-  const steps = [
-    { ...engine[0], meta: 'Two weeks out' },
-    { ...engine[1], meta: 'One week out' },
-    { ...engine[2], title: 'Launch hour', meta: 'Hour zero' },
-    { ...engine[3], meta: 'The month after' },
-  ]
+function Process() {
   return (
-    <section id="how" aria-labelledby="how-title" className="border-t border-line bg-surface py-24 sm:py-32">
-      <div className="shell">
-        <Reveal>
-          <p className="mono-label">How it works</p>
-          <h2 id="how-title" className="display mt-5 max-w-3xl text-[clamp(2.4rem,5vw,4.6rem)]">
-            One launch, <span className="serif font-normal italic">four steps.</span>
-          </h2>
+    <section id="process" aria-labelledby="process-title" className="border-t border-line py-20 sm:py-24">
+      <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <Reveal className="lg:self-start">
+          <Heading id="process-title" note="One team, one plan, one report.">
+            Process
+          </Heading>
         </Reveal>
-        <ol className="mt-16 grid gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-4">
-          {steps.map((s, k) => (
-            <li key={s.n}>
-              <Reveal delay={k * 0.06} className="border-t border-fg pt-6">
-                <p className="mono-label flex justify-between">
-                  <span className="text-accent">{s.n}</span>
-                  <span>{s.meta}</span>
-                </p>
-                <h3 className="display mt-6 text-[1.8rem]">{s.title}</h3>
-                <p className="mt-3 leading-relaxed text-muted">{s.body}</p>
+        <ol className="border-t border-line">
+          {copy.steps.map((s) => (
+            <li key={s.n} className="border-b border-line">
+              <Reveal className="grid grid-cols-[3.5rem_minmax(0,1fr)] items-baseline gap-4 py-7 sm:grid-cols-[4.5rem_10rem_minmax(0,1fr)]">
+                <span className="mono-label">{s.n}</span>
+                <h3 className="text-[1.05rem] font-semibold">{s.title}</h3>
+                <p className="text-muted max-sm:col-start-2">{s.body}</p>
               </Reveal>
             </li>
           ))}
@@ -467,40 +344,58 @@ function How() {
 function Trust() {
   const repeat = ['Reactor', 'Sazabi', 'Beacon', 'Mem0']
   return (
-    <section aria-labelledby="trust-title" className="bg-deep py-24 text-on-deep sm:py-32">
-      <div className="shell grid gap-16 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] lg:gap-24">
+    <section aria-labelledby="trust-title" className="border-t border-line bg-surface py-20 sm:py-24">
+      <div className="shell grid gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <p className="mono-label !text-on-deep-muted">Who trusts us</p>
-          <h2 id="trust-title" className="display mt-5 text-[clamp(2.2rem,4.4vw,4rem)]">
-            Teams backed by the firms you know <span className="serif font-normal italic">launch with us.</span>
-          </h2>
-          <p className="mt-6 max-w-xl leading-relaxed text-on-deep-muted">
-            The companies we have launched raised from these firms. The firms back those companies, not {brand.name}.
-          </p>
+          <Heading id="trust-title" note={`Investors in the companies we have launched. They are not investors in ${brand.name}.`}>
+            Client investors
+          </Heading>
+          <p className="mono-label mt-12">Repeat clients</p>
+          <ul className="mt-4 flex flex-wrap items-center gap-x-10 gap-y-4">
+            {repeat.map((r) => (
+              <li key={r} className="flex items-center gap-2.5">
+                <ClientLogo name={r} height={20} />
+                <span className="mono-label">×{posts.filter((p) => p.brand === r).length}</span>
+              </li>
+            ))}
+          </ul>
         </Reveal>
-        <div className="grid content-start gap-12">
-          <Reveal>
-            <p className="mono-label !text-on-deep-muted">Backed by</p>
-            <ul className="mt-5 grid grid-cols-2 gap-x-6 gap-y-3 text-[1.1rem]">
-              {firms.map((f) => (
-                <li key={f} className="border-t border-white/15 pt-3">
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-          <Reveal>
-            <p className="mono-label !text-on-deep-muted">Came back for more</p>
-            <ul className="mt-5 flex flex-wrap items-center gap-x-10 gap-y-4">
-              {repeat.map((r) => (
-                <li key={r} className="flex items-center gap-3">
-                  <ClientLogo name={r} height={20} />
-                  <span className="mono-label !text-on-deep-muted">×{posts.filter((p) => p.brand === r).length}</span>
-                </li>
-              ))}
-            </ul>
-          </Reveal>
-        </div>
+        <Reveal>
+          <ul className="grid grid-cols-2 border-t border-line">
+            {firms.map((f, k) => (
+              <li key={f} className={cn('border-b border-line py-4 text-[0.98rem]', k % 2 === 1 && 'border-l pl-6')}>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </Reveal>
+      </div>
+    </section>
+  )
+}
+
+function Faq() {
+  return (
+    <section id="faq" aria-labelledby="faq-title" className="border-t border-line py-20 sm:py-24">
+      <div className="shell grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)] lg:gap-20">
+        <Reveal>
+          <Heading id="faq-title">FAQ</Heading>
+        </Reveal>
+        <ul className="border-t border-line">
+          {copy.faqs.map((f) => (
+            <li key={f.q} className="border-b border-line">
+              <details className="group py-6">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-6 text-[1rem] font-semibold transition-colors hover:text-accent [&::-webkit-details-marker]:hidden">
+                  {f.q}
+                  <span aria-hidden className="text-xl text-muted transition-transform duration-300 group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 max-w-xl text-muted">{f.a}</p>
+              </details>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   )
@@ -508,18 +403,14 @@ function Trust() {
 
 function Book() {
   return (
-    <section id="book" aria-labelledby="book-title" className="rules py-24 sm:py-32">
-      <div className="shell grid items-start gap-14 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
+    <section id="book" aria-labelledby="book-title" className="border-t border-line py-20 sm:py-24">
+      <div className="shell grid items-start gap-14 lg:grid-cols-2 lg:gap-20">
         <Reveal>
-          <p className="mono-label">Book a call</p>
-          <h2 id="book-title" className="display mt-5 text-[clamp(2.6rem,5.6vw,5.2rem)]">
-            Launching soon? <span className="serif font-normal text-accent italic">Let’s talk.</span>
-          </h2>
-          <p className="mt-6 max-w-md text-[1.1rem] leading-relaxed text-muted">
-            A 30-minute call to hear about the launch and the date. Two weeks of lead time is ideal, and we have run launches in five days.
-          </p>
+          <Heading id="book-title" note="30 minutes. Your launch, your date, our plan.">
+            Book a call
+          </Heading>
           <p className="mt-8 text-muted">
-            Or email{' '}
+            Email{' '}
             <a href={`mailto:${brand.email}`} className="font-semibold text-fg underline decoration-line underline-offset-4 hover:decoration-fg">
               {brand.email}
             </a>
@@ -533,7 +424,7 @@ function Book() {
               className="h-[700px] w-full rounded-3xl border border-line bg-surface"
             />
           ) : (
-            <BookingCalendar className="border border-line !shadow-none" />
+            <BookingCalendar className="border border-line !shadow-none dark:!ring-0" />
           )}
         </Reveal>
       </div>
@@ -545,11 +436,8 @@ function Footer() {
   const x = brand.socials.find((s) => s.label === 'X')
   return (
     <footer className="border-t border-line">
-      <div className="shell flex flex-wrap items-end justify-between gap-8 py-12">
-        <div>
-          <LogoFull className="h-auto w-32" />
-          <p className="mt-4 max-w-xs text-sm text-muted">{hero.eyebrow}.</p>
-        </div>
+      <div className="shell flex flex-wrap items-center justify-between gap-8 py-10">
+        <LogoFull className="h-auto w-24" />
         <div className="flex flex-wrap items-center gap-6 text-sm">
           {x && (
             <a href={x.href} target="_blank" rel="noreferrer" className="flex items-center gap-2 font-medium hover:text-accent">
@@ -559,7 +447,9 @@ function Footer() {
           <a href={`mailto:${brand.email}`} className="font-medium hover:text-accent">
             {brand.email}
           </a>
-          <span className="text-muted">© {new Date().getFullYear()} {brand.name}</span>
+          <span className="text-muted">
+            © {new Date().getFullYear()} {brand.name}
+          </span>
         </div>
       </div>
     </footer>
@@ -569,7 +459,7 @@ function Footer() {
 /** The whole site: one page, only what converts. */
 export default function OnePage() {
   return (
-    <>
+    <div className="guides">
       <a href="#main" className="sr-only z-[200] rounded-full bg-deep px-4 py-2 text-on-deep focus:not-sr-only focus:fixed focus:top-4 focus:left-4">
         Skip to content
       </a>
@@ -577,13 +467,13 @@ export default function OnePage() {
       <main id="main">
         <HeroBlock />
         <Figures />
-        <LogoFlow />
         <Launches />
-        <How />
+        <Process />
         <Trust />
+        <Faq />
         <Book />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }
