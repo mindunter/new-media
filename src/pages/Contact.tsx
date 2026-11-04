@@ -6,10 +6,9 @@ export default function Contact() {
   return (
     <>
       <PageHero
-        img="earthrise"
-        layout="full"
-        pos="50% 78%"
-        caption="Earthrise. Apollo 8, 24 December 1968. NASA."
+        img="moon"
+        pos="50% 75%"
+        align="top"
         label="Contact"
         title="Book a call"
         sub="30 minutes. Your launch, your date, our plan."

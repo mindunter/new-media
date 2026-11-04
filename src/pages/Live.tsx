@@ -24,8 +24,8 @@ export default function Live() {
     <>
       <PageHero
         img="liftoff"
-        pos="50% 30%"
-        caption="Apollo 11 lifts off. Kennedy Space Center, 16 July 1969. NASA."
+        pos="50% 40%"
+        align="low"
         label={
           <>
             <span aria-hidden className="live-dot" /> Launch directory

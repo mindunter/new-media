@@ -6,10 +6,8 @@ export default function Process() {
   return (
     <>
       <PageHero
-        img="eagle"
-        layout="full"
-        pos="50% 60%"
-        caption="Eagle returns from the surface, Earth above the Moon. Apollo 11, 21 July 1969. NASA."
+        img="clouds"
+        pos="50% 45%"
         label="Process"
         title="Four phases. One launch hour."
         sub="Two weeks of preparation, a first-hour ranking window, and 30 days of compounding distribution."

@@ -8,7 +8,7 @@ export default function Home() {
   const open = useDialog()
   return (
     <>
-      <PageHero layout="center" img="moonwalk" pos="50% 40%" caption="Buzz Aldrin on the Moon. Apollo 11, 20 July 1969. NASA." title={copy.hero} sub={copy.sub} foot={<LogoFlow className="pb-4 text-white" />}>
+      <PageHero tall align="top" img="moon" pos="50% 60%" title={copy.hero} sub={copy.sub} foot={<LogoFlow className="pb-4 text-white" />}>
         <button type="button" onClick={() => open('launch')} className="h-11 rounded-full bg-white px-5 text-[0.95rem] font-semibold text-black transition-colors hover:bg-fill hover:text-white">
           Create launch
         </button>

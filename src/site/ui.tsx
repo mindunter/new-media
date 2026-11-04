@@ -67,14 +67,6 @@ export function Wordmark({ className }: { className?: string }) {
   )
 }
 
-/** Image props for a NASA photo in public/art/space, at two widths. */
-export function space(name: string) {
-  const single = !!(window as unknown as { __NM_ART__?: unknown }).__NM_ART__
-  const small = art(`space/${name}-1200.webp`)
-  // The single-file preview embeds images as data URIs, which cannot sit in a srcset.
-  return single ? { src: small } : { src: small, srcSet: `${small} 1200w, ${art(`space/${name}-2400.webp`)} 2400w`, sizes: '100vw' }
-}
-
 /** Moves the card's spotlight (see .spot in index.css) with the pointer. */
 export const spotlight = (e: React.PointerEvent<HTMLElement>) => {
   const r = e.currentTarget.getBoundingClientRect()
@@ -342,7 +334,7 @@ export function Footer() {
         <span>
           © {new Date().getFullYear()} {brand.name}
         </span>
-        <span>Photography: NASA, Apollo 8 and 11 (1968 to 1969). Public domain. No endorsement by NASA implied.</span>
+        <span>Launch amplification on X</span>
       </div>
     </footer>
   )
@@ -351,96 +343,58 @@ export function Footer() {
 /* ------------------------------ heroes ------------------------------ */
 
 type HeroProps = {
+  /** A background in public/art/bg. */
   img: string
-  caption: string
   title: React.ReactNode
   sub?: React.ReactNode
   label?: React.ReactNode
   children?: React.ReactNode
-  /** split: photo right, words left. full: photo behind centred words. center: the photo framed below centred words. */
-  layout?: 'split' | 'full' | 'center'
+  /** Which part of the picture stays in frame when the screen crops it. */
   pos?: string
   tall?: boolean
+  /** Where the words sit, so the subject of the picture stays clear: high, centred or low. */
+  align?: 'top' | 'center' | 'low'
   foot?: React.ReactNode
-  /** Darken a busy photo further so the words stay readable. */
-  dim?: boolean
 }
 
-// Fades the centred photo out at the sides and the bottom, so it has no visible edge.
-const heroMask = 'linear-gradient(90deg, transparent 0%, #000 24%, #000 76%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 8%, #000 62%, transparent 100%)'
-
-/** Every page opens on a photograph from the Apollo programme. */
-export function PageHero({ img, caption, title, sub, label, children, layout = 'split', pos = '50% 50%', tall, foot, dim }: HeroProps) {
-  const full = layout === 'full'
-  const center = layout === 'center'
-  const words = (
-    <div className={cn(full || center ? 'flex flex-col items-center text-center' : 'max-w-[36rem]')}>
-      {label && (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="mono-label mb-5 flex items-center gap-2 !text-white/70">
-          {label}
-        </motion.div>
-      )}
-      <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, ease, delay: 0.15 }}
-        className={cn('display text-[clamp(2rem,4vw,3.25rem)] leading-[1.06] tracking-[-0.04em] text-balance', center ? 'max-w-[18ch]' : 'max-w-[22ch]')}
-      >
-        {title}
-      </motion.h1>
-      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.35 }} className={cn((full || center) && 'flex flex-col items-center')}>
-        {sub && <p className="mt-5 max-w-[34rem] text-[0.98rem] leading-relaxed text-pretty text-white/70 sm:text-[1.04rem]">{sub}</p>}
-        {children && <div className={cn('mt-8 flex flex-wrap items-center gap-3', (full || center) && 'justify-center')}>{children}</div>}
-      </motion.div>
-    </div>
-  )
-
-  if (center) {
-    // The photo's sky is black, so it sits in the lower half and fades into the page on all sides.
-    return (
-      <section className="relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-black text-white">
-        <motion.img
-          {...space(img)}
-          alt=""
-          fetchPriority="high"
-          initial={{ opacity: 0, scale: 1.04 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2.4, ease }}
-          style={{ objectPosition: pos, maskImage: heroMask, WebkitMaskImage: heroMask, maskComposite: 'intersect', WebkitMaskComposite: 'source-in' }}
-          className="absolute bottom-[-6%] left-1/2 -z-10 aspect-square h-[58%] max-w-none -translate-x-1/2 object-cover max-sm:bottom-[-2%] max-sm:h-[46%]"
-        />
-        <div className="shell flex w-full flex-1 flex-col items-center pt-32 sm:pt-36">{words}</div>
-        {foot}
-        <p className="shell w-full pb-5 text-center text-[0.7rem] tracking-wide text-white/45 sm:text-right">{caption}</p>
-      </section>
-    )
-  }
-
+/**
+ * Every page opens on a full-bleed launch or lunar scene with centred words. Only a light
+ * wash at the top (for the menu) and the bottom (into the page) sits over the picture.
+ */
+export function PageHero({ img, title, sub, label, children, pos = '50% 50%', tall, align = 'center', foot }: HeroProps) {
   return (
-    <section className={cn('relative isolate flex flex-col overflow-hidden bg-black text-white', tall ? 'min-h-[100svh]' : 'min-h-[78svh]')}>
+    <section className={cn('relative isolate flex flex-col overflow-hidden bg-black text-white', tall ? 'min-h-[100svh]' : 'min-h-[82svh]')}>
       <motion.img
-        {...space(img)}
+        src={art(`bg/${img}.webp`)}
         alt=""
         fetchPriority="high"
-        initial={{ opacity: 0, scale: 1.06 }}
+        initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 2.2, ease }}
+        transition={{ duration: 2.4, ease }}
         style={{ objectPosition: pos }}
-        className={cn('absolute -z-20 h-full object-cover', full ? 'inset-0 w-full' : 'inset-x-0 top-0 w-full max-lg:h-[62%] lg:inset-y-0 lg:right-0 lg:left-auto lg:w-[64%]')}
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
       />
-      <div
-        aria-hidden
-        className={cn(
-          'absolute inset-0 -z-10',
-          dim && 'bg-black/40',
-          full
-            ? 'bg-[radial-gradient(60%_45%_at_50%_50%,rgb(0_0_0/0.35),transparent_100%),linear-gradient(180deg,rgb(0_0_0/0.55)_0%,rgb(0_0_0/0.2)_40%,rgb(0_0_0/0.85)_100%)]'
-            : 'bg-[linear-gradient(180deg,rgb(0_0_0/0.35)_0%,transparent_25%,rgb(0_0_0/0.6)_48%,#000_64%)] lg:bg-[linear-gradient(90deg,#000_36%,rgb(0_0_0/0.55)_52%,transparent_78%),linear-gradient(180deg,rgb(0_0_0/0.5)_0%,transparent_22%,transparent_70%,rgb(0_0_0/0.8)_100%)]',
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(0_0_0/0.45)_0%,rgb(0_0_0/0.08)_26%,rgb(0_0_0/0.08)_60%,rgb(0_0_0/0.7)_100%)]" />
+      <div className={cn('shell flex w-full flex-1 flex-col items-center pt-32 pb-16 text-center', { top: 'justify-start sm:pt-[17svh]', center: 'justify-center', low: 'justify-end sm:pb-[9svh]' }[align])}>
+        {label && (
+          <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} className="mono-label mb-5 flex items-center gap-2 !text-white/75">
+            {label}
+          </motion.div>
         )}
-      />
-      <div className={cn('shell flex w-full flex-1 flex-col pt-36 pb-12 md:pt-32', full ? 'items-center justify-center' : 'justify-end max-lg:pt-[48svh]')}>{words}</div>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease, delay: 0.15 }}
+          className="display max-w-[18ch] text-[clamp(2rem,4vw,3.25rem)] leading-[1.06] tracking-[-0.04em] text-balance [text-shadow:0_2px_30px_rgb(0_0_0/0.35)]"
+        >
+          {title}
+        </motion.h1>
+        <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.35 }} className="flex flex-col items-center">
+          {sub && <p className="mt-5 max-w-[34rem] text-[0.98rem] leading-relaxed text-pretty text-white/80 [text-shadow:0_1px_20px_rgb(0_0_0/0.4)] sm:text-[1.04rem]">{sub}</p>}
+          {children && <div className="mt-8 flex flex-wrap items-center justify-center gap-3">{children}</div>}
+        </motion.div>
+      </div>
       {foot}
-      <p className="shell w-full pb-5 text-right text-[0.7rem] tracking-wide text-white/45">{caption}</p>
     </section>
   )
 }
@@ -719,8 +673,8 @@ export function CtaBand() {
   const open = useDialog()
   return (
     <section aria-labelledby="cta-title" className="relative isolate overflow-hidden bg-black text-white">
-      <img {...space('earthrise')} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_60%]" />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(0_0_0/0.2),rgb(0_0_0/0.75))]" />
+      <img src={art('bg/clouds.webp')} alt="" loading="lazy" className="absolute inset-0 -z-20 h-full w-full object-cover object-[50%_40%]" />
+      <div aria-hidden className="absolute inset-0 -z-10 bg-[linear-gradient(180deg,rgb(0_0_0/0.05)_30%,rgb(0_0_0/0.65))]" />
       <div className="shell flex min-h-[580px] flex-col items-center justify-end pt-24 pb-16 text-center">
         <h2 id="cta-title" className="display text-[clamp(1.55rem,2.4vw,2.1rem)] tracking-[-0.03em]">
           Your launch is next.
@@ -734,7 +688,6 @@ export function CtaBand() {
             Browse the directory
           </Button>
         </div>
-        <p className="mt-14 text-[0.7rem] tracking-wide text-white/45">Earthrise. Apollo 8, 24 December 1968. NASA.</p>
       </div>
     </section>
   )

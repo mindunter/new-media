@@ -9,11 +9,9 @@ export default function Work() {
   return (
     <>
       <PageHero
-        img="bootprint"
-        layout="full"
-        pos="50% 55%"
-        dim
-        caption="A bootprint in lunar soil. Apollo 11, 1969. NASA."
+        img="overlook"
+        pos="50% 35%"
+        align="low"
         label="Launches"
         title="Proof, on the record."
         sub={`${posts.length} launches for ${companies} AI companies. ${millions(totalViews)} verified views on X.`}
