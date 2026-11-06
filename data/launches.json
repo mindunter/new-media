@@ -1,19 +1,84 @@
 {
- "updated": "2026-11-05T23:32:52.988Z",
+ "updated": "2026-11-06T03:41:23.087Z",
  "sources": {
   "x": {
    "status": "off",
    "note": "Set X_BEARER_TOKEN to turn on.",
-   "at": "2026-11-05T23:32:51.911Z"
+   "at": "2026-11-06T03:41:22.214Z"
   },
   "hn": {
    "status": "ok",
    "note": "102 posts.",
-   "at": "2026-11-05T23:32:52.515Z"
+   "at": "2026-11-06T03:41:22.773Z"
   }
  },
- "count": 170,
+ "count": 175,
  "items": [
+  {
+   "id": "hn:50386559",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://cjauvin.github.io/pixel-cabinet/",
+   "discussion": "https://news.ycombinator.com/item?id=50386559",
+   "title": "Cabinet of Distilled Pixels",
+   "text": "",
+   "name": "cjauvin",
+   "handle": "cjauvin",
+   "site": "cjauvin.github.io",
+   "created": "2026-11-06T00:27:03Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 4.93
+  },
+  {
+   "id": "hn:50386457",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.audioround.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50386457",
+   "title": "3-minute desk breaks based on Radio Taiso and Wordle",
+   "text": "",
+   "name": "riscii68",
+   "handle": "riscii68",
+   "site": "audioround.com",
+   "created": "2026-11-06T00:14:15Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 3.14
+  },
+  {
+   "id": "hn:50386089",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://labcanary.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50386089",
+   "title": "Lab Canary – Rating AI labs on whether their staff can speak up",
+   "text": "",
+   "name": "ap11071",
+   "handle": "ap11071",
+   "site": "labcanary.com",
+   "created": "2026-11-05T23:31:34Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "https://labcanary.com/og.png?v=20261022-legal",
+   "imageTried": true,
+   "score": 2.71
+  },
   {
    "id": "hn:50385092",
    "source": "hn",
@@ -33,7 +98,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 5.27
+   "score": 2.08
   },
   {
    "id": "hn:50385087",
@@ -48,7 +113,7 @@
    "site": "makermaker.ai",
    "created": "2026-11-05T22:00:07Z",
    "metrics": {
-    "points": 7,
+    "points": 8,
     "comments": 1
    },
    "tags": [
@@ -56,7 +121,7 @@
    ],
    "image": "https://makermaker.ai/breakthroughs/inference/simulation/og.gif",
    "imageTried": true,
-   "score": 13.14
+   "score": 5.88
   },
   {
    "id": "hn:50384357",
@@ -80,7 +145,31 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 3.83
+   "score": 1.78
+  },
+  {
+   "id": "hn:50383785",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://detailkeeper.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50383785",
+   "title": "Teach a speech model (en) a name by saying it once, on your Mac",
+   "text": "",
+   "name": "Angus1192",
+   "handle": "Angus1192",
+   "site": "detailkeeper.com",
+   "created": "2026-11-05T20:06:33Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Voice"
+   ],
+   "image": "https://detailkeeper.com/demo-full.webp",
+   "imageTried": true,
+   "score": 1.59
   },
   {
    "id": "hn:50383228",
@@ -103,7 +192,7 @@
    ],
    "image": "https://thinker.sh/card.png",
    "imageTried": true,
-   "score": 3.6
+   "score": 1.94
   },
   {
    "id": "hn:50382289",
@@ -124,7 +213,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.9
+   "score": 1.7
   },
   {
    "id": "hn:50381998",
@@ -139,7 +228,7 @@
    "site": "testflight.apple.com",
    "created": "2026-11-05T17:44:36Z",
    "metrics": {
-    "points": 3,
+    "points": 4,
     "comments": 0
    },
    "tags": [
@@ -147,7 +236,7 @@
    ],
    "image": "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/cd/86/d5/cd86d5cf-247a-c291-d21c-b21b92a14abe/AppIcon-0-0-1x_U007epad-0-1-85-220.png/1920x1080ia-80.png",
    "imageTried": true,
-   "score": 2.04
+   "score": 1.63
   },
   {
    "id": "hn:50381846",
@@ -171,7 +260,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1444413035/f1e5609e-dd16-4891-8e6c-d28e17f30f24",
    "imageTried": true,
-   "score": 1.97
+   "score": 1.19
   },
   {
    "id": "hn:50381741",
@@ -186,13 +275,13 @@
    "site": "github.com",
    "created": "2026-11-05T17:22:11Z",
    "metrics": {
-    "points": 6,
+    "points": 7,
     "comments": 2
    },
    "tags": [],
    "image": "https://opengraph.githubassets.com/0a35cbb1b78865d60be9d33d7bbf2ac1283830c8a8b7f044824c7b11d3f88103/vishvananda/cppgm-extended",
    "imageTried": true,
-   "score": 4.5
+   "score": 3.14
   },
   {
    "id": "hn:50381687",
@@ -207,15 +296,15 @@
    "site": "github.com",
    "created": "2026-11-05T17:17:42Z",
    "metrics": {
-    "points": 69,
-    "comments": 36
+    "points": 80,
+    "comments": 44
    },
    "tags": [
     "Agents"
    ],
    "image": "https://repository-images.githubusercontent.com/654560183/d4b2fdae-1a15-4420-a2a3-17256a51ae24",
    "imageTried": true,
-   "score": 55.29
+   "score": 39.79
   },
   {
    "id": "hn:50380882",
@@ -236,7 +325,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.71
+   "score": 1.75
   },
   {
    "id": "hn:50380827",
@@ -251,13 +340,13 @@
    "site": "gleanary.app",
    "created": "2026-11-05T16:03:00Z",
    "metrics": {
-    "points": 3,
+    "points": 4,
     "comments": 0
    },
    "tags": [],
    "image": "https://gleanary.app/og.png",
    "imageTried": true,
-   "score": 1.61
+   "score": 1.39
   },
   {
    "id": "hn:50380773",
@@ -280,7 +369,7 @@
    ],
    "image": "https://papilot.ai/assets/social-preview.png",
    "imageTried": true,
-   "score": 1.6
+   "score": 1.04
   },
   {
    "id": "hn:50380704",
@@ -295,8 +384,8 @@
    "site": "github.com",
    "created": "2026-11-05T15:54:41Z",
    "metrics": {
-    "points": 61,
-    "comments": 12
+    "points": 75,
+    "comments": 23
    },
    "tags": [
     "Agents",
@@ -304,7 +393,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1356786315/48fcff41-50bf-4992-bc12-087ec7b651e7",
    "imageTried": true,
-   "score": 35.36
+   "score": 29.72
   },
   {
    "id": "hn:50380651",
@@ -325,7 +414,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.1
+   "score": 1.37
   },
   {
    "id": "hn:50380536",
@@ -346,7 +435,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/bfdc340d2c0ad96564c193169bdcb62e734dd69f73309c6e52cbc7e3c5d0b4e8/jdefrancesco/SrcWranglr",
    "imageTried": true,
-   "score": 1.55
+   "score": 1.01
   },
   {
    "id": "hn:50380505",
@@ -362,14 +451,14 @@
    "created": "2026-11-05T15:41:02Z",
    "metrics": {
     "points": 6,
-    "comments": 1
+    "comments": 2
    },
    "tags": [
     "Dev tools"
    ],
    "image": "https://zenith.hosting/og-image.png?v=2e7ee2dc549f",
    "imageTried": true,
-   "score": 3.34
+   "score": 2.36
   },
   {
    "id": "hn:50380433",
@@ -390,7 +479,7 @@
    "tags": [],
    "image": "https://kidsshelf.org/img/og.png",
    "imageTried": true,
-   "score": 3.04
+   "score": 2.01
   },
   {
    "id": "hn:50380277",
@@ -406,7 +495,7 @@
    "created": "2026-11-05T15:25:51Z",
    "metrics": {
     "points": 6,
-    "comments": 1
+    "comments": 3
    },
    "tags": [
     "Dev tools",
@@ -414,7 +503,7 @@
    ],
    "image": "https://opengraph.githubassets.com/982ae638eb0c49aa6b49ba03618485e85d27094cf6a7c3fcdf14b8b28b2c1a78/matty234/k8sman",
    "imageTried": true,
-   "score": 3.24
+   "score": 2.47
   },
   {
    "id": "hn:50380157",
@@ -429,13 +518,13 @@
    "site": "noentiendo.app",
    "created": "2026-11-05T15:16:59Z",
    "metrics": {
-    "points": 3,
+    "points": 4,
     "comments": 0
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.47
+   "score": 1.3
   },
   {
    "id": "hn:50380154",
@@ -458,7 +547,7 @@
    ],
    "image": "https://www.postraid.com/og.png",
    "imageTried": true,
-   "score": 3.67
+   "score": 2.44
   },
   {
    "id": "hn:50380091",
@@ -479,7 +568,7 @@
    "tags": [],
    "image": "https://droplis.lalo.li/og/droplis-launch-2026-10.jpg",
    "imageTried": true,
-   "score": 1.94
+   "score": 1.29
   },
   {
    "id": "hn:50379504",
@@ -500,7 +589,7 @@
    "tags": [],
    "image": "https://spaceguesser.com/og.jpg",
    "imageTried": true,
-   "score": 2.24
+   "score": 1.53
   },
   {
    "id": "hn:50379221",
@@ -521,7 +610,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/02c0d95f9c9477e523a15e769ef75405169d09ebc3a8b6af61031ebe574aedb1/piercefreeman/waymark",
    "imageTried": true,
-   "score": 1.72
+   "score": 1.19
   },
   {
    "id": "hn:50379213",
@@ -544,7 +633,7 @@
    ],
    "image": "https://xsdhub.com/social-card.png",
    "imageTried": true,
-   "score": 1.93
+   "score": 1.33
   },
   {
    "id": "hn:50379073",
@@ -559,15 +648,15 @@
    "site": "github.com",
    "created": "2026-11-05T13:53:17Z",
    "metrics": {
-    "points": 15,
-    "comments": 3
+    "points": 16,
+    "comments": 5
    },
    "tags": [
     "Open source"
    ],
    "image": "https://repository-images.githubusercontent.com/1424230892/80042c52-0b4d-44d0-b301-b0e557251c24",
    "imageTried": true,
-   "score": 6.93
+   "score": 5.39
   },
   {
    "id": "hn:50379051",
@@ -590,7 +679,7 @@
    ],
    "image": "https://aloudapp.app/assets/icon-512.png",
    "imageTried": true,
-   "score": 1.67
+   "score": 1.16
   },
   {
    "id": "hn:50379021",
@@ -611,7 +700,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.08
+   "score": 1.45
   },
   {
    "id": "hn:50378872",
@@ -634,7 +723,7 @@
    ],
    "image": "https://ai-news.jagular.io/og-image.png",
    "imageTried": true,
-   "score": 1.22
+   "score": 0.85
   },
   {
    "id": "hn:50378796",
@@ -655,7 +744,28 @@
    "tags": [],
    "image": "https://ownfeed.dev/check/opengraph-image?a5c1202ebb7c85e8",
    "imageTried": true,
-   "score": 1.8
+   "score": 1.27
+  },
+  {
+   "id": "hn:50378643",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://firenook.dev/",
+   "discussion": "https://news.ycombinator.com/item?id=50378643",
+   "title": "Firenook – Firebase emulators in Rust: 40× faster writes, 10× less RAM",
+   "text": "",
+   "name": "sanjevirau",
+   "handle": "sanjevirau",
+   "site": "firenook.dev",
+   "created": "2026-11-05T13:07:29Z",
+   "metrics": {
+    "points": 59,
+    "comments": 13
+   },
+   "tags": [],
+   "image": "https://firenook.dev/og/home.png",
+   "imageTried": true,
+   "score": 18.04
   },
   {
    "id": "hn:50378582",
@@ -679,7 +789,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1441501308/cf5b83f8-0cd1-4550-84dc-283dc2ac3f6b",
    "imageTried": true,
-   "score": 1.93
+   "score": 1.37
   },
   {
    "id": "hn:50378570",
@@ -700,7 +810,7 @@
    "tags": [],
    "image": "https://guitartheorystudio.com/og.png",
    "imageTried": true,
-   "score": 1.15
+   "score": 0.82
   },
   {
    "id": "hn:50378102",
@@ -721,7 +831,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/31c28328946a46e0fe69ba2f417e854bd2e9cbb2569102ef94d643f7884a82e6/Higangssh/hyperbutler",
    "imageTried": true,
-   "score": 1.4
+   "score": 1.02
   },
   {
    "id": "hn:50377933",
@@ -742,7 +852,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.37
+   "score": 1.73
   },
   {
    "id": "hn:50377851",
@@ -758,14 +868,14 @@
    "created": "2026-11-05T11:21:00Z",
    "metrics": {
     "points": 6,
-    "comments": 1
+    "comments": 2
    },
    "tags": [
     "Agents"
    ],
    "image": "https://nico.app/images/brand/nico-og.png",
    "imageTried": true,
-   "score": 2.15
+   "score": 1.71
   },
   {
    "id": "hn:50377613",
@@ -786,7 +896,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/4a8f47afa8b871e12b979853f60b682352178b498b83d8a0b5e2eb42599dd5a8/hyphatech/spindle",
    "imageTried": true,
-   "score": 0.95
+   "score": 0.7
   },
   {
    "id": "hn:50377469",
@@ -807,7 +917,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/ab46ac69ba83ce629ebdbea7696ea6eb7cbaaefb967a98f3ad8875126ccbd2e9/xatuke/mimic",
    "imageTried": true,
-   "score": 2.15
+   "score": 1.61
   },
   {
    "id": "hn:50377443",
@@ -828,7 +938,7 @@
    "tags": [],
    "image": "https://grasmere.app/assets/share.jpg",
    "imageTried": true,
-   "score": 2.29
+   "score": 1.71
   },
   {
    "id": "hn:50377439",
@@ -851,7 +961,7 @@
    ],
    "image": "https://myarc.dev/og-image.png",
    "imageTried": true,
-   "score": 0.92
+   "score": 0.69
   },
   {
    "id": "hn:50377390",
@@ -867,12 +977,12 @@
    "created": "2026-11-05T10:12:25Z",
    "metrics": {
     "points": 5,
-    "comments": 4
+    "comments": 5
    },
    "tags": [],
    "image": "https://franklymail.com/brand/og-banner-1200x630.png",
    "imageTried": true,
-   "score": 2.11
+   "score": 1.7
   },
   {
    "id": "hn:50377069",
@@ -893,7 +1003,7 @@
    "tags": [],
    "image": "https://colors.void.app/social-card.png",
    "imageTried": true,
-   "score": 1.86
+   "score": 1.41
   },
   {
    "id": "hn:50376897",
@@ -916,7 +1026,7 @@
    ],
    "image": "https://opengraph.githubassets.com/ad428e0af160ce63f1810e5b01f33cfa7999078d69d2c6d163b7823b26702158/chirrop/chirrop-mcp",
    "imageTried": true,
-   "score": 0.97
+   "score": 0.74
   },
   {
    "id": "hn:50376244",
@@ -937,7 +1047,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.5
+   "score": 1.17
   },
   {
    "id": "hn:50376232",
@@ -958,7 +1068,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/218e98c2ee4b7ef89375c48c7028adfce69587cabb47ce90fb01b5b0872ed29c/losfair/l4h",
    "imageTried": true,
-   "score": 0.75
+   "score": 0.58
   },
   {
    "id": "hn:50376180",
@@ -979,7 +1089,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/cea6cc60570193b7538ce61abddf440aa5ffe88bbe1ac4b12b79cd2f7cdfb5fb/goccy/go-json",
    "imageTried": true,
-   "score": 0.74
+   "score": 0.58
   },
   {
    "id": "hn:50375049",
@@ -1000,7 +1110,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/e894efe63f7a101945671cabbf781c423e0f3dcd5bb0d4bb56db07489d852eb7/hypereffect/hyperb",
    "imageTried": true,
-   "score": 0.61
+   "score": 0.49
   },
   {
    "id": "hn:50374993",
@@ -1021,7 +1131,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.8
+   "score": 0.65
   },
   {
    "id": "hn:50374584",
@@ -1042,7 +1152,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.57
+   "score": 0.47
   },
   {
    "id": "hn:50373795",
@@ -1063,7 +1173,7 @@
    "tags": [],
    "image": "https://querythemurder.com/static/og-share.jpg",
    "imageTried": true,
-   "score": 1.31
+   "score": 1.08
   },
   {
    "id": "hn:50373233",
@@ -1087,7 +1197,7 @@
    ],
    "image": "https://getcinnamon.ai/images/og.png",
    "imageTried": true,
-   "score": 0.58
+   "score": 0.48
   },
   {
    "id": "hn:50372207",
@@ -1111,7 +1221,7 @@
    ],
    "image": "https://opengraph.githubassets.com/9605d99203d011fed8899af3a0722209d22b487cabdc413e12728bcad45da8cb/akustikrausch/amigent",
    "imageTried": true,
-   "score": 0.45
+   "score": 0.38
   },
   {
    "id": "hn:50372201",
@@ -1132,7 +1242,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.45
+   "score": 0.38
   },
   {
    "id": "hn:50372176",
@@ -1155,7 +1265,7 @@
    ],
    "image": "https://host0.ai/opengraph-image?ad9cada12e8655ed",
    "imageTried": true,
-   "score": 0.53
+   "score": 0.44
   },
   {
    "id": "hn:50372029",
@@ -1176,7 +1286,7 @@
    "tags": [],
    "image": "https://getchronosphere.com/og.png",
    "imageTried": true,
-   "score": 0.89
+   "score": 0.75
   },
   {
    "id": "hn:50371992",
@@ -1197,7 +1307,7 @@
    "tags": [],
    "image": "https://app.aggregatefi.com/static/brand/link-preview.png?v=c6c3020392cb",
    "imageTried": true,
-   "score": 0.96
+   "score": 0.81
   },
   {
    "id": "hn:50371977",
@@ -1221,7 +1331,7 @@
    ],
    "image": "https://univerlab.org/og/canopy.png",
    "imageTried": true,
-   "score": 0.59
+   "score": 0.5
   },
   {
    "id": "hn:50371886",
@@ -1244,7 +1354,7 @@
    ],
    "image": "https://opengraph.githubassets.com/3e6537d30d25bf9f76e9c6e34535c32eadb7398a170a30988e8b63003f5ac8a9/RenderBear/haci",
    "imageTried": true,
-   "score": 0.44
+   "score": 0.37
   },
   {
    "id": "hn:50371859",
@@ -1265,7 +1375,7 @@
    "tags": [],
    "image": "https://grzegorz.tanczyk.pl/diorama/media/og.jpg?v=2",
    "imageTried": true,
-   "score": 1.17
+   "score": 0.99
   },
   {
    "id": "hn:50371709",
@@ -1286,7 +1396,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.44
+   "score": 0.37
   },
   {
    "id": "hn:50371428",
@@ -1307,7 +1417,7 @@
    "tags": [],
    "image": "https://mdview.io/og.png?v=2",
    "imageTried": true,
-   "score": 0.57
+   "score": 0.49
   },
   {
    "id": "hn:50371403",
@@ -1328,7 +1438,7 @@
    "tags": [],
    "image": "https://tjaz.com/share.png?v=3367e751fe9e",
    "imageTried": true,
-   "score": 0.43
+   "score": 0.36
   },
   {
    "id": "hn:50371349",
@@ -1349,7 +1459,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.57
+   "score": 0.49
   },
   {
    "id": "hn:50371286",
@@ -1370,7 +1480,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.43
+   "score": 0.36
   },
   {
    "id": "hn:50371090",
@@ -1386,7 +1496,7 @@
    "created": "2026-11-04T20:31:30Z",
    "metrics": {
     "points": 40,
-    "comments": 9
+    "comments": 10
    },
    "tags": [
     "Dev tools",
@@ -1394,7 +1504,7 @@
    ],
    "image": "https://opengraph.githubassets.com/d74eec58b275ed19bd8c705b6dcc89164fa767f2aed770841451f1af7a18f42e/gauge-sh/gauge-cli",
    "imageTried": true,
-   "score": 6.25
+   "score": 5.39
   },
   {
    "id": "hn:50370248",
@@ -1415,7 +1525,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/3dc904286e39f489375ee7470ba4416942761941f134b997c3034354adcbe1b7/stevenroman91/homotope-engine",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.4
   },
   {
    "id": "hn:50370142",
@@ -1436,7 +1546,7 @@
    "tags": [],
    "image": "https://www.oncueboard.com/opengraph-image?83765d43e5c06904",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.4
   },
   {
    "id": "hn:50369895",
@@ -1451,13 +1561,13 @@
    "site": "fireflyk64.github.io",
    "created": "2026-11-04T18:51:27Z",
    "metrics": {
-    "points": 246,
-    "comments": 34
+    "points": 248,
+    "comments": 36
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 34.57
+   "score": 30.03
   },
   {
    "id": "hn:50369457",
@@ -1478,7 +1588,7 @@
    "tags": [],
    "image": "https://ciphero.ai/assets/cassandra/og-fd4fd879.png",
    "imageTried": true,
-   "score": 0.64
+   "score": 0.55
   },
   {
    "id": "hn:50369277",
@@ -1499,7 +1609,7 @@
    "tags": [],
    "image": "https://unclickbait.app/og/index.png",
    "imageTried": true,
-   "score": 2.36
+   "score": 2.04
   },
   {
    "id": "hn:50369269",
@@ -1520,7 +1630,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/de97704352db87a8946cd1a5cfccce89aa50fb3e60db8a417c7197c5df1786a2/mestr-io/channelvault",
    "imageTried": true,
-   "score": 0.96
+   "score": 0.82
   },
   {
    "id": "hn:50369251",
@@ -1544,7 +1654,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.64
+   "score": 0.55
   },
   {
    "id": "hn:50369215",
@@ -1567,7 +1677,7 @@
    ],
    "image": "https://opengraph.githubassets.com/8bd9d206d8807cde2ed4a4bf8f640e823f697908808eada669141139ebbe5d23/blixt/phonon",
    "imageTried": true,
-   "score": 0.38
+   "score": 0.33
   },
   {
    "id": "hn:50369009",
@@ -1588,7 +1698,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/82e27d710fa2e5e8de1928f3e543e26b7e3120f4c67de241300c3b267b52e3e8/AJTimePyro/cppbolt",
    "imageTried": true,
-   "score": 0.63
+   "score": 0.54
   },
   {
    "id": "hn:50368804",
@@ -1603,15 +1713,15 @@
    "site": "news.ycombinator.com",
    "created": "2026-11-04T17:31:53Z",
    "metrics": {
-    "points": 101,
-    "comments": 34
+    "points": 103,
+    "comments": 35
    },
    "tags": [
     "AI"
    ],
    "image": "",
    "imageTried": true,
-   "score": 14.74
+   "score": 13.01
   },
   {
    "id": "hn:50368709",
@@ -1626,13 +1736,13 @@
    "site": "curioushn.com",
    "created": "2026-11-04T17:25:29Z",
    "metrics": {
-    "points": 9,
-    "comments": 12
+    "points": 10,
+    "comments": 13
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.87
+   "score": 1.77
   },
   {
    "id": "hn:50368308",
@@ -1653,7 +1763,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.37
+   "score": 0.32
   },
   {
    "id": "hn:50368208",
@@ -1668,8 +1778,8 @@
    "site": "linum.ai",
    "created": "2026-11-04T16:45:11Z",
    "metrics": {
-    "points": 126,
-    "comments": 14
+    "points": 172,
+    "comments": 16
    },
    "tags": [
     "AI",
@@ -1677,7 +1787,7 @@
    ],
    "image": "https://linum.ai/field-notes/pjit-21k/opengraph-image/card?26d65478f85b1e16",
    "imageTried": true,
-   "score": 16.14
+   "score": 18.94
   },
   {
    "id": "hn:50367630",
@@ -1692,7 +1802,7 @@
    "site": "github.com",
    "created": "2026-11-04T16:09:54Z",
    "metrics": {
-    "points": 25,
+    "points": 28,
     "comments": 4
    },
    "tags": [
@@ -1700,7 +1810,7 @@
    ],
    "image": "https://opengraph.githubassets.com/3448d43dc5a35c652d8be6ac88b218267ecb96048847a1736748e08515b17c82/flitai-io/gpuworks",
    "imageTried": true,
-   "score": 3.21
+   "score": 3.1
   },
   {
    "id": "hn:50367367",
@@ -1721,7 +1831,7 @@
    "tags": [],
    "image": "https://scrollhope.com/assets/img/og.png",
    "imageTried": true,
-   "score": 1.47
+   "score": 1.28
   },
   {
    "id": "hn:50366976",
@@ -1742,7 +1852,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1395369635/1cb57f9f-3b5b-4747-b9fc-185455444710",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.35
   },
   {
    "id": "hn:50366929",
@@ -1757,13 +1867,13 @@
    "site": "pcdealcheck.com",
    "created": "2026-11-04T15:25:33Z",
    "metrics": {
-    "points": 115,
-    "comments": 79
+    "points": 116,
+    "comments": 82
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 17.88
+   "score": 15.84
   },
   {
    "id": "hn:50366894",
@@ -1786,7 +1896,7 @@
    ],
    "image": "https://opengraph.githubassets.com/796627599b0ddaea5c0f2a1774e5a9fc4b1a434ddf6ee28fc393a09401570210/michaelmagan/OpenHuman",
    "imageTried": true,
-   "score": 0.46
+   "score": 0.4
   },
   {
    "id": "hn:50366811",
@@ -1807,7 +1917,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/859051fe6ff14d9bb8df8fc7f083a74df58e427ca8fb2af079ec22e0b5fece59/peterretief/codemap",
    "imageTried": true,
-   "score": 6.4
+   "score": 5.58
   },
   {
    "id": "hn:50366645",
@@ -1828,7 +1938,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/1e001dc686a2a26d82fde9c2b4bd77659b660e2a13e5b14cfb51d06a90437bbf/iris-zip/iris",
    "imageTried": true,
-   "score": 0.52
+   "score": 0.45
   },
   {
    "id": "hn:50366448",
@@ -1849,7 +1959,7 @@
    "tags": [],
    "image": "https://hyperbutler.dev/img/preview-light.png",
    "imageTried": true,
-   "score": 0.68
+   "score": 0.6
   },
   {
    "id": "hn:50366425",
@@ -1872,7 +1982,7 @@
    ],
    "image": "https://opengraph.githubassets.com/83640f467b6de85189129466561714d8f0a151b8cda38e883ee0eeb7499e35f6/alex0ptr/aigude",
    "imageTried": true,
-   "score": 0.8
+   "score": 0.7
   },
   {
    "id": "hn:50365692",
@@ -1897,7 +2007,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1418320301/86e5358c-5851-40e5-8780-3239e6d9e898",
    "imageTried": true,
-   "score": 0.61
+   "score": 0.53
   },
   {
    "id": "hn:50365678",
@@ -1918,7 +2028,7 @@
    "tags": [],
    "image": "https://sentencecoach.com/og/home.png",
    "imageTried": true,
-   "score": 0.77
+   "score": 0.68
   },
   {
    "id": "hn:50365560",
@@ -1939,7 +2049,7 @@
    "tags": [],
    "image": "https://hackerscad.com/og.png",
    "imageTried": true,
-   "score": 1.04
+   "score": 0.92
   },
   {
    "id": "hn:50365294",
@@ -1962,7 +2072,7 @@
    ],
    "image": "https://opengraph.githubassets.com/6da6303e0c5b66eebb2133a54dbd8e17e6374ed695ee35c05ecd0e0a2db2e280/ComputerUseAgent/AutoCua",
    "imageTried": true,
-   "score": 0.49
+   "score": 0.43
   },
   {
    "id": "hn:50364706",
@@ -1987,7 +2097,7 @@
    ],
    "image": "https://opengraph.githubassets.com/14c60a05eeffd015a14b9696423f8e7e12a3d1d539e06653a0b7b079ad419eb0/The-Pixel-Boys/shield-kya",
    "imageTried": true,
-   "score": 0.32
+   "score": 0.28
   },
   {
    "id": "hn:50364657",
@@ -2008,7 +2118,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.37
   },
   {
    "id": "hn:50364483",
@@ -2029,7 +2139,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.61
+   "score": 1.42
   },
   {
    "id": "hn:50364101",
@@ -2050,7 +2160,7 @@
    "tags": [],
    "image": "https://inboxclassic.com/img/windows/read-1-html.png",
    "imageTried": true,
-   "score": 0.35
+   "score": 0.31
   },
   {
    "id": "hn:50363940",
@@ -2073,7 +2183,7 @@
    ],
    "image": "https://opengraph.githubassets.com/df0031b2e6439c83ec2e8abcfb4a3b39d8e214df2150e7741bba2311f6d82d8b/gmpetrov/agent-screenplay",
    "imageTried": true,
-   "score": 0.5
+   "score": 0.44
   },
   {
    "id": "hn:50363166",
@@ -2094,7 +2204,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1405696656/b1920a9f-dda5-4809-844c-326e46b6485e",
    "imageTried": true,
-   "score": 0.48
+   "score": 0.42
   },
   {
    "id": "hn:50362963",
@@ -2115,7 +2225,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.41
+   "score": 1.25
   },
   {
    "id": "hn:50362952",
@@ -2136,7 +2246,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.25
   },
   {
    "id": "hn:50362748",
@@ -2157,7 +2267,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.37
   },
   {
    "id": "hn:50362730",
@@ -2178,7 +2288,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/7375213353e34a9f76d0a66c369841a49ceb05e4f413708191bc5adbe478fd29/Flux-AI-Agent/fluxcut-plugin",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.37
   },
   {
    "id": "hn:50362676",
@@ -2199,7 +2309,7 @@
    "tags": [],
    "image": "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/ec25ef4b-34d4-4906-98c8-9b5ba4c91795",
    "imageTried": true,
-   "score": 0.74
+   "score": 0.66
   },
   {
    "id": "hn:50362615",
@@ -2223,7 +2333,7 @@
    ],
    "image": "https://www.meteosource.com/static/img/mcp-og.png",
    "imageTried": true,
-   "score": 0.32
+   "score": 0.29
   },
   {
    "id": "hn:50362025",
@@ -2244,7 +2354,7 @@
    "tags": [],
    "image": "https://lets1up.com/img/share/home.jpg",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.23
   },
   {
    "id": "hn:50361850",
@@ -2265,7 +2375,7 @@
    "tags": [],
    "image": "https://dryplate.dev/og.png",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.23
   },
   {
    "id": "hn:50361375",
@@ -2286,7 +2396,7 @@
    "tags": [],
    "image": "https://handball-logos.com/branding/9249b1650da1/social-card.png",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.22
   },
   {
    "id": "hn:50361309",
@@ -2309,7 +2419,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.22
   },
   {
    "id": "hn:50361230",
@@ -2330,7 +2440,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.22
   },
   {
    "id": "hn:50360658",
@@ -2351,7 +2461,7 @@
    "tags": [],
    "image": "https://tahaygun.github.io/pauseless/og.png",
    "imageTried": true,
-   "score": 0.5
+   "score": 0.46
   },
   {
    "id": "hn:50360315",
@@ -2372,7 +2482,7 @@
    "tags": [],
    "image": "https://playbomber.com/website/assets/og-image.png",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.38
   },
   {
    "id": "hn:50360259",
@@ -2393,7 +2503,7 @@
    "tags": [],
    "image": "https://wile.ai/v/BPOH3BHCRWWCAKU4OVNOTEQ73A/poster.jpg",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.38
   },
   {
    "id": "hn:50359936",
@@ -2414,7 +2524,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.89
+   "score": 0.81
   },
   {
    "id": "hn:50359805",
@@ -2438,7 +2548,7 @@
    ],
    "image": "https://modelpeers.com/og",
    "imageTried": true,
-   "score": 0.37
+   "score": 0.33
   },
   {
    "id": "hn:50359750",
@@ -2459,7 +2569,7 @@
    "tags": [],
    "image": "https://rotate.ad/og.png",
    "imageTried": true,
-   "score": 0.37
+   "score": 0.33
   },
   {
    "id": "hn:50359283",
@@ -2480,7 +2590,7 @@
    "tags": [],
    "image": "https://slashtrends.com/og-home.jpg",
    "imageTried": true,
-   "score": 0.39
+   "score": 0.36
   },
   {
    "id": "hn:50358352",
@@ -2503,7 +2613,7 @@
    ],
    "image": "https://uncracked.city/og/en.png",
    "imageTried": true,
-   "score": 11.22
+   "score": 10.24
   },
   {
    "id": "hn:50358314",
@@ -2526,7 +2636,7 @@
    ],
    "image": "https://opengraph.githubassets.com/161156864c7fa98df88f4558df06f40d0fbf3876c96a4a8cbb7e4264e840e8bc/finic-ai/kairos",
    "imageTried": true,
-   "score": 8.39
+   "score": 7.66
   },
   {
    "id": "hn:50358282",
@@ -2547,7 +2657,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.25
   },
   {
    "id": "hn:50358143",
@@ -2570,7 +2680,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1435329777/dc2af965-e6d1-4ee3-ac46-cd7bd961d365",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.25
   },
   {
    "id": "hn:50357605",
@@ -2594,7 +2704,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.27
+   "score": 0.25
   },
   {
    "id": "hn:50357326",
@@ -2615,7 +2725,7 @@
    "tags": [],
    "image": "https://zapfast.rocks/screenshot.png",
    "imageTried": true,
-   "score": 0.51
+   "score": 0.46
   },
   {
    "id": "hn:50357117",
@@ -2636,7 +2746,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.23
+   "score": 0.21
   },
   {
    "id": "hn:50357042",
@@ -2659,7 +2769,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.77
+   "score": 0.7
   },
   {
    "id": "hn:50356974",
@@ -2682,7 +2792,7 @@
    ],
    "image": "https://confetti.build/opengraph-image",
    "imageTried": true,
-   "score": 0.27
+   "score": 0.24
   },
   {
    "id": "hn:50356948",
@@ -2703,7 +2813,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.23
+   "score": 0.21
   },
   {
    "id": "hn:50356198",
@@ -2726,7 +2836,7 @@
    ],
    "image": "https://shadowgraph.io/opengraph-image-xg4ifa?78672f090eacdb49",
    "imageTried": true,
-   "score": 0.29
+   "score": 0.27
   },
   {
    "id": "hn:50355827",
@@ -2747,7 +2857,7 @@
    "tags": [],
    "image": "https://vatsaltanna.com/traveltoinfinity/share.jpg",
    "imageTried": true,
-   "score": 0.42
+   "score": 0.39
   },
   {
    "id": "hn:50355761",
@@ -2770,7 +2880,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/667110339/481c6bc7-2ec2-4078-afba-070ceee5ee9b",
    "imageTried": true,
-   "score": 0.36
+   "score": 0.33
   },
   {
    "id": "hn:50354777",
@@ -2794,7 +2904,7 @@
    ],
    "image": "https://superlinked.com/og/home.png",
    "imageTried": true,
-   "score": 0.6
+   "score": 0.55
   },
   {
    "id": "hn:50354016",
@@ -2815,7 +2925,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.19
+   "score": 0.17
   },
   {
    "id": "hn:50353773",
@@ -2838,7 +2948,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.26
   },
   {
    "id": "hn:50353615",
@@ -2861,7 +2971,7 @@
    ],
    "image": "https://cleanslop.com/opengraph-image.png?opengraph-image.1keikfqj6ecka.png",
    "imageTried": true,
-   "score": 0.22
+   "score": 0.2
   },
   {
    "id": "hn:50353468",
@@ -2884,7 +2994,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 2.65
+   "score": 2.44
   },
   {
    "id": "hn:50353386",
@@ -2905,7 +3015,7 @@
    "tags": [],
    "image": "https://hissingkitty.com/api/public/og/hacker-churn.png",
    "imageTried": true,
-   "score": 5.13
+   "score": 4.72
   },
   {
    "id": "hn:50353127",
@@ -2926,7 +3036,7 @@
    "tags": [],
    "image": "https://election.run/og-v1.jpg",
    "imageTried": true,
-   "score": 0.61
+   "score": 0.56
   },
   {
    "id": "hn:50352590",
@@ -2949,7 +3059,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.3
+   "score": 0.28
   },
   {
    "id": "hn:50352316",
@@ -2970,7 +3080,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.3
+   "score": 0.28
   },
   {
    "id": "hn:50351830",
@@ -2991,7 +3101,7 @@
    "tags": [],
    "image": "https://remene.si/opengraph-image-default.jpg",
    "imageTried": true,
-   "score": 0.65
+   "score": 0.6
   },
   {
    "id": "hn:50351797",
@@ -3014,7 +3124,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1203696212/bcc91046-d698-484f-8e47-b3fdf9d6bb60",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.16
   },
   {
    "id": "hn:50351781",
@@ -3039,7 +3149,7 @@
    ],
    "image": "https://rigorix.eu/og.png",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.22
   },
   {
    "id": "hn:50351748",
@@ -3063,7 +3173,7 @@
    ],
    "image": "https://diogenesgateway.com/diogenes_avatar.svg",
    "imageTried": true,
-   "score": 0.23
+   "score": 0.22
   },
   {
    "id": "hn:50351684",
@@ -3086,7 +3196,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.38
   },
   {
    "id": "hn:50351465",
@@ -3107,7 +3217,7 @@
    "tags": [],
    "image": "https://netties.adler.dev/icon.png",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.38
   },
   {
    "id": "hn:50351427",
@@ -3128,7 +3238,7 @@
    "tags": [],
    "image": "https://kvittas.app/img/og.png",
    "imageTried": true,
-   "score": 1.02
+   "score": 0.94
   },
   {
    "id": "hn:50351409",
@@ -3151,7 +3261,7 @@
    ],
    "image": "https://opengraph.githubassets.com/250e6548040592bc4a089237b89c27d1e8354fbae34fb99aa87b948689b280c8/lokadb/lokadb",
    "imageTried": true,
-   "score": 0.38
+   "score": 0.35
   },
   {
    "id": "hn:50351404",
@@ -3172,7 +3282,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.15
+   "score": 1.98
   },
   {
    "id": "hn:50350976",
@@ -3195,7 +3305,7 @@
    ],
    "image": "https://airy.so/airy-og-final.png?v=2",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.24
   },
   {
    "id": "hn:50350485",
@@ -3218,7 +3328,7 @@
    ],
    "image": "https://sentrint.com/static/og/og-default.png",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.23
   },
   {
    "id": "hn:50350444",
@@ -3239,7 +3349,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.26
   },
   {
    "id": "hn:50350400",
@@ -3260,7 +3370,7 @@
    "tags": [],
    "image": "https://portalphysics.xyz/og.png",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.44
   },
   {
    "id": "hn:50350300",
@@ -3281,7 +3391,7 @@
    "tags": [],
    "image": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/lovp_3xkvj0t7yp9z8vqyr0krs8yjcj/e343d2983c82a661eba73e7a7c42989e_1793775946856.png",
    "imageTried": true,
-   "score": 0.17
+   "score": 0.15
   },
   {
    "id": "hn:50350133",
@@ -3302,7 +3412,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.22
+   "score": 0.2
   },
   {
    "id": "hn:50348853",
@@ -3323,7 +3433,7 @@
    "tags": [],
    "image": "https://vectoys.com/og.png",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.19
   },
   {
    "id": "hn:50348805",
@@ -3344,7 +3454,7 @@
    "tags": [],
    "image": "https://mintype.app/og-image.png",
    "imageTried": true,
-   "score": 0.44
+   "score": 0.41
   },
   {
    "id": "hn:50348804",
@@ -3365,7 +3475,7 @@
    "tags": [],
    "image": "https://muxscape.com/og.png",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.17
   },
   {
    "id": "hn:50348740",
@@ -3386,7 +3496,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.52
+   "score": 1.41
   },
   {
    "id": "hn:50348456",
@@ -3407,7 +3517,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/e24f832c051d51cf3393be2fe372a7b5170e3a2f8a1601f4bf9240401a7ea9f6/gosuda/bitcoin-rs",
    "imageTried": true,
-   "score": 0.51
+   "score": 0.47
   },
   {
    "id": "hn:50348361",
@@ -3428,7 +3538,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/c08a4772a2d7a69c95c6908ee02a016d954b967c967b568fb4798a03f65d10e8/p10node/office-engine",
    "imageTried": true,
-   "score": 0.91
+   "score": 0.84
   },
   {
    "id": "hn:50347777",
@@ -3451,7 +3561,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.22
+   "score": 0.21
   },
   {
    "id": "hn:50347552",
@@ -3472,7 +3582,7 @@
    "tags": [],
    "image": "https://hjkl.duy.run/og.png",
    "imageTried": true,
-   "score": 4.66
+   "score": 4.35
   },
   {
    "id": "hn:50347524",
@@ -3496,7 +3606,7 @@
    ],
    "image": "https://rustable.app/assets/social-preview.png",
    "imageTried": true,
-   "score": 1.79
+   "score": 1.68
   },
   {
    "id": "hn:50347408",
@@ -3520,7 +3630,7 @@
    ],
    "image": "https://www.phoneuse.com/assets/brand/og.jpg",
    "imageTried": true,
-   "score": 0.19
+   "score": 0.18
   },
   {
    "id": "hn:50347156",
@@ -3541,7 +3651,7 @@
    "tags": [],
    "image": "https://apps.tarwin.art/tiny-tally/og.png",
    "imageTried": true,
-   "score": 0.17
+   "score": 0.16
   },
   {
    "id": "hn:50346981",
@@ -3562,7 +3672,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 25.68
+   "score": 24.01
   },
   {
    "id": "hn:50346755",
@@ -3583,7 +3693,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 23.17
+   "score": 21.67
   },
   {
    "id": "hn:50345881",
@@ -3604,7 +3714,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.19
   },
   {
    "id": "hn:50344705",
@@ -3625,7 +3735,7 @@
    "tags": [],
    "image": "https://hackerproducts.pages.dev/og/site.png",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.17
   },
   {
    "id": "hn:50344247",
@@ -3646,7 +3756,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.17
   },
   {
    "id": "hn:50343521",
@@ -3669,7 +3779,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.2
+   "score": 0.18
   },
   {
    "id": "hn:50342630",
@@ -3688,7 +3798,7 @@
     "comments": 2
    },
    "tags": [],
-   "score": 0.39,
+   "score": 0.36,
    "imageTried": true,
    "image": "https://maxharrison.me/images/social-posts/offtrackometer.png"
   },
@@ -3712,7 +3822,7 @@
     "AI",
     "Dev tools"
    ],
-   "score": 0.17,
+   "score": 0.16,
    "imageTried": true,
    "image": "https://opengraph.githubassets.com/2979917e82ea90ec8a6706cea99f7ea29e39e9d88dc2d3884922eb225b53aecc/victorcarrico/arvre"
   },
@@ -3733,7 +3843,7 @@
     "comments": 0
    },
    "tags": [],
-   "score": 0.51,
+   "score": 0.48,
    "imageTried": true,
    "image": ""
   }
