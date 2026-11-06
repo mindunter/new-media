@@ -7,7 +7,8 @@
 // Sources
 //   x    X API v2 recent search. Runs only when X_BEARER_TOKEN is set.
 //        X bills per post read, so each run asks only for posts newer than the
-//        last one it saw, and stops for the month at X_MONTHLY_READS.
+//        last one it saw, keeps each day under X_DAILY_READS (the monthly
+//        budget spread evenly over the month) and stops at X_MONTHLY_READS.
 //   hn   Hacker News "Show HN" and "Launch HN" posts, from the free Algolia API.
 //
 // No dependencies. Needs Node 20 or newer (global fetch).
@@ -27,6 +28,8 @@ const MAX_ITEMS = Number(env('MAX_ITEMS', 300))
 const X_TOKEN = env('X_BEARER_TOKEN', '')
 const X_MAX_PER_RUN = Math.min(100, Math.max(10, Number(env('X_MAX_PER_RUN', 50))))
 const X_MONTHLY_READS = Number(env('X_MONTHLY_READS', 15000))
+// Default: the monthly budget spread evenly, so credit lasts the whole month.
+const X_DAILY_READS = Number(env('X_DAILY_READS', Math.floor(X_MONTHLY_READS / 30)))
 const X_MIN_FOLLOWERS = Number(env('X_MIN_FOLLOWERS', 2000))
 const HN_MIN_POINTS = Number(env('HN_MIN_POINTS', 3))
 
@@ -71,10 +74,14 @@ async function getJson(url, init) {
 async function fromX(meta) {
   if (!X_TOKEN) return { status: 'off', note: 'Set X_BEARER_TOKEN to turn on.', items: [] }
   const month = new Date().toISOString().slice(0, 7)
+  const today = new Date().toISOString().slice(0, 10)
   const usage = meta.x?.month === month ? meta.x.reads : 0
-  if (usage + X_MAX_PER_RUN > X_MONTHLY_READS) {
-    return { status: 'paused', note: `Monthly read budget reached (${usage}/${X_MONTHLY_READS}).`, items: [], month, reads: usage, sinceId: meta.x?.sinceId }
-  }
+  const usedToday = meta.x?.day === today ? meta.x.dayReads : 0
+  const left = Math.min(X_MONTHLY_READS - usage, X_DAILY_READS - usedToday, X_MAX_PER_RUN)
+  const keep = { items: [], month, day: today, reads: usage, dayReads: usedToday, sinceId: meta.x?.sinceId }
+  // X's minimum page is 10 posts, so stop once fewer than 10 reads are left.
+  if (usage + 10 > X_MONTHLY_READS) return { ...keep, status: 'paused', note: `Monthly read budget reached (${usage}/${X_MONTHLY_READS}).` }
+  if (left < 10) return { ...keep, status: 'paused', note: `Daily read budget reached (${usedToday}/${X_DAILY_READS}). Resumes tomorrow.` }
   const query = [
     '(launching OR launched OR "we\'re live" OR "now live" OR introducing OR "just shipped" OR "out now" OR "public beta" OR "launch day")',
     '(AI OR agent OR API OR startup OR app OR "open source" OR developers OR LLM)',
@@ -82,7 +89,7 @@ async function fromX(meta) {
   ].join(' ')
   const u = new URL('https://api.x.com/2/tweets/search/recent')
   u.searchParams.set('query', query)
-  u.searchParams.set('max_results', String(X_MAX_PER_RUN))
+  u.searchParams.set('max_results', String(left))
   u.searchParams.set('tweet.fields', 'created_at,public_metrics,attachments')
   u.searchParams.set('expansions', 'author_id,attachments.media_keys')
   u.searchParams.set('user.fields', 'name,username,profile_image_url,public_metrics,verified')
@@ -121,7 +128,9 @@ async function fromX(meta) {
     status: 'ok',
     items,
     month,
+    day: today,
     reads: usage + posts.length,
+    dayReads: usedToday + posts.length,
     sinceId: j.meta?.newest_id ?? meta.x?.sinceId,
     note: `${posts.length} posts read, ${items.length} kept.`,
   }
@@ -220,7 +229,7 @@ async function main() {
       const r = await p
       sources[name] = { status: r.status, note: r.note, at: new Date().toISOString() }
       fresh.push(...r.items)
-      if (name === 'x' && r.month) meta.x = { month: r.month, reads: r.reads, sinceId: r.sinceId }
+      if (name === 'x' && r.month) meta.x = { month: r.month, reads: r.reads, day: r.day, dayReads: r.dayReads, sinceId: r.sinceId }
     } catch (e) {
       // Keep the last good items from a source that failed this time.
       sources[name] = { status: 'error', note: String(e.message ?? e).slice(0, 200), at: new Date().toISOString() }
