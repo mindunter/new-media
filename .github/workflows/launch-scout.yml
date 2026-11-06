@@ -37,6 +37,8 @@ jobs:
         env:
           X_BEARER_TOKEN: ${{ secrets.X_BEARER_TOKEN }}
           X_MONTHLY_READS: ${{ vars.X_MONTHLY_READS || '15000' }}
+          X_MAX_PER_RUN: ${{ vars.X_MAX_PER_RUN || '50' }}
+          X_DAILY_READS: ${{ vars.X_DAILY_READS }}
         run: node src/agent/launch-scout.mjs --out site/data/launches.json
       - name: Publish
         working-directory: site
