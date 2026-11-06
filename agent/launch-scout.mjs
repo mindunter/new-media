@@ -30,14 +30,19 @@ const X_MAX_PER_RUN = Math.min(100, Math.max(10, Number(env('X_MAX_PER_RUN', 50)
 const X_MONTHLY_READS = Number(env('X_MONTHLY_READS', 15000))
 // Default: the monthly budget spread evenly, so credit lasts the whole month.
 const X_DAILY_READS = Number(env('X_DAILY_READS', Math.floor(X_MONTHLY_READS / 30)))
-const X_MIN_FOLLOWERS = Number(env('X_MIN_FOLLOWERS', 2000))
+const X_MIN_FOLLOWERS = Number(env('X_MIN_FOLLOWERS', 3000))
 const HN_MIN_POINTS = Number(env('HN_MIN_POINTS', 3))
 
-// Phrases people use when they ship something.
-const LAUNCH = /\b(launch(ing|ed)?|we('| a)re live|now live|is live|just shipped|shipping today|introducing|meet [A-Z]|announcing|out now|today we|public beta|open[- ]sourc(e|ing)|v\d+(\.\d+)? is (out|here)|available (today|now)|launch hn|show hn)\b/i
 // Signals that the thing is a tech product, not a sale or a concert.
-const TECH = /\b(ai|agent|agents|llm|model|api|sdk|app|startup|platform|developer|devs?|open[- ]source|github|saas|infra|database|robot|chip|gpu|beta|product|tool|mcp|copilot|voice|search|browser|cli)\b/i
-const NOISE = /\b(giveaway|airdrop|presale|token sale|memecoin|nft|pump|casino|betting|onlyfans)\b/i
+const TECH = /\b(ai|agent|agents|agentic|llm|model|models|weights|api|sdk|app|startup|platform|software|developer|devs?|engineer\w*|cod(e|ing)|open[- ]?source|github|saas|infra|database|compute|robot\w*|hardware|glasses|device|chip|gpu|beta|product|tool|mcp|copilot|voice|speech|search|browser|cli|growth|ads)\b/i
+// A funding round from the company itself counts as a launch even without product words.
+const FUNDING = /\b(we(['’]ve| have)? (just )?raised|raised (a|an|our) \$?\d|(pre-?seed|seed|series [a-f]) (round|led by)|\$\d+(\.\d+)?[mb] (seed|series [a-f]))\b/i
+const NOISE = /\b(giveaway|airdrop|presale|token|tokens|memecoin|coin|coins|crypto|solana|bitcoin|btc|nft|pump|casino|betting|onlyfans|trading|news of the day|breaking news)\b/i
+// Cashtags ($SOL, $POLSIA) mark market and coin posts. Case-sensitive, so "$1.3M" is not one.
+const CASHTAG = /\$[A-Z]{2,6}\b/
+// On X, a launch is announced by the team itself, in the first person.
+const FIRST_PERSON = /\b(we(['’]| a)re (launching|live|introducing|shipping|releasing)|today,? we(['’]| a)re|today,? we (release|launch|ship)|we (just )?(launched|shipped|released)|introducing|out of stealth|now live|launch day|is now (live|available|open))\b/i
+const isLaunchPost = (text) => !NOISE.test(text) && !CASHTAG.test(text) && (FUNDING.test(text) || (FIRST_PERSON.test(text) && TECH.test(text)))
 
 const TAGS = [
   ['AI', /\b(ai|llm|model|gpt|claude|gemini|inference|multimodal|diffusion|ml)\b/i],
@@ -83,9 +88,9 @@ async function fromX(meta) {
   if (usage + 10 > X_MONTHLY_READS) return { ...keep, status: 'paused', note: `Monthly read budget reached (${usage}/${X_MONTHLY_READS}).` }
   if (left < 10) return { ...keep, status: 'paused', note: `Daily read budget reached (${usedToday}/${X_DAILY_READS}). Resumes tomorrow.` }
   const query = [
-    '(launching OR launched OR "we\'re live" OR "now live" OR introducing OR "just shipped" OR "out now" OR "public beta" OR "launch day")',
-    '(AI OR agent OR API OR startup OR app OR "open source" OR developers OR LLM)',
-    '-is:retweet -is:reply lang:en',
+    '("we\'re launching" OR "today we\'re launching" OR introducing OR "we just launched" OR "now live" OR "out of stealth" OR "we raised" OR "launch day")',
+    '(AI OR agent OR agents OR API OR startup OR "open source" OR developers OR LLM OR model)',
+    '-is:retweet -is:reply -is:quote -has:cashtags -crypto -solana -token -coin -airdrop -nft -memecoin lang:en',
   ].join(' ')
   const u = new URL('https://api.x.com/2/tweets/search/recent')
   u.searchParams.set('query', query)
@@ -105,7 +110,7 @@ async function fromX(meta) {
   for (const t of posts) {
     const a = users.get(t.author_id)
     if (!a || (a.public_metrics?.followers_count ?? 0) < X_MIN_FOLLOWERS) continue
-    if (!LAUNCH.test(t.text) || !TECH.test(t.text) || NOISE.test(t.text)) continue
+    if (!isLaunchPost(t.text)) continue
     const m = (t.attachments?.media_keys ?? []).map((k) => media.get(k)).find(Boolean)
     const pm = t.public_metrics ?? {}
     items.push({
@@ -246,6 +251,8 @@ async function main() {
   const cutoff = Date.now() - KEEP_DAYS * 86400e3
   const items = [...byId.values()]
     .filter((it) => Date.parse(it.created) > cutoff)
+    // Re-check stored X posts too, so a tighter filter also clears older picks.
+    .filter((it) => it.source !== 'x' || ((it.followers ?? 0) >= X_MIN_FOLLOWERS && isLaunchPost(it.text)))
     .map((it) => ({ ...it, score: score(it) }))
     .sort((a, b) => Date.parse(b.created) - Date.parse(a.created))
     .slice(0, MAX_ITEMS)

@@ -27,7 +27,7 @@ scraping the site, which X's terms do not allow.
 | `X_MAX_PER_RUN` | 50 | Most posts read per run (10 to 100). |
 | `X_MONTHLY_READS` | 15000 | X stops for the month at this many reads. |
 | `X_DAILY_READS` | monthly / 30 | X stops for the day at this many reads, so credit lasts the whole month. |
-| `X_MIN_FOLLOWERS` | 2000 | Skips accounts smaller than this. |
+| `X_MIN_FOLLOWERS` | 3000 | Skips accounts smaller than this. |
 | `HN_MIN_POINTS` | 3 | Skips Hacker News posts below this score. |
 | `KEEP_DAYS` | 7 | Launches older than this drop off. |
 
