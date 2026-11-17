@@ -1,19 +1,698 @@
 {
- "updated": "2026-11-17T13:31:15.713Z",
+ "updated": "2026-11-17T21:55:21.500Z",
  "sources": {
   "x": {
    "status": "ok",
-   "note": "20 posts read, 5 kept.",
-   "at": "2026-11-17T13:31:12.128Z"
+   "note": "20 posts read, 2 kept.",
+   "at": "2026-11-17T21:55:19.234Z"
   },
   "hn": {
    "status": "ok",
-   "note": "101 posts.",
-   "at": "2026-11-17T13:31:14.550Z"
+   "note": "102 posts.",
+   "at": "2026-11-17T21:55:19.710Z"
   }
  },
  "count": 300,
  "items": [
+  {
+   "id": "x:2122809523970945079",
+   "source": "x",
+   "url": "https://x.com/MonidHQ/status/2122809523970945079",
+   "title": "Introducing Claude for buyer signals ",
+   "text": "Introducing Claude for buyer signals \n\n- Find potential buyers across Reddit, LinkedIn &amp; G2 automatically. \n- 3,200+ tools. Results in Google Sheets. Just $0.01/run. \n- No $185/mo Clay subscription.Just pay as you go. \n\n0% markup. Open source.",
+   "name": "Monid",
+   "handle": "MonidHQ",
+   "avatar": "https://pbs.twimg.com/profile_images/2092798103523127296/oncgd8fr_bigger.jpg",
+   "image": "https://pbs.twimg.com/amplify_video_thumb/2122807049277091840/img/6mTYguXllPasKjhO.jpg",
+   "followers": 8475,
+   "created": "2026-11-17T21:50:05.000Z",
+   "metrics": {
+    "likes": 19,
+    "reposts": 0,
+    "replies": 3,
+    "views": 240
+   },
+   "tags": [
+    "AI",
+    "Open source"
+   ],
+   "score": 9.59
+  },
+  {
+   "id": "x:2122808294439784935",
+   "source": "x",
+   "url": "https://x.com/envato/status/2122808294439784935",
+   "title": "You wanted more control. You got it. Model Selection is now live on Envato.",
+   "text": "You wanted more control. You got it. Model Selection is now live on Envato.",
+   "name": "Envato",
+   "handle": "envato",
+   "avatar": "https://pbs.twimg.com/profile_images/1818803532323340289/2PEnMjZQ_bigger.jpg",
+   "image": "https://pbs.twimg.com/media/HXW65LRXwAA9o_n.jpg",
+   "followers": 70718,
+   "created": "2026-11-17T21:45:11.000Z",
+   "metrics": {
+    "likes": 3,
+    "reposts": 2,
+    "replies": 2,
+    "views": 102
+   },
+   "tags": [
+    "AI"
+   ],
+   "score": 3.76
+  },
+  {
+   "id": "hn:50538636",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://codeunpacked.san.cx/",
+   "discussion": "https://news.ycombinator.com/item?id=50538636",
+   "title": "Code walkthroughs, maps, and quizzes for pull requests",
+   "text": "",
+   "name": "sandoche",
+   "handle": "sandoche",
+   "site": "codeunpacked.san.cx",
+   "created": "2026-11-17T21:43:53Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Dev tools"
+   ],
+   "image": "https://codeunpacked.san.cx/og/home-v2.jpg",
+   "imageTried": true,
+   "score": 9.36
+  },
+  {
+   "id": "hn:50536726",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://studio.sinapsdata.com.br",
+   "discussion": "https://news.ycombinator.com/item?id=50536726",
+   "title": "Free AI Agent Lab – Create two agents and make them debate",
+   "text": "",
+   "name": "kardassnp",
+   "handle": "kardassnp",
+   "site": "studio.sinapsdata.com.br",
+   "created": "2026-11-17T19:19:30Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 3.85
+  },
+  {
+   "id": "hn:50536682",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://isometric-montevideo.pages.dev",
+   "discussion": "https://news.ycombinator.com/item?id=50536682",
+   "title": "Isometric Montevideo a pixel art map built from Uruguay's open data",
+   "text": "",
+   "name": "pablogancharov",
+   "handle": "pablogancharov",
+   "site": "isometric-montevideo.pages.dev",
+   "created": "2026-11-17T19:16:08Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://isometric-montevideo.pages.dev/og.png",
+   "imageTried": true,
+   "score": 4.42
+  },
+  {
+   "id": "hn:50536648",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://www.dialup.net/farcall/",
+   "discussion": "https://news.ycombinator.com/item?id=50536648",
+   "title": "SSH into DOS: I wrote an x86 (IBM PC) emulator",
+   "text": "",
+   "name": "keito",
+   "handle": "keito",
+   "site": "dialup.net",
+   "created": "2026-11-17T19:14:13Z",
+   "metrics": {
+    "points": 6,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 8.15
+  },
+  {
+   "id": "hn:50536468",
+   "source": "hn",
+   "kind": "Launch HN",
+   "url": "https://starsling.dev",
+   "discussion": "https://news.ycombinator.com/item?id=50536468",
+   "title": "StarSling (YC P25) – Self-improving CI for agent-volume repos",
+   "text": "",
+   "name": "yonasb",
+   "handle": "yonasb",
+   "site": "starsling.dev",
+   "created": "2026-11-17T19:01:43Z",
+   "metrics": {
+    "points": 31,
+    "comments": 18
+   },
+   "tags": [
+    "Agents"
+   ],
+   "image": "https://starsling.dev/images/starsling-brand-og.jpg",
+   "imageTried": true,
+   "score": 47.6
+  },
+  {
+   "id": "hn:50535377",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/Dr-Logvinovich/round-square",
+   "discussion": "https://news.ycombinator.com/item?id=50535377",
+   "title": "The Logvinovich Dichotomy on R^4 – Yang-Mills Mass Gap in Lean 4",
+   "text": "",
+   "name": "DRLogvinovich",
+   "handle": "DRLogvinovich",
+   "site": "github.com",
+   "created": "2026-11-17T17:55:16Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/a8a7d76494832d9ca6eb1701c4464a10011d7c021295786afb109a9508f65708/Dr-Logvinovich/round-square",
+   "imageTried": true,
+   "score": 3.73
+  },
+  {
+   "id": "hn:50535157",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://news.ycombinator.com/item?id=50535157",
+   "discussion": "https://news.ycombinator.com/item?id=50535157",
+   "title": "Faros Desktop, a local app to see your AI traces and extend your usage",
+   "text": "",
+   "name": "sachinag",
+   "handle": "sachinag",
+   "site": "news.ycombinator.com",
+   "created": "2026-11-17T17:42:22Z",
+   "metrics": {
+    "points": 4,
+    "comments": 2
+   },
+   "tags": [
+    "AI"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 4.47
+  },
+  {
+   "id": "hn:50534630",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://spingras.github.io/hue-md/",
+   "discussion": "https://news.ycombinator.com/item?id=50534630",
+   "title": "Hue MD – Markdown that shows status at a glance and stays plain text",
+   "text": "",
+   "name": "spingras",
+   "handle": "spingras",
+   "site": "spingras.github.io",
+   "created": "2026-11-17T17:12:03Z",
+   "metrics": {
+    "points": 4,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 3.25
+  },
+  {
+   "id": "hn:50534582",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/chetanty/machine_internet",
+   "discussion": "https://news.ycombinator.com/item?id=50534582",
+   "title": "Machine Internet: turn a site's hidden JSON API into MCP tools",
+   "text": "",
+   "name": "ChetanTy",
+   "handle": "ChetanTy",
+   "site": "github.com",
+   "created": "2026-11-17T17:09:56Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [
+    "Agents",
+    "Dev tools"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1246011046/61d0dea1-92a0-4726-a14d-dbc176d364e0",
+   "imageTried": true,
+   "score": 3.23
+  },
+  {
+   "id": "hn:50534544",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://athrael.net/courses/gpu-inference/",
+   "discussion": "https://news.ycombinator.com/item?id=50534544",
+   "title": "Introduction to GPU Inference, a short course with Interactive diagrams",
+   "text": "",
+   "name": "athrael-soju",
+   "handle": "athrael-soju",
+   "site": "athrael.net",
+   "created": "2026-11-17T17:08:08Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Infra"
+   ],
+   "image": "https://athrael.net/courses/gpu-inference/og.png",
+   "imageTried": true,
+   "score": 2.41
+  },
+  {
+   "id": "hn:50534542",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://solarian.dev",
+   "discussion": "https://news.ycombinator.com/item?id=50534542",
+   "title": "Solarian – Open-source Python framework for AI robots",
+   "text": "",
+   "name": "rgarreta",
+   "handle": "rgarreta",
+   "site": "solarian.dev",
+   "created": "2026-11-17T17:08:00Z",
+   "metrics": {
+    "points": 6,
+    "comments": 2
+   },
+   "tags": [
+    "AI",
+    "Open source",
+    "Robotics"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 5.62
+  },
+  {
+   "id": "hn:50534338",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://darksinian.github.io/soccer-bench/",
+   "discussion": "https://news.ycombinator.com/item?id=50534338",
+   "title": "Soccer-Bench – Watch teams of LLM agents play 5v5 soccer",
+   "text": "",
+   "name": "Darksinian",
+   "handle": "Darksinian",
+   "site": "darksinian.github.io",
+   "created": "2026-11-17T16:54:55Z",
+   "metrics": {
+    "points": 7,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://darksinian.github.io/soccer-bench/card.png",
+   "imageTried": true,
+   "score": 5.41
+  },
+  {
+   "id": "hn:50534235",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://spreadsheettoapp.ai",
+   "discussion": "https://news.ycombinator.com/item?id=50534235",
+   "title": "Your Spreadsheet Is Your Database",
+   "text": "",
+   "name": "laotoutou",
+   "handle": "laotoutou",
+   "site": "spreadsheettoapp.ai",
+   "created": "2026-11-17T16:49:25Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Infra"
+   ],
+   "image": "https://spreadsheettoapp.ai/opengraph-image",
+   "imageTried": true,
+   "score": 2.28
+  },
+  {
+   "id": "hn:50534210",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://atlas-compiler.com/",
+   "discussion": "https://news.ycombinator.com/item?id=50534210",
+   "title": "Atlas – Give Your AI Agent Better Web Context",
+   "text": "",
+   "name": "LIGHTINGSTAR",
+   "handle": "LIGHTINGSTAR",
+   "site": "atlas-compiler.com",
+   "created": "2026-11-17T16:48:18Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://atlas-compiler.com/atlas-social-card.png",
+   "imageTried": true,
+   "score": 2.28
+  },
+  {
+   "id": "hn:50533647",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/miracle-wm-org/moonswing",
+   "discussion": "https://news.ycombinator.com/item?id=50533647",
+   "title": "Moonswing – a Linux desktop environment built with Flutter",
+   "text": "",
+   "name": "mkosarek",
+   "handle": "mkosarek",
+   "site": "github.com",
+   "created": "2026-11-17T16:19:20Z",
+   "metrics": {
+    "points": 5,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/17e08e75ec7b690271c54148ecfec3252bac4ff432e2a9a71164343d38943154/miracle-wm-org/moonswing",
+   "imageTried": true,
+   "score": 3.86
+  },
+  {
+   "id": "hn:50533270",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/RunanywhereAI/trnrt",
+   "discussion": "https://news.ycombinator.com/item?id=50533270",
+   "title": "TrnRT – An open-source LLM inference engine for AWS Trainium",
+   "text": "",
+   "name": "sanchitmonga22",
+   "handle": "sanchitmonga22",
+   "site": "github.com",
+   "created": "2026-11-17T16:01:04Z",
+   "metrics": {
+    "points": 34,
+    "comments": 5
+   },
+   "tags": [
+    "AI",
+    "Open source"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1440096236/8057fa03-91df-46f8-9d49-309f457392f0",
+   "imageTried": true,
+   "score": 24.43
+  },
+  {
+   "id": "hn:50532610",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://news.ycombinator.com/item?id=50532610",
+   "discussion": "https://news.ycombinator.com/item?id=50532610",
+   "title": "Codemany – Run GitHub Actions on Your Mac/Linux. 3x Faster, Save $$$$",
+   "text": "",
+   "name": "arpitagarwal",
+   "handle": "arpitagarwal",
+   "site": "news.ycombinator.com",
+   "created": "2026-11-17T15:22:53Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Dev tools"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 1.83
+  },
+  {
+   "id": "hn:50532519",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://heyatli.com/mcp",
+   "discussion": "https://news.ycombinator.com/item?id=50532519",
+   "title": "Atli – MCP server that lets AI agents buy and install travel eSIMs",
+   "text": "",
+   "name": "peterhoang",
+   "handle": "peterhoang",
+   "site": "heyatli.com",
+   "created": "2026-11-17T15:16:52Z",
+   "metrics": {
+    "points": 6,
+    "comments": 1
+   },
+   "tags": [
+    "AI",
+    "Agents"
+   ],
+   "image": "https://heyatli.com/og-mcp.png",
+   "imageTried": true,
+   "score": 3.91
+  },
+  {
+   "id": "hn:50532385",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://alloyhtml.com/example.html",
+   "discussion": "https://news.ycombinator.com/item?id=50532385",
+   "title": "Alloy CSS, dialogs, menus and tabs that work with JavaScript off",
+   "text": "",
+   "name": "prafandy",
+   "handle": "prafandy",
+   "site": "alloyhtml.com",
+   "created": "2026-11-17T15:07:09Z",
+   "metrics": {
+    "points": 158,
+    "comments": 26
+   },
+   "tags": [],
+   "image": "",
+   "imageTried": true,
+   "score": 100.58
+  },
+  {
+   "id": "hn:50531705",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://haveibeensquatted.com/browser-protection",
+   "discussion": "https://news.ycombinator.com/item?id=50531705",
+   "title": "Chrome extension that flags phishing and typosquatted sites",
+   "text": "",
+   "name": "charlieekelly",
+   "handle": "charlieekelly",
+   "site": "haveibeensquatted.com",
+   "created": "2026-11-17T14:16:55Z",
+   "metrics": {
+    "points": 3,
+    "comments": 1
+   },
+   "tags": [],
+   "image": "https://haveibeensquatted.com/img/browser-protection/share.jpg",
+   "imageTried": true,
+   "score": 1.85
+  },
+  {
+   "id": "hn:50531644",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/prapaa-ai/agav",
+   "discussion": "https://news.ycombinator.com/item?id=50531644",
+   "title": "Agav – an open-source terminal agent designed to waste fewer tokens",
+   "text": "",
+   "name": "GeradeMoleculee",
+   "handle": "GeradeMoleculee",
+   "site": "github.com",
+   "created": "2026-11-17T14:13:10Z",
+   "metrics": {
+    "points": 24,
+    "comments": 8
+   },
+   "tags": [
+    "Agents",
+    "Open source"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1318362226/42a4bcec-628c-4314-8003-31a2be6e608d",
+   "imageTried": true,
+   "score": 14.65
+  },
+  {
+   "id": "hn:50531503",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/SamratDuttaOfficial/Rewrite",
+   "discussion": "https://news.ycombinator.com/item?id=50531503",
+   "title": "Rewrite, a free editor that rewrites text and edits Word, LaTeX and PDF",
+   "text": "",
+   "name": "TheDutta",
+   "handle": "TheDutta",
+   "site": "github.com",
+   "created": "2026-11-17T14:01:57Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://repository-images.githubusercontent.com/1415038743/e2767d49-e68b-46f0-92ce-653039137d47",
+   "imageTried": true,
+   "score": 1.53
+  },
+  {
+   "id": "hn:50531481",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://flat.social/virtual-office-platform",
+   "discussion": "https://news.ycombinator.com/item?id=50531481",
+   "title": "An open virtual office to cowork with humans while your agents work",
+   "text": "",
+   "name": "pawelwentpawel",
+   "handle": "pawelwentpawel",
+   "site": "flat.social",
+   "created": "2026-11-17T14:00:32Z",
+   "metrics": {
+    "points": 12,
+    "comments": 4
+   },
+   "tags": [
+    "Agents"
+   ],
+   "image": "",
+   "imageTried": true,
+   "score": 7.14
+  },
+  {
+   "id": "hn:50531364",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/automatics-dev/mac-tom",
+   "discussion": "https://news.ycombinator.com/item?id=50531364",
+   "title": "Tom – meeting recording and feedback specs, all locally on Mac",
+   "text": "",
+   "name": "mirceapreotu",
+   "handle": "mirceapreotu",
+   "site": "github.com",
+   "created": "2026-11-17T13:50:57Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/c4b41e4f513d96c5c21d492a4c0cc3dd0ca5375b449a21e3a0eee9e1624fb245/automatics-dev/mac-tom",
+   "imageTried": true,
+   "score": 1.5
+  },
+  {
+   "id": "hn:50531208",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/vihren-dev/belay",
+   "discussion": "https://news.ycombinator.com/item?id=50531208",
+   "title": "Belay – formal verification for SQLite migrations and queries in Lean 4",
+   "text": "",
+   "name": "neprotivo",
+   "handle": "neprotivo",
+   "site": "github.com",
+   "created": "2026-11-17T13:40:28Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [],
+   "image": "https://opengraph.githubassets.com/f29316ef7cb21f5fc9c24ce614017fed1626de4af863a2983689f4a885f6b656/vihren-dev/belay",
+   "imageTried": true,
+   "score": 1.47
+  },
+  {
+   "id": "hn:50531199",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://releaseszn.com",
+   "discussion": "https://news.ycombinator.com/item?id=50531199",
+   "title": "Releaseszn – a visual feed of software releases, like freshmeat was",
+   "text": "",
+   "name": "releaseszn",
+   "handle": "releaseszn",
+   "site": "releaseszn.com",
+   "created": "2026-11-17T13:39:55Z",
+   "metrics": {
+    "points": 3,
+    "comments": 2
+   },
+   "tags": [],
+   "image": "https://releaseszn.com/static/531bb58ef85f/img/og.png",
+   "imageTried": true,
+   "score": 1.96
+  },
+  {
+   "id": "hn:50531174",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://orchard.hackclub.com",
+   "discussion": "https://news.ycombinator.com/item?id=50531174",
+   "title": "Orchard – Turn a Linux server into your own cloud",
+   "text": "",
+   "name": "leafd",
+   "handle": "leafd",
+   "site": "orchard.hackclub.com",
+   "created": "2026-11-17T13:37:10Z",
+   "metrics": {
+    "points": 4,
+    "comments": 1
+   },
+   "tags": [
+    "Infra"
+   ],
+   "image": "https://orchard.hackclub.com/og.png",
+   "imageTried": true,
+   "score": 2.19
+  },
+  {
+   "id": "hn:50531126",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/igor-alexandrov/tabletist",
+   "discussion": "https://news.ycombinator.com/item?id=50531126",
+   "title": "Tabletist, a native database client for Mac, Windows and Linux",
+   "text": "",
+   "name": "igoralexandrov",
+   "handle": "igoralexandrov",
+   "site": "github.com",
+   "created": "2026-11-17T13:33:46Z",
+   "metrics": {
+    "points": 6,
+    "comments": 0
+   },
+   "tags": [
+    "Infra"
+   ],
+   "image": "https://repository-images.githubusercontent.com/1395583543/a126d68e-e100-4d6c-8526-df7add486daa",
+   "imageTried": true,
+   "score": 2.9
+  },
   {
    "id": "x:2122683677771456558",
    "source": "x",
@@ -59,7 +738,7 @@
    "tags": [
     "AI"
    ],
-   "score": 3.8
+   "score": 0.53
   },
   {
    "id": "x:2122682707142414680",
@@ -83,7 +762,7 @@
     "AI",
     "Voice"
    ],
-   "score": 8.38
+   "score": 1.21
   },
   {
    "id": "x:2122682145487368261",
@@ -106,7 +785,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.02
+   "score": 0
   },
   {
    "id": "x:2122681916327428565",
@@ -130,7 +809,30 @@
     "AI",
     "Voice"
    ],
-   "score": 16.3
+   "score": 2.4
+  },
+  {
+   "id": "hn:50530840",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://solipsist.sh/",
+   "discussion": "https://news.ycombinator.com/item?id=50530840",
+   "title": "Solipsist – Local Only Notes + Pi agents",
+   "text": "",
+   "name": "pulkitsh1234",
+   "handle": "pulkitsh1234",
+   "site": "solipsist.sh",
+   "created": "2026-11-17T13:06:24Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Agents"
+   ],
+   "image": "https://solipsist.sh/og.png",
+   "imageTried": true,
+   "score": 1.38
   },
   {
    "id": "hn:50530595",
@@ -145,13 +847,13 @@
    "site": "shoptimist.co",
    "created": "2026-11-17T12:39:17Z",
    "metrics": {
-    "points": 3,
-    "comments": 1
+    "points": 5,
+    "comments": 5
    },
    "tags": [],
    "image": "https://shoptimist.co/og/shoptimist.jpg",
    "imageTried": true,
-   "score": 7.91
+   "score": 3.28
   },
   {
    "id": "hn:50530425",
@@ -174,7 +876,7 @@
    ],
    "image": "https://mainstreetwealth.ai/images/business-m_and_a_deal-1800w.jpg",
    "imageTried": true,
-   "score": 9.93
+   "score": 2.11
   },
   {
    "id": "hn:50529676",
@@ -195,7 +897,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 5.19
+   "score": 1.6
   },
   {
    "id": "hn:50528196",
@@ -219,7 +921,7 @@
    ],
    "image": "https://backplaneworks.com/static/og/backplane-preview-v2.jpg",
    "imageTried": true,
-   "score": 3.22
+   "score": 1.44
   },
   {
    "id": "x:2122540268343689646",
@@ -242,7 +944,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.02
+   "score": 0.01
   },
   {
    "id": "x:2122539305826681084",
@@ -266,7 +968,7 @@
     "AI",
     "Dev tools"
    ],
-   "score": 0.19
+   "score": 0.1
   },
   {
    "id": "x:2122533697387982962",
@@ -289,7 +991,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.73
+   "score": 0.39
   },
   {
    "id": "hn:50526967",
@@ -304,15 +1006,15 @@
    "site": "github.com",
    "created": "2026-11-17T03:18:53Z",
    "metrics": {
-    "points": 18,
-    "comments": 2
+    "points": 20,
+    "comments": 4
    },
    "tags": [
     "Agents"
    ],
    "image": "https://opengraph.githubassets.com/7cbff286082475de1f13cb5c191f7fe4b833026b189fea9407629bc0940a576d/yocontra/pulsar",
    "imageTried": true,
-   "score": 7.55
+   "score": 4.66
   },
   {
    "id": "hn:50526860",
@@ -327,15 +1029,15 @@
    "site": "gettoolbelt.dev",
    "created": "2026-11-17T03:02:41Z",
    "metrics": {
-    "points": 3,
-    "comments": 0
+    "points": 6,
+    "comments": 1
    },
    "tags": [
     "Dev tools"
    ],
    "image": "",
    "imageTried": true,
-   "score": 1.16
+   "score": 1.36
   },
   {
    "id": "hn:50526527",
@@ -359,7 +1061,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 5.73
+   "score": 3.18
   },
   {
    "id": "hn:50526516",
@@ -383,7 +1085,7 @@
    ],
    "image": "https://kosem.ai/blog/coding-agents-workstation-moment/card.png",
    "imageTried": true,
-   "score": 1.43
+   "score": 0.8
   },
   {
    "id": "hn:50526510",
@@ -406,7 +1108,7 @@
    ],
    "image": "https://robert-mcdermott.github.io/astrum/images/og.png",
    "imageTried": true,
-   "score": 1.61
+   "score": 0.89
   },
   {
    "id": "hn:50526380",
@@ -421,13 +1123,13 @@
    "site": "wine-assembly.berrry.app",
    "created": "2026-11-17T01:50:54Z",
    "metrics": {
-    "points": 20,
+    "points": 21,
     "comments": 5
    },
    "tags": [],
    "image": "https://wine-assembly.berrry.app/icons/og-image.png",
    "imageTried": true,
-   "score": 7.8
+   "score": 4.59
   },
   {
    "id": "hn:50526356",
@@ -448,7 +1150,7 @@
    "tags": [],
    "image": "https://omnistew.io/assets/favicon.png",
    "imageTried": true,
-   "score": 1.21
+   "score": 0.68
   },
   {
    "id": "hn:50526244",
@@ -469,7 +1171,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 4.38
+   "score": 2.49
   },
   {
    "id": "hn:50526177",
@@ -492,7 +1194,7 @@
    ],
    "image": "https://opengraph.githubassets.com/ae19b3cf7cb4139324396586d24efbddfe58df8c0e61fea977aa9edb2e505089/dryang21/Fundlark",
    "imageTried": true,
-   "score": 1.33
+   "score": 0.76
   },
   {
    "id": "hn:50526110",
@@ -513,7 +1215,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/019dfa9b09a0fadbd974db493ca6a7da7e03f6fce4c43fc4f32d2c04c577cece/liulewis/supabase-free-backup-lite",
    "imageTried": true,
-   "score": 3.29
+   "score": 1.89
   },
   {
    "id": "hn:50526023",
@@ -537,7 +1239,7 @@
    ],
    "image": "https://kobi.music/og.png",
    "imageTried": true,
-   "score": 1.3
+   "score": 0.75
   },
   {
    "id": "hn:50525866",
@@ -560,7 +1262,7 @@
    ],
    "image": "https://computer.hotline.dev/docs/screens/02-native-app-pinta.png",
    "imageTried": true,
-   "score": 1.11
+   "score": 0.65
   },
   {
    "id": "hn:50525052",
@@ -575,13 +1277,13 @@
    "site": "github.com",
    "created": "2026-11-16T23:25:41Z",
    "metrics": {
-    "points": 60,
-    "comments": 28
+    "points": 66,
+    "comments": 36
    },
    "tags": [],
    "image": "https://opengraph.githubassets.com/b7e776600764724c50b66ebcf8db8f90a3b73b079b73cfdcd6d51d8f9a52dfee/0nelight/sutra-os",
    "imageTried": true,
-   "score": 21.1
+   "score": 14.47
   },
   {
    "id": "hn:50524598",
@@ -604,7 +1306,7 @@
    ],
    "image": "https://datingprofile.app/og/en/home.jpg",
    "imageTried": true,
-   "score": 1.36
+   "score": 0.84
   },
   {
    "id": "hn:50524591",
@@ -627,7 +1329,7 @@
    ],
    "image": "https://opengraph.githubassets.com/c2203daf8e1fea72e0e6d9039ddee225405f1eb7b7a7d883359156b937b49083/formgong/dead-forms-study",
    "imageTried": true,
-   "score": 1.09
+   "score": 0.67
   },
   {
    "id": "hn:50524459",
@@ -642,13 +1344,13 @@
    "site": "nos-os.tech",
    "created": "2026-11-16T22:37:18Z",
    "metrics": {
-    "points": 4,
+    "points": 5,
     "comments": 0
    },
    "tags": [],
    "image": "https://nos-os.tech/video/nos-demo-en-card.png?v=d41e6a88285d",
    "imageTried": true,
-   "score": 1.08
+   "score": 0.83
   },
   {
    "id": "hn:50523427",
@@ -671,7 +1373,7 @@
    ],
    "image": "https://opengraph.githubassets.com/a76a5d951f7ab17008188d1ace97393152db5fbdd00095d6fe29c25d10bdb2a9/skanga/Emergency-AI",
    "imageTried": true,
-   "score": 0.98
+   "score": 0.62
   },
   {
    "id": "x:2122438637560500388",
@@ -709,7 +1411,7 @@
    "site": "github.com",
    "created": "2026-11-16T21:14:39Z",
    "metrics": {
-    "points": 30,
+    "points": 35,
     "comments": 2
    },
    "tags": [
@@ -717,7 +1419,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1453712334/2654889e-5808-485c-a426-4ec795152ca2",
    "imageTried": true,
-   "score": 7.59
+   "score": 5.6
   },
   {
    "id": "x:2122436073200533947",
@@ -740,7 +1442,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.07
+   "score": 0.04
   },
   {
    "id": "x:2122434819720126645",
@@ -784,7 +1486,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.86
+   "score": 0.55
   },
   {
    "id": "x:2122433144095641898",
@@ -808,7 +1510,7 @@
     "AI",
     "Agents"
    ],
-   "score": 0.39
+   "score": 0.25
   },
   {
    "id": "hn:50523086",
@@ -831,7 +1533,7 @@
    ],
    "image": "https://opengraph.githubassets.com/f2b2b958eaf8433f858e0a8e24ac7d1c05627500eb92e2786ad00a04a3c72bd3/meshapplied/goethe",
    "imageTried": true,
-   "score": 1.31
+   "score": 0.84
   },
   {
    "id": "hn:50522994",
@@ -852,7 +1554,7 @@
    "tags": [],
    "image": "https://compasspost.nodewires.com/assets/og.jpg",
    "imageTried": true,
-   "score": 0.83
+   "score": 0.53
   },
   {
    "id": "x:2122428144695050699",
@@ -876,7 +1578,7 @@
     "AI",
     "Open source"
    ],
-   "score": 0.51
+   "score": 0.33
   },
   {
    "id": "hn:50522776",
@@ -891,13 +1593,13 @@
    "site": "news.ycombinator.com",
    "created": "2026-11-16T20:29:48Z",
    "metrics": {
-    "points": 48,
-    "comments": 25
+    "points": 55,
+    "comments": 27
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 14.12
+   "score": 10.3
   },
   {
    "id": "hn:50522602",
@@ -921,7 +1623,7 @@
    ],
    "image": "https://opengraph.githubassets.com/8060aa7ba5a34a503cdfc3129c66e803fd7b1db20ec530d0ac4bd7a22d6b329c/wanderingstan/vibeconf-app",
    "imageTried": true,
-   "score": 0.81
+   "score": 0.52
   },
   {
    "id": "hn:50522121",
@@ -942,7 +1644,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/05b3c8a1fe799f353ec7de7decf67e3ea3083f07709bfc69e9efd9d853f65f2a/VictorioBerra/miform",
    "imageTried": true,
-   "score": 0.78
+   "score": 0.51
   },
   {
    "id": "hn:50521717",
@@ -963,7 +1665,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/900d4350d1cb8f3c94e7e595c415dc0fa6ccbc56dc8c4cd53697fbf652a4e532/prefix-tree/cutcraft",
    "imageTried": true,
-   "score": 1.3
+   "score": 0.86
   },
   {
    "id": "hn:50521699",
@@ -984,7 +1686,7 @@
    "tags": [],
    "image": "https://data.beetl.io/flights/og.png",
    "imageTried": true,
-   "score": 0.65
+   "score": 0.43
   },
   {
    "id": "hn:50521287",
@@ -999,15 +1701,15 @@
    "site": "erl-j.github.io",
    "created": "2026-11-16T18:48:54Z",
    "metrics": {
-    "points": 13,
-    "comments": 9
+    "points": 21,
+    "comments": 11
    },
    "tags": [
     "Dev tools"
    ],
    "image": "https://erl-j.github.io/og/default.png",
    "imageTried": true,
-   "score": 3.69
+   "score": 3.71
   },
   {
    "id": "hn:50521276",
@@ -1028,7 +1730,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/332305dcc85031377c666d77be86684a7c6db84857f52f377447b9ecde1ac532/dobladez/clview",
    "imageTried": true,
-   "score": 0.63
+   "score": 0.42
   },
   {
    "id": "hn:50521074",
@@ -1049,7 +1751,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.25
+   "score": 0.83
   },
   {
    "id": "hn:50521067",
@@ -1073,7 +1775,7 @@
    ],
    "image": "https://box.simular.ai/box-og-image.png",
    "imageTried": true,
-   "score": 1.56
+   "score": 1.04
   },
   {
    "id": "hn:50520760",
@@ -1094,7 +1796,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.81
+   "score": 0.55
   },
   {
    "id": "hn:50520744",
@@ -1109,7 +1811,7 @@
    "site": "news.ycombinator.com",
    "created": "2026-11-16T18:08:20Z",
    "metrics": {
-    "points": 3,
+    "points": 4,
     "comments": 1
    },
    "tags": [
@@ -1117,7 +1819,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.71
+   "score": 0.61
   },
   {
    "id": "hn:50520741",
@@ -1132,13 +1834,36 @@
    "site": "fakemetrics.com",
    "created": "2026-11-16T18:08:04Z",
    "metrics": {
-    "points": 47,
-    "comments": 21
+    "points": 50,
+    "comments": 22
    },
    "tags": [],
    "image": "https://fakemetrics.com/og.png",
    "imageTried": true,
-   "score": 11.66
+   "score": 8.31
+  },
+  {
+   "id": "hn:50520717",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://acutis.castillo.sh/",
+   "discussion": "https://news.ycombinator.com/item?id=50520717",
+   "title": "Acutis Firewall – free, open-source parental control for Android",
+   "text": "",
+   "name": "phasnox",
+   "handle": "phasnox",
+   "site": "acutis.castillo.sh",
+   "created": "2026-11-16T18:06:34Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Open source"
+   ],
+   "image": "https://acutis.castillo.sh/images/og.png",
+   "imageTried": true,
+   "score": 0.41
   },
   {
    "id": "hn:50520506",
@@ -1159,7 +1884,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/eeb85e5620e9ff3da218af133880c80969a5d94f2debe329133a09eee3f91c7c/claimseed/claimseed",
    "imageTried": true,
-   "score": 1
+   "score": 0.67
   },
   {
    "id": "hn:50520447",
@@ -1180,7 +1905,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.8
+   "score": 0.54
   },
   {
    "id": "hn:50520444",
@@ -1196,12 +1921,12 @@
    "created": "2026-11-16T17:46:48Z",
    "metrics": {
     "points": 3,
-    "comments": 1
+    "comments": 2
    },
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.7
+   "score": 0.54
   },
   {
    "id": "hn:50520341",
@@ -1222,7 +1947,7 @@
    "tags": [],
    "image": "https://netrix-console.com/netrix-social.png",
    "imageTried": true,
-   "score": 1.28
+   "score": 0.87
   },
   {
    "id": "hn:50520236",
@@ -1245,7 +1970,7 @@
    ],
    "image": "https://qube.so/assets/marketing/v1/qube-cloud-room-hero-poster.webp",
    "imageTried": true,
-   "score": 1.08
+   "score": 0.73
   },
   {
    "id": "hn:50519664",
@@ -1268,7 +1993,7 @@
    ],
    "image": "https://opengraph.githubassets.com/8f6e6d337e14fa41d691b17ad6abd1e6f8fc1ea30e90eda5b82b3b6e7018eba2/chuanqisun/spaceship",
    "imageTried": true,
-   "score": 1.88
+   "score": 1.29
   },
   {
    "id": "hn:50519369",
@@ -1289,7 +2014,7 @@
    "tags": [],
    "image": "https://torsher.app/og-image.png",
    "imageTried": true,
-   "score": 0.55
+   "score": 0.38
   },
   {
    "id": "hn:50518918",
@@ -1314,7 +2039,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.9
+   "score": 0.62
   },
   {
    "id": "hn:50518770",
@@ -1335,7 +2060,7 @@
    "tags": [],
    "image": "https://facevaluepress.com/opengraph-image.png?opengraph-image.1fwylcl428i5k.png",
    "imageTried": true,
-   "score": 0.89
+   "score": 0.62
   },
   {
    "id": "hn:50518102",
@@ -1356,7 +2081,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1427280436/10ce6b11-84dd-4230-b3d9-5597ccc514f5",
    "imageTried": true,
-   "score": 0.51
+   "score": 0.36
   },
   {
    "id": "hn:50517840",
@@ -1372,12 +2097,12 @@
    "created": "2026-11-16T14:18:15Z",
    "metrics": {
     "points": 4,
-    "comments": 2
+    "comments": 5
    },
    "tags": [],
    "image": "https://opengraph.githubassets.com/193e26547b34f5ec7b86fbc0a6659618424110fbe67e2a921af84feae70a84db/mr-anjaneyam/Emittr",
    "imageTried": true,
-   "score": 0.83
+   "score": 0.77
   },
   {
    "id": "hn:50517803",
@@ -1401,7 +2126,7 @@
    ],
    "image": "https://opengraph.githubassets.com/fddb29368605b22ba71f410ffb0125438b675dbf8bccd5cfe9f72f9d87afd002/withcoral/coral",
    "imageTried": true,
-   "score": 10.62
+   "score": 7.52
   },
   {
    "id": "hn:50517630",
@@ -1424,7 +2149,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1438646334/19b824b7-39a6-4380-af6c-34123c1a0a66",
    "imageTried": true,
-   "score": 1.14
+   "score": 0.81
   },
   {
    "id": "hn:50517590",
@@ -1447,7 +2172,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.81
+   "score": 0.58
   },
   {
    "id": "hn:50517573",
@@ -1470,7 +2195,30 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.49
+   "score": 0.35
+  },
+  {
+   "id": "hn:50517410",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/Apakottur/unref",
+   "discussion": "https://news.ycombinator.com/item?id=50517410",
+   "title": "Unref – A Python dead code finder built on Ruff's parser",
+   "text": "",
+   "name": "McAvey",
+   "handle": "McAvey",
+   "site": "github.com",
+   "created": "2026-11-16T13:30:30Z",
+   "metrics": {
+    "points": 3,
+    "comments": 0
+   },
+   "tags": [
+    "Dev tools"
+   ],
+   "image": "https://opengraph.githubassets.com/c528930e84064e151fdb05e50da46957fce824e7b52096733f8181bf627e8e46/Apakottur/unref",
+   "imageTried": true,
+   "score": 0.34
   },
   {
    "id": "hn:50517352",
@@ -1491,7 +2239,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1412617976/57d3bf9f-6532-4bbb-b2d3-f2222a9cc86f",
    "imageTried": true,
-   "score": 4.78
+   "score": 3.42
   },
   {
    "id": "hn:50517255",
@@ -1514,7 +2262,7 @@
    ],
    "image": "https://prettywhale-ai.gallerycdn.vsassets.io/extensions/prettywhale-ai/prettywhale/1.3.0/1794242800905/Microsoft.VisualStudio.Services.Icons.Default",
    "imageTried": true,
-   "score": 0.71
+   "score": 0.51
   },
   {
    "id": "hn:50517221",
@@ -1538,7 +2286,7 @@
    ],
    "image": "https://getcinnamon.ai/images/og.png",
    "imageTried": true,
-   "score": 0.95
+   "score": 0.68
   },
   {
    "id": "hn:50517122",
@@ -1559,7 +2307,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.34
   },
   {
    "id": "hn:50517082",
@@ -1580,7 +2328,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/c83700011622a1b02b4c785a780c84d041f75769487fd72e673bfbaa1961826f/YunusEmreAlps/Kavun",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.34
   },
   {
    "id": "hn:50517056",
@@ -1601,7 +2349,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/ef4af5b1c099850a443114e68fa940036b21fd339777ef28d6562bb527fd4a7b/YunusEmreAlps/Geko",
    "imageTried": true,
-   "score": 0.62
+   "score": 0.45
   },
   {
    "id": "hn:50517001",
@@ -1622,7 +2370,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/224a666519df1370acfd6fe57d9ae7a54fb9e2c6a2f6c6bf63f0e15691cc9fdb/maxmart/hoststray",
    "imageTried": true,
-   "score": 0.46
+   "score": 0.33
   },
   {
    "id": "hn:50516995",
@@ -1637,13 +2385,13 @@
    "site": "github.com",
    "created": "2026-11-16T12:41:48Z",
    "metrics": {
-    "points": 13,
-    "comments": 4
+    "points": 16,
+    "comments": 5
    },
    "tags": [],
    "image": "https://opengraph.githubassets.com/b7dd0ae86db2ac150e1aeb5055816d5d0484f22ae7c2fa5b5147250e5f96268c/etodanik/deslop",
    "imageTried": true,
-   "score": 2.32
+   "score": 2.06
   },
   {
    "id": "hn:50516993",
@@ -1664,7 +2412,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/4eae49ffb9b8a8649f76f53be7ef66abb5dc0845ea8e6d73f58792334cf59010/qetqet910/HyperDesk",
    "imageTried": true,
-   "score": 0.46
+   "score": 0.33
   },
   {
    "id": "hn:50516836",
@@ -1685,7 +2433,7 @@
    "tags": [],
    "image": "https://algotank.awala.my.id/og-image.png",
    "imageTried": true,
-   "score": 0.46
+   "score": 0.33
   },
   {
    "id": "x:2122293924488208853",
@@ -1708,7 +2456,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.04
+   "score": 0.03
   },
   {
    "id": "x:2122291092305690651",
@@ -1731,7 +2479,7 @@
    "tags": [
     "Agents"
    ],
-   "score": 0.32
+   "score": 0.24
   },
   {
    "id": "hn:50515615",
@@ -1752,7 +2500,28 @@
    "tags": [],
    "image": "https://zlu.me/assets/images/avatar.png",
    "imageTried": true,
-   "score": 0.54
+   "score": 0.4
+  },
+  {
+   "id": "hn:50515603",
+   "source": "hn",
+   "kind": "Show HN",
+   "url": "https://github.com/plabayo/venndb",
+   "discussion": "https://news.ycombinator.com/item?id=50515603",
+   "title": "VennDB: append-only in-memory Rust DB for rows queried using bit flags",
+   "text": "",
+   "name": "gdcbe",
+   "handle": "gdcbe",
+   "site": "github.com",
+   "created": "2026-11-16T09:17:37Z",
+   "metrics": {
+    "points": 40,
+    "comments": 3
+   },
+   "tags": [],
+   "image": "https://repository-images.githubusercontent.com/618452402/843c8829-6a4a-467d-8aea-2271df08ceec",
+   "imageTried": true,
+   "score": 4.14
   },
   {
    "id": "hn:50515362",
@@ -1775,7 +2544,7 @@
    ],
    "image": "https://opengraph.githubassets.com/1f5ac5f77a78a2e970cf7df16a21e220a2f73e2cf153792a1916372317b77260/embeddable-hq/mason-data",
    "imageTried": true,
-   "score": 0.65
+   "score": 0.49
   },
   {
    "id": "hn:50515360",
@@ -1796,7 +2565,7 @@
    "tags": [],
    "image": "https://junctioneda.com/icon-512.png",
    "imageTried": true,
-   "score": 0.39
+   "score": 0.29
   },
   {
    "id": "hn:50514995",
@@ -1817,7 +2586,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/97221ea1bf76fa87be6aa5fbc908697f167dfb61bc7a677bd6563203c701d1f5/sujee/cfp-tracker",
    "imageTried": true,
-   "score": 0.56
+   "score": 0.42
   },
   {
    "id": "hn:50514822",
@@ -1840,7 +2609,7 @@
    ],
    "image": "https://codecainehq.com/og/home.jpg",
    "imageTried": true,
-   "score": 1.16
+   "score": 0.88
   },
   {
    "id": "hn:50514810",
@@ -1861,7 +2630,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1457706138/f437a180-1a72-4f1b-9cdd-0891cfef179f",
    "imageTried": true,
-   "score": 0.37
+   "score": 0.28
   },
   {
    "id": "x:2122165574956397011",
@@ -1884,7 +2653,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.02
+   "score": 0.01
   },
   {
    "id": "x:2122165390797316325",
@@ -1908,7 +2677,7 @@
     "AI",
     "Dev tools"
    ],
-   "score": 0.07
+   "score": 0.06
   },
   {
    "id": "x:2122155366154953079",
@@ -1931,7 +2700,7 @@
    "tags": [
     "Agents"
    ],
-   "score": 0.7
+   "score": 0.55
   },
   {
    "id": "x:2122154371391897780",
@@ -1956,7 +2725,7 @@
     "Agents",
     "Dev tools"
    ],
-   "score": 0.07
+   "score": 0.05
   },
   {
    "id": "hn:50513104",
@@ -1979,7 +2748,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.32
   },
   {
    "id": "hn:50512991",
@@ -2002,7 +2771,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.66
+   "score": 0.52
   },
   {
    "id": "hn:50512685",
@@ -2026,7 +2795,7 @@
    ],
    "image": "https://photostructure.com/img/2026/11/gavel-courtroom-2000w_hu_455b0d309ad62122.jpg",
    "imageTried": true,
-   "score": 0.5
+   "score": 0.39
   },
   {
    "id": "hn:50512259",
@@ -2047,7 +2816,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.48
+   "score": 0.38
   },
   {
    "id": "hn:50512078",
@@ -2068,7 +2837,7 @@
    "tags": [],
    "image": "https://gamedevpl.github.io/silnik3d-od-zera/demko/canal.png",
    "imageTried": true,
-   "score": 0.58
+   "score": 0.46
   },
   {
    "id": "hn:50511761",
@@ -2091,7 +2860,7 @@
    ],
    "image": "https://opengraph.githubassets.com/1803a673aeb9103a009635cc56860af510c597a5ee42ba43f5b8592c2745f315/itsmeyaw/skillset",
    "imageTried": true,
-   "score": 0.66
+   "score": 0.52
   },
   {
    "id": "hn:50511718",
@@ -2112,7 +2881,7 @@
    "tags": [],
    "image": "https://lastcomplication.com/icon-512.png",
    "imageTried": true,
-   "score": 8.9
+   "score": 7.1
   },
   {
    "id": "hn:50511628",
@@ -2133,7 +2902,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.65
+   "score": 0.52
   },
   {
    "id": "hn:50511627",
@@ -2154,7 +2923,7 @@
    "tags": [],
    "image": "https://minea.minea.workers.dev/og-en.jpg",
    "imageTried": true,
-   "score": 0.51
+   "score": 0.41
   },
   {
    "id": "hn:50511238",
@@ -2175,7 +2944,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.64
+   "score": 2.12
   },
   {
    "id": "hn:50510982",
@@ -2196,7 +2965,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/359c8289bdccb57618909d319537865d7d7bcb2f47794fcacb1b727852aa9850/plannotator/sem-jiff",
    "imageTried": true,
-   "score": 0.5
+   "score": 0.4
   },
   {
    "id": "hn:50510760",
@@ -2217,7 +2986,7 @@
    "tags": [],
    "image": "https://minutenotes.app/assets/og.jpg",
    "imageTried": true,
-   "score": 0.98
+   "score": 0.79
   },
   {
    "id": "hn:50510744",
@@ -2238,7 +3007,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.27
+   "score": 0.22
   },
   {
    "id": "hn:50510389",
@@ -2259,7 +3028,7 @@
    "tags": [],
    "image": "https://www.remindly.com/images/og-home.png",
    "imageTried": true,
-   "score": 0.48
+   "score": 0.39
   },
   {
    "id": "hn:50510058",
@@ -2283,7 +3052,7 @@
    ],
    "image": "https://opengraph.githubassets.com/f3000e31e5b35cdfbbfb2f4aea3f6e6538a4fa8b9653646aec448a8544fc73b2/eshaangulati123/perfectclone",
    "imageTried": true,
-   "score": 0.52
+   "score": 0.42
   },
   {
    "id": "x:2122042226909823398",
@@ -2307,7 +3076,7 @@
     "AI",
     "Agents"
    ],
-   "score": 0.04
+   "score": 0.03
   },
   {
    "id": "hn:50509606",
@@ -2332,7 +3101,7 @@
    ],
    "image": "https://widefleet.com/brand/social-preview.png",
    "imageTried": true,
-   "score": 0.5
+   "score": 0.41
   },
   {
    "id": "x:2122039932802007111",
@@ -2353,7 +3122,7 @@
     "views": 304
    },
    "tags": [],
-   "score": 0.13
+   "score": 0.11
   },
   {
    "id": "hn:50509386",
@@ -2374,7 +3143,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.33
+   "score": 0.27
   },
   {
    "id": "hn:50509374",
@@ -2395,7 +3164,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/4c3e2754603ea91b8e1c4a898ea8f4e84d8536ff6c8abdd7cd68de0cce2eebed/VichoReyes/el-poblador",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.2
   },
   {
    "id": "hn:50509221",
@@ -2418,7 +3187,7 @@
    ],
    "image": "https://learn-piano-easy.app/images/social/en.png",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.34
   },
   {
    "id": "hn:50509107",
@@ -2442,7 +3211,7 @@
    ],
    "image": "https://attest-framework.github.io/og.png",
    "imageTried": true,
-   "score": 0.66
+   "score": 0.54
   },
   {
    "id": "hn:50508720",
@@ -2463,7 +3232,7 @@
    "tags": [],
    "image": "https://www.blockofbytes.com/static/favicon.ico",
    "imageTried": true,
-   "score": 0.36
+   "score": 0.3
   },
   {
    "id": "hn:50508692",
@@ -2484,7 +3253,7 @@
    "tags": [],
    "image": "https://fondue.chat/og-en.png?v=d1656efe",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.2
   },
   {
    "id": "hn:50508626",
@@ -2505,7 +3274,7 @@
    "tags": [],
    "image": "https://secondglow.app/og.png",
    "imageTried": true,
-   "score": 0.4
+   "score": 0.33
   },
   {
    "id": "hn:50508535",
@@ -2529,7 +3298,7 @@
    ],
    "image": "https://opengraph.githubassets.com/dd6125f321967306486fadc1192aa487ca0661a7a7a7661895c3824101315efe/jjyr/canban",
    "imageTried": true,
-   "score": 1.16
+   "score": 0.95
   },
   {
    "id": "hn:50508283",
@@ -2553,7 +3322,7 @@
    ],
    "image": "https://opengraph.githubassets.com/9c0b35a797ba81276c4231ef977f648234772f171a61a064495ac5b166218202/raed667/claudette",
    "imageTried": true,
-   "score": 0.28
+   "score": 0.23
   },
   {
    "id": "hn:50508091",
@@ -2574,7 +3343,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/fb0c77270f7c3a8adbf62311c34c0478053f9a08d32aad038faca27c5c256303/ceifa/steamworks.js",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.19
   },
   {
    "id": "hn:50507976",
@@ -2595,7 +3364,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/72fa4a7b1ddf75787583923704d5dc4d943507d511b7a731ed31148a8fe990ab/TomerAberbach/profiler-md",
    "imageTried": true,
-   "score": 0.31
+   "score": 0.26
   },
   {
    "id": "hn:50507971",
@@ -2619,7 +3388,7 @@
    ],
    "image": "https://pizza.hertzbeat.com/media/pizza-studio.webp",
    "imageTried": true,
-   "score": 0.43
+   "score": 0.35
   },
   {
    "id": "hn:50507891",
@@ -2640,7 +3409,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.27
+   "score": 0.22
   },
   {
    "id": "hn:50507860",
@@ -2661,7 +3430,7 @@
    "tags": [],
    "image": "https://archlog.dev/og-image.png",
    "imageTried": true,
-   "score": 0.23
+   "score": 0.19
   },
   {
    "id": "hn:50507722",
@@ -2682,7 +3451,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.93
+   "score": 1.59
   },
   {
    "id": "hn:50507341",
@@ -2706,7 +3475,7 @@
    ],
    "image": "https://opengraph.githubassets.com/fdc3f859177fc77f4452f960d43362a670d346e2228a9db1ac1a736130f4fa52/Scronkfinkle/byob",
    "imageTried": true,
-   "score": 0.3
+   "score": 0.25
   },
   {
    "id": "hn:50507285",
@@ -2731,7 +3500,7 @@
    ],
    "image": "https://opengraph.githubassets.com/2bcb0cdf2d9a328ec12a1a928f3ea11594180ae30c28182423789d62d5a302c3/AltharIDE/althar",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.22
   },
   {
    "id": "hn:50506940",
@@ -2756,7 +3525,7 @@
    ],
    "image": "https://opengraph.githubassets.com/e48ddf8a86bc698760df61a991e3f479f536d102b68d35f8e639d05a2a095a7f/db-branch/db-branch",
    "imageTried": true,
-   "score": 3.91
+   "score": 3.24
   },
   {
    "id": "x:2121959714942505155",
@@ -2803,7 +3572,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.18
   },
   {
    "id": "hn:50506255",
@@ -2827,7 +3596,7 @@
    ],
    "image": "https://cdn-thumbnails.huggingface.co/social-thumbnails/models/drmhse/nano-edge-tts.png",
    "imageTried": true,
-   "score": 1.02
+   "score": 0.85
   },
   {
    "id": "hn:50506235",
@@ -2848,7 +3617,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/b30908e538f1607fa124e45fb067a3f2993bbf7720cf20b7aeaf54e325dabce3/aljazceru/Reticulum-rs",
    "imageTried": true,
-   "score": 0.39
+   "score": 0.32
   },
   {
    "id": "hn:50505845",
@@ -2869,7 +3638,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/1230a2f1c65fe369e9bb90a1ee966598c203cdf082672b99de75f712765ea73c/Dr-Logvinovich/codon-torus-syntax",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.17
   },
   {
    "id": "hn:50505492",
@@ -2890,7 +3659,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/da71520d23224d563036ccd4c3a17b36723340dc9b6cfd951e41dbf504f85da4/CLoaKY233/kith",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.39
   },
   {
    "id": "hn:50505178",
@@ -2911,7 +3680,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.33
+   "score": 0.28
   },
   {
    "id": "hn:50504618",
@@ -2932,7 +3701,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.35
+   "score": 0.29
   },
   {
    "id": "hn:50504453",
@@ -2953,7 +3722,7 @@
    "tags": [],
    "image": "https://quilt.id/og.png",
    "imageTried": true,
-   "score": 0.31
+   "score": 0.26
   },
   {
    "id": "x:2121837096092774887",
@@ -2997,7 +3766,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.16
   },
   {
    "id": "hn:50504187",
@@ -3018,7 +3787,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1457273579/5c78003d-0edf-43e9-b8e9-52aac0f45834",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.16
   },
   {
    "id": "hn:50504072",
@@ -3039,7 +3808,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/9febab55c299de81f64e31c0a2732bfbde314cbb7553f0253d4a75dcf4f340f6/matheuzgomes/gawain",
    "imageTried": true,
-   "score": 5.87
+   "score": 5
   },
   {
    "id": "hn:50503930",
@@ -3062,7 +3831,7 @@
    ],
    "image": "https://opengraph.githubassets.com/556537aa39d9b2ad0e64acbec6e00a94f2a19729719ae22afbb6c3c8467db017/Tthanh2k6/turbo-browser-mcp",
    "imageTried": true,
-   "score": 3.13
+   "score": 2.67
   },
   {
    "id": "hn:50503891",
@@ -3083,7 +3852,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/189275489a0a9663f040961f7c2abc54772f487afdd6f3637534d3aab124b151/KrocPDF/KrocPDF",
    "imageTried": true,
-   "score": 0.33
+   "score": 0.28
   },
   {
    "id": "hn:50503655",
@@ -3104,7 +3873,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.32
+   "score": 0.28
   },
   {
    "id": "hn:50503097",
@@ -3127,7 +3896,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 1.98
+   "score": 1.7
   },
   {
    "id": "hn:50502839",
@@ -3148,7 +3917,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 3.35
+   "score": 2.88
   },
   {
    "id": "hn:50502423",
@@ -3169,7 +3938,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/de6f3edd6ea383e1de782d397cd00cc5793af830e0f21bada938d73ea15739b1/skorokithakis/soliloquy",
    "imageTried": true,
-   "score": 0.38
+   "score": 0.33
   },
   {
    "id": "hn:50501503",
@@ -3190,7 +3959,7 @@
    "tags": [],
    "image": "https://d29uqgaj5peif4.cloudfront.net/logo-infinite-shaders.jpg",
    "imageTried": true,
-   "score": 0.58
+   "score": 0.51
   },
   {
    "id": "hn:50500000",
@@ -3211,7 +3980,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.18
+   "score": 0.15
   },
   {
    "id": "hn:50499487",
@@ -3235,7 +4004,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1457729785/99f68dde-b8ca-48e9-b2bf-595d8c0bc5b4",
    "imageTried": true,
-   "score": 0.2
+   "score": 0.17
   },
   {
    "id": "hn:50499365",
@@ -3256,7 +4025,7 @@
    "tags": [],
    "image": "https://flipbook-foundry.pages.dev/og.png",
    "imageTried": true,
-   "score": 0.2
+   "score": 0.17
   },
   {
    "id": "hn:50499062",
@@ -3279,7 +4048,7 @@
    ],
    "image": "https://whiteboard.puter.com/icons/icon-512.png",
    "imageTried": true,
-   "score": 0.39
+   "score": 0.34
   },
   {
    "id": "hn:50497589",
@@ -3300,7 +4069,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/a7114746111eb85003f08f3f70fc96eb305e9ed8d6db61614a788ee0fac7007f/Vaibhaav-Tiwari/deepseek-v3-jax",
    "imageTried": true,
-   "score": 13.48
+   "score": 11.82
   },
   {
    "id": "x:2121619164557168804",
@@ -3367,7 +4136,7 @@
    ],
    "image": "https://opengraph.githubassets.com/60eaf0e3b24266d160b2a110889973a73111d3bb6449259ac008d1840c21d553/jdefrancesco/SrcWranglr",
    "imageTried": true,
-   "score": 0.16
+   "score": 0.14
   },
   {
    "id": "x:2121614951512998177",
@@ -3390,7 +4159,7 @@
    "tags": [
     "Infra"
    ],
-   "score": 0.17
+   "score": 0.15
   },
   {
    "id": "hn:50497147",
@@ -3413,7 +4182,7 @@
    ],
    "image": "https://opengraph.githubassets.com/bae47be965eeccdfde05fd2f6735611629b2902ed6c1c10532cbb777b17c0966/paul-nameless/agweb",
    "imageTried": true,
-   "score": 5.89
+   "score": 5.17
   },
   {
    "id": "hn:50497141",
@@ -3434,7 +4203,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.44
+   "score": 0.39
   },
   {
    "id": "hn:50497137",
@@ -3455,7 +4224,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/afd22ccdb188ba5697d2b279c3186c265c5063953f059cef3974c967909d0ac4/FURSOY/fursoy-cpu",
    "imageTried": true,
-   "score": 4.8
+   "score": 4.21
   },
   {
    "id": "hn:50497132",
@@ -3476,7 +4245,7 @@
    "tags": [],
    "image": "https://gitlab.com/assets/twitter_card-570ddb06edf56a2312253c5872489847a0f385112ddbcd71ccfa1570febab5d2.jpg",
    "imageTried": true,
-   "score": 8.72
+   "score": 7.66
   },
   {
    "id": "hn:50497125",
@@ -3499,7 +4268,7 @@
    ],
    "image": "https://opengraph.githubassets.com/7437414fb57845024035fe039044950267dc5517bec2f7191ddc70a5ce5259f8/ryph-hq/ryph",
    "imageTried": true,
-   "score": 0.16
+   "score": 0.14
   },
   {
    "id": "hn:50497084",
@@ -3522,7 +4291,7 @@
    ],
    "image": "https://opengraph.githubassets.com/428b1b96f246ea14c661e3881f805a68f3328fc15f49d4f92007b83b5e14de66/MaxonT/existence-trace/releases/tag/v0.4.6",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.12
   },
   {
    "id": "hn:50497071",
@@ -3546,7 +4315,7 @@
    ],
    "image": "https://opengraph.githubassets.com/350c74d52039ca57aadc1702f8b7f3ce64bb9a531aede65c0159fda87a5e5eac/LumenJSN/Aris",
    "imageTried": true,
-   "score": 0.23
+   "score": 0.2
   },
   {
    "id": "hn:50496986",
@@ -3569,7 +4338,7 @@
    ],
    "image": "https://varinomics.com/og-logonomic.png",
    "imageTried": true,
-   "score": 0.3
+   "score": 0.26
   },
   {
    "id": "hn:50496956",
@@ -3593,7 +4362,7 @@
    ],
    "image": "https://www.sunsetlint.com/images/og.png",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.12
   },
   {
    "id": "hn:50496787",
@@ -3614,7 +4383,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1433164653/5ae486cd-f2b6-49e2-a788-7f730a3a9823",
    "imageTried": true,
-   "score": 0.16
+   "score": 0.14
   },
   {
    "id": "hn:50496763",
@@ -3635,7 +4404,7 @@
    "tags": [],
    "image": "https://sauron.splimter.com/og.png",
    "imageTried": true,
-   "score": 0.45
+   "score": 0.4
   },
   {
    "id": "hn:50496705",
@@ -3659,7 +4428,7 @@
    ],
    "image": "https://shotoku.dev/assets/brand/shotoku-open-graph.png",
    "imageTried": true,
-   "score": 0.52
+   "score": 0.46
   },
   {
    "id": "hn:50496642",
@@ -3682,7 +4451,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.61
+   "score": 0.54
   },
   {
    "id": "hn:50496631",
@@ -3707,7 +4476,7 @@
    ],
    "image": "https://opengraph.githubassets.com/939c6b645627aaa253ee54cf6cb1b99950d828e8558ea10de56276dce2325854/ai-timon/timon",
    "imageTried": true,
-   "score": 0.32
+   "score": 0.28
   },
   {
    "id": "hn:50495496",
@@ -3728,7 +4497,7 @@
    "tags": [],
    "image": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/0b/9d/f1/0b9df112-56a0-0034-c857-2d9e4cf67a48/Placeholder.mill/1200x630wa.jpg",
    "imageTried": true,
-   "score": 0.15
+   "score": 0.13
   },
   {
    "id": "hn:50495073",
@@ -3751,7 +4520,7 @@
    ],
    "image": "https://gammapdf.com/media/hero-light.png",
    "imageTried": true,
-   "score": 0.53
+   "score": 0.47
   },
   {
    "id": "x:2121510349547667915",
@@ -3846,7 +4615,7 @@
    ],
    "image": "",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.22
   },
   {
    "id": "hn:50494144",
@@ -3869,7 +4638,7 @@
    ],
    "image": "https://openos.space/icons/icon-512.png",
    "imageTried": true,
-   "score": 0.22
+   "score": 0.2
   },
   {
    "id": "hn:50493538",
@@ -3893,7 +4662,7 @@
    ],
    "image": "https://opengraph.githubassets.com/07105eb9576467b6eb2f8d762811eaab0408d2395e51bbf96337e74e64faa642/globalmpc/backendskills",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.11
   },
   {
    "id": "hn:50493464",
@@ -3917,7 +4686,7 @@
    ],
    "image": "https://browserr.dev/icon.svg",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.1
   },
   {
    "id": "hn:50493418",
@@ -3938,7 +4707,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1239171679/cf71ed5a-8147-4df1-8227-adb0de0b528c",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.23
   },
   {
    "id": "hn:50493213",
@@ -3962,7 +4731,7 @@
    ],
    "image": "https://opencyclone.vercel.app/brand/poster.png",
    "imageTried": true,
-   "score": 0.33
+   "score": 0.29
   },
   {
    "id": "x:2121413437544710564",
@@ -3986,7 +4755,7 @@
     "Agents",
     "Dev tools"
    ],
-   "score": 0.15
+   "score": 0.13
   },
   {
    "id": "hn:50492532",
@@ -4007,7 +4776,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1120311133/7ac45d54-ffa2-4a16-add3-0e53ac376d44",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.19
   },
   {
    "id": "hn:50492269",
@@ -4030,7 +4799,7 @@
    ],
    "image": "https://opengraph.githubassets.com/a048504e7bf0226a72ba1aa768d53a600ef5fbf93523a055c8bc9f166c918602/Getterbetter/ember/releases/tag/v1.0.1",
    "imageTried": true,
-   "score": 0.87
+   "score": 0.78
   },
   {
    "id": "hn:50492268",
@@ -4051,7 +4820,7 @@
    "tags": [],
    "image": "https://structurify.io/_astro/xdoc-runtime-social.B6sNECVw.png",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.24
   },
   {
    "id": "hn:50492238",
@@ -4075,7 +4844,7 @@
    ],
    "image": "https://kingstonyip.com/portal2bench/opengraph-image/40c6deb630?7b0c3cc4a55dc9b3",
    "imageTried": true,
-   "score": 0.19
+   "score": 0.17
   },
   {
    "id": "hn:50492093",
@@ -4099,7 +4868,7 @@
    ],
    "image": "https://opengraph.githubassets.com/a53002e263f8de7464ebdbdd2be82e448745999b4dccd51442a94ae1f458b753/memrohq/memro",
    "imageTried": true,
-   "score": 0.17
+   "score": 0.15
   },
   {
    "id": "hn:50491776",
@@ -4120,7 +4889,7 @@
    "tags": [],
    "image": "https://www.tryanvil.dev/og-image.png",
    "imageTried": true,
-   "score": 0.13
+   "score": 0.12
   },
   {
    "id": "hn:50491545",
@@ -4141,7 +4910,7 @@
    "tags": [],
    "image": "https://grounds.top/og.png",
    "imageTried": true,
-   "score": 8.46
+   "score": 7.58
   },
   {
    "id": "hn:50491021",
@@ -4162,7 +4931,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.26
+   "score": 0.23
   },
   {
    "id": "hn:50490575",
@@ -4186,7 +4955,7 @@
    ],
    "image": "https://opengraph.githubassets.com/4ebcf73bb6a08606de7600838feac275f2883e8f17e81979847f771314eead6a/Satvik-jain/customer-intelligence-toolkit",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50490362",
@@ -4207,7 +4976,7 @@
    "tags": [],
    "image": "https://midicompanion.revisitedlabs.com/screenshot-desktop.png",
    "imageTried": true,
-   "score": 0.13
+   "score": 0.11
   },
   {
    "id": "x:2121351072891720155",
@@ -4230,7 +4999,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.03
+   "score": 0.02
   },
   {
    "id": "x:2121350677347565939",
@@ -4320,7 +5089,7 @@
    ],
    "image": "https://opengraph.githubassets.com/4826cab4ea392462a9d8d8b7cc54e054f78734863f73ba771c47d8fa9f6906f9/claynicholson/copper-kicad-mcp",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50489490",
@@ -4343,7 +5112,7 @@
    ],
    "image": "https://opengraph.githubassets.com/4b15f395e25c4094ed84a9975821efc6011c89c1dc81ee3768920aa04b5b1401/0xdeadf1sh/T1DMAI",
    "imageTried": true,
-   "score": 0.22
+   "score": 0.19
   },
   {
    "id": "hn:50488733",
@@ -4364,7 +5133,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.21
+   "score": 0.19
   },
   {
    "id": "hn:50488513",
@@ -4385,7 +5154,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/59289faefbbb2119a287bde5be88a0efa66c68804f4f546087b384c26e0a939f/konarkmodi/pi-doubleword",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50488492",
@@ -4406,7 +5175,7 @@
    "tags": [],
    "image": "https://hotaisle.xyz/assets/blog/introducing-hotaisle-console/header.jpg",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.13
   },
   {
    "id": "hn:50488091",
@@ -4427,7 +5196,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50487553",
@@ -4448,7 +5217,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.13
   },
   {
    "id": "hn:50487275",
@@ -4469,7 +5238,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50487228",
@@ -4490,7 +5259,7 @@
    "tags": [],
    "image": "https://isometricsf.com/og-image.jpg",
    "imageTried": true,
-   "score": 9.97
+   "score": 8.99
   },
   {
    "id": "hn:50485846",
@@ -4511,7 +5280,7 @@
    "tags": [],
    "image": "https://scenedraw.app/og-image.png",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50485000",
@@ -4535,7 +5304,7 @@
    ],
    "image": "https://decide.deepnoodle.ai/og/index.png",
    "imageTried": true,
-   "score": 0.13
+   "score": 0.12
   },
   {
    "id": "hn:50484902",
@@ -4558,7 +5327,7 @@
    ],
    "image": "https://www.leetsys.dev/og-interview-board.png",
    "imageTried": true,
-   "score": 0.17
+   "score": 0.15
   },
   {
    "id": "hn:50484737",
@@ -4579,7 +5348,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/c1b1f3d863d2e12b4a248219722ed1d5c436fb8559c95c27259be36916d51dd2/ralphbibera/cal.flare",
    "imageTried": true,
-   "score": 0.37
+   "score": 0.33
   },
   {
    "id": "hn:50484682",
@@ -4603,7 +5372,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/642497346/37008ff8-bc1e-45da-a24a-1cbe381a0c4e",
    "imageTried": true,
-   "score": 0.32
+   "score": 0.29
   },
   {
    "id": "hn:50484579",
@@ -4624,7 +5393,7 @@
    "tags": [],
    "image": "https://hexalexagons.com/og.png",
    "imageTried": true,
-   "score": 0.88
+   "score": 0.8
   },
   {
    "id": "hn:50484443",
@@ -4648,7 +5417,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1439870276/a8e6ab14-6fbf-4a9d-9316-1aadfaf497fe",
    "imageTried": true,
-   "score": 0.25
+   "score": 0.23
   },
   {
    "id": "hn:50484330",
@@ -4672,7 +5441,7 @@
    ],
    "image": "https://djangocontrolroom.com/og-image.png",
    "imageTried": true,
-   "score": 0.17
+   "score": 0.15
   },
   {
    "id": "hn:50484231",
@@ -4693,7 +5462,7 @@
    "tags": [],
    "image": "https://dmarcguard.io/og/tools/spf-macro-debugger.png",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50483342",
@@ -4714,7 +5483,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50482723",
@@ -4735,7 +5504,7 @@
    "tags": [],
    "image": "https://sentrint.com/static/og/og-default.png",
    "imageTried": true,
-   "score": 0.19
+   "score": 0.18
   },
   {
    "id": "hn:50482487",
@@ -4758,7 +5527,7 @@
    ],
    "image": "https://showoffer.tech/og.png",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50482470",
@@ -4779,7 +5548,7 @@
    "tags": [],
    "image": "https://shop.karthikmahadevan.com/flow-calendar/brand/flow-calendar-og-v5.jpg",
    "imageTried": true,
-   "score": 0.16
+   "score": 0.15
   },
   {
    "id": "hn:50482455",
@@ -4802,7 +5571,7 @@
    ],
    "image": "https://opengraph.githubassets.com/324143a535fa7f7d0d014ca1b3c24d7cff3689652b4f4c36084f1eeed6e7bd71/Christ10-8/reflota",
    "imageTried": true,
-   "score": 1.01
+   "score": 0.92
   },
   {
    "id": "hn:50482279",
@@ -4823,7 +5592,7 @@
    "tags": [],
    "image": "https://www.niklasroy.com/carton-clock/pics/og.jpg",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50481768",
@@ -4844,7 +5613,7 @@
    "tags": [],
    "image": "https://trovemarks.com/img/og-default.png",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.13
   },
   {
    "id": "hn:50480583",
@@ -4865,7 +5634,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1389090347/832916f9-5259-4fe9-8ad9-13c94d61fb96",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "hn:50480546",
@@ -4886,7 +5655,7 @@
    "tags": [],
    "image": "https://repository-images.githubusercontent.com/1440260285/c7e59248-b9d1-4a68-8904-25719b4baa9d",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50480057",
@@ -4907,7 +5676,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50479613",
@@ -4931,7 +5700,7 @@
    ],
    "image": "https://opengraph.githubassets.com/30eb7365f28afa2d5e9bd85435a5b522cbd2e5d1e0a3c418e2a3289bb15dc297/talgent-work/workbench",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "hn:50479612",
@@ -4952,7 +5721,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.11
   },
   {
    "id": "hn:50479411",
@@ -4973,7 +5742,7 @@
    "tags": [],
    "image": "https://wonderchat.io/assets/og/wonderchat-agent.png",
    "imageTried": true,
-   "score": 0.15
+   "score": 0.14
   },
   {
    "id": "hn:50479324",
@@ -4994,7 +5763,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/93802e2e3d3b56c666fdb7ed4aec780e6bf2c802a39418487988cabc8ba6a71c/Dr-Logvinovich/round-square",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "x:2121123946695381481",
@@ -5060,7 +5829,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/ba84bab54f8490b7debe71a9a6c5f2e952b27150af775aa59b3239624a740530/pharma2a/pharma2a",
    "imageTried": true,
-   "score": 0.47
+   "score": 0.43
   },
   {
    "id": "hn:50478114",
@@ -5081,7 +5850,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50477993",
@@ -5102,7 +5871,7 @@
    "tags": [],
    "image": "https://usediorama.com/images/dialogue-landing/rick-and-morty-og.jpg",
    "imageTried": true,
-   "score": 0.67
+   "score": 0.61
   },
   {
    "id": "hn:50477555",
@@ -5125,7 +5894,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1452851777/ed967818-1622-4114-8f58-34c6b63ce9ec",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "hn:50477436",
@@ -5146,7 +5915,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.11
   },
   {
    "id": "hn:50477418",
@@ -5169,7 +5938,7 @@
    ],
    "image": "https://grow-bonsai.app/media/share.jpg",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.11
   },
   {
    "id": "hn:50477091",
@@ -5190,7 +5959,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/bc9c1a252caf16aa5b0c4c0408362097a068b92f3baa35cc6506ec8d310f7f02/graiz/kittybrowser",
    "imageTried": true,
-   "score": 0.29
+   "score": 0.26
   },
   {
    "id": "hn:50476987",
@@ -5215,7 +5984,7 @@
    ],
    "image": "https://opengraph.githubassets.com/1553849a6507162f6510f0ee1cbe5d4eb0d08cde5d28fc89f4a8cf9a498c3b81/Privatris/AgentLeak",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "hn:50476685",
@@ -5259,7 +6028,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/639c49585695794cc28381c0b0c706904ffbb01c6e4966c9dd3e100476958a0a/micha42-dot/uxzView",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50476238",
@@ -5280,7 +6049,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50476219",
@@ -5303,7 +6072,7 @@
    ],
    "image": "https://axiomstory.com/og/axiomstory-home-2026-11.jpg",
    "imageTried": true,
-   "score": 0.11
+   "score": 0.1
   },
   {
    "id": "hn:50475817",
@@ -5326,7 +6095,7 @@
    ],
    "image": "https://infiniterm.app/og.png",
    "imageTried": true,
-   "score": 0.1
+   "score": 0.09
   },
   {
    "id": "hn:50475773",
@@ -5394,7 +6163,7 @@
    ],
    "image": "https://opengraph.githubassets.com/b39da439872c10ff9b232247cf8964719c1a10dbadb65960c57ae544e18312d1/KoljaB/RealtimeVAD",
    "imageTried": true,
-   "score": 1.01
+   "score": 0.92
   },
   {
    "id": "hn:50474384",
@@ -5415,7 +6184,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/f989ea49a07f199889cb241aead857ade7ad8be6573adbbec005a97659d32269/erdemozkan/kiln",
    "imageTried": true,
-   "score": 0.14
+   "score": 0.12
   },
   {
    "id": "hn:50474320",
@@ -5438,7 +6207,7 @@
    ],
    "image": "https://telltale.bot/og-image.png",
    "imageTried": true,
-   "score": 0.08
+   "score": 0.07
   },
   {
    "id": "hn:50474106",
@@ -5461,7 +6230,7 @@
    ],
    "image": "https://opengraph.githubassets.com/9331f76c59556cc52657b82e089993d882f15bfe2a29ac8906bebe0a5ba0436d/cerulion-inc/cerulion",
    "imageTried": true,
-   "score": 0.43
+   "score": 0.4
   },
   {
    "id": "hn:50473650",
@@ -5482,7 +6251,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/2b3cccdd04a433e92bce168b75d8b38b6533c543d304c30dc304981500d818c9/nodo-labs-uk/socratui",
    "imageTried": true,
-   "score": 0.08
+   "score": 0.07
   },
   {
    "id": "hn:50472616",
@@ -5503,7 +6272,7 @@
    "tags": [],
    "image": "https://incremendle.com/og.png?v=c8ef7a17",
    "imageTried": true,
-   "score": 0.08
+   "score": 0.07
   },
   {
    "id": "hn:50472560",
@@ -5526,7 +6295,7 @@
    ],
    "image": "https://repository-images.githubusercontent.com/1452842016/74145be6-6bc1-412d-b748-7023227c2aca",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.22
   },
   {
    "id": "x:2120943718454972576",
@@ -5551,7 +6320,7 @@
     "Agents",
     "Dev tools"
    ],
-   "score": 0.23
+   "score": 0.21
   },
   {
    "id": "hn:50471650",
@@ -5575,7 +6344,7 @@
    ],
    "image": "https://opengraph.githubassets.com/925a8584e0ec5b47c548b2bd8ef80d8420eef2f9e21f91203594261a0d793feb/Parcha-ai/agentrun",
    "imageTried": true,
-   "score": 4.06
+   "score": 3.74
   },
   {
    "id": "x:2120941785321271624",
@@ -5622,7 +6391,7 @@
     "AI",
     "Dev tools"
    ],
-   "score": 0.02
+   "score": 0.01
   },
   {
    "id": "x:2120941627229536511",
@@ -5647,7 +6416,7 @@
     "Agents",
     "Dev tools"
    ],
-   "score": 0.47
+   "score": 0.43
   },
   {
    "id": "hn:50471511",
@@ -5668,7 +6437,7 @@
    "tags": [],
    "image": "https://koenvangilst.nl/og/captains-log-e2e13c02fc59.png",
    "imageTried": true,
-   "score": 0.12
+   "score": 0.11
   },
   {
    "id": "x:2120941462808559905",
@@ -5691,7 +6460,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.32
+   "score": 0.29
   },
   {
    "id": "x:2120941157190611148",
@@ -5714,7 +6483,7 @@
    "tags": [
     "Dev tools"
    ],
-   "score": 0.06
+   "score": 0.05
   },
   {
    "id": "x:2120941094724874380",
@@ -5737,7 +6506,7 @@
    "tags": [
     "AI"
    ],
-   "score": 0.89
+   "score": 0.82
   },
   {
    "id": "hn:50471297",
@@ -5758,7 +6527,7 @@
    "tags": [],
    "image": "https://playtatane.com/og-image.png",
    "imageTried": true,
-   "score": 0.09
+   "score": 0.08
   },
   {
    "id": "hn:50471281",
@@ -5779,7 +6548,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.69
+   "score": 1.56
   },
   {
    "id": "hn:50471267",
@@ -5800,7 +6569,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.24
+   "score": 0.22
   },
   {
    "id": "hn:50470640",
@@ -5842,7 +6611,7 @@
    "tags": [],
    "image": "https://opengraph.githubassets.com/b5c9e743fd3a67654acbbc76c49408f76c8878fcc478666c9d2e19aab8b2403c/simpsoka/zigzag",
    "imageTried": true,
-   "score": 22.22
+   "score": 20.46
   },
   {
    "id": "hn:50470343",
@@ -5863,7 +6632,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 1.65
+   "score": 1.52
   },
   {
    "id": "hn:50469346",
@@ -5884,7 +6653,7 @@
    "tags": [],
    "image": "https://flightitinerary.app/img/og.png",
    "imageTried": true,
-   "score": 0.08
+   "score": 0.07
   },
   {
    "id": "hn:50469123",
@@ -5905,7 +6674,7 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 0.41
+   "score": 0.38
   },
   {
    "id": "hn:50469007",
@@ -5926,785 +6695,16 @@
    "tags": [],
    "image": "",
    "imageTried": true,
-   "score": 2.61
-  },
-  {
-   "id": "hn:50468901",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://apps.apple.com/ph/app/daily-planner-tasks-zesfy/id6479947874",
-   "discussion": "https://news.ycombinator.com/item?id=50468901",
-   "title": "I built a calendar app that gives each event its own to-do list",
-   "text": "",
-   "name": "whereinside",
-   "handle": "whereinside",
-   "site": "apps.apple.com",
-   "created": "2026-11-12T15:24:17Z",
-   "metrics": {
-    "points": 15,
-    "comments": 4
-   },
-   "tags": [],
-   "image": "https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/b8/73/a6/b873a6ca-9593-51ae-b9ad-88ec133788e4/Placeholder.mill/1200x630wa.jpg",
-   "imageTried": true,
-   "score": 0.43
-  },
-  {
-   "id": "hn:50468897",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://www.inches.tv/",
-   "discussion": "https://news.ycombinator.com/item?id=50468897",
-   "title": "Inches TV – Inspiring Moments, 24/7",
-   "text": "",
-   "name": "npguy",
-   "handle": "npguy",
-   "site": "inches.tv",
-   "created": "2026-11-12T15:23:43Z",
-   "metrics": {
-    "points": 7,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "https://www.inches.tv/share.png",
-   "imageTried": true,
-   "score": 0.18
-  },
-  {
-   "id": "hn:50468500",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/Nari-Ab/agent-roast/",
-   "discussion": "https://news.ycombinator.com/item?id=50468500",
-   "title": "Agent-roast – Catches coding agents that weaken tests to get CI green",
-   "text": "",
-   "name": "Nari_Ab",
-   "handle": "Nari_Ab",
-   "site": "github.com",
-   "created": "2026-11-12T15:03:06Z",
-   "metrics": {
-    "points": 4,
-    "comments": 0
-   },
-   "tags": [
-    "Agents",
-    "Dev tools"
-   ],
-   "image": "https://repository-images.githubusercontent.com/1404550671/137d6b8d-bf7d-46fa-b8f7-619f560b7740",
-   "imageTried": true,
-   "score": 0.1
-  },
-  {
-   "id": "hn:50468456",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/ScarfazeCompany/scar-script",
-   "discussion": "https://news.ycombinator.com/item?id=50468456",
-   "title": "ScarScript – A statically typed language built in Go",
-   "text": "",
-   "name": "aimabaig",
-   "handle": "aimabaig",
-   "site": "github.com",
-   "created": "2026-11-12T15:00:44Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [],
-   "image": "https://opengraph.githubassets.com/72956150156122e3d85ed4d057abb5d576c6581f3971aff5e7af58110a8e03b6/ScarfazeCompany/scar-script",
-   "imageTried": true,
-   "score": 0.09
-  },
-  {
-   "id": "hn:50468121",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/turri-oss/turri",
-   "discussion": "https://news.ycombinator.com/item?id=50468121",
-   "title": "Turri – a coding agent with the power of regenerative software",
-   "text": "",
-   "name": "ponoru",
-   "handle": "ponoru",
-   "site": "github.com",
-   "created": "2026-11-12T14:43:35Z",
-   "metrics": {
-    "points": 9,
-    "comments": 11
-   },
-   "tags": [
-    "Agents",
-    "Dev tools"
-   ],
-   "image": "https://opengraph.githubassets.com/528188c08d7d7dee56e9cbb70cde37cfab6d4ef2306af0077c16f42817ad1b4b/turri-oss/turri",
-   "imageTried": true,
-   "score": 0.37
-  },
-  {
-   "id": "hn:50468082",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://moodplaylist.com/",
-   "discussion": "https://news.ycombinator.com/item?id=50468082",
-   "title": "If MTV was born in 2026",
-   "text": "",
-   "name": "01jonny01",
-   "handle": "01jonny01",
-   "site": "moodplaylist.com",
-   "created": "2026-11-12T14:41:55Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "https://moodplaylist.com/logo-512.png",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50467880",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://yourairedlines.com",
-   "discussion": "https://news.ycombinator.com/item?id=50467880",
-   "title": "AI Red Lines – write down what would make you act on AI",
-   "text": "",
-   "name": "ap11071",
-   "handle": "ap11071",
-   "site": "yourairedlines.com",
-   "created": "2026-11-12T14:31:21Z",
-   "metrics": {
-    "points": 39,
-    "comments": 33
-   },
-   "tags": [
-    "AI"
-   ],
-   "image": "https://yourairedlines.com/og.png",
-   "imageTried": true,
-   "score": 1.41
-  },
-  {
-   "id": "hn:50467571",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://datatomcp.com/",
-   "discussion": "https://news.ycombinator.com/item?id=50467571",
-   "title": "Datatomcp – AI agents propose business definitions, a person approves",
-   "text": "",
-   "name": "Killian1603",
-   "handle": "Killian1603",
-   "site": "datatomcp.com",
-   "created": "2026-11-12T14:16:53Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [
-    "AI",
-    "Agents"
-   ],
-   "image": "https://datatomcp.com/og.png",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50467355",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/Flurit/applygate",
-   "discussion": "https://news.ycombinator.com/item?id=50467355",
-   "title": "Applygate, stop coding agents from running Terraform destroy in prod",
-   "text": "",
-   "name": "sumantth",
-   "handle": "sumantth",
-   "site": "github.com",
-   "created": "2026-11-12T14:08:47Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [
-    "Agents",
-    "Dev tools"
-   ],
-   "image": "https://repository-images.githubusercontent.com/1436547137/7f105a78-579c-41af-b101-c79ed8682c5b",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50467023",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://xdsl.dev/blog/2026/10/21/exporting-llvm-ir-from-xdsl/",
-   "discussion": "https://news.ycombinator.com/item?id=50467023",
-   "title": "Exporting LLVM IR from XDSL",
-   "text": "",
-   "name": "superlopuh",
-   "handle": "superlopuh",
-   "site": "xdsl.dev",
-   "created": "2026-11-12T13:47:39Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50467012",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/SilosLabs/silo-cli",
-   "discussion": "https://news.ycombinator.com/item?id=50467012",
-   "title": "Silos, An open source (MIT) CLI sandbox orchestrator for local agents",
-   "text": "",
-   "name": "AsDivyansh",
-   "handle": "AsDivyansh",
-   "site": "github.com",
-   "created": "2026-11-12T13:47:02Z",
-   "metrics": {
-    "points": 5,
-    "comments": 0
-   },
-   "tags": [
-    "Agents",
-    "Dev tools",
-    "Open source"
-   ],
-   "image": "https://opengraph.githubassets.com/c4fe334ded4c76263dcfb4b05f3136a6a9d2fc91b0df76f460a4319b8057d4b7/SilosLabs/silo-cli",
-   "imageTried": true,
-   "score": 0.13
-  },
-  {
-   "id": "hn:50466804",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://mudgym.kingrolo.com",
-   "discussion": "https://news.ycombinator.com/item?id=50466804",
-   "title": "MudGym's WebAssembly browser playground for AI agents in MUD2",
-   "text": "",
-   "name": "kingrolo",
-   "handle": "kingrolo",
-   "site": "mudgym.kingrolo.com",
-   "created": "2026-11-12T13:29:34Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [
-    "AI",
-    "Agents"
-   ],
-   "image": "",
-   "imageTried": true,
-   "score": 0.09
-  },
-  {
-   "id": "hn:50466659",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://leafpress.in/",
-   "discussion": "https://news.ycombinator.com/item?id=50466659",
-   "title": "Leafpress- a static site generator for digital gardens",
-   "text": "",
-   "name": "shivamx96",
-   "handle": "shivamx96",
-   "site": "leafpress.in",
-   "created": "2026-11-12T13:16:37Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50466477",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://aethermug.com/posts/poft",
-   "discussion": "https://news.ycombinator.com/item?id=50466477",
-   "title": "I analyzed all 191 prompts I used to \"vibe-code\" an app",
-   "text": "",
-   "name": "mrcgnc",
-   "handle": "mrcgnc",
-   "site": "aethermug.com",
-   "created": "2026-11-12T12:58:35Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [
-    "Dev tools"
-   ],
-   "image": "https://aethermug.com/assets/posts/poft/six-geometric-compositions.jpg",
-   "imageTried": true,
-   "score": 0.07
-  },
-  {
-   "id": "hn:50466405",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://wram.sprucekit.app/",
-   "discussion": "https://news.ycombinator.com/item?id=50466405",
-   "title": "Argument duello game with your friend – AI judge decides who's right",
-   "text": "",
-   "name": "zicxor",
-   "handle": "zicxor",
-   "site": "wram.sprucekit.app",
-   "created": "2026-11-12T12:51:23Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [
-    "AI"
-   ],
-   "image": "",
-   "imageTried": true,
-   "score": 0.09
-  },
-  {
-   "id": "hn:50466191",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/piteengine/pite",
-   "discussion": "https://news.ycombinator.com/item?id=50466191",
-   "title": "Pite – A 2D game engine with Python scripting and CLI tooling",
-   "text": "",
-   "name": "MKH_131",
-   "handle": "MKH_131",
-   "site": "github.com",
-   "created": "2026-11-12T12:25:51Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [
-    "Dev tools"
-   ],
-   "image": "https://repository-images.githubusercontent.com/1398176474/8ad3b1e2-7e0b-4b26-8a72-fe456c22f2d2",
-   "imageTried": true,
-   "score": 0.07
-  },
-  {
-   "id": "hn:50466094",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://www.etherpk.com/home",
-   "discussion": "https://news.ycombinator.com/item?id=50466094",
-   "title": "EtherPK – Fast Markdown Notes with Agent Integrated Task Kanban Board",
-   "text": "",
-   "name": "gb2d_hn",
-   "handle": "gb2d_hn",
-   "site": "etherpk.com",
-   "created": "2026-11-12T12:16:18Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [
-    "Agents"
-   ],
-   "image": "https://www.etherpk.com/marketing/social-card.png",
-   "imageTried": true,
-   "score": 0.09
-  },
-  {
-   "id": "hn:50465987",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://dvratil.cz/2026/11/hijacking-samsung-tv-smart-hub-ads/",
-   "discussion": "https://news.ycombinator.com/item?id=50465987",
-   "title": "Hijacking Samsung TV SmartHub Ads",
-   "text": "",
-   "name": "dvratil",
-   "handle": "dvratil",
-   "site": "dvratil.cz",
-   "created": "2026-11-12T12:06:21Z",
-   "metrics": {
-    "points": 5,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "",
-   "imageTried": true,
-   "score": 0.12
-  },
-  {
-   "id": "hn:50465568",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://cro.sh/specmaxx/",
-   "discussion": "https://news.ycombinator.com/item?id=50465568",
-   "title": "Pick your dream LLM H/W setup and simulate its throughput",
-   "text": "",
-   "name": "namjh",
-   "handle": "namjh",
-   "site": "cro.sh",
-   "created": "2026-11-12T11:05:09Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [
-    "AI"
-   ],
-   "image": "",
-   "imageTried": true,
-   "score": 0.09
-  },
-  {
-   "id": "hn:50465345",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://gas.beetl.io/",
-   "discussion": "https://news.ycombinator.com/item?id=50465345",
-   "title": "Europe's gas storage, updated daily from public GIE and ENTSOG data",
-   "text": "",
-   "name": "rykam",
-   "handle": "rykam",
-   "site": "gas.beetl.io",
-   "created": "2026-11-12T10:27:02Z",
-   "metrics": {
-    "points": 4,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "https://gas.beetl.io/og.png",
-   "imageTried": true,
-   "score": 0.1
-  },
-  {
-   "id": "x:2120821203883720726",
-   "source": "x",
-   "url": "https://x.com/techzine/status/2120821203883720726",
-   "title": "Google is introducing the Gemini Decisions API, an interface for making quick decisions from a predefined set…",
-   "text": "Google is introducing the Gemini Decisions API, an interface for making quick decisions from a predefined set of options. dlvr.​it/TWJC6K #Applications #Decisionmodel #GeminiDecision - Follow for more",
-   "name": "Techzine",
-   "handle": "techzine",
-   "avatar": "https://pbs.twimg.com/profile_images/1240303566201511936/gHRGR8Fs_bigger.png",
-   "image": "https://pbs.twimg.com/media/HW6rpI1aMAAvX9c.png",
-   "followers": 8954,
-   "created": "2026-11-12T10:09:12.000Z",
-   "metrics": {
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": 10
-   },
-   "tags": [
-    "AI",
-    "Dev tools"
-   ],
-   "score": 0
-  },
-  {
-   "id": "x:2120820566290739261",
-   "source": "x",
-   "url": "https://x.com/tomdrawneth/status/2120820566290739261",
-   "title": "DECENTRALIZED COMPUTE IS OPENING A NEW CHAPTER FOR AI",
-   "text": "DECENTRALIZED COMPUTE IS OPENING A NEW CHAPTER FOR AI\n\nFor years, access to powerful AI computing has been concentrated among a small number of major cloud providers. Decentralized inference networks are introducing another model: connecting distributed GPU resources into shared",
-   "name": "Tomdu.eth",
-   "handle": "tomdrawneth",
-   "avatar": "https://pbs.twimg.com/profile_images/1959501320538435584/yqbt30cg_bigger.jpg",
-   "image": "",
-   "followers": 15745,
-   "created": "2026-11-12T10:06:40.000Z",
-   "metrics": {
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": 10
-   },
-   "tags": [
-    "AI",
-    "Infra"
-   ],
-   "score": 0
-  },
-  {
-   "id": "x:2120820397289386371",
-   "source": "x",
-   "url": "https://x.com/seeedstudio/status/2120820397289386371",
-   "title": "Your AI agent just got IoT engineering skills. 👏",
-   "text": "Your AI agent just got IoT engineering skills. 👏\nIntroducing the Solution CLI for agents like Claude Code/Codex/Workbuddy/etc.\n\nDescribe your project. Your agent can help you:\n1. Find a solution and choose the hardware.\n2. Deploy supported solutions with environment prechecks.",
-   "name": "Seeed Studio",
-   "handle": "seeedstudio",
-   "avatar": "https://pbs.twimg.com/profile_images/1773182483837935616/C7O136--_bigger.jpg",
-   "image": "https://pbs.twimg.com/amplify_video_thumb/2120715277864411136/img/fLLwINeTo073qSd3.jpg",
-   "followers": 79768,
-   "created": "2026-11-12T10:06:00.000Z",
-   "metrics": {
-    "likes": 1,
-    "reposts": 0,
-    "replies": 0,
-    "views": 182
-   },
-   "tags": [
-    "AI",
-    "Agents",
-    "Dev tools"
-   ],
-   "score": 0.01
-  },
-  {
-   "id": "x:2120819976575783016",
-   "source": "x",
-   "url": "https://x.com/CoinSnakeApp/status/2120819976575783016",
-   "title": "THE ARENA HAS OFFICIALLY LOST ITS MIND. 🐍💀",
-   "text": "THE ARENA HAS OFFICIALLY LOST ITS MIND. 🐍💀\n\nPolitics. AI. Tech empires.\n\nThree completely different worlds.\n\nONE VERY QUESTIONABLE SNAKE BATTLE. 😂🔥\n\n🏛️ Political chaos.\n🤖 AI overload.\n🚀 Tech empire energy.\n\n3 NEW SR SKIN SETS ARE NOW LIVE!\n\n⭐ Complete 7-Day Missions for a",
-   "name": "CoinSnake",
-   "handle": "CoinSnakeApp",
-   "avatar": "https://pbs.twimg.com/profile_images/2119696106271686656/ObObGCeh_bigger.png",
-   "image": "https://pbs.twimg.com/media/HW6qhYoaMAAqrUa.jpg",
-   "followers": 19914,
-   "created": "2026-11-12T10:04:20.000Z",
-   "metrics": {
-    "likes": 3,
-    "reposts": 1,
-    "replies": 2,
-    "views": 14
-   },
-   "tags": [
-    "AI"
-   ],
-   "score": 0.02
-  },
-  {
-   "id": "x:2120818899549610343",
-   "source": "x",
-   "url": "https://x.com/Starlex1234/status/2120818899549610343",
-   "title": "Creativity has always been an important part of technological progress. Today, Artificial Intelligence is int…",
-   "text": "Creativity has always been an important part of technological progress. Today, Artificial Intelligence is introducing new ways for people to explore ideas, develop concepts and express themselves digitally.\n\nThe combination of AI and Web3 creates an especially interesting",
-   "name": "Starlex",
-   "handle": "Starlex1234",
-   "avatar": "https://pbs.twimg.com/profile_images/2100129744721268736/mUgZxbvG_bigger.jpg",
-   "image": "",
-   "followers": 18414,
-   "created": "2026-11-12T10:00:03.000Z",
-   "metrics": {
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": 16
-   },
-   "tags": [
-    "AI"
-   ],
-   "score": 0
-  },
-  {
-   "id": "hn:50465070",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://free-explorers.com/veshell",
-   "discussion": "https://news.ycombinator.com/item?id=50465070",
-   "title": "Veshell – Your Linux apps on a map, not on a desktop",
-   "text": "",
-   "name": "PapyElGringo",
-   "handle": "PapyElGringo",
-   "site": "free-explorers.com",
-   "created": "2026-11-12T09:45:02Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [],
-   "image": "https://free-explorers.com/og/veshell.jpg",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "x:2120814016901919045",
-   "source": "x",
-   "url": "https://x.com/CoinSnakeApp/status/2120814016901919045",
-   "title": "THE ARENA HAS OFFICIALLY LOST ITS MIND. 🐍💀",
-   "text": "THE ARENA HAS OFFICIALLY LOST ITS MIND. 🐍💀\n\nPolitics. AI. Tech empires.\n\nThree completely different worlds.\n\nONE VERY QUESTIONABLE SNAKE BATTLE. 😂🔥\n\n🏛️ Political chaos.\n🤖 AI overload.\n🚀 Tech empire energy.\n\n3 NEW SR SKIN SETS ARE NOW LIVE!\n\n⭐ Complete 7-Day Missions for a",
-   "name": "CoinSnake",
-   "handle": "CoinSnakeApp",
-   "avatar": "https://pbs.twimg.com/profile_images/2119696106271686656/ObObGCeh_bigger.png",
-   "image": "https://pbs.twimg.com/media/HW6lBycaIAAdS0T.jpg",
-   "followers": 19914,
-   "created": "2026-11-12T09:40:39.000Z",
-   "metrics": {
-    "likes": 8,
-    "reposts": 2,
-    "replies": 8,
-    "views": 102
-   },
-   "tags": [
-    "AI"
-   ],
-   "score": 0.06
-  },
-  {
-   "id": "x:2120813381213184490",
-   "source": "x",
-   "url": "https://x.com/livemint/status/2120813381213184490",
-   "title": "#MintPremium | According to an internal memo, the IT giant is introducing a three-tiered role architecture—sp…",
-   "text": "#MintPremium | According to an internal memo, the IT giant is introducing a three-tiered role architecture—spanning current, evolving, and future states—to match designations with how much work AI has taken over.\n\nRead more: \n\nTrust our hard work, subscribe",
-   "name": "Mint",
-   "handle": "livemint",
-   "avatar": "https://pbs.twimg.com/profile_images/1873593204349812737/foqpUBJN_bigger.jpg",
-   "image": "https://pbs.twimg.com/media/HW6khucaYAE9pPW.jpg",
-   "followers": 2021552,
-   "created": "2026-11-12T09:38:07.000Z",
-   "metrics": {
-    "likes": 0,
-    "reposts": 0,
-    "replies": 1,
-    "views": 1794
-   },
-   "tags": [
-    "AI"
-   ],
-   "score": 0.03
-  },
-  {
-   "id": "hn:50464971",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/dannkkie/pure-sift",
-   "discussion": "https://news.ycombinator.com/item?id=50464971",
-   "title": "Pure-sift – 100% pure-Rust implementation of expired SIFT patent",
-   "text": "",
-   "name": "dannkkie",
-   "handle": "dannkkie",
-   "site": "github.com",
-   "created": "2026-11-12T09:29:53Z",
-   "metrics": {
-    "points": 3,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "https://opengraph.githubassets.com/14af9cb44acaf96fdd2e05cd4205796f55f09973887b8a79f7ca0cc30ce4a2a3/dannkkie/pure-sift",
-   "imageTried": true,
-   "score": 0.07
-  },
-  {
-   "id": "hn:50464937",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://simplefill.app",
-   "discussion": "https://news.ycombinator.com/item?id=50464937",
-   "title": "A private one-time paid alternative to Text Blaze",
-   "text": "",
-   "name": "rampatra",
-   "handle": "rampatra",
-   "site": "simplefill.app",
-   "created": "2026-11-12T09:26:14Z",
-   "metrics": {
-    "points": 3,
-    "comments": 3
-   },
-   "tags": [],
-   "image": "https://simplefill.app/_next/static/media/og-image.05-tk1v2ozmrz.png",
-   "imageTried": true,
-   "score": 0.11
-  },
-  {
-   "id": "hn:50464830",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/ffseika0304/shanhai-gateway",
-   "discussion": "https://news.ycombinator.com/item?id=50464830",
-   "title": "ShanHaiGateway – multi-upstream LLM gateway in Go",
-   "text": "",
-   "name": "ffseika0304",
-   "handle": "ffseika0304",
-   "site": "github.com",
-   "created": "2026-11-12T09:13:38Z",
-   "metrics": {
-    "points": 3,
-    "comments": 1
-   },
-   "tags": [
-    "AI"
-   ],
-   "image": "https://opengraph.githubassets.com/b0e7255c195fcbd8f03f85da4e19d15550cb7a7f97f3e340f7e49f142498d5cd/ffseika0304/shanhai-gateway",
-   "imageTried": true,
-   "score": 0.08
-  },
-  {
-   "id": "hn:50464693",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://chromewebstore.google.com/detail/mu-dashboard-system-brows/glicheafndnenmakkbnolglbkbiidmbf",
-   "discussion": "https://news.ycombinator.com/item?id=50464693",
-   "title": "Mu Dashboard – System and Browser Vitals",
-   "text": "",
-   "name": "lucakk",
-   "handle": "lucakk",
-   "site": "chromewebstore.google.com",
-   "created": "2026-11-12T08:54:23Z",
-   "metrics": {
-    "points": 4,
-    "comments": 0
-   },
-   "tags": [],
-   "image": "",
-   "imageTried": true,
-   "score": 0.1
-  },
-  {
-   "id": "hn:50464616",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://mflare.yuy1n.io/",
-   "discussion": "https://news.ycombinator.com/item?id=50464616",
-   "title": "MFlare – Cloudflare usage and deploy status in the macOS menu bar",
-   "text": "",
-   "name": "yuyinws",
-   "handle": "yuyinws",
-   "site": "mflare.yuy1n.io",
-   "created": "2026-11-12T08:45:10Z",
-   "metrics": {
-    "points": 4,
-    "comments": 1
-   },
-   "tags": [
-    "Dev tools"
-   ],
-   "image": "https://mflare.yuy1n.io/og.png",
-   "imageTried": true,
-   "score": 0.11
-  },
-  {
-   "id": "hn:50464583",
-   "source": "hn",
-   "kind": "Show HN",
-   "url": "https://github.com/rinkesh2010rpp/taster-ai",
-   "discussion": "https://news.ycombinator.com/item?id=50464583",
-   "title": "Taster – Plain-English rules your agent can't forget or ignore",
-   "text": "",
-   "name": "Rinkesh2010rpp",
-   "handle": "Rinkesh2010rpp",
-   "site": "github.com",
-   "created": "2026-11-12T08:41:11Z",
-   "metrics": {
-    "points": 5,
-    "comments": 0
-   },
-   "tags": [
-    "Agents"
-   ],
-   "image": "https://opengraph.githubassets.com/965cc4fe5331312a6a5c61b0d33390e7b9ea4c3ba88541a28f97c02aa071a3b4/rinkesh2010rpp/taster-ai",
-   "imageTried": true,
-   "score": 0.12
+   "score": 2.41
   }
  ],
  "meta": {
   "x": {
    "month": "2026-11",
-   "reads": 750,
+   "reads": 770,
    "day": "2026-11-17",
-   "dayReads": 40,
-   "sinceId": "2122683920634507490"
+   "dayReads": 60,
+   "sinceId": "2122810407102587100"
   }
  }
 }
